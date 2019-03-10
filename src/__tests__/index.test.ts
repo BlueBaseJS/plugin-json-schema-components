@@ -1,9 +1,9 @@
 import { BlueBase } from '@bluebase/core';
-import Plugin from '../plugin';
+import Plugin from '../index';
 
 test('Plugin should be correctly registered', async () => {
 	const BB = new BlueBase();
 	await BB.Plugins.register(Plugin);
 
-	expect(BB.Plugins.has('json-schema-components')).toBeTruthy();
+	expect(BB.Plugins.has('plugin-json-schema-components')).toBeTruthy();
 });
