@@ -1,9 +1,2 @@
-import { createPlugin } from '@bluebase/core';
-
-export default createPlugin({
-	categories: ['ui'],
-	description: 'A utility to build pluggable components based on JSON schema!',
-	key: 'json-schema-components',
-	name: 'Json Schema Components',
-	version: '0.0.1',
-});
+export * from './JsonLayout';
+export * from './JsonSchemaParser';

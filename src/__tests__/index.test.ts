@@ -1,5 +1,5 @@
 import { BlueBase } from '@bluebase/core';
-import Plugin from '../index';
+import Plugin from '../plugin';
 
 test('Plugin should be correctly registered', async () => {
 	const BB = new BlueBase();
