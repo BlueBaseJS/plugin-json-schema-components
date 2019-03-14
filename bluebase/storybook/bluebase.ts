@@ -10,6 +10,7 @@ import deepmerge from 'deepmerge';
 const bootOptions: Partial<BootOptions> = {
 
 	plugins: [
+		require('@bluebase/plugin-material-ui')
 	],
 
 };

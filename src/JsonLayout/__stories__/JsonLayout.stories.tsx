@@ -5,7 +5,7 @@ import storiesOf from '@bluebase/storybook-addon';
 
 const JsonLayout = getComponent<JsonLayoutProps>('JsonLayout');
 
-storiesOf('JsonSchema', module)
+storiesOf('JsonLayout', module)
 
 	.add('With default props', () => (
 		<JsonLayout
@@ -16,7 +16,7 @@ storiesOf('JsonSchema', module)
 						color: 'red'
 					}
 				},
-				text: 'This componenet is generated through JsonSchema Component',
+				text: 'This componenet is generated through JsonLayout Component',
 			}}
 		/>
 	));

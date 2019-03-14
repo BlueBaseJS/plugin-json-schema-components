@@ -1,4 +1,6 @@
+import { JsonForm, JsonFormField } from './JsonForm';
 import { JsonLayout } from './JsonLayout';
+// import { TextInput } from 'react-native';
 import { createPlugin } from '@bluebase/core';
 
 export default createPlugin({
@@ -9,6 +11,9 @@ export default createPlugin({
 	version: '0.0.1',
 
 	components: {
+		JsonForm,
+		JsonFormField,
 		JsonLayout,
+		// TextInput,
 	},
 });
