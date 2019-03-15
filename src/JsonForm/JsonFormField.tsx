@@ -1,10 +1,18 @@
-import { BlueBase, BlueBaseContext } from '@bluebase/core';
-import { Field, FieldAttributes } from 'formik';
+import { BlueBase, BlueBaseContext, Theme } from '@bluebase/core';
+import { Field, FieldConfig } from 'formik';
+import { StyleProp, ViewStyle } from 'react-native';
+import { View, ViewProps } from '@bluebase/components';
 import { JsonFormFieldProps } from './JsonFormField';
 import React from 'react';
-import { View } from 'react-native';
 
-export type JsonFormFieldProps<T = {}> = FieldAttributes<T>;
+export interface JsonFormFieldStyles {
+	root: StyleProp<ViewStyle>;
+}
+export type JsonFormFieldProps<T = {}> = ViewProps & FieldConfig & T & {
+	styles?: Partial<JsonFormFieldStyles>;
+
+	[key: string]: any;
+};
 
 export class JsonFormField extends React.Component<JsonFormFieldProps> {
 
@@ -12,24 +20,24 @@ export class JsonFormField extends React.Component<JsonFormFieldProps> {
 
 	private FieldComponent?: React.ComponentType<JsonFormFieldProps>;
 
+	static defaultStyles = (theme: Theme): Partial<JsonFormFieldStyles> => ({
+		root: {
+			paddingVertical: theme.spacing.unit
+		}
+	})
+
 	render() {
 
 		const BB: BlueBase = this.context;
-
-		// // We don't want to resolve input field on every render.
-		// // If we don't do this, a new component is created on every
-		// // render, making the input field to lose focus.
-		// if (!this.FieldComponent) {
-		// 	this.FieldComponent = BB.Components.resolve('TextInput');
-		// }
+		const { style, styles = {}, ...rest } = this.props;
 
 		const FieldComponent = this.getFieldComponent(BB);
 
 		return (
-			<Field {...this.props}>
+			<Field {...rest}>
 			{({ field /* _form */ }: any) => (
-				<View>
-					<FieldComponent {...field}  />
+				<View style={[styles.root, style]}>
+					<FieldComponent {...field} {...rest} />
 				</View>
 			)}
 			</Field>

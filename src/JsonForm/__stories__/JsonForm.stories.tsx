@@ -13,16 +13,18 @@ storiesOf('JsonForm', module)
 				fields: [{
 					label: 'Username',
 					name: 'username',
-					placeholder: 'Username',
+					// placeholder: 'Username',
 					type: 'text',
 				} as any, {
+					label: 'Password',
 					name: 'password',
-					placeholder: 'Password',
 					type: 'password',
 				}, {
+					color: 'primary',
 					name: 'submit',
+					title: 'Login',
 					type: 'submit',
-					value: 'Go',
+					variant: 'contained',
 				}],
 				initialValues: {
 					password: '',
