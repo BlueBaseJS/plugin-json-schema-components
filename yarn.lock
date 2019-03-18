@@ -1043,18 +1043,18 @@
     deepmerge "^3.2.0"
     tslib "^1.9.3"
 
-"@bluebase/components@^1.5.0":
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/@bluebase/components/-/components-1.5.0.tgz#5ea59ec7d1b19e9f03e99af81bea71bb2b9e7274"
-  integrity sha512-3RTXYu7HO4gBcu7iTC0ZqYFTnRAnjcPcXutX1OYa1k8xeKRYiE1/dk2WR7K8Lahxzck35bFmX5tgnAbMYwZK4g==
-  dependencies:
-    deepmerge "^3.2.0"
-    tslib "^1.9.3"
-
 "@bluebase/components@^1.7.0":
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/@bluebase/components/-/components-1.7.0.tgz#4b9f8556eaafc02523333616f9ea4a29a0ebdf13"
   integrity sha512-8ZMns0FfjfNQO7ICHdnP+yvrpkvfY6GE/aNbe1KAoVEuzqR2M00PMLFA9P2sc+46At2fo4/K4ry1JCvkaz6hJA==
+  dependencies:
+    deepmerge "^3.2.0"
+    tslib "^1.9.3"
+
+"@bluebase/components@^1.9.0":
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/@bluebase/components/-/components-1.9.0.tgz#199b72670d7beb88b788815eb2c006d195c6d5fb"
+  integrity sha512-T037OpgjQVkp04UWeGKHKHsINF2CJZS8ZXWJI2sq4Vwk34gDIKBXlYVl+Q6q+CW0I0KWWrcLbG7bkiA1LLJiXA==
   dependencies:
     deepmerge "^3.2.0"
     tslib "^1.9.3"

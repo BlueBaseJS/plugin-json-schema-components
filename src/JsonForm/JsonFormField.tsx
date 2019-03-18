@@ -1,9 +1,10 @@
-import { BlueBase, BlueBaseContext, Theme } from '@bluebase/core';
+import { BlueBaseContext, Theme } from '@bluebase/core';
 import { Field, FieldConfig } from 'formik';
-import { StyleProp, ViewStyle } from 'react-native';
+import { StyleProp, ViewStyle, TextInput } from 'react-native';
 import { View, ViewProps } from '@bluebase/components';
 import { JsonFormFieldProps } from './JsonFormField';
 import React from 'react';
+// import { getComponent } from '../getComponent';
 
 export interface JsonFormFieldStyles {
 	root: StyleProp<ViewStyle>;
@@ -14,11 +15,19 @@ export type JsonFormFieldProps<T = {}> = ViewProps & FieldConfig & T & {
 	[key: string]: any;
 };
 
+// // TODO: Add better typing, consider filter this map
+// const fieldResolutionMap: any = {
+// 	default: ['TextInput', 'Noop'],
+// 	email: ['EmailInput', 'TextInput', 'Noop'],
+// 	password: ['PasswordInput', 'TextInput', 'Noop'],
+// 	submit: ['SubmitInput', 'Button', 'Noop'],
+// };
+
 export class JsonFormField extends React.Component<JsonFormFieldProps> {
 
 	static contextType = BlueBaseContext;
 
-	private FieldComponent?: React.ComponentType<JsonFormFieldProps>;
+	// private FieldComponent?: React.ComponentType<JsonFormFieldProps>;
 
 	static defaultStyles = (theme: Theme): Partial<JsonFormFieldStyles> => ({
 		root: {
@@ -28,10 +37,19 @@ export class JsonFormField extends React.Component<JsonFormFieldProps> {
 
 	render() {
 
-		const BB: BlueBase = this.context;
+		// const BB: BlueBase = this.context;
 		const { style, styles = {}, ...rest } = this.props;
 
-		const FieldComponent = this.getFieldComponent(BB);
+		// const type = this.props.type;
+
+		// if (!this.FieldComponent) {
+		// 	this.FieldComponent = (type && fieldResolutionMap[type])
+		// 	? getComponent(...fieldResolutionMap[type])
+		// 	: getComponent(...fieldResolutionMap.default);
+		// }
+
+		// const FieldComponent = this.FieldComponent;
+		const FieldComponent = TextInput;
 
 		return (
 			<Field {...rest}>
@@ -44,35 +62,21 @@ export class JsonFormField extends React.Component<JsonFormFieldProps> {
 		);
 	}
 
-	private getFieldComponent(BB: BlueBase) {
+	// private getFieldComponent(_BB: BlueBase) {
 
-		const { type } = this.props;
+	// 	const { type } = this.props;
 
-		// We don't want to resolve input field on every render.
-		// If we don't do this, a new component is created on every
-		// render, making the input field to lose focus.
-		if (this.FieldComponent) {
-			return this.FieldComponent;
-		}
+	// 	// We don't want to resolve input field on every render.
+	// 	// If we don't do this, a new component is created on every
+	// 	// render, making the input field to lose focus.
+	// 	if (this.FieldComponent) {
+	// 		return this.FieldComponent;
+	// 	}
 
-		switch (type) {
-			case 'email':
-				this.FieldComponent = BB.Components.resolve('EmailInput', 'TextInput', 'Noop');
-				break;
+	// 	this.FieldComponent = (type && fieldResolutionMap[type])
+	// 	? getComponent(...fieldResolutionMap[type])
+	// 	: getComponent(...fieldResolutionMap.default);
 
-			case 'password':
-				this.FieldComponent = BB.Components.resolve('PasswordInput', 'TextInput', 'Noop');
-				break;
-
-			case 'submit':
-				this.FieldComponent = BB.Components.resolve('SubmitInput', 'Button', 'Noop');
-				break;
-
-			default:
-				this.FieldComponent = BB.Components.resolve('TextInput', 'Noop');
-				break;
-		}
-
-		return this.FieldComponent;
-	}
+	// 	return this.FieldComponent;
+	// }
 }

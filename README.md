@@ -21,10 +21,30 @@
 ## 🤝 Compatibility
 
 | 🌏 Web | 🖥 Electron | 📱 React Native |
-| :---: | :--------: | :------------: |
+| :----: | :---------: | :--------------: |
 |✅|✅|✅|
 
 ## Docs
 
 - [Storybook](https://bluebasejs.github.io/plugin-json-schema-components/storybook/)
 - [API Docs](https://bluebasejs.github.io/plugin-json-schema-components/)
+
+## Input Fields
+
+This plugin provides following input fields out of the box:
+
+- [ ] checkbox
+- [ ] color
+- [ ] date 
+- [x] email: (EmailInput)
+- [ ] file 
+- [ ] number 
+- [x] password: (PasswordInput)
+- [ ] radio 
+- [ ] range 
+- [ ] reset 
+- [ ] search 
+- [x] submit: (SubmitInput)
+- [ ] tel 
+- [x] text: (TextInput)
+- [ ] time 

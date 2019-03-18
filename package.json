@@ -71,7 +71,7 @@
   },
   "dependencies": {
     "@bluebase/component-mapper": "^1.1.0",
-    "@bluebase/components": "^1.5.0",
+    "@bluebase/components": "^1.9.0",
     "deepmerge": "^3.2.0",
     "formik": "^1.5.1",
     "lodash.isnil": "^4.0.0",
