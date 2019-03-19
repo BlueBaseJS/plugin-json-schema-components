@@ -13,27 +13,32 @@ storiesOf('JsonForm', module)
 				fields: [{
 					label: 'Username',
 					name: 'username',
-					// placeholder: 'Username',
-					type: 'email',
-				} as any, {
+					required: true,
+					type: 'text',
+				}, {
 					label: 'Password',
 					name: 'password',
 					type: 'password',
 				}, {
-					// color: 'primary',
+					name: 'reset',
+					type: 'reset',
+				}, {
 					name: 'submit',
 					title: 'Login',
 					type: 'submit',
-					// variant: 'contained',
 				}],
 				initialValues: {
 					password: '',
 					username: '',
 				},
-				onSubmit: (values) => {
+				onSubmit: (values, form) => {
 					// tslint:disable-next-line: no-console
 					console.log('Login form submitted by following values', values);
-				}
+
+					setTimeout(() => {
+						form.setSubmitting(false);
+					}, 2000);
+				},
 			}}
 		/>
 	));

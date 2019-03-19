@@ -1,10 +1,14 @@
 import {
 	BaseFormField,
-	EmailInput,
+	FormEmailInput,
+	FormNumberInput,
+	FormPasswordInput,
+	FormResetButton,
+	FormSubmitButton,
+	FormTextInput,
+	FormUrlInput,
 	JsonForm,
 	JsonFormField,
-	PasswordInput,
-	SubmitInput,
 } from './JsonForm';
 import { JsonLayout } from './JsonLayout';
 // import { TextInput } from 'react-native';
@@ -19,12 +23,15 @@ export default createPlugin({
 
 	components: {
 		BaseFormField,
-		EmailInput,
+		FormEmailInput,
+		FormNumberInput,
+		FormPasswordInput,
+		FormResetButton,
+		FormSubmitButton,
+		FormTextInput,
+		FormUrlInput,
 		JsonForm,
 		JsonFormField,
 		JsonLayout,
-		// TextInput,
-		PasswordInput,
-		SubmitInput,
 	},
 });
