@@ -1,10 +1,12 @@
 import { Field, FieldConfig } from 'formik';
 import { TextInputProps, getComponent } from '@bluebase/components';
+import { BaseFormFieldProps } from '../BaseFormField';
 import React from 'react';
 
+const BaseFormField = getComponent<BaseFormFieldProps>('BaseFormField');
 const TextInput = getComponent<TextInputProps>('TextInput');
 
-export type FormTextInputProps<T = {}> = TextInputProps & FieldConfig & T & {
+export type FormTextInputProps<T = {}> = TextInputProps & FieldConfig & BaseFormFieldProps & T & {
 };
 
 const validate = (props: FormTextInputProps) => (value: string) => {
@@ -38,7 +40,11 @@ export const FormTextInput = (props: FormTextInputProps) => (
 				helperText: (form.errors[name]) || props.helperText,
 			};
 
-			return (<TextInput {...inputProps} />);
+			return (<BaseFormField {...inputProps} />);
 		}}
 	</Field>
 );
+
+FormTextInput.defaultProps = {
+	MainComponent: TextInput
+};

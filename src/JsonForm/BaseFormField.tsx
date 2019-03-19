@@ -1,7 +1,7 @@
 import { StyleProp, ViewStyle } from 'react-native';
-import { View, getComponent } from '@bluebase/components';
 import React from 'react';
 import { Theme } from '@bluebase/core';
+import { View } from '@bluebase/components';
 
 export interface BaseFormFieldStyles {
 	leftContainer: StyleProp<ViewStyle>;
@@ -19,29 +19,9 @@ export interface BaseFormFieldProps {
 	[key: string]: any;
 }
 
-const DefaultInputs = ['FormTextInput', 'TextInput', 'Noop'];
-const DefaultButtons = ['Button', 'Noop'];
-
-const fieldResolutionMap: any = {
-	color: ['FormColorInput', ...DefaultInputs],
-	date: ['FormDateInput', ...DefaultInputs],
-	email: ['FormEmailInput', ...DefaultInputs],
-	number: ['FormNumberInput', ...DefaultInputs],
-	password: ['FormPasswordInput', ...DefaultInputs],
-	range: ['FormRangeInput', ...DefaultInputs],
-	reset: ['FormResetButton', ...DefaultButtons],
-	search: ['FormSearchInput', ...DefaultInputs],
-	submit: ['FormSubmitButton', ...DefaultButtons],
-	tel: ['FormTelInput', ...DefaultInputs],
-	time: ['FormTimeInput', ...DefaultInputs],
-	url: ['FormUrlInput', ...DefaultInputs],
-};
-
 export class BaseFormField extends React.Component<BaseFormFieldProps> {
 
 	static defaultProps: Partial<BaseFormFieldProps> = {};
-
-	private MainComponent?: React.ComponentType<any>;
 
 	static defaultStyles = (theme: Theme): BaseFormFieldStyles => ({
 		leftContainer: {},
@@ -54,21 +34,9 @@ export class BaseFormField extends React.Component<BaseFormFieldProps> {
 		}
 	})
 
-	componentWillMount() {
-		// Resolve MainComponent
-		const type = this.props.type;
-		if (!this.MainComponent) {
-			this.MainComponent = (type && fieldResolutionMap[type])
-			? getComponent(...fieldResolutionMap[type])
-			: getComponent(...DefaultInputs);
-		}
-	}
-
 	render() {
 
-		const { children, left, right, styles = {}, ...props } = this.props;
-
-		const MainComponent = this.MainComponent;
+		const { MainComponent, children, left, right, styles = {}, ...props } = this.props;
 
 		return (
 			<View style={styles.root}>
