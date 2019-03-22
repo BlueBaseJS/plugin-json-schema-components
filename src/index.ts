@@ -8,7 +8,6 @@ import {
 	FormTextInput,
 	FormUrlInput,
 	JsonForm,
-	JsonFormField,
 } from './JsonForm';
 import { JsonLayout } from './JsonLayout';
 // import { TextInput } from 'react-native';
@@ -31,7 +30,6 @@ export default createPlugin({
 		FormTextInput,
 		FormUrlInput,
 		JsonForm,
-		JsonFormField,
 		JsonLayout,
 	},
 });

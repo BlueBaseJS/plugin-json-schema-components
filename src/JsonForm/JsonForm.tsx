@@ -1,10 +1,10 @@
 import { Form, Formik, FormikConfig, FormikValues } from 'formik';
-import { JsonFormFieldProps } from './JsonFormField';
+import { FormFieldProps } from './Fields';
 import React from 'react';
 import { getComponent } from '@bluebase/components';
 
 export interface FormProps<Values = FormikValues> extends FormikConfig<Values> {
-	fields: JsonFormFieldProps[];
+	fields: FormFieldProps[];
 }
 
 export interface JsonFormProps<Values = FormikValues> {
