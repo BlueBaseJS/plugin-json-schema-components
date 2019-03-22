@@ -5,6 +5,7 @@ import React from 'react';
 const Button = getComponent<ButtonProps>('Button');
 
 export interface FormResetButtonProps extends ButtonProps {
+	type: 'reset',
 }
 
 export const FormResetButton = connect((props: FormResetButtonProps & { formik: FormikContext<{}>; }) => (

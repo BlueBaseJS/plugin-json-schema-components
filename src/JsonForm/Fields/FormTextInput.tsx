@@ -1,12 +1,18 @@
-import { Field, FieldConfig } from 'formik';
 import { TextInputProps, getComponent } from '@bluebase/components';
 import { BaseFormFieldProps } from '../BaseFormField';
+import { Field } from 'formik';
 import React from 'react';
 
 const BaseFormField = getComponent<BaseFormFieldProps>('BaseFormField');
 const TextInput = getComponent<TextInputProps>('TextInput');
 
-export type FormTextInputProps<T = {}> = TextInputProps & FieldConfig & BaseFormFieldProps & T & {
+export type FormTextInputProps<T = {}> = TextInputProps & BaseFormFieldProps & T & {
+	children?: React.ReactNode;
+	validate?: ((value: any) => string | Promise<void> | undefined);
+	name: string;
+	type?: string;
+	value?: any;
+	innerRef?: (instance: any) => void;
 };
 
 const validate = (props: FormTextInputProps) => (value: string) => {
