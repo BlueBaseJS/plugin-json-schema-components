@@ -1,5 +1,6 @@
 import {
 	BaseFormField,
+	FormActions,
 	FormEmailInput,
 	FormNumberInput,
 	FormPasswordInput,
@@ -22,6 +23,7 @@ export default createPlugin({
 
 	components: {
 		BaseFormField,
+		FormActions,
 		FormEmailInput,
 		FormNumberInput,
 		FormPasswordInput,

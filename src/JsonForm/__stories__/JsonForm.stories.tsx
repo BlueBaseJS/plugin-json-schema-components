@@ -20,12 +20,18 @@ storiesOf('JsonForm', module)
 					name: 'password',
 					type: 'password',
 				}, {
-					name: 'reset',
-					type: 'reset',
-				}, {
-					name: 'submit',
-					// title: 'Login',
-					type: 'submit',
+					direction: 'right',
+					name: 'form-actions',
+					type: 'actions',
+
+					fields: [{
+						name: 'reset',
+						type: 'reset',
+					}, {
+						name: 'submit',
+						// title: 'Login',
+						type: 'submit',
+					}]
 				}],
 				initialValues: {
 					password: '',
