@@ -2,7 +2,7 @@ import { FormFieldProps } from './Fields';
 import React from 'react';
 import { getFormField } from './getFormField';
 
-export type renderFieldFn = (field: FormFieldProps, parent: FieldsRendererProps) => React.ReactNode;
+export type renderFieldFn = (field: FormFieldProps, parent: FormFieldsProps) => React.ReactNode;
 
 export type FieldWrapperProps<T = {}> = {
 	field: FormFieldProps;
@@ -10,7 +10,7 @@ export type FieldWrapperProps<T = {}> = {
 	children: React.ReactNode;
 } & T;
 
-export type FieldsRendererProps<T = {}> = {
+export type FormFieldsProps<T = {}> = {
 	fields: FormFieldProps[];
 
 	/** Wrap each field in this component */
@@ -25,13 +25,13 @@ export type FieldsRendererProps<T = {}> = {
  * This component follows the render prop pattern and gives a renderField
  * function as a param.
  */
-export class FieldsRenderer extends React.Component<FieldsRendererProps> {
+export class FormFields extends React.Component<FormFieldsProps> {
 
 	private fields: {
 		[key: string]: React.ComponentType<any>
 	} = {};
 
-	constructor(props: FieldsRendererProps) {
+	constructor(props: FormFieldsProps) {
 		super(props);
 
     // This binding is necessary to make `this` work in the callback
@@ -73,7 +73,7 @@ export class FieldsRenderer extends React.Component<FieldsRendererProps> {
 	 * Render a single field
 	 * @param field
 	 */
-	private renderField(field: FormFieldProps, parent: FieldsRendererProps) {
+	private renderField(field: FormFieldProps, parent: FormFieldsProps) {
 		const { FieldWrapper } = this.props;
 		const Component = this.fields[field.type || ''];
 		const fieldNode =  <Component key={field.name} {...field} />;

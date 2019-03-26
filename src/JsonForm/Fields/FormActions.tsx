@@ -1,4 +1,4 @@
-import { FieldWrapperProps, FieldsRenderer } from '../FieldsRenderer';
+import { FieldWrapperProps, FormFields } from '../FormFields';
 import { StyleProp, ViewStyle } from 'react-native';
 import { FormFieldProps } from './FormFieldProps';
 import React from 'react';
@@ -43,7 +43,7 @@ export const FormActions = (props: FormActionsProps) => {
 
 	return (
 		<View style={[styles.root, direction === 'left' ? styles.rootLeft : styles.rootRight, style]}>
-			<FieldsRenderer {...props} FieldWrapper={FieldWrapper} />
+			<FormFields {...props} FieldWrapper={FieldWrapper} />
 		</View>
 	);
 };
