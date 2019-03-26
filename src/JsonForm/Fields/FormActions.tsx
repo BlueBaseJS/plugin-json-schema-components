@@ -37,6 +37,10 @@ const FieldWrapper = ({ field, parent, children }: FieldWrapperProps) => {
 	);
 };
 
+/**
+ * A component that renders form actions, i.e. submit or reset buttons
+ * @param props
+ */
 export const FormActions = (props: FormActionsProps) => {
 
 	const { direction, style = {}, styles = {} } = props;

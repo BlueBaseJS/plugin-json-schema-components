@@ -11,7 +11,10 @@ export interface JsonFormProps<Values = FormikValues> {
 	schema: FormProps<Values>
 }
 
-
+/**
+ * A component that takes a json schema and converts it into a form.
+ * @param props
+ */
 export const JsonForm = (props: JsonFormProps) => {
 
 	const { schema } = props;
@@ -30,8 +33,3 @@ export const JsonForm = (props: JsonFormProps) => {
 		</Formik>
 	);
 };
-
-
-{/* <FieldsRenderer>
-{(renderField) => }
-</FieldsRenderer> */}

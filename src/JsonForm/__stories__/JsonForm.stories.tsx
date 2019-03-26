@@ -29,7 +29,7 @@ storiesOf('JsonForm', module)
 						type: 'reset',
 					}, {
 						name: 'submit',
-						// title: 'Login',
+						title: 'Login',
 						type: 'submit',
 					}]
 				}],
