@@ -1,4 +1,4 @@
-import { FieldsRenderer, renderFieldFn } from '../FieldsRenderer';
+import { FieldWrapperProps, FieldsRenderer } from '../FieldsRenderer';
 import { StyleProp, ViewStyle } from 'react-native';
 import { FormFieldProps } from './FormFieldProps';
 import React from 'react';
@@ -12,6 +12,7 @@ export interface FormActionsStyles {
 	rootLeft: StyleProp<ViewStyle>;
 	rootRight: StyleProp<ViewStyle>;
 }
+
 export interface FormActionsProps {
 	type: 'actions';
 	name: string;
@@ -21,24 +22,31 @@ export interface FormActionsProps {
 	styles?: Partial<FormActionsStyles>;
 }
 
-export const FormActions = ({ direction, fields, style = {}, styles = {} }: FormActionsProps) => (
-	<View style={[styles.root, direction === 'left' ? styles.rootLeft : styles.rootRight, style]}>
-		<FieldsRenderer fields={fields}>
-			{
-				(renderField: renderFieldFn) => fields.map(
-					field => (
-						<View
-							key={field.name}
-							style={direction === 'left' ? styles.fieldContainerLeft : styles.fieldContainerRight}
-						>
-						{renderField(field)}
-						</View>
-					)
-				)
-			}
-		</FieldsRenderer>
-	</View>
-);
+
+const FieldWrapper = ({ field, parent, children }: FieldWrapperProps) => {
+
+	const { direction, styles = {} } = parent;
+
+	return (
+		<View
+			key={field.name}
+			style={direction === 'left' ? styles.fieldContainerLeft : styles.fieldContainerRight}
+		>
+		{children}
+		</View>
+	);
+};
+
+export const FormActions = (props: FormActionsProps) => {
+
+	const { direction, style = {}, styles = {} } = props;
+
+	return (
+		<View style={[styles.root, direction === 'left' ? styles.rootLeft : styles.rootRight, style]}>
+			<FieldsRenderer {...props} FieldWrapper={FieldWrapper} />
+		</View>
+	);
+};
 
 FormActions.defaultProps = {
 	direction: 'right'

@@ -1,5 +1,5 @@
-import { FieldsRenderer, renderFieldFn } from './FieldsRenderer';
 import { Form, Formik, FormikConfig, FormikValues } from 'formik';
+import { FieldsRenderer } from './FieldsRenderer';
 import { FormFieldProps } from './Fields';
 import React from 'react';
 
@@ -23,9 +23,7 @@ export const JsonForm = (props: JsonFormProps) => {
 		{(_formikProps) => {
 			return (
 				<Form>
-					<FieldsRenderer fields={fields}>
-						{(renderField: renderFieldFn) => fields.map(renderField)}
-					</FieldsRenderer>
+					<FieldsRenderer fields={fields} />
 				</Form>
 			);
 		}}

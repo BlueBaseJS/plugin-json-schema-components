@@ -2,12 +2,23 @@ import { FormFieldProps } from './Fields';
 import React from 'react';
 import { getFormField } from './getFormField';
 
-export type renderFieldFn = (field: FormFieldProps) => React.ReactNode;
+export type renderFieldFn = (field: FormFieldProps, parent: FieldsRendererProps) => React.ReactNode;
 
-export interface FieldsRendererProps {
+export type FieldWrapperProps<T = {}> = {
+	field: FormFieldProps;
+	parent: any;
+	children: React.ReactNode;
+} & T;
+
+export type FieldsRendererProps<T = {}> = {
 	fields: FormFieldProps[];
-	children: (renderField: renderFieldFn) => React.ReactNode
-}
+
+	/** Wrap each field in this component */
+	FieldWrapper?: React.ComponentType<FieldWrapperProps>;
+
+	/** If children prop if given, internal rendering mechanism will be ignored. */
+	children?: (renderField: renderFieldFn) => React.ReactNode
+} & T;
 
 /**
  * A component that takes care of field resolution and rendering logic.
@@ -48,15 +59,27 @@ export class FieldsRenderer extends React.Component<FieldsRendererProps> {
 	}
 
 	render() {
-		return this.props.children(this.renderField);
+
+		const { children, fields } = this.props;
+
+		if (children) {
+			return children(this.renderField);
+		}
+
+		return fields.map(field => this.renderField(field, this.props));
 	}
 
 	/**
 	 * Render a single field
 	 * @param field
 	 */
-	private renderField(field: FormFieldProps) {
+	private renderField(field: FormFieldProps, parent: FieldsRendererProps) {
+		const { FieldWrapper } = this.props;
 		const Component = this.fields[field.type || ''];
-		return <Component key={field.name} {...field} />;
+		const fieldNode =  <Component key={field.name} {...field} />;
+
+		return FieldWrapper
+		? <FieldWrapper key={field.name} field={field} parent={parent}>{fieldNode}</FieldWrapper>
+		: fieldNode;
 	}
 }
