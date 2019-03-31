@@ -20,6 +20,14 @@ storiesOf('JsonForm', module)
 					name: 'password',
 					type: 'password',
 				}, {
+					label: 'Remember Me',
+					name: 'remember',
+					type: 'checkbox',
+				}, {
+					label: 'Auto Login',
+					name: 'auto-login',
+					type: 'switch',
+				}, {
 					direction: 'right',
 					name: 'form-actions',
 					type: 'actions',
@@ -34,7 +42,9 @@ storiesOf('JsonForm', module)
 					}]
 				}],
 				initialValues: {
+					'auto-login': true,
 					password: '',
+					remember: true,
 					username: '',
 				},
 				onSubmit: (values, form) => {

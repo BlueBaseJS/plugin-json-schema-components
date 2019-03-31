@@ -5,6 +5,7 @@ const DefaultButtons = ['Button', 'Noop'];
 
 const FieldResolutionMap: any = {
 	actions: ['FormActions', 'Noop'],
+	checkbox: ['FormCheckboxInput', 'Noop'],
 	color: ['FormColorInput', ...DefaultInputs],
 	date: ['FormDateInput', ...DefaultInputs],
 	email: ['FormEmailInput', ...DefaultInputs],
@@ -14,6 +15,7 @@ const FieldResolutionMap: any = {
 	reset: ['FormResetButton', ...DefaultButtons],
 	search: ['FormSearchInput', ...DefaultInputs],
 	submit: ['FormSubmitButton', ...DefaultButtons],
+	switch: ['FormSwitchInput', 'FormCheckboxInput', 'Noop'],
 	tel: ['FormTelInput', ...DefaultInputs],
 	time: ['FormTimeInput', ...DefaultInputs],
 	url: ['FormUrlInput', ...DefaultInputs],
