@@ -24,13 +24,21 @@ export class BaseFormField extends React.Component<BaseFormFieldProps> {
 	static defaultProps: Partial<BaseFormFieldProps> = {};
 
 	static defaultStyles = (theme: Theme): BaseFormFieldStyles => ({
-		leftContainer: {},
+		leftContainer: {
+			paddingRight: theme.spacing.unit * 2,
+		},
 		mainContainer: {
 			flex: 1,
 		},
-		rightContainer: {},
+		rightContainer: {
+			paddingLeft: theme.spacing.unit * 2,
+		},
 		root: {
-			paddingVertical: theme.spacing.unit
+			alignItems: 'center',
+			flexDirection: 'row',
+			justifyContent: 'flex-start',
+			paddingHorizontal: theme.spacing.unit * 2,
+			paddingVertical: theme.spacing.unit * 2,
 		}
 	})
 

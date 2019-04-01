@@ -1,5 +1,5 @@
-import { Slider, SliderProps, Text } from '@bluebase/components';
-import { BaseFormField } from '../BaseFormField';
+import { Slider, SliderProps, Text, getComponent } from '@bluebase/components';
+import { BaseFormFieldProps } from '../BaseFormField';
 import { Field } from 'formik';
 import React from 'react';
 
@@ -10,6 +10,8 @@ export interface FormRangeInputProps extends SliderProps {
 	max?: number;
 	step?: number;
 }
+
+const BaseFormField = getComponent<BaseFormFieldProps>('BaseFormField');
 
 export const FormRangeInput = ({ min, max, ...rest }: FormRangeInputProps) => {
 
@@ -28,10 +30,12 @@ export const FormRangeInput = ({ min, max, ...rest }: FormRangeInputProps) => {
 
 			const inputProps = {
 				...props,
-				...field,
+				name: field.name,
 				// checked: Boolean(value),
-				onValueChange: (value: any) => form.setFieldValue(field.name, value),
-				// value,
+				onValueChange: (value: any) => {
+					form.setFieldValue(field.name, value);
+				},
+				value: field.value,
 			};
 
 			return (<BaseFormField MainComponent={Slider} right={<Text>{field.value}</Text>} {...inputProps} />);

@@ -1,5 +1,5 @@
-import { Picker, PickerItemProps, PickerProps } from '@bluebase/components';
-import { BaseFormField } from '../BaseFormField';
+import { Picker, PickerItemProps, PickerProps, getComponent } from '@bluebase/components';
+import { BaseFormFieldProps } from '../BaseFormField';
 import { Field } from 'formik';
 import React from 'react';
 
@@ -8,6 +8,8 @@ export interface FormPickerInputProps extends PickerProps {
 	name: string,
 	items: PickerItemProps[],
 }
+
+const BaseFormField = getComponent<BaseFormFieldProps>('BaseFormField');
 
 export const FormPickerInput = ({ type, items, ...props }: FormPickerInputProps) => {
 

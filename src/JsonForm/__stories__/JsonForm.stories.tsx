@@ -24,7 +24,7 @@ storiesOf('JsonForm', module)
 					max: 32,
 					min: 16,
 					name: 'temp',
-					step: 2,
+					step: 1,
 					type: 'range',
 				}, {
 					label: 'Language',
