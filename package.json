@@ -85,7 +85,7 @@
     "@bluebase/cli-essentials": "^0.0.4",
     "@bluebase/code-standards": "^1.0.2",
     "@bluebase/core": "^4.0.0-aplha.10",
-    "@bluebase/plugin-material-ui": "^1.7.1",
+    "@bluebase/plugin-material-ui": "^1.8.0",
     "@bluebase/storybook-addon": "^3.0.0",
     "@blueeast/tslint-config-blueeast": "^0.7.0",
     "@storybook/addon-a11y": "^5.0.6",
