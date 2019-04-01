@@ -11,6 +11,8 @@ const FieldResolutionMap: any = {
 	email: ['FormEmailInput', ...DefaultInputs],
 	number: ['FormNumberInput', ...DefaultInputs],
 	password: ['FormPasswordInput', ...DefaultInputs],
+	picker: ['FormPickerInput', 'Picker', 'Noop'],
+	'radio-group': ['FormRadioGroupInput', 'Noop'],
 	range: ['FormRangeInput', ...DefaultInputs],
 	reset: ['FormResetButton', ...DefaultButtons],
 	search: ['FormSearchInput', ...DefaultInputs],

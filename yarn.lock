@@ -1060,10 +1060,10 @@
     deepmerge "^3.2.0"
     tslib "^1.9.3"
 
-"@bluebase/components@^2.1.1":
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/@bluebase/components/-/components-2.1.1.tgz#d52c8e1ba63bae30d867b41359dc3461c009b085"
-  integrity sha512-Pk1qhZSDHL+ZOzYHSQkuvnBWgQ7yOWrpRGSNkmIBhao/7TcphPfRSn3r/qBGihjk6PX5K0fbmKk58cPy/To91Q==
+"@bluebase/components@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@bluebase/components/-/components-2.2.0.tgz#c96bc6d7969be26c3b7a80bcea324ec915b4952c"
+  integrity sha512-tJtmugH7sN9fWwUNmgmtpqffBSlGrkZ//QFS2YOj8pYjKNyRCN7r2VqqZAbEPRjNnjVfzxfMK6aEg/P6wmd9fA==
   dependencies:
     deepmerge "^3.2.0"
     tslib "^1.9.3"
@@ -1084,13 +1084,13 @@
     react-loadable "^5.5.0"
     tslib "^1.9.3"
 
-"@bluebase/plugin-material-ui@^1.6.0":
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/@bluebase/plugin-material-ui/-/plugin-material-ui-1.6.0.tgz#415449f1bbb01c75cf51a478199251113abf5373"
-  integrity sha512-ldj2RziZryFxcVX7fuhZqyBR7eAAcadm66nhLhYL61HLGOYwobyE5LVpmYvzQskDwfGDwIYNS2z6/czst+GyWw==
+"@bluebase/plugin-material-ui@^1.7.0":
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/@bluebase/plugin-material-ui/-/plugin-material-ui-1.7.0.tgz#95e7fc115858944b3a2c9c9276b03546bffc5d03"
+  integrity sha512-ApZt2BHy0tfWJeH+vLA1Hgoo4c38+SF+4cZeCMm0RGQrskHmBMn9MA9pXKv6tcdXffQKEgi94uHtm3A97y0nyQ==
   dependencies:
     "@bluebase/component-mapper" "^1.4.0"
-    "@bluebase/components" "^2.1.1"
+    "@bluebase/components" "^2.2.0"
     "@material-ui/core" "^3.9.3"
     "@material-ui/lab" "^3.0.0-alpha.30"
     deepmerge "^3.2.0"

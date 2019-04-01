@@ -4,6 +4,7 @@ import React from 'react';
 
 export interface FormSubmitButtonProps extends ButtonProps {
 	type: 'submit',
+	name: string,
 }
 
 // TODO: handle submitting state

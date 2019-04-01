@@ -4,7 +4,8 @@ import { BaseFormField } from '../BaseFormField';
 import React from 'react';
 
 export interface FormSwitchInputProps extends SwitchProps {
-	type: 'switch'
+	type: 'switch',
+	name: string,
 }
 
 export const FormSwitchInput = ({ type, ...props }: FormSwitchInputProps) => {

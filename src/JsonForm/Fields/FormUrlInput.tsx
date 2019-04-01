@@ -6,6 +6,7 @@ const FormTextInput = getComponent('FormTextInput');
 
 export interface FormUrlInputProps extends FormTextInputProps {
 	type: 'url',
+	name: string,
 }
 
 export const FormUrlInput = (props: FormUrlInputProps) => (

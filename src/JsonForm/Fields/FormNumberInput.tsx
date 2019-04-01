@@ -7,6 +7,7 @@ const FormTextInput = getComponent('FormTextInput');
 export interface FormNumberInputProps extends FormTextInputProps {
 
 	type: 'number',
+	name: string,
 
 	/** The maximum value to accept for this input */
 	max?: number;

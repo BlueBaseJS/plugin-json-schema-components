@@ -4,6 +4,8 @@ import { BaseFormField } from '../BaseFormField';
 import React from 'react';
 
 export interface FormCheckboxInputProps extends CheckboxProps {
+	type: 'checkbox',
+	name: string,
 }
 
 export const FormCheckboxInput = (props: FormCheckboxInputProps) => {

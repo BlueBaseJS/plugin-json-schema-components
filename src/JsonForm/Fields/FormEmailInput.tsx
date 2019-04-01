@@ -5,8 +5,8 @@ import { getComponent } from '@bluebase/components';
 const FormTextInput = getComponent('FormTextInput');
 
 export interface FormEmailInputProps extends FormTextInputProps {
-
 	type: 'email',
+	name: string,
 }
 
 export const FormEmailInput = (props: FormEmailInputProps) => (
