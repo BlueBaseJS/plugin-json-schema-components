@@ -15,18 +15,33 @@ storiesOf('JsonForm', module)
 					name: 'username',
 					required: true,
 					type: 'text',
-				}, {
+				},
+				{
+					schema: { component: 'Divider' },
+					type: 'component',
+				},
+				{
 					label: 'Password',
 					name: 'password',
 					type: 'password',
-				}, {
+				},
+				{
+					schema: { component: 'Divider' },
+					type: 'component',
+				},
+				{
 					label: 'Temp',
 					max: 32,
 					min: 16,
 					name: 'temp',
 					step: 1,
 					type: 'range',
-				}, {
+				},
+				{
+					schema: { component: 'Divider' },
+					type: 'component',
+				},
+				{
 					label: 'Language',
 					name: 'lang',
 					type: 'picker',
@@ -38,7 +53,12 @@ storiesOf('JsonForm', module)
 						label: 'Java',
 						value: 'java'
 					}]
-				}, {
+				},
+				{
+					schema: { component: 'Divider' },
+					type: 'component',
+				},
+				{
 					label: 'Gender',
 					name: 'gender',
 					type: 'radio-group',
@@ -50,15 +70,30 @@ storiesOf('JsonForm', module)
 						label: 'Female',
 						value: 'female'
 					}]
-				}, {
+				},
+				{
+					schema: { component: 'Divider' },
+					type: 'component',
+				},
+				{
 					label: 'Remember Me',
 					name: 'remember',
 					type: 'checkbox',
-				}, {
+				},
+				{
+					schema: { component: 'Divider' },
+					type: 'component',
+				},
+				{
 					label: 'Auto Login',
 					name: 'auto-login',
 					type: 'switch',
-				}, {
+				},
+				{
+					schema: { component: 'Divider' },
+					type: 'component',
+				},
+				{
 					direction: 'right',
 					name: 'form-actions',
 					type: 'actions',

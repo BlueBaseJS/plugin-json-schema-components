@@ -1,5 +1,6 @@
 import { FormActionsProps } from './FormActions';
 import { FormCheckboxInputProps } from './FormCheckboxInput';
+import { FormComponentFieldProps } from './FormComponentField';
 import { FormEmailInputProps } from './FormEmailInput';
 import { FormNumberInputProps } from './FormNumberInput';
 import { FormPasswordInputProps } from './FormPasswordInput';
@@ -13,6 +14,7 @@ import { FormUrlInputProps } from './FormUrlInput';
 export type FormFieldProps =
 FormActionsProps |
 FormCheckboxInputProps |
+FormComponentFieldProps |
 FormEmailInputProps |
 FormNumberInputProps |
 FormPasswordInputProps |

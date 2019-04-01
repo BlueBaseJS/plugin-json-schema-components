@@ -58,15 +58,15 @@ FormActions.defaultProps = {
 
 FormActions.defaultStyles = (theme: Theme): FormActionsStyles => ({
 	fieldContainerLeft: {
-		marginLeft: theme.spacing.unit,
+		marginLeft: theme.spacing.unit * 2,
 	},
 	fieldContainerRight: {
-		marginRight: theme.spacing.unit,
+		marginRight: theme.spacing.unit * 2,
 	},
 	root: {
 		flexDirection: 'row',
 		justifyContent: 'flex-end',
-		paddingVertical: theme.spacing.unit,
+		paddingVertical: theme.spacing.unit * 2,
 	},
 	rootLeft: {
 		justifyContent: 'flex-start',

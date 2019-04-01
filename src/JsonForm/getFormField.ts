@@ -7,6 +7,7 @@ const FieldResolutionMap: any = {
 	actions: ['FormActions', 'Noop'],
 	checkbox: ['FormCheckboxInput', 'Noop'],
 	color: ['FormColorInput', ...DefaultInputs],
+	component: ['JsonLayout', 'Noop'],
 	date: ['FormDateInput', ...DefaultInputs],
 	email: ['FormEmailInput', ...DefaultInputs],
 	number: ['FormNumberInput', ...DefaultInputs],
