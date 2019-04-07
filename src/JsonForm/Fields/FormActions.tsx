@@ -25,7 +25,7 @@ export interface FormActionsProps {
 
 const FieldWrapper = ({ field, parent, children }: FieldWrapperProps) => {
 
-	const { direction, styles = {} } = parent;
+	const { direction, styles } = parent;
 
 	return (
 		<View
@@ -43,10 +43,11 @@ const FieldWrapper = ({ field, parent, children }: FieldWrapperProps) => {
  */
 export const FormActions = (props: FormActionsProps) => {
 
-	const { direction, style = {}, styles = {} } = props;
+	const { direction, style, styles: _styles } = props;
+	const styles = _styles as FormActionsStyles;
 
 	return (
-		<View style={[styles.root, direction === 'left' ? styles.rootLeft : styles.rootRight, style]}>
+		<View style={[styles.root, direction === 'left' ? styles.rootLeft : styles.rootRight, style]} testID="form-actions">
 			<FormFields {...props} FieldWrapper={FieldWrapper} />
 		</View>
 	);
@@ -65,7 +66,6 @@ FormActions.defaultStyles = (theme: Theme): FormActionsStyles => ({
 	},
 	root: {
 		flexDirection: 'row',
-		justifyContent: 'flex-end',
 		paddingVertical: theme.spacing.unit * 2,
 	},
 	rootLeft: {

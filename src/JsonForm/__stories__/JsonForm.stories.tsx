@@ -111,6 +111,7 @@ storiesOf('JsonForm', module)
 				],
 				initialValues: {
 					'auto-login': true,
+					gender: 'female',
 					lang: 'js',
 					password: '',
 					remember: true,
