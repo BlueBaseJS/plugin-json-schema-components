@@ -19,7 +19,7 @@ export interface BaseFormFieldProps {
 	[key: string]: any;
 }
 
-export class BaseFormField extends React.Component<BaseFormFieldProps> {
+export class BaseFormField extends React.PureComponent<BaseFormFieldProps> {
 
 	static defaultProps: Partial<BaseFormFieldProps> = {};
 

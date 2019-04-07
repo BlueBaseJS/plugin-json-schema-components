@@ -10,103 +10,105 @@ storiesOf('JsonForm', module)
 	.add('With default props', () => (
 		<JsonForm
 			schema={{
-				fields: [{
-					label: 'Username',
-					name: 'username',
-					required: true,
-					type: 'text',
-				},
-				{
-					schema: { component: 'Divider' },
-					type: 'component',
-				},
-				{
-					label: 'Password',
-					name: 'password',
-					type: 'password',
-				},
-				{
-					schema: { component: 'Divider' },
-					type: 'component',
-				},
-				{
-					label: 'Temp',
-					max: 32,
-					min: 16,
-					name: 'temp',
-					step: 1,
-					type: 'range',
-				},
-				{
-					schema: { component: 'Divider' },
-					type: 'component',
-				},
-				{
-					label: 'Language',
-					name: 'lang',
-					type: 'picker',
+				fields: [
+					{
+						label: 'Username',
+						name: 'username',
+						required: true,
+						type: 'text',
+					},
+					{
+						schema: { component: 'Divider' },
+						type: 'component',
+					},
+					{
+						label: 'Password',
+						name: 'password',
+						type: 'password',
+					},
+					{
+						schema: { component: 'Divider' },
+						type: 'component',
+					},
+					{
+						label: 'Temp',
+						max: 32,
+						min: 16,
+						name: 'temp',
+						step: 1,
+						type: 'range',
+					},
+					{
+						schema: { component: 'Divider' },
+						type: 'component',
+					},
+					{
+						label: 'Language',
+						name: 'lang',
+						type: 'picker',
 
-					items: [{
-						label: 'JavaScript',
-						value: 'js'
-					}, {
-						label: 'Java',
-						value: 'java'
-					}]
-				},
-				{
-					schema: { component: 'Divider' },
-					type: 'component',
-				},
-				{
-					label: 'Gender',
-					name: 'gender',
-					type: 'radio-group',
+						items: [{
+							label: 'JavaScript',
+							value: 'js'
+						}, {
+							label: 'Java',
+							value: 'java'
+						}]
+					},
+					{
+						schema: { component: 'Divider' },
+						type: 'component',
+					},
+					{
+						label: 'Gender',
+						name: 'gender',
+						type: 'radio-group',
 
-					items: [{
-						label: 'Male',
-						value: 'male'
-					}, {
-						label: 'Female',
-						value: 'female'
-					}]
-				},
-				{
-					schema: { component: 'Divider' },
-					type: 'component',
-				},
-				{
-					label: 'Remember Me',
-					name: 'remember',
-					type: 'checkbox',
-				},
-				{
-					schema: { component: 'Divider' },
-					type: 'component',
-				},
-				{
-					label: 'Auto Login',
-					name: 'auto-login',
-					type: 'switch',
-				},
-				{
-					schema: { component: 'Divider' },
-					type: 'component',
-				},
-				{
-					direction: 'right',
-					name: 'form-actions',
-					type: 'actions',
+						items: [{
+							label: 'Male',
+							value: 'male'
+						}, {
+							label: 'Female',
+							value: 'female'
+						}]
+					},
+					{
+						schema: { component: 'Divider' },
+						type: 'component',
+					},
+					{
+						label: 'Remember Me',
+						name: 'remember',
+						type: 'checkbox',
+					},
+					{
+						schema: { component: 'Divider' },
+						type: 'component',
+					},
+					{
+						label: 'Auto Login',
+						name: 'auto-login',
+						type: 'switch',
+					},
+					{
+						schema: { component: 'Divider' },
+						type: 'component',
+					},
+					{
+						direction: 'right',
+						name: 'form-actions',
+						type: 'actions',
 
-					fields: [{
-						name: 'reset',
-						type: 'reset',
-					}, {
-						name: 'submit',
-						title: 'Login',
-						type: 'submit',
-					}]
-				}],
+						fields: [{
+							name: 'reset',
+							type: 'reset',
+						}, {
+							name: 'submit',
+							title: 'Login',
+							type: 'submit',
+						}]
+					}
+				],
 				initialValues: {
 					'auto-login': true,
 					lang: 'js',

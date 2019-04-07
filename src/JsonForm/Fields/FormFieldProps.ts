@@ -11,8 +11,8 @@ import { FormSwitchInputProps } from './FormSwitchInput';
 import { FormTextInputProps } from './FormTextInput';
 import { FormUrlInputProps } from './FormUrlInput';
 
-export type FormFieldProps =
-FormActionsProps |
+export type FormFieldProps = { type: string } &
+(FormActionsProps |
 FormCheckboxInputProps |
 FormComponentFieldProps |
 FormEmailInputProps |
@@ -23,4 +23,4 @@ FormResetButtonProps |
 FormSubmitButtonProps |
 FormSwitchInputProps |
 FormTextInputProps |
-FormUrlInputProps;
+FormUrlInputProps);

@@ -2,7 +2,7 @@ import { FormFieldProps } from './Fields';
 import React from 'react';
 import { getFormField } from './getFormField';
 
-export type renderFieldFn = (field: FormFieldProps, parent: FormFieldsProps) => React.ReactNode;
+export type renderFieldFn = (field: FormFieldProps, key: string, parent: FormFieldsProps) => React.ReactNode;
 
 export type FieldWrapperProps<T = {}> = {
 	field: FormFieldProps;
@@ -52,7 +52,7 @@ export class FormFields extends React.Component<FormFieldsProps> {
 
 		// Resolve fields
 		fields.forEach(field => {
-			const type = field.type || '';
+			const type = field.type;
 			this.fields[type] = getFormField(type);
 		});
 
@@ -66,20 +66,20 @@ export class FormFields extends React.Component<FormFieldsProps> {
 			return children(this.renderField);
 		}
 
-		return fields.map(field => this.renderField(field, this.props));
+		return fields.map((field, index) => this.renderField(field, field.name || `${index}-${field.type}`, this.props));
 	}
 
 	/**
 	 * Render a single field
 	 * @param field
 	 */
-	private renderField(field: FormFieldProps, parent: FormFieldsProps) {
+	private renderField(field: FormFieldProps, key: string, parent: FormFieldsProps) {
 		const { FieldWrapper } = this.props;
-		const Component = this.fields[field.type || ''];
-		const fieldNode =  <Component key={field.name} {...field} />;
+		const Component = this.fields[field.type];
+		const fieldNode =  <Component key={key} {...field} />;
 
 		return FieldWrapper
-		? <FieldWrapper key={field.name} field={field} parent={parent}>{fieldNode}</FieldWrapper>
+		? <FieldWrapper key={key} field={field} parent={parent}>{fieldNode}</FieldWrapper>
 		: fieldNode;
 	}
 }

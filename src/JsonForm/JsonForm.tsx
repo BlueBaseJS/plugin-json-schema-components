@@ -34,16 +34,11 @@ const JsonFormInternal = (props: JsonFormProps) => {
 	const { schema } = props;
 	const { fields, ...rest } = schema;
 
-
 	return (
 		<Formik {...rest}>
-		{(_formikProps) => {
-			return (
-				<Form>
-					<FormFields fields={fields} />
-				</Form>
-			);
-		}}
+			<Form>
+				<FormFields fields={fields} />
+			</Form>
 		</Formik>
 	);
 };
