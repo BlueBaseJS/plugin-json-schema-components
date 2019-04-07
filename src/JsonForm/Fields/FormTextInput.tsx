@@ -44,6 +44,11 @@ export const FormTextInput = (props: FormTextInputProps) => (
 				...field,
 				error: (form.errors[name] && form.touched[name]) || props.error,
 				helperText: form.errors[name] || props.helperText,
+				onChange: undefined,
+				onChangeText: (text: string) => {
+					form.handleChange(name)(text);
+					// props.onChangeText && props.onChangeText(text);
+				},
 			};
 
 			return (<BaseFormField {...inputProps} />);
