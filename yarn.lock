@@ -1068,12 +1068,20 @@
     deepmerge "^3.2.0"
     tslib "^1.9.3"
 
-"@bluebase/core@^4.0.0-aplha.10":
-  version "4.0.0-aplha.10"
-  resolved "https://registry.yarnpkg.com/@bluebase/core/-/core-4.0.0-aplha.10.tgz#649de87717aa30fbc72da53a83598cf8476fd132"
-  integrity sha512-6wG4ioMiLXkU1+Jl72wemm5l6NnEzR2ySCzAm70akmWQsybMk2u5lp/ApSu4enlnQHUGD3Lbxtpgha0l2SAa6Q==
+"@bluebase/components@^2.4.0":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@bluebase/components/-/components-2.4.0.tgz#555ebef0c7b0550bb734a41e3e5f49c414d694de"
+  integrity sha512-876Df3yBa+ebGunogB/1CtkhRTFCgPGx6lgzmzr1OsI2f2PCLsKj2OG0VjrJZOO7o3PY8cJ1UKwxE/lhK5k8Vw==
   dependencies:
-    deepmerge "^3.0.0"
+    deepmerge "^3.2.0"
+    tslib "^1.9.3"
+
+"@bluebase/core@^4.0.0-aplha.13":
+  version "4.0.0-aplha.13"
+  resolved "https://registry.yarnpkg.com/@bluebase/core/-/core-4.0.0-aplha.13.tgz#37422944ca7eb7904fd8366ac9c1ca18effe75d4"
+  integrity sha512-3KwH90eO8fTH/OT8LMoMdVFsIGZVHd0zqKAN/UXfjGSy9jiXuagwig/+0ZM8P5SUKX61tGgTMHI9sd+djqg3og==
+  dependencies:
+    deepmerge "^3.2.0"
     hoist-non-react-statics "^3.3.0"
     lodash.flowright "^3.5.0"
     lodash.isboolean "^3.0.3"
@@ -1084,17 +1092,16 @@
     react-loadable "^5.5.0"
     tslib "^1.9.3"
 
-"@bluebase/plugin-material-ui@^1.8.0":
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/@bluebase/plugin-material-ui/-/plugin-material-ui-1.8.0.tgz#9970a507e8549aa0d56ccf49048fc703293a657c"
-  integrity sha512-zTrsyiF86Tpb3olm4Up0jV4oVhnx+BvxhHE4Wi9mkXC9HoQUJdP/YamsWPzauftPaKn4JVt4+34cY1fkO4CFKA==
+"@bluebase/plugin-material-ui@^1.9.0":
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/@bluebase/plugin-material-ui/-/plugin-material-ui-1.9.0.tgz#ccc4061cbd2fd7576c1c488eadacd2f75c3eda6a"
+  integrity sha512-mlp7UFU9L547+n+/9oHAvfo3Pxs5uCRaZ8ychDDFlBKeHlS4QVLPgq05FrD8z6aaty6QzwBz4n0PZI7ULe70Kg==
   dependencies:
     "@bluebase/component-mapper" "^1.4.0"
     "@bluebase/components" "^2.3.0"
     "@material-ui/core" "^3.9.3"
     "@material-ui/lab" "^3.0.0-alpha.30"
     deepmerge "^3.2.0"
-    react-native "^0.57.8"
     tslib "^1.9.3"
 
 "@bluebase/storybook-addon@^3.0.0":

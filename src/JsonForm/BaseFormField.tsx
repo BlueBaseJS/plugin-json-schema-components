@@ -47,16 +47,16 @@ export class BaseFormField extends React.PureComponent<BaseFormFieldProps> {
 		const { MainComponent, children, left, right, styles = {}, ...props } = this.props;
 
 		return (
-			<View style={styles.root}>
-				{left && <View style={styles.leftContainer}>{left}</View>}
+			<View style={styles.root} testID="base-form-field">
+				{left && <View style={styles.leftContainer} testID="base-form-field-left">{left}</View>}
 				{MainComponent &&
-					<View style={styles.mainContainer}>
+					<View style={styles.mainContainer} testID="base-form-field-main">
 						<MainComponent {...props}>
 							{children}
 						</MainComponent>
 					</View>
 				}
-				{right && <View style={styles.rightContainer}>{right}</View>}
+				{right && <View style={styles.rightContainer} testID="base-form-field-right">{right}</View>}
 			</View>
 		);
 	}
