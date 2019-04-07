@@ -1,5 +1,6 @@
-import { Form, Formik, FormikConfig, FormikValues } from 'formik';
+import { Formik, FormikConfig, FormikValues } from 'formik';
 import { BlueBaseFilter } from '@bluebase/core';
+import { Form } from './Form';
 import { FormFieldProps } from './Fields';
 import { FormFields } from './FormFields';
 import React from 'react';
