@@ -17,9 +17,6 @@ export const FormPickerInput = ({ type, items, ...props }: FormPickerInputProps)
 		<Field {...props}>
 		{({ field, form }: any) => {
 
-			// const name = props.name || '';
-			// const value = getIn(form.values, name);
-
 			const inputProps: any = {
 				...props,
 				...field,
