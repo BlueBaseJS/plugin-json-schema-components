@@ -24,6 +24,7 @@ const FieldResolutionMap: any = {
 	url: ['FormUrlInput', ...DefaultInputs],
 };
 
-export const getFormField = (type: string) => (type && FieldResolutionMap[type])
-? getComponent(...FieldResolutionMap[type])
-: getComponent(...DefaultInputs);
+export const getFormField = (type: string) =>
+	type && FieldResolutionMap[type]
+		? getComponent(...FieldResolutionMap[type])
+		: getComponent(...DefaultInputs);

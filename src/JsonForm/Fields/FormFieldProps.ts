@@ -11,16 +11,16 @@ import { FormSwitchInputProps } from './FormSwitchInput';
 import { FormTextInputProps } from './FormTextInput';
 import { FormUrlInputProps } from './FormUrlInput';
 
-export type FormFieldProps = { type: string } &
-(FormActionsProps |
-FormCheckboxInputProps |
-FormComponentFieldProps |
-FormEmailInputProps |
-FormNumberInputProps |
-FormPasswordInputProps |
-FormRadioGroupInputProps |
-FormResetButtonProps |
-FormSubmitButtonProps |
-FormSwitchInputProps |
-FormTextInputProps |
-FormUrlInputProps);
+export type FormFieldProps = { type: string } & (
+	| FormActionsProps
+	| FormCheckboxInputProps
+	| FormComponentFieldProps
+	| FormEmailInputProps
+	| FormNumberInputProps
+	| FormPasswordInputProps
+	| FormRadioGroupInputProps
+	| FormResetButtonProps
+	| FormSubmitButtonProps
+	| FormSwitchInputProps
+	| FormTextInputProps
+	| FormUrlInputProps);
