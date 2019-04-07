@@ -10,6 +10,6 @@ export interface FormUrlInputProps extends FormTextInputProps {
 }
 
 export const FormUrlInput = (props: FormUrlInputProps) => (
-	<FormTextInput {...props} type="number" />
+	<FormTextInput {...props} type="url" />
 );
 

@@ -37,7 +37,7 @@ export const FormTextInput = (props: FormTextInputProps) => (
 	<Field {...props} validate={props.validate || validate(props)}>
 		{({ field, form }: any) => {
 
-			const name = props.name || '';
+			const name = props.name;
 
 			const inputProps = {
 				...props,
