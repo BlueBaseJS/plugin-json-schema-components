@@ -62,8 +62,12 @@ describe('FormFields', () => {
 		// Check fields
 		expect(component.find('FormTextInput_TextInput_Noop').last().prop('name')).toBe('username');
 		expect(component.find('FormRangeInput_FormTextInput_TextInput_Noop').last().prop('name')).toBe('temp');
-		// expect(component.find('JsonLayout_Noop').last().prop('name')).toBe('1-component');
 		expect(component.find('JsonLayout_Noop Text').last().text()).toBe('Text Component');
+
+		expect(component.find('FormFields').children()).toHaveLength(3);
+		expect(component.find('FormFields').childAt(0).prop('name')).toBe('username');
+		expect(component.find('FormFields').childAt(1).prop('name')).toBe('1-component');
+		expect(component.find('FormFields').childAt(2).prop('name')).toBe('temp');
 	});
 
 	it('should not render any field if fields property is undefined', async () => {
@@ -93,7 +97,7 @@ describe('FormFields', () => {
 			<BlueBaseApp plugins={[Plugin]}>
 				<Formik initialValues={initialValues} onSubmit={onSubmit}>
 					<FormFields fields={fields}>
-					{(renderField) => fields.map((f, i) => renderField(f, f.name || String(i), {} as any))}
+					{(renderField) => fields.map((f, i) => renderField(f, i, {} as any))}
 					</FormFields>
 				</Formik>
 			</BlueBaseApp>
