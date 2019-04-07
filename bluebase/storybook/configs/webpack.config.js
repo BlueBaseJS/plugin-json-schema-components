@@ -1,8 +1,8 @@
 const { storybookWebpackConfigs } = require('@bluebase/cli-essentials');
 
-module.exports = (configBundle) => {
+module.exports = (baseConfig, env, config) => {
 
-	config = storybookWebpackConfigs(configBundle);
+	config = storybookWebpackConfigs({ config });
 
 	return config;
 };

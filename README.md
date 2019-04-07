@@ -33,19 +33,20 @@
 
 This plugin provides following input fields out of the box:
 
--   [ ] checkbox
+-   [x] checkbox:	(FormCheckboxInput)
 -   [ ] color
--   [ ] date
+-   [x] date:	(FormDateInput)
 -   [x] email: (FormEmailInput)
 -   [ ] file
 -   [x] number: (FormNumberInput)
 -   [x] password: (FormPasswordInput)
--   [ ] radio
--   [ ] range
+-   [x] picker:	(FormPickerInput)
+-   [x] radio-group:	(FormRadioGroupInput)
+-   [x] range:	(FormRangeInput)
 -   [x] reset: (FormResetButton)
--   [ ] search
+-   [x] search:	(FormSearchInput)
 -   [x] submit: (FormSubmitButton)
--   [ ] tel
+-   [x] tel:	(FormTelInput)
 -   [x] text: (FormTextInput)
--   [ ] time
+-   [x] time:	(FormTimeInput)
 -   [x] url: (FormUrlInput)
