@@ -26,26 +26,26 @@
 
 ## Docs
 
-- [Storybook](https://bluebasejs.github.io/plugin-json-schema-components/storybook/)
-- [API Docs](https://bluebasejs.github.io/plugin-json-schema-components/)
+-  [Storybook](https://bluebasejs.github.io/plugin-json-schema-components/storybook/)
+-  [API Docs](https://bluebasejs.github.io/plugin-json-schema-components/)
 
 ## Input Fields
 
 This plugin provides following input fields out of the box:
 
-- [ ] checkbox
-- [ ] color
-- [ ] date
-- [x] email: (FormEmailInput)
-- [ ] file
-- [x] number: (FormNumberInput)
-- [x] password: (FormPasswordInput)
-- [ ] radio
-- [ ] range
-- [x] reset: (FormResetButton)
-- [ ] search
-- [x] submit: (FormSubmitButton)
-- [ ] tel
-- [x] text: (FormTextInput)
-- [ ] time
-- [x] url: (FormUrlInput)
+-  [ ] checkbox
+-  [ ] color
+-  [ ] date
+-  [x] email: (FormEmailInput)
+-  [ ] file
+-  [x] number: (FormNumberInput)
+-  [x] password: (FormPasswordInput)
+-  [ ] radio
+-  [ ] range
+-  [x] reset: (FormResetButton)
+-  [ ] search
+-  [x] submit: (FormSubmitButton)
+-  [ ] tel
+-  [x] text: (FormTextInput)
+-  [ ] time
+-  [x] url: (FormUrlInput)
