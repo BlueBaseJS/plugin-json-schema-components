@@ -98,6 +98,45 @@ describe('FormTextInput', () => {
 	});
 
 
+	it('should update field value when onChangeText callback is invoked', async () => {
+
+		const onSubmit = jest.fn();
+
+		const component = mount(
+			<BlueBaseApp plugins={[Plugin]}>
+				<Formik initialValues={{}} onSubmit={onSubmit}>
+					<FormTextInput {...fieldProps[0]} />
+				</Formik>
+			</BlueBaseApp>
+		);
+
+		await waitForElement(component as any, FormTextInput);
+
+		// expect(component).toMatchSnapshot();
+
+		// Check fields
+		expect(component.find('TextInput').last().prop('name')).toBe('username');
+		expect(component.find('TextInput').last().prop('value')).toBeUndefined();
+		expect(component.find('TextInput').last().prop('type')).toBe('text');
+		expect(component.find('TextInput').last().prop('helperText')).toBe('This is a helper text');
+
+		const onChangeText: any = component.find('TextInput').first().prop('onChangeText');
+
+		onChangeText('bar');
+		component.update();
+
+		// let any pending callbacks in PromiseJobs run
+		await Promise.resolve();
+
+
+		setTimeout(() => {
+			// expect(component).toMatchSnapshot();
+			expect(component.find('TextInput').last().prop('value')).toBe('bar');
+			// expect(onSubmit).toHaveBeenCalledTimes(1);
+		});
+	});
+
+
 	it('should render error state if validation fails', async () => {
 
 		const onSubmit = jest.fn();
