@@ -1,6 +1,6 @@
-import { Field, getIn } from 'formik';
 import { Radio, RadioGroup, RadioGroupProps, RadioProps, getComponent } from '@bluebase/components';
 import { BaseFormFieldProps } from '../BaseFormField';
+import { Field } from 'formik';
 import React from 'react';
 
 export interface FormRadioGroupInputProps extends RadioGroupProps {
@@ -17,13 +17,9 @@ export const FormRadioGroupInput = ({ type, items, ...props }: FormRadioGroupInp
 		<Field {...props}>
 		{({ field, form }: any) => {
 
-			const name = props.name || '';
-			const value = getIn(form.values, name);
-
 			const inputProps: any = {
 				...props,
-				// ...field,
-				checked: Boolean(value),
+				...field,
 				onValueChange: (v: any) => form.setFieldValue(field.name, v),
 			};
 

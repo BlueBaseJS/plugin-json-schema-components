@@ -28,7 +28,6 @@ export const FormRangeInput = ({ min, max, ...rest }: FormRangeInputProps) => {
 			const inputProps = {
 				...props,
 				name: field.name,
-				// checked: Boolean(value),
 				onValueChange: (value: any) => {
 					form.setFieldValue(field.name, value);
 				},
