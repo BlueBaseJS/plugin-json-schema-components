@@ -25,9 +25,6 @@ export const FormRangeInput = ({ min, max, ...rest }: FormRangeInputProps) => {
 		<Field {...props}>
 		{({ field, form }: any) => {
 
-			// const name = props.name || '';
-			// const value = getIn(form.values, name);
-
 			const inputProps = {
 				...props,
 				name: field.name,
