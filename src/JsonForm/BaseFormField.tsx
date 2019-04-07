@@ -44,7 +44,8 @@ export class BaseFormField extends React.PureComponent<BaseFormFieldProps> {
 
 	render() {
 
-		const { MainComponent, children, left, right, styles = {}, ...props } = this.props;
+		const { MainComponent, children, left, right, styles: _styles, ...props } = this.props;
+		const styles = _styles as BaseFormFieldStyles;
 
 		return (
 			<View style={styles.root} testID="base-form-field">

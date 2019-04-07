@@ -44,11 +44,11 @@ export class FormFields extends React.Component<FormFieldsProps> {
 
 		const fields = this.props.fields || [];
 
-		// If field map is already created, skip this op
-		// I wonder, if we could do without this check 🤔
-		if (Object.keys(this.fields).length > 0) {
-			return;
-		}
+		// // If field map is already created, skip this op
+		// // I wonder, if we could do without this check 🤔
+		// if (Object.keys(this.fields).length > 0) {
+		// 	return;
+		// }
 
 		// Resolve fields
 		fields.forEach(field => {
@@ -60,7 +60,7 @@ export class FormFields extends React.Component<FormFieldsProps> {
 
 	render() {
 
-		const { children, fields } = this.props;
+		const { children, fields = [] } = this.props;
 
 		if (children) {
 			return children(this.renderField);
