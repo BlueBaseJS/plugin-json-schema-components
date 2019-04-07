@@ -7,6 +7,7 @@ import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
 
 const fieldProps = [{
+	helperText: 'This is a helper text',
 	label: 'Username',
 	name: 'username',
 	required: true,
@@ -94,5 +95,46 @@ describe('FormTextInput', () => {
 		// Check fields
 		expect(validate('foo bar')).toBe('Please enter a valid email address');
 		expect(validate('foo@bar.com')).toBeUndefined();
+	});
+
+
+	it('should render error state if validation fails', async () => {
+
+		const onSubmit = jest.fn();
+
+		const component = mount(
+			<BlueBaseApp plugins={[Plugin]}>
+				<Formik initialValues={{}} onSubmit={onSubmit}>
+					<FormTextInput {...fieldProps[0]} />
+				</Formik>
+			</BlueBaseApp>
+		);
+
+		await waitForElement(component as any, FormTextInput);
+
+		// expect(component).toMatchSnapshot();
+
+		// Check fields
+		expect(component.find('TextInput').last().prop('name')).toBe('username');
+		expect(component.find('TextInput').last().prop('value')).toBeUndefined();
+		expect(component.find('TextInput').last().prop('type')).toBe('text');
+		expect(component.find('TextInput').last().prop('helperText')).toBe('This is a helper text');
+
+		const formik: any = component.find('FieldInner').first().prop('formik');
+		// expect(component).toMatchSnapshot();
+		formik.setFieldValue('username', null);
+		formik.validateField('username');
+		formik.handleSubmit();
+
+		// let any pending callbacks in PromiseJobs run
+		await Promise.resolve();
+
+		component.update();
+
+		setTimeout(() => {
+			expect(component).toMatchSnapshot();
+			expect(component.find('TextInput').last().prop('helperText')).toBe('This field is required');
+			// expect(onSubmit).toHaveBeenCalledTimes(1);
+		});
 	});
 });

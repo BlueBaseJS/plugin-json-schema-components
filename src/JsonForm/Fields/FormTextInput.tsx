@@ -43,7 +43,7 @@ export const FormTextInput = (props: FormTextInputProps) => (
 				...props,
 				...field,
 				error: (form.errors[name] && form.touched[name]) || props.error,
-				helperText: (form.errors[name]) || props.helperText,
+				helperText: form.errors[name] || props.helperText,
 			};
 
 			return (<BaseFormField {...inputProps} />);

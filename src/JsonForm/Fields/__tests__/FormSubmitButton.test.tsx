@@ -42,8 +42,19 @@ describe('FormSubmitButton', () => {
 		expect(component.find('Button').first().prop('title')).toBe('Login');
 		expect(component.find('Button').first().prop('type')).toBe('submit');
 
-		// const onPress: any = component.find('Button').first().prop('onPress');
-		// onPress();
-		// expect(onSubmit).toHaveBeenCalledTimes(1);
+		const onPress: any = component.find('Button').first().prop('onPress');
+		onPress();
+		// component.update();
+
+
+		// const formik: any = component.find('Button').first().prop('formik');
+		// formik.handleSubmit();
+		// component.update();
+
+		setTimeout(() => {
+			// expect(component).toMatchSnapshot();
+			expect(onSubmit).toHaveBeenCalledTimes(1);
+		});
+
 	});
 });
