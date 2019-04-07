@@ -4,7 +4,7 @@ import { Field } from 'formik';
 import React from 'react';
 
 export interface FormRangeInputProps extends SliderProps {
-	type: 'checkbox',
+	type: 'range',
 	name: string,
 	min?: number;
 	max?: number;
