@@ -32,7 +32,7 @@ storiesOf('Mevris Logiin', module)
 						
 					
 						{
-							direction: 'center',
+							direction: 'right',
 							name: 'form-actions',
 							type: 'actions',
 

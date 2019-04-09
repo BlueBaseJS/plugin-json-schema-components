@@ -18,28 +18,27 @@ storiesOf('Mevris SignUp', module)
 							name: 'username',
 							required: true,
                             type: 'text',
-                            direction : 'left'
 						},
 						
                         {
 							label: 'Email',
 							name: 'email',
 							type: 'email',
-							required: false,
+							required: true,
 
 						},
 						{
 							label: 'Password',
 							name: 'password',
 							type: 'password',
-							required: false,
+							required: true,
 
                         },
                         {
 							label: 'Confirm Password',
 							name: 'confirmPassword',
 							type: 'password',
-							required: false,
+							required: true,
 
                         },
 						{

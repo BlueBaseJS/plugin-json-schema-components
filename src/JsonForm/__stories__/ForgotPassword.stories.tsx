@@ -19,11 +19,22 @@ storiesOf('Forgot Password', module)
 							type: 'email',
 							required: false,
 						},
-						{       //direction : 'left',
+						
+
+						{
+							direction: 'right',
+							name: 'form-actions',
+							type: 'actions',
+
+							fields: [{
 								name: 'submit',
 								title: 'Send Email',
 								type: 'submit',
+							}]
 						}
+
+
+					
 					],
 					initialValues: {
 					},

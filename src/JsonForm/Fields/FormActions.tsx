@@ -16,7 +16,7 @@ export interface FormActionsStyles {
 export interface FormActionsProps {
 	type: 'actions';
 	name: string;
-	direction: 'left' | 'right';
+	direction: 'left' | 'right' ;
 	fields: FormFieldProps[];
 	style?: StyleProp<ViewStyle>;
 	styles?: Partial<FormActionsStyles>;
