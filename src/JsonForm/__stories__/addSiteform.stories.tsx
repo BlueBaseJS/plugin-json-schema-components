@@ -1,39 +1,68 @@
-import { Picker, Text, getComponent } from '@bluebase/components';
-import { BaseFormFieldProps } from '../BaseFormField';
- //import { FormTextInputProps } from '../Fields';
+import { JsonFormProps } from '..';
 import React from 'react';
+import { ScrollView } from 'react-native';
+import { getComponent } from '@bluebase/components';
 import storiesOf from '@bluebase/storybook-addon';
- import { FormTextInputProps } from '../Fields';
 
-const BaseFormField = getComponent<BaseFormFieldProps>('BaseFormField');
- const FormTextInput = getComponent<FormTextInputProps>('FormTextInput');
+const JsonForm = getComponent<JsonFormProps>('JsonForm');
 
-storiesOf('Add Site', module)
+storiesOf('Add site', module)
+
+	.add('With default props', () => (
+		<ScrollView>
+			<JsonForm
+				schema = {{
+					fields: [
+                        {
+							label: 'Site Name',
+							name: 'username',
+							type: 'text',
+							required: true,
+						},
+						{
+							label: 'Site Type',
+							name: 'lang',
+							type: 'picker',
+
+							items: [{
+								label: 'JavaScript',
+								value: 'js'
+							}, {
+								label: 'Java',
+								value: 'java'
+							}]
+						},
+
+						{
+							direction: 'right',
+							name: 'form-actions',
+							type: 'actions',
+
+							fields: [{
+								name: 'cancel',
+								type: 'reset',
+								title : 'cancel'
+							}, {
+								name: 'Save',
+								title: 'Save',
+								type: 'submit',
+							}]
+						}
 
 
-.add('With Picker', () => (
-	<BaseFormField
-		left={<Text>Icon</Text>}
-		MainComponent={Picker}
-		label="Site Type"
-		value={100}
-	>
-		<Picker.Item label="Work" value="js" />
-		<Picker.Item label="Office" value="java" />
-	</BaseFormField>
-))
+					
+					],
+					initialValues: {
+					},
+					onSubmit: (values, form) => {
+						// tslint:disable-next-line: no-console
+						console.log('Email sent', values);
 
-.add('With Username', () => (
-	<BaseFormField
-		left={<Text>Icon</Text>}
-	 MainComponent={FormTextInput}
-		label="Site Type"
-		value={100}
-	>
-	
-	</BaseFormField>
-))
-
-
-;
-
+						setTimeout(() => {
+							form.setSubmitting(false);
+						}, 2000);
+					},
+				}}
+			/>
+		</ScrollView>
+	));
