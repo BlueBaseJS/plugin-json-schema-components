@@ -63,7 +63,7 @@ export class FormFields extends React.Component<FormFieldsProps> {
 		const { children, fields = [] } = this.props;
 
 		if (children) {
-			return children(this.renderField);
+			return children(this.renderField); 
 		}
 
 		return fields.map((field, index) => this.renderField(field, index, this.props));

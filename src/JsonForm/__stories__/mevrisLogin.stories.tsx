@@ -13,24 +13,18 @@ storiesOf('Mevris Logiin', module)
 			<JsonForm
 				schema = {{
 					fields: [
-					
                         {
 							label: 'Email',
 							name: 'email',
 							type: 'email',
-							required: false,
-
+							required: true,
 						},
 						{
 							label: 'Password',
 							name: 'password',
 							type: 'password',
 							required: true,
-
                         },
-                       
-						
-					
 						{
 							direction: 'right',
 							name: 'form-actions',
@@ -39,8 +33,8 @@ storiesOf('Mevris Logiin', module)
 							fields: [{
 								name: 'submit',
 								title: 'Login',
-                                type: 'submit',
-                                //color : "secondary"
+								type: 'submit',
+								//style  : {alignSelf :'flex-end'}
 							}]
 						}
 					],

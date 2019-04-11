@@ -1,4 +1,4 @@
-import { StyleProp, ViewStyle } from 'react-native';
+import { StyleProp, ViewStyle} from 'react-native';
 import React from 'react';
 import { Theme } from '@bluebase/core';
 import { View } from '@bluebase/components';
@@ -8,6 +8,7 @@ export interface BaseFormFieldStyles {
 	mainContainer: StyleProp<ViewStyle>;
 	rightContainer: StyleProp<ViewStyle>;
 	root: StyleProp<ViewStyle>;
+	style ?: StyleProp<ViewStyle>;
 }
 
 export interface BaseFormFieldProps {
@@ -29,6 +30,7 @@ export class BaseFormField extends React.PureComponent<BaseFormFieldProps> {
 		},
 		mainContainer: {
 			flex: 1,
+			//borderWidth :1,
 		},
 		rightContainer: {
 			paddingLeft: theme.spacing.unit * 2,
@@ -44,15 +46,17 @@ export class BaseFormField extends React.PureComponent<BaseFormFieldProps> {
 
 	render() {
 
-		const { MainComponent, children, left, right, styles: _styles, ...props } = this.props;
+		const { MainComponent,style, children, left, right, styles: _styles, ...props } = this.props;
 		const styles = _styles as BaseFormFieldStyles;
+		console.log(this.props);
 
 		return (
 			<View style={styles.root} testID="base-form-field">
 				{left && <View style={styles.leftContainer} testID="base-form-field-left">{left}</View>}
-				{MainComponent &&
-					<View style={styles.mainContainer} testID="base-form-field-main">
-						<MainComponent {...props}>
+				{
+					MainComponent &&
+					<View style={[styles.mainContainer, style]} testID="base-form-field-main" >
+						<MainComponent {...props} >
 							{children}
 						</MainComponent>
 					</View>

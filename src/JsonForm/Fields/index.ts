@@ -1,5 +1,6 @@
 export * from './FormActions';
 export * from './FormCheckboxInput';
+export * from './FormDateInput';
 export * from './FormEmailInput';
 export * from './FormFieldProps';
 export * from './FormNumberInput';

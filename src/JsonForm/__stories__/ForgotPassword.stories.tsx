@@ -18,8 +18,7 @@ storiesOf('Forgot Password', module)
 							name: 'email',
 							type: 'email',
 							required: false,
-						},
-						
+						},					
 
 						{
 							direction: 'right',
@@ -36,6 +35,7 @@ storiesOf('Forgot Password', module)
 
 					
 					],
+
 					initialValues: {
 					},
 					onSubmit: (values, form) => {

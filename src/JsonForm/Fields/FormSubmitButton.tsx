@@ -5,6 +5,7 @@ import React from 'react';
 export interface FormSubmitButtonProps extends ButtonProps {
 	type: 'submit',
 	name: string,
+	haris: string
 }
 
 export const FormSubmitButton = connect((props: FormSubmitButtonProps & { formik: FormikContext<{}>; }) => {
@@ -12,7 +13,7 @@ export const FormSubmitButton = connect((props: FormSubmitButtonProps & { formik
 	const { handleSubmit, isSubmitting } = props.formik;
 
 	return (
-		<Button disabled={isSubmitting} loading={isSubmitting} {...props} onPress={handleSubmit} type="submit" />
+		<Button maxLength={props.haris} disabled={isSubmitting} loading={isSubmitting} {...props} onPress={handleSubmit} type="submit" />
 	);
 });
 
@@ -21,4 +22,5 @@ FormSubmitButton.defaultProps = {
 	name: 'submit',
 	title: 'Submit',
 	variant: 'contained',
+
 };

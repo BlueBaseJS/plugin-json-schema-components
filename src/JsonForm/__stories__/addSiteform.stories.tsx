@@ -6,7 +6,7 @@ import storiesOf from '@bluebase/storybook-addon';
 
 const JsonForm = getComponent<JsonFormProps>('JsonForm');
 
-storiesOf('Add site', module)
+storiesOf('Add sites', module)
 
 	.add('With default props', () => (
 		<ScrollView>
@@ -17,7 +17,7 @@ storiesOf('Add site', module)
 							label: 'Site Name',
 							name: 'username',
 							type: 'text',
-							required: true,
+							required: false,
 						},
 						{
 							label: 'Site Type',
@@ -25,10 +25,13 @@ storiesOf('Add site', module)
 							type: 'picker',
 
 							items: [{
-								label: 'JavaScript',
+								label: 'Office',
 								value: 'js'
 							}, {
-								label: 'Java',
+								label: 'Work',
+								value: 'java'
+							},{
+								label: 'Home',
 								value: 'java'
 							}]
 						},

@@ -1,6 +1,12 @@
 {
 	"extends": "@bluebase/code-standards/tsconfig",
+		
 	"compilerOptions": {
+		"target": "es6",
+		"rootDirs": ["bluerain", "src"],
+		"moduleResolution": "node",
+		"module": "commonjs",
+		"declaration": true,
 		"outDir": "dist",
 		"rootDir": ".",
 		"typeRoots": ["node_modules/@types"],

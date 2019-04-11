@@ -4,6 +4,9 @@ import { ScrollView } from 'react-native';
 import { getComponent } from '@bluebase/components';
 import storiesOf from '@bluebase/storybook-addon';
 
+/**
+ * @returns
+ */
 const JsonForm = getComponent<JsonFormProps>('JsonForm');
 
 storiesOf('Mevris SignUp', module)
@@ -14,10 +17,33 @@ storiesOf('Mevris SignUp', module)
 				schema = {{
 					fields: [
 						{
-							label: 'First Name',
-							name: 'username',
-							required: true,
-                            type: 'text',
+							direction: 'spaceBetween',
+							name: 'form-actions',
+							type: 'actions',
+							//style : {marginTop :20},
+							
+							fields: [{
+								label: 'First Name',
+								name: 'username',
+								required: true,
+								type: 'text',
+								//style : {marginRight : 40}
+							},
+							 {
+								label: 'Last Name',
+								name: 'username',
+								required: true,
+								type: 'text',
+								style : {flex:1}
+							}]
+						},
+						{
+							schema: { component: 'Text',text : 'h' },
+							type: 'component',
+							title : 'title',
+							name : 'name',
+							label : 'label'
+						
 						},
 						
                         {
@@ -25,40 +51,48 @@ storiesOf('Mevris SignUp', module)
 							name: 'email',
 							type: 'email',
 							required: true,
-
+						},
+						{
+							label: 'Number',
+							name: 'number',
+							type: 'number',
 						},
 						{
 							label: 'Password',
 							name: 'password',
 							type: 'password',
 							required: true,
-
                         },
                         {
 							label: 'Confirm Password',
 							name: 'confirmPassword',
 							type: 'password',
 							required: true,
-
                         },
 						{
 							label: 'Agree on Terms ?',
 							name: 'agreement',
 							type: 'checkbox',
+							labelPlacement : 'end'
+
 						},
-					
 						{
-							direction: 'right',
+							direction: 'left',
 							name: 'form-actions',
 							type: 'actions',
-
+							//style : {marginTop :20},
+							
 							fields: [{
 								name: 'submit',
 								title: 'SIGN UP',
 								type: 'submit',
+								color : 'primary'
+
 							}]
 						}
 					],
+					validateOnChange :false,
+					validateOnBlur :true,
 					initialValues: {
 					},
 					onSubmit: (values, form) => {

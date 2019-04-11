@@ -40,13 +40,11 @@ const FieldWrapper = (props: FieldWrapperProps) => (
 );
 
 
+
 describe('FormFields', () => {
-
-
 	it('should render all form fields in the schema', async () => {
 
 		const onSubmit = jest.fn();
-
 		const component = mount(
 			<BlueBaseApp plugins={[Plugin]}>
 				<Formik initialValues={initialValues} onSubmit={onSubmit}>

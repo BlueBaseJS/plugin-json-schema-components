@@ -1,7 +1,7 @@
 import { BootOptions } from '@bluebase/core';
 import commonBootOptions from '../common/bluebase';
 import deepmerge from 'deepmerge';
-//import Plugins from  "../../src/index"
+
 /**
  * Add your platform specific configs here. 
  * We keep all the universal (cross platform) configs in 
@@ -9,20 +9,14 @@ import deepmerge from 'deepmerge';
  */
 const bootOptions: Partial<BootOptions> = {
 
-	plugins: [
-		//Plugins,
-		require('@bluebase/plugin-material-ui')
-	],
+	// config: {
 
-	filters : {
-		'sample.form' : (schema) => {
-			console.log ('schema',schema)
-			schema.children.push ({
-				component : 'HomeScreen'
-			})
-			return schema;
-		}
-	}
+	// 	wallpaper: {
+	// 		backgroundColor: 'white',
+	// 		resizeMode: 'cover',
+	// 		source: require('./../../assets/web/wallpaper.png'),
+	// 	},
+	// }
 };
 
 export default deepmerge(commonBootOptions, bootOptions);

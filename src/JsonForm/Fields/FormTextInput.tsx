@@ -1,5 +1,7 @@
 import { TextInputProps, getComponent } from '@bluebase/components';
 import { BaseFormFieldProps } from '../BaseFormField';
+import { StyleProp, ViewStyle } from 'react-native';
+
 import { Field } from 'formik';
 import React from 'react';
 
@@ -13,16 +15,43 @@ export type FormTextInputProps<T = {}> = TextInputProps & BaseFormFieldProps & T
 	type?: string;
 	value?: any;
 	innerRef?: (instance: any) => void;
+	style?: StyleProp<ViewStyle>;
+	//[key: string]: any
+	maxLength ? : number
 };
 
 const validate = (props: FormTextInputProps) => (value: string) => {
 	const { required, type } = props;
 
 	let error;
+	var password ;
 
-	// If field is required
-	if (required === true && !value) {
+	// If field is required //tested
+	if (required === true && !value ) {
 		error = 'This field is required';
+	}
+
+	else if(type === 'text' && /^[A-Za-z]+$/.test(value)){
+		error = 'Should only be alphabet';
+	}
+
+	else if(type === 'password'){
+		//password == value;
+		error = 'This field is required';
+
+	}
+
+	else if(type === 'date'  ){
+		error = value;
+	}
+
+	//if number field is incorrect
+	else if (type === 'number' && !/^(0|[1-9]\d*)(\.\d+)?$/.test(value)){
+		error = 'Please enter a valid number'
+	}
+
+	else if (type === 'password' && value != password ){
+		error = 'Password not matched'
 	}
 
 	// If field 'email'
@@ -36,7 +65,6 @@ const validate = (props: FormTextInputProps) => (value: string) => {
 export const FormTextInput = (props: FormTextInputProps) => (
 	<Field {...props} validate={props.validate || validate(props)}>
 		{({ field, form }: any) => {
-
 			const name = props.name;
 
 			const inputProps = {
@@ -45,12 +73,12 @@ export const FormTextInput = (props: FormTextInputProps) => (
 				...props,
 				error: (form.errors[name] && form.touched[name]) || props.error,
 				helperText: form.errors[name] || props.helperText,
+				
 				onChangeText: (text: string) => {
 					form.handleChange(name)(text);
 					// props.onChangeText && props.onChangeText(text);
 				},
 			};
-
 			return (<BaseFormField {...inputProps} />);
 		}}
 	</Field>
