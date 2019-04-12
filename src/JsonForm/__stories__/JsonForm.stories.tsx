@@ -28,6 +28,7 @@ storiesOf('JsonForm', module)
 							name: 'password',
 							type: 'password',
 						},
+					
 						{
 							schema: { component: 'Divider' },
 							type: 'component',
@@ -75,7 +76,7 @@ storiesOf('JsonForm', module)
 							}]
 						},
 						{
-							schema: { component: 'Divider' },
+							schema: { component: 'Divider'  },
 							type: 'component',
 						},
 						{
