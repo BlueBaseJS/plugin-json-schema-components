@@ -1,0 +1,32 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const JsonForm_1 = require("./JsonForm");
+const JsonLayout_1 = require("./JsonLayout");
+// import { TextInput } from 'react-native';
+const core_1 = require("@bluebase/core");
+exports.default = core_1.createPlugin({
+    categories: ['ui'],
+    description: 'A utility to build pluggable components based on JSON schema!',
+    key: 'plugin-json-schema-components',
+    name: 'Json Schema Components',
+    version: '0.0.1',
+    components: {
+        BaseFormField: JsonForm_1.BaseFormField,
+        FormActions: JsonForm_1.FormActions,
+        FormCheckboxInput: JsonForm_1.FormCheckboxInput,
+        FormEmailInput: JsonForm_1.FormEmailInput,
+        FormNumberInput: JsonForm_1.FormNumberInput,
+        FormPasswordInput: JsonForm_1.FormPasswordInput,
+        FormPickerInput: JsonForm_1.FormPickerInput,
+        FormRadioGroupInput: JsonForm_1.FormRadioGroupInput,
+        FormRangeInput: JsonForm_1.FormRangeInput,
+        FormResetButton: JsonForm_1.FormResetButton,
+        FormSubmitButton: JsonForm_1.FormSubmitButton,
+        FormSwitchInput: JsonForm_1.FormSwitchInput,
+        FormTextInput: JsonForm_1.FormTextInput,
+        FormUrlInput: JsonForm_1.FormUrlInput,
+        JsonForm: JsonForm_1.JsonForm,
+        JsonLayout: JsonLayout_1.JsonLayout,
+    },
+});
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoiL2hvbWUvbXV6emFtaWwvRG9jdW1lbnRzL2JsdWViYXNlL3BsdWdpbi1qc29uLXNjaGVtYS1jb21wb25lbnRzL3NyYy9pbmRleC50cyIsIm1hcHBpbmdzIjoiOztBQUFBLHlDQWdCb0I7QUFDcEIsNkNBQTBDO0FBQzFDLDRDQUE0QztBQUM1Qyx5Q0FBOEM7QUFFOUMsa0JBQWUsbUJBQVksQ0FBQztJQUMzQixVQUFVLEVBQUUsQ0FBQyxJQUFJLENBQUM7SUFDbEIsV0FBVyxFQUFFLCtEQUErRDtJQUM1RSxHQUFHLEVBQUUsK0JBQStCO0lBQ3BDLElBQUksRUFBRSx3QkFBd0I7SUFDOUIsT0FBTyxFQUFFLE9BQU87SUFFaEIsVUFBVSxFQUFFO1FBQ1gsYUFBYSxFQUFiLHdCQUFhO1FBQ2IsV0FBVyxFQUFYLHNCQUFXO1FBQ1gsaUJBQWlCLEVBQWpCLDRCQUFpQjtRQUNqQixjQUFjLEVBQWQseUJBQWM7UUFDZCxlQUFlLEVBQWYsMEJBQWU7UUFDZixpQkFBaUIsRUFBakIsNEJBQWlCO1FBQ2pCLGVBQWUsRUFBZiwwQkFBZTtRQUNmLG1CQUFtQixFQUFuQiw4QkFBbUI7UUFDbkIsY0FBYyxFQUFkLHlCQUFjO1FBQ2QsZUFBZSxFQUFmLDBCQUFlO1FBQ2YsZ0JBQWdCLEVBQWhCLDJCQUFnQjtRQUNoQixlQUFlLEVBQWYsMEJBQWU7UUFDZixhQUFhLEVBQWIsd0JBQWE7UUFDYixZQUFZLEVBQVosdUJBQVk7UUFDWixRQUFRLEVBQVIsbUJBQVE7UUFDUixVQUFVLEVBQVYsdUJBQVU7S0FDVjtDQUNELENBQUMsQ0FBQyIsIm5hbWVzIjpbXSwic291cmNlcyI6WyIvaG9tZS9tdXp6YW1pbC9Eb2N1bWVudHMvYmx1ZWJhc2UvcGx1Z2luLWpzb24tc2NoZW1hLWNvbXBvbmVudHMvc3JjL2luZGV4LnRzIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7XG5cdEJhc2VGb3JtRmllbGQsXG5cdEZvcm1BY3Rpb25zLFxuXHRGb3JtQ2hlY2tib3hJbnB1dCxcblx0Rm9ybUVtYWlsSW5wdXQsXG5cdEZvcm1OdW1iZXJJbnB1dCxcblx0Rm9ybVBhc3N3b3JkSW5wdXQsXG5cdEZvcm1QaWNrZXJJbnB1dCxcblx0Rm9ybVJhZGlvR3JvdXBJbnB1dCxcblx0Rm9ybVJhbmdlSW5wdXQsXG5cdEZvcm1SZXNldEJ1dHRvbixcblx0Rm9ybVN1Ym1pdEJ1dHRvbixcblx0Rm9ybVN3aXRjaElucHV0LFxuXHRGb3JtVGV4dElucHV0LFxuXHRGb3JtVXJsSW5wdXQsXG5cdEpzb25Gb3JtLFxufSBmcm9tICcuL0pzb25Gb3JtJztcbmltcG9ydCB7IEpzb25MYXlvdXQgfSBmcm9tICcuL0pzb25MYXlvdXQnO1xuLy8gaW1wb3J0IHsgVGV4dElucHV0IH0gZnJvbSAncmVhY3QtbmF0aXZlJztcbmltcG9ydCB7IGNyZWF0ZVBsdWdpbiB9IGZyb20gJ0BibHVlYmFzZS9jb3JlJztcblxuZXhwb3J0IGRlZmF1bHQgY3JlYXRlUGx1Z2luKHtcblx0Y2F0ZWdvcmllczogWyd1aSddLFxuXHRkZXNjcmlwdGlvbjogJ0EgdXRpbGl0eSB0byBidWlsZCBwbHVnZ2FibGUgY29tcG9uZW50cyBiYXNlZCBvbiBKU09OIHNjaGVtYSEnLFxuXHRrZXk6ICdwbHVnaW4tanNvbi1zY2hlbWEtY29tcG9uZW50cycsXG5cdG5hbWU6ICdKc29uIFNjaGVtYSBDb21wb25lbnRzJyxcblx0dmVyc2lvbjogJzAuMC4xJyxcblxuXHRjb21wb25lbnRzOiB7XG5cdFx0QmFzZUZvcm1GaWVsZCxcblx0XHRGb3JtQWN0aW9ucyxcblx0XHRGb3JtQ2hlY2tib3hJbnB1dCxcblx0XHRGb3JtRW1haWxJbnB1dCxcblx0XHRGb3JtTnVtYmVySW5wdXQsXG5cdFx0Rm9ybVBhc3N3b3JkSW5wdXQsXG5cdFx0Rm9ybVBpY2tlcklucHV0LFxuXHRcdEZvcm1SYWRpb0dyb3VwSW5wdXQsXG5cdFx0Rm9ybVJhbmdlSW5wdXQsXG5cdFx0Rm9ybVJlc2V0QnV0dG9uLFxuXHRcdEZvcm1TdWJtaXRCdXR0b24sXG5cdFx0Rm9ybVN3aXRjaElucHV0LFxuXHRcdEZvcm1UZXh0SW5wdXQsXG5cdFx0Rm9ybVVybElucHV0LFxuXHRcdEpzb25Gb3JtLFxuXHRcdEpzb25MYXlvdXQsXG5cdH0sXG59KTtcbiJdLCJ2ZXJzaW9uIjozfQ==

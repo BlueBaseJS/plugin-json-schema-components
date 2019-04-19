@@ -24,11 +24,4 @@ storiesOf('FormEmailInput', module)
                 />
             </Formik>
         </BlueBaseApp>
-
-
-    ))
-
-
-
-
-    ;
+    ));

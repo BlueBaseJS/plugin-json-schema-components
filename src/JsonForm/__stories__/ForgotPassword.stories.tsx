@@ -13,13 +13,53 @@ storiesOf('Forgot Password', module)
 			<JsonForm
 				schema = {{
 					fields: [
+
+						{
+                            direction: 'left',
+                            name: 'form-actions',
+							type: 'actions',
+							
+                            fields: [
+                                {
+                                    schema: {
+										component: 'Text',
+										text : 'Forgot Password',
+										
+                                        props : {
+                                            style : {fontWeight :'bold',fontSize : 18}
+                                        }
+                                    },
+                                    type: 'component',
+								},
+							]
+						},
+						{
+                            direction: 'left',
+                            name: 'form-actions',
+                            type: 'actions',
+                            fields: [
+                                {
+                                    schema: {
+										component: 'Text',
+										text : 'Please enter the email address associated with your account and we will email you a link to reset your password',
+                                        props : {
+                                            style : {fontSize : 14}
+                                        }
+                                    },
+                                    type: 'component',
+								},
+							]
+						},
+                               
+
+                            
+                        
                         {
 							label: 'Email',
 							name: 'email',
 							type: 'email',
 							required: false,
 						},					
-
 						{
 							direction: 'right',
 							name: 'form-actions',
@@ -27,8 +67,9 @@ storiesOf('Forgot Password', module)
 
 							fields: [{
 								name: 'submit',
-								title: 'Send Email',
+								title: 'Send Reset Link ',
 								type: 'submit',
+								nested: true
 							}]
 						}
 

@@ -1,0 +1,7 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const tslib_1 = require("tslib");
+const JsonLayout_1 = require("./JsonLayout");
+const react_1 = tslib_1.__importDefault(require("react"));
+exports.createJsonLayout = (options) => () => (react_1.default.createElement(JsonLayout_1.JsonLayout, Object.assign({}, options)));
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoiL2hvbWUvbXV6emFtaWwvRG9jdW1lbnRzL2JsdWViYXNlL3BsdWdpbi1qc29uLXNjaGVtYS1jb21wb25lbnRzL3NyYy9Kc29uTGF5b3V0L2NyZWF0ZUpzb25MYXlvdXQudHN4IiwibWFwcGluZ3MiOiI7OztBQUFBLDZDQUEyRDtBQUMzRCwwREFBMEI7QUFFYixRQUFBLGdCQUFnQixHQUFHLENBQUMsT0FBd0IsRUFBRSxFQUFFLENBQUMsR0FBRyxFQUFFLENBQUMsQ0FBQyw4QkFBQyx1QkFBVSxvQkFBSyxPQUFPLEVBQUksQ0FBQyxDQUFDIiwibmFtZXMiOltdLCJzb3VyY2VzIjpbIi9ob21lL211enphbWlsL0RvY3VtZW50cy9ibHVlYmFzZS9wbHVnaW4tanNvbi1zY2hlbWEtY29tcG9uZW50cy9zcmMvSnNvbkxheW91dC9jcmVhdGVKc29uTGF5b3V0LnRzeCJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBKc29uTGF5b3V0LCBKc29uTGF5b3V0UHJvcHMgfSBmcm9tICcuL0pzb25MYXlvdXQnO1xuaW1wb3J0IFJlYWN0IGZyb20gJ3JlYWN0JztcblxuZXhwb3J0IGNvbnN0IGNyZWF0ZUpzb25MYXlvdXQgPSAob3B0aW9uczogSnNvbkxheW91dFByb3BzKSA9PiAoKSA9PiAoPEpzb25MYXlvdXQgey4uLm9wdGlvbnN9IC8+KTsiXSwidmVyc2lvbiI6M30=

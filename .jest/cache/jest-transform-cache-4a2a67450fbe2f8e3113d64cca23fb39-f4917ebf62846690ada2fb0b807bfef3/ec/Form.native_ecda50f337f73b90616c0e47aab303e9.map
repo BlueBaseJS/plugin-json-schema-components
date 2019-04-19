@@ -1,0 +1,1 @@
+{"version":3,"sources":["/home/muzzamil/Documents/bluebase/plugin-json-schema-components/src/JsonForm/Form/Form.native.ts"],"names":[],"mappings":";;;;;;AAAA,IAAA,YAAA,GAAA,OAAA,CAAA,sBAAA,CAAA;;AAAS,OAAA,CAAA,IAAA,GAAA,YAAA,CAAA,IAAA","sourcesContent":["export { Noop as Form } from '@bluebase/components';\n"]}

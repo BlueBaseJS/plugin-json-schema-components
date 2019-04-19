@@ -1,0 +1,79 @@
+a52b746f889c903d5e4ea53f355bf6ff
+"use strict";
+
+/* istanbul ignore next */
+var cov_1lvpkbnmge = function () {
+  var path = "/home/muzzamil/Documents/bluebase/plugin-json-schema-components/src/JsonForm/Form/index.ts";
+  var hash = "5cf3c35f3efd34a577e2344b0e13063dd8923a7b";
+
+  var Function = function () {}.constructor;
+
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/home/muzzamil/Documents/bluebase/plugin-json-schema-components/src/JsonForm/Form/index.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 3,
+          column: 0
+        },
+        end: {
+          line: 5,
+          column: 3
+        }
+      },
+      "1": {
+        start: {
+          line: 7,
+          column: 14
+        },
+        end: {
+          line: 7,
+          column: 30
+        }
+      },
+      "2": {
+        start: {
+          line: 9,
+          column: 0
+        },
+        end: {
+          line: 9,
+          column: 49
+        }
+      }
+    },
+    fnMap: {},
+    branchMap: {},
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0
+    },
+    f: {},
+    b: {},
+    _coverageSchema: "43e27e138ebf9cfc5966b082cf9a028302ed4184"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (coverage[path] && coverage[path].hash === hash) {
+    return coverage[path];
+  }
+
+  coverageData.hash = hash;
+  return coverage[path] = coverageData;
+}();
+
+cov_1lvpkbnmge.s[0]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var tslib_1 =
+/* istanbul ignore next */
+(cov_1lvpkbnmge.s[1]++, require("tslib"));
+
+/* istanbul ignore next */
+cov_1lvpkbnmge.s[2]++;
+
+tslib_1.__exportStar(require("./Form"), exports);

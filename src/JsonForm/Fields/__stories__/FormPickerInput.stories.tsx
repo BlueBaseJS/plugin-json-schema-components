@@ -1,29 +1,144 @@
-import {  Picker, getComponent } from '@bluebase/components';
-// import { FormPickerInputProps } from '../FormPickerInput';
+import {   getComponent } from '@bluebase/components';
+ import { FormPickerInputProps } from '../FormPickerInput';
 import React from 'react';
-import { BaseFormFieldProps } from '../../BaseFormField';
 import storiesOf from '@bluebase/storybook-addon';
-// import { FormPickerInput } from '../FormPickerInput';
-// import { BlueBaseApp } from '@bluebase/core';
-// import { Formik } from 'formik';
-// import {plugins} from './getPlugins'
-const BaseFormField = getComponent<BaseFormFieldProps>('BaseFormField');
+import { BlueBaseApp } from '@bluebase/core';
+import { Formik } from 'formik';
+import {plugins} from './getPlugins'
 
-// const FormPickerInput = getComponent<FormPickerInputProps>('FormPickerInput');
+const FormPickerInput = getComponent<FormPickerInputProps>('FormPickerInput');
 
-// function handleChecked(value: any) {
-//     console.log('Checked ', value.target.value);
-// }
+function onChange(name: any,selected:any) {
+    console.log('Checked ', name);
+    console.log('Selected ', selected);
+};
+
 
 storiesOf('FormPickerInput', module)
     .add('With Picker', () => (
-        <BaseFormField
-            MainComponent={Picker}
-            label="Picker"
-            value={100}
-        >
-            <Picker.Item label="JavaScript" value="js" />
-            <Picker.Item label="Java" value="java" />
-        </BaseFormField>
+        <BlueBaseApp plugins={plugins}>
+            <Formik initialValues={{ sample: '' }} onSubmit={console.log}>
+                <FormPickerInput
+                    type='picker'
+                    name='sample'
+                    items= {[{label:"Male",value:"Female"  },
+                    {label:"Node",value:"React"  }]}
+                >
+                </FormPickerInput>
+            </Formik>
+        </BlueBaseApp>
     ))
+
+    .add('With disabled', () => (
+        <BlueBaseApp plugins={plugins}>
+            <Formik initialValues={{ sample: '' }} onSubmit={console.log}>
+                <FormPickerInput
+                    type='picker'
+                    name='sample'
+                    items= {[{label:"Male",value:"Female"  },
+                    {label:"Node",value:"React"  }]}
+                     disabled = {true}
+                >
+                </FormPickerInput>
+            </Formik>
+        </BlueBaseApp>
+    ))
+
+    .add('With label and helper text', () => (
+        <BlueBaseApp plugins={plugins}>
+            <Formik initialValues={{ sample: '' }} onSubmit={console.log}>
+                <FormPickerInput
+                    type='picker'
+                    name='sample'
+                    items= {[{label:"Male",value:"Female"  },
+                    {label:"Node",value:"React"  }]}
+                   helperText = "Helper Text - Please Select one item"
+                   label = {"Slect one item"}
+                >
+                </FormPickerInput>
+            </Formik>
+        </BlueBaseApp>
+    ))
+
+    .add('With variant outlined and mode-dialogue', () => (
+        <BlueBaseApp plugins={plugins}>
+            <Formik initialValues={{ sample: '' }} onSubmit={console.log}>
+                <FormPickerInput
+                    type='picker'
+                    name='sample'
+                    items= {[{label:"Male",value:"Female"  },
+                    {label:"Node",value:"React"  }]}
+                   variant = "filled"
+                   mode = "dialog"
+                >
+                </FormPickerInput>
+            </Formik>
+        </BlueBaseApp>
+    ))
+
+    .add('With placeholder', () => (
+        <BlueBaseApp plugins={plugins}>
+            <Formik initialValues={{ sample: '' }} onSubmit={console.log}>
+                <FormPickerInput
+                    type='picker'
+                    name='sample'
+                    items= {[{label:"Male",value:"Female"  },
+                    {label:"Node",value:"React"  }]}
+                    placeholder = "I am placeholder"
+                >
+                </FormPickerInput>
+            </Formik>
+        </BlueBaseApp>
+    ))
+
+    .add('With style ', () => (
+        <BlueBaseApp plugins={plugins}>
+            <Formik initialValues={{ sample: '' }} onSubmit={console.log}>
+                <FormPickerInput
+                    type='picker'
+                    name='sample'
+                    items= {[{label:"Male",value:"Female"  },
+                    {label:"Node",value:"React"  }]}
+                    error = {true}
+                    
+                  
+                >
+                </FormPickerInput>
+            </Formik>
+        </BlueBaseApp>
+    ))
+
+    .add('With selected value', () => (
+        <BlueBaseApp plugins={plugins}>
+            <Formik initialValues={{ sample: '' }} onSubmit={console.log}>
+                <FormPickerInput
+                    type='picker'
+                    name='sample'
+                    items= {[{label:"Male",value:"Female"  },
+                    {label:"Node",value:"React"  }]}
+                   // selectedValue = {values}
+                >
+                </FormPickerInput>
+            </Formik>
+        </BlueBaseApp>
+    ))
+
+    .add('With onValueChange', () => (
+        <BlueBaseApp plugins={plugins}>
+            <Formik initialValues={{ sample: '' }} onSubmit={console.log}>
+                <FormPickerInput
+                    type='picker'
+                    name=''
+                    items= {[{label:"Male",value:"Male"  },
+                    {label:"Node",value:"Node"  },
+                     {label:"Java",value:"Java"  }]}
+                    onValueChange =  {onChange}                  
+                  
+                >
+                </FormPickerInput>
+            </Formik>
+        </BlueBaseApp>
+    ))
+
+
     ;

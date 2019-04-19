@@ -109,8 +109,37 @@ storiesOf('JsonForm', module)
 								name: 'submit',
 								title: 'Login',
 								type: 'submit',
+								nested : true
+
 							}]
-						}
+						},
+						{
+							name: 'submit',
+							title: 'SIGN Button',
+							type: 'submit',
+							color : 'primary',
+							fullWidth : true
+							
+						},
+						
+						{
+							direction: 'left',
+						   name: 'form-actions',
+						   type: 'actions',
+						   fields: [
+							   {
+								   schema: {
+									   component: 'Text',
+									   text : 'Forgot password ',
+									   
+									   props : {
+										   style : {fontSize : 14}
+									   }
+								   },
+								   type: 'component',
+							   },
+						   ]
+					   }
 					],
 					initialValues: {
 						'auto-login': true,

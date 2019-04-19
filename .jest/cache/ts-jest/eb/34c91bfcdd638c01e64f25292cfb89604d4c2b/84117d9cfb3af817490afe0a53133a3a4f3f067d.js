@@ -1,0 +1,38 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const tslib_1 = require("tslib");
+const react_1 = tslib_1.__importDefault(require("react"));
+const components_1 = require("@bluebase/components");
+class BaseFormField extends react_1.default.PureComponent {
+    render() {
+        const _a = this.props, { MainComponent, children, left, right, styles: _styles } = _a, props = tslib_1.__rest(_a, ["MainComponent", "children", "left", "right", "styles"]);
+        const styles = _styles;
+        return (react_1.default.createElement(components_1.View, { style: styles.root, testID: "base-form-field" },
+            left && react_1.default.createElement(components_1.View, { style: styles.leftContainer, testID: "base-form-field-left" }, left),
+            MainComponent &&
+                react_1.default.createElement(components_1.View, { style: styles.mainContainer, testID: "base-form-field-main" },
+                    react_1.default.createElement(MainComponent, Object.assign({}, props), children)),
+            right && react_1.default.createElement(components_1.View, { style: styles.rightContainer, testID: "base-form-field-right" }, right)));
+    }
+}
+BaseFormField.defaultProps = {};
+BaseFormField.defaultStyles = (theme) => ({
+    leftContainer: {
+        paddingRight: theme.spacing.unit * 2,
+    },
+    mainContainer: {
+        flex: 1,
+    },
+    rightContainer: {
+        paddingLeft: theme.spacing.unit * 2,
+    },
+    root: {
+        alignItems: 'center',
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        paddingHorizontal: theme.spacing.unit * 2,
+        paddingVertical: theme.spacing.unit * 2,
+    }
+});
+exports.BaseFormField = BaseFormField;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoiL2hvbWUvbXV6emFtaWwvRG9jdW1lbnRzL2JsdWViYXNlL3BsdWdpbi1qc29uLXNjaGVtYS1jb21wb25lbnRzL3NyYy9Kc29uRm9ybS9CYXNlRm9ybUZpZWxkLnRzeCIsIm1hcHBpbmdzIjoiOzs7QUFDQSwwREFBMEI7QUFFMUIscURBQTRDO0FBa0I1QyxNQUFhLGFBQWMsU0FBUSxlQUFLLENBQUMsYUFBaUM7SUF1QnpFLE1BQU07UUFFTCxNQUFNLGVBQWdGLEVBQWhGLEVBQUUsYUFBYSxFQUFFLFFBQVEsRUFBRSxJQUFJLEVBQUUsS0FBSyxFQUFFLE1BQU0sRUFBRSxPQUFPLE9BQXlCLEVBQXZCLG9GQUF1QixDQUFDO1FBQ3ZGLE1BQU0sTUFBTSxHQUFHLE9BQThCLENBQUM7UUFFOUMsT0FBTyxDQUNOLDhCQUFDLGlCQUFJLElBQUMsS0FBSyxFQUFFLE1BQU0sQ0FBQyxJQUFJLEVBQUUsTUFBTSxFQUFDLGlCQUFpQjtZQUNoRCxJQUFJLElBQUksOEJBQUMsaUJBQUksSUFBQyxLQUFLLEVBQUUsTUFBTSxDQUFDLGFBQWEsRUFBRSxNQUFNLEVBQUMsc0JBQXNCLElBQUUsSUFBSSxDQUFRO1lBQ3RGLGFBQWE7Z0JBQ2IsOEJBQUMsaUJBQUksSUFBQyxLQUFLLEVBQUUsTUFBTSxDQUFDLGFBQWEsRUFBRSxNQUFNLEVBQUMsc0JBQXNCO29CQUMvRCw4QkFBQyxhQUFhLG9CQUFLLEtBQUssR0FDdEIsUUFBUSxDQUNNLENBQ1Y7WUFFUCxLQUFLLElBQUksOEJBQUMsaUJBQUksSUFBQyxLQUFLLEVBQUUsTUFBTSxDQUFDLGNBQWMsRUFBRSxNQUFNLEVBQUMsdUJBQXVCLElBQUUsS0FBSyxDQUFRLENBQ3JGLENBQ1AsQ0FBQztJQUNILENBQUM7O0FBdkNNLDBCQUFZLEdBQWdDLEVBQUUsQ0FBQztBQUUvQywyQkFBYSxHQUFHLENBQUMsS0FBWSxFQUF1QixFQUFFLENBQUMsQ0FBQztJQUM5RCxhQUFhLEVBQUU7UUFDZCxZQUFZLEVBQUUsS0FBSyxDQUFDLE9BQU8sQ0FBQyxJQUFJLEdBQUcsQ0FBQztLQUNwQztJQUNELGFBQWEsRUFBRTtRQUNkLElBQUksRUFBRSxDQUFDO0tBQ1A7SUFDRCxjQUFjLEVBQUU7UUFDZixXQUFXLEVBQUUsS0FBSyxDQUFDLE9BQU8sQ0FBQyxJQUFJLEdBQUcsQ0FBQztLQUNuQztJQUNELElBQUksRUFBRTtRQUNMLFVBQVUsRUFBRSxRQUFRO1FBQ3BCLGFBQWEsRUFBRSxLQUFLO1FBQ3BCLGNBQWMsRUFBRSxZQUFZO1FBQzVCLGlCQUFpQixFQUFFLEtBQUssQ0FBQyxPQUFPLENBQUMsSUFBSSxHQUFHLENBQUM7UUFDekMsZUFBZSxFQUFFLEtBQUssQ0FBQyxPQUFPLENBQUMsSUFBSSxHQUFHLENBQUM7S0FDdkM7Q0FDRCxDQUFDLENBQUE7QUFyQkgsc0NBMENDIiwibmFtZXMiOltdLCJzb3VyY2VzIjpbIi9ob21lL211enphbWlsL0RvY3VtZW50cy9ibHVlYmFzZS9wbHVnaW4tanNvbi1zY2hlbWEtY29tcG9uZW50cy9zcmMvSnNvbkZvcm0vQmFzZUZvcm1GaWVsZC50c3giXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgU3R5bGVQcm9wLCBWaWV3U3R5bGUgfSBmcm9tICdyZWFjdC1uYXRpdmUnO1xuaW1wb3J0IFJlYWN0IGZyb20gJ3JlYWN0JztcbmltcG9ydCB7IFRoZW1lIH0gZnJvbSAnQGJsdWViYXNlL2NvcmUnO1xuaW1wb3J0IHsgVmlldyB9IGZyb20gJ0BibHVlYmFzZS9jb21wb25lbnRzJztcblxuZXhwb3J0IGludGVyZmFjZSBCYXNlRm9ybUZpZWxkU3R5bGVzIHtcblx0bGVmdENvbnRhaW5lcjogU3R5bGVQcm9wPFZpZXdTdHlsZT47XG5cdG1haW5Db250YWluZXI6IFN0eWxlUHJvcDxWaWV3U3R5bGU+O1xuXHRyaWdodENvbnRhaW5lcjogU3R5bGVQcm9wPFZpZXdTdHlsZT47XG5cdHJvb3Q6IFN0eWxlUHJvcDxWaWV3U3R5bGU+O1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIEJhc2VGb3JtRmllbGRQcm9wcyB7XG5cdGxlZnQ/OiBSZWFjdC5SZWFjdE5vZGU7XG5cdHJpZ2h0PzogUmVhY3QuUmVhY3ROb2RlO1xuXHRNYWluQ29tcG9uZW50PzogUmVhY3QuQ29tcG9uZW50VHlwZTxhbnk+O1xuXHRzdHlsZXM/OiBQYXJ0aWFsPEJhc2VGb3JtRmllbGRTdHlsZXM+O1xuXG5cdFtrZXk6IHN0cmluZ106IGFueTtcbn1cblxuZXhwb3J0IGNsYXNzIEJhc2VGb3JtRmllbGQgZXh0ZW5kcyBSZWFjdC5QdXJlQ29tcG9uZW50PEJhc2VGb3JtRmllbGRQcm9wcz4ge1xuXG5cdHN0YXRpYyBkZWZhdWx0UHJvcHM6IFBhcnRpYWw8QmFzZUZvcm1GaWVsZFByb3BzPiA9IHt9O1xuXG5cdHN0YXRpYyBkZWZhdWx0U3R5bGVzID0gKHRoZW1lOiBUaGVtZSk6IEJhc2VGb3JtRmllbGRTdHlsZXMgPT4gKHtcblx0XHRsZWZ0Q29udGFpbmVyOiB7XG5cdFx0XHRwYWRkaW5nUmlnaHQ6IHRoZW1lLnNwYWNpbmcudW5pdCAqIDIsXG5cdFx0fSxcblx0XHRtYWluQ29udGFpbmVyOiB7XG5cdFx0XHRmbGV4OiAxLFxuXHRcdH0sXG5cdFx0cmlnaHRDb250YWluZXI6IHtcblx0XHRcdHBhZGRpbmdMZWZ0OiB0aGVtZS5zcGFjaW5nLnVuaXQgKiAyLFxuXHRcdH0sXG5cdFx0cm9vdDoge1xuXHRcdFx0YWxpZ25JdGVtczogJ2NlbnRlcicsXG5cdFx0XHRmbGV4RGlyZWN0aW9uOiAncm93Jyxcblx0XHRcdGp1c3RpZnlDb250ZW50OiAnZmxleC1zdGFydCcsXG5cdFx0XHRwYWRkaW5nSG9yaXpvbnRhbDogdGhlbWUuc3BhY2luZy51bml0ICogMixcblx0XHRcdHBhZGRpbmdWZXJ0aWNhbDogdGhlbWUuc3BhY2luZy51bml0ICogMixcblx0XHR9XG5cdH0pXG5cblx0cmVuZGVyKCkge1xuXG5cdFx0Y29uc3QgeyBNYWluQ29tcG9uZW50LCBjaGlsZHJlbiwgbGVmdCwgcmlnaHQsIHN0eWxlczogX3N0eWxlcywgLi4ucHJvcHMgfSA9IHRoaXMucHJvcHM7XG5cdFx0Y29uc3Qgc3R5bGVzID0gX3N0eWxlcyBhcyBCYXNlRm9ybUZpZWxkU3R5bGVzO1xuXG5cdFx0cmV0dXJuIChcblx0XHRcdDxWaWV3IHN0eWxlPXtzdHlsZXMucm9vdH0gdGVzdElEPVwiYmFzZS1mb3JtLWZpZWxkXCI+XG5cdFx0XHRcdHtsZWZ0ICYmIDxWaWV3IHN0eWxlPXtzdHlsZXMubGVmdENvbnRhaW5lcn0gdGVzdElEPVwiYmFzZS1mb3JtLWZpZWxkLWxlZnRcIj57bGVmdH08L1ZpZXc+fVxuXHRcdFx0XHR7TWFpbkNvbXBvbmVudCAmJlxuXHRcdFx0XHRcdDxWaWV3IHN0eWxlPXtzdHlsZXMubWFpbkNvbnRhaW5lcn0gdGVzdElEPVwiYmFzZS1mb3JtLWZpZWxkLW1haW5cIj5cblx0XHRcdFx0XHRcdDxNYWluQ29tcG9uZW50IHsuLi5wcm9wc30+XG5cdFx0XHRcdFx0XHRcdHtjaGlsZHJlbn1cblx0XHRcdFx0XHRcdDwvTWFpbkNvbXBvbmVudD5cblx0XHRcdFx0XHQ8L1ZpZXc+XG5cdFx0XHRcdH1cblx0XHRcdFx0e3JpZ2h0ICYmIDxWaWV3IHN0eWxlPXtzdHlsZXMucmlnaHRDb250YWluZXJ9IHRlc3RJRD1cImJhc2UtZm9ybS1maWVsZC1yaWdodFwiPntyaWdodH08L1ZpZXc+fVxuXHRcdFx0PC9WaWV3PlxuXHRcdCk7XG5cdH1cbn1cbiJdLCJ2ZXJzaW9uIjozfQ==

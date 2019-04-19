@@ -20,8 +20,11 @@ export const FormPickerInput = ({ type, items, ...props }: FormPickerInputProps)
 			const inputProps: any = {
 				...props,
 				...field,
-				onValueChange: (v: any) => form.setFieldValue(field.name, v),
-				selectedValue: field.value,
+				onValueChange: (value: any) => {
+				form.setFieldValue(field.name, value),
+				//selectedValue: field.value,
+				!value ?  null : props.onValueChange ? props.onValueChange(field.name,value) : null;
+				}
 			};
 
 			return (

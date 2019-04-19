@@ -1,0 +1,222 @@
+7c13a199d25248e97d9a7e9582d3a8dc
+"use strict";
+
+/* istanbul ignore next */
+var cov_1op9ve5pj5 = function () {
+  var path = "/home/muzzamil/Documents/bluebase/plugin-json-schema-components/src/JsonLayout/createJsonLayout.tsx";
+  var hash = "7196260402e5d5e30d7a47ce0b6003656f3e6340";
+
+  var Function = function () {}.constructor;
+
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/home/muzzamil/Documents/bluebase/plugin-json-schema-components/src/JsonLayout/createJsonLayout.tsx",
+    statementMap: {
+      "0": {
+        start: {
+          line: 3,
+          column: 29
+        },
+        end: {
+          line: 3,
+          column: 84
+        }
+      },
+      "1": {
+        start: {
+          line: 5,
+          column: 16
+        },
+        end: {
+          line: 5,
+          column: 81
+        }
+      },
+      "2": {
+        start: {
+          line: 7,
+          column: 0
+        },
+        end: {
+          line: 9,
+          column: 3
+        }
+      },
+      "3": {
+        start: {
+          line: 11,
+          column: 14
+        },
+        end: {
+          line: 11,
+          column: 30
+        }
+      },
+      "4": {
+        start: {
+          line: 13,
+          column: 19
+        },
+        end: {
+          line: 13,
+          column: 42
+        }
+      },
+      "5": {
+        start: {
+          line: 15,
+          column: 14
+        },
+        end: {
+          line: 15,
+          column: 55
+        }
+      },
+      "6": {
+        start: {
+          line: 17,
+          column: 0
+        },
+        end: {
+          line: 21,
+          column: 2
+        }
+      },
+      "7": {
+        start: {
+          line: 18,
+          column: 2
+        },
+        end: {
+          line: 20,
+          column: 4
+        }
+      },
+      "8": {
+        start: {
+          line: 19,
+          column: 4
+        },
+        end: {
+          line: 19,
+          column: 103
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "(anonymous_0)",
+        decl: {
+          start: {
+            line: 17,
+            column: 27
+          },
+          end: {
+            line: 17,
+            column: 28
+          }
+        },
+        loc: {
+          start: {
+            line: 17,
+            column: 46
+          },
+          end: {
+            line: 21,
+            column: 1
+          }
+        },
+        line: 17
+      },
+      "1": {
+        name: "(anonymous_1)",
+        decl: {
+          start: {
+            line: 18,
+            column: 9
+          },
+          end: {
+            line: 18,
+            column: 10
+          }
+        },
+        loc: {
+          start: {
+            line: 18,
+            column: 21
+          },
+          end: {
+            line: 20,
+            column: 3
+          }
+        },
+        line: 18
+      }
+    },
+    branchMap: {},
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0
+    },
+    f: {
+      "0": 0,
+      "1": 0
+    },
+    b: {},
+    _coverageSchema: "43e27e138ebf9cfc5966b082cf9a028302ed4184"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (coverage[path] && coverage[path].hash === hash) {
+    return coverage[path];
+  }
+
+  coverageData.hash = hash;
+  return coverage[path] = coverageData;
+}();
+
+var _interopRequireDefault =
+/* istanbul ignore next */
+(cov_1op9ve5pj5.s[0]++, require("@babel/runtime/helpers/interopRequireDefault"));
+
+var _extends2 =
+/* istanbul ignore next */
+(cov_1op9ve5pj5.s[1]++, _interopRequireDefault(require("@babel/runtime/helpers/extends")));
+
+/* istanbul ignore next */
+cov_1op9ve5pj5.s[2]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var tslib_1 =
+/* istanbul ignore next */
+(cov_1op9ve5pj5.s[3]++, require("tslib"));
+var JsonLayout_1 =
+/* istanbul ignore next */
+(cov_1op9ve5pj5.s[4]++, require("./JsonLayout"));
+var react_1 =
+/* istanbul ignore next */
+(cov_1op9ve5pj5.s[5]++, tslib_1.__importDefault(require("react")));
+
+/* istanbul ignore next */
+cov_1op9ve5pj5.s[6]++;
+
+exports.createJsonLayout = function (options) {
+  /* istanbul ignore next */
+  cov_1op9ve5pj5.f[0]++;
+  cov_1op9ve5pj5.s[7]++;
+  return function () {
+    /* istanbul ignore next */
+    cov_1op9ve5pj5.f[1]++;
+    cov_1op9ve5pj5.s[8]++;
+    return react_1.default.createElement(JsonLayout_1.JsonLayout, (0, _extends2.default)({}, options));
+  };
+};

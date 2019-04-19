@@ -1,0 +1,90 @@
+6ee77e08f667b8ca0bef32184c633aee
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
+
+var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
+
+var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var tslib_1 = require("tslib");
+
+var react_1 = tslib_1.__importDefault(require("react"));
+
+var components_1 = require("@bluebase/components");
+
+var BaseFormField = function (_react_1$default$Pure) {
+  (0, _inherits2.default)(BaseFormField, _react_1$default$Pure);
+
+  function BaseFormField() {
+    (0, _classCallCheck2.default)(this, BaseFormField);
+    return (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(BaseFormField).apply(this, arguments));
+  }
+
+  (0, _createClass2.default)(BaseFormField, [{
+    key: "render",
+    value: function render() {
+      var _a = this.props,
+          MainComponent = _a.MainComponent,
+          children = _a.children,
+          left = _a.left,
+          right = _a.right,
+          _styles = _a.styles,
+          props = tslib_1.__rest(_a, ["MainComponent", "children", "left", "right", "styles"]);
+
+      var styles = _styles;
+      return react_1.default.createElement(components_1.View, {
+        style: styles.root,
+        testID: "base-form-field"
+      }, left && react_1.default.createElement(components_1.View, {
+        style: styles.leftContainer,
+        testID: "base-form-field-left"
+      }, left), MainComponent && react_1.default.createElement(components_1.View, {
+        style: styles.mainContainer,
+        testID: "base-form-field-main"
+      }, react_1.default.createElement(MainComponent, (0, _extends2.default)({}, props), children)), right && react_1.default.createElement(components_1.View, {
+        style: styles.rightContainer,
+        testID: "base-form-field-right"
+      }, right));
+    }
+  }]);
+  return BaseFormField;
+}(react_1.default.PureComponent);
+
+BaseFormField.defaultProps = {};
+
+BaseFormField.defaultStyles = function (theme) {
+  return {
+    leftContainer: {
+      paddingRight: theme.spacing.unit * 2
+    },
+    mainContainer: {
+      flex: 1
+    },
+    rightContainer: {
+      paddingLeft: theme.spacing.unit * 2
+    },
+    root: {
+      alignItems: 'center',
+      flexDirection: 'row',
+      justifyContent: 'flex-start',
+      paddingHorizontal: theme.spacing.unit * 2,
+      paddingVertical: theme.spacing.unit * 2
+    }
+  };
+};
+
+exports.BaseFormField = BaseFormField;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL211enphbWlsL0RvY3VtZW50cy9ibHVlYmFzZS9wbHVnaW4tanNvbi1zY2hlbWEtY29tcG9uZW50cy9zcmMvSnNvbkZvcm0vQmFzZUZvcm1GaWVsZC50c3giXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQUNBLElBQUEsT0FBQSxHQUFBLE9BQUEsQ0FBQSxlQUFBLENBQUEsT0FBQSxDQUFBLE9BQUEsQ0FBQSxDQUFBOztBQUVBLElBQUEsWUFBQSxHQUFBLE9BQUEsQ0FBQSxzQkFBQSxDQUFBOztJQWtCYSxhOzs7Ozs7Ozs7OzZCQXVCTjtBQUVDLFVBQUEsRUFBQSxHQUFBLEtBQUEsS0FBQTtBQUFBLFVBQUUsYUFBRixHQUF1RCxFQUF2RCxDQUFFLGFBQUY7QUFBQSxVQUFpQixRQUFqQixHQUF1RCxFQUF2RCxDQUFpQixRQUFqQjtBQUFBLFVBQTJCLElBQTNCLEdBQXVELEVBQXZELENBQTJCLElBQTNCO0FBQUEsVUFBaUMsS0FBakMsR0FBdUQsRUFBdkQsQ0FBaUMsS0FBakM7QUFBQSxVQUFnRCxPQUFoRCxHQUF1RCxFQUF2RCxDQUF3QyxNQUF4QztBQUFBLFVBQXlELEtBQXpELEdBQXlELE9BQUEsQ0FBQSxNQUFBLENBQUEsRUFBQSxFQUFBLENBQUEsZUFBQSxFQUFBLFVBQUEsRUFBQSxNQUFBLEVBQUEsT0FBQSxFQUFBLFFBQUEsQ0FBQSxDQUF6RDs7QUFDTixVQUFNLE1BQU0sR0FBRyxPQUFmO0FBRUEsYUFDQyxPQUFBLENBQUEsT0FBQSxDQUFBLGFBQUEsQ0FBQyxZQUFBLENBQUEsSUFBRCxFQUFLO0FBQUMsUUFBQSxLQUFLLEVBQUUsTUFBTSxDQUFDLElBQWY7QUFBcUIsUUFBQSxNQUFNLEVBQUM7QUFBNUIsT0FBTCxFQUNFLElBQUksSUFBSSxPQUFBLENBQUEsT0FBQSxDQUFBLGFBQUEsQ0FBQyxZQUFBLENBQUEsSUFBRCxFQUFLO0FBQUMsUUFBQSxLQUFLLEVBQUUsTUFBTSxDQUFDLGFBQWY7QUFBOEIsUUFBQSxNQUFNLEVBQUM7QUFBckMsT0FBTCxFQUFrRSxJQUFsRSxDQURWLEVBRUUsYUFBYSxJQUNiLE9BQUEsQ0FBQSxPQUFBLENBQUEsYUFBQSxDQUFDLFlBQUEsQ0FBQSxJQUFELEVBQUs7QUFBQyxRQUFBLEtBQUssRUFBRSxNQUFNLENBQUMsYUFBZjtBQUE4QixRQUFBLE1BQU0sRUFBQztBQUFyQyxPQUFMLEVBQ0MsT0FBQSxDQUFBLE9BQUEsQ0FBQSxhQUFBLENBQUMsYUFBRCxFQUFjLHVCQUFBLEVBQUEsRUFBSyxLQUFMLENBQWQsRUFDRSxRQURGLENBREQsQ0FIRixFQVNFLEtBQUssSUFBSSxPQUFBLENBQUEsT0FBQSxDQUFBLGFBQUEsQ0FBQyxZQUFBLENBQUEsSUFBRCxFQUFLO0FBQUMsUUFBQSxLQUFLLEVBQUUsTUFBTSxDQUFDLGNBQWY7QUFBK0IsUUFBQSxNQUFNLEVBQUM7QUFBdEMsT0FBTCxFQUFvRSxLQUFwRSxDQVRYLENBREQ7QUFhQTs7O0VBekNpQyxPQUFBLENBQUEsT0FBQSxDQUFNLGE7O0FBRWpDLGFBQUEsQ0FBQSxZQUFBLEdBQTRDLEVBQTVDOztBQUVBLGFBQUEsQ0FBQSxhQUFBLEdBQWdCLFVBQUMsS0FBRDtBQUFBLFNBQXdDO0FBQzlELElBQUEsYUFBYSxFQUFFO0FBQ2QsTUFBQSxZQUFZLEVBQUUsS0FBSyxDQUFDLE9BQU4sQ0FBYyxJQUFkLEdBQXFCO0FBRHJCLEtBRCtDO0FBSTlELElBQUEsYUFBYSxFQUFFO0FBQ2QsTUFBQSxJQUFJLEVBQUU7QUFEUSxLQUorQztBQU85RCxJQUFBLGNBQWMsRUFBRTtBQUNmLE1BQUEsV0FBVyxFQUFFLEtBQUssQ0FBQyxPQUFOLENBQWMsSUFBZCxHQUFxQjtBQURuQixLQVA4QztBQVU5RCxJQUFBLElBQUksRUFBRTtBQUNMLE1BQUEsVUFBVSxFQUFFLFFBRFA7QUFFTCxNQUFBLGFBQWEsRUFBRSxLQUZWO0FBR0wsTUFBQSxjQUFjLEVBQUUsWUFIWDtBQUlMLE1BQUEsaUJBQWlCLEVBQUUsS0FBSyxDQUFDLE9BQU4sQ0FBYyxJQUFkLEdBQXFCLENBSm5DO0FBS0wsTUFBQSxlQUFlLEVBQUUsS0FBSyxDQUFDLE9BQU4sQ0FBYyxJQUFkLEdBQXFCO0FBTGpDO0FBVndELEdBQXhDO0FBQUEsQ0FBaEI7O0FBSlIsT0FBQSxDQUFBLGFBQUEsR0FBQSxhQUFBIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgU3R5bGVQcm9wLCBWaWV3U3R5bGUgfSBmcm9tICdyZWFjdC1uYXRpdmUnO1xuaW1wb3J0IFJlYWN0IGZyb20gJ3JlYWN0JztcbmltcG9ydCB7IFRoZW1lIH0gZnJvbSAnQGJsdWViYXNlL2NvcmUnO1xuaW1wb3J0IHsgVmlldyB9IGZyb20gJ0BibHVlYmFzZS9jb21wb25lbnRzJztcblxuZXhwb3J0IGludGVyZmFjZSBCYXNlRm9ybUZpZWxkU3R5bGVzIHtcblx0bGVmdENvbnRhaW5lcjogU3R5bGVQcm9wPFZpZXdTdHlsZT47XG5cdG1haW5Db250YWluZXI6IFN0eWxlUHJvcDxWaWV3U3R5bGU+O1xuXHRyaWdodENvbnRhaW5lcjogU3R5bGVQcm9wPFZpZXdTdHlsZT47XG5cdHJvb3Q6IFN0eWxlUHJvcDxWaWV3U3R5bGU+O1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIEJhc2VGb3JtRmllbGRQcm9wcyB7XG5cdGxlZnQ/OiBSZWFjdC5SZWFjdE5vZGU7XG5cdHJpZ2h0PzogUmVhY3QuUmVhY3ROb2RlO1xuXHRNYWluQ29tcG9uZW50PzogUmVhY3QuQ29tcG9uZW50VHlwZTxhbnk+O1xuXHRzdHlsZXM/OiBQYXJ0aWFsPEJhc2VGb3JtRmllbGRTdHlsZXM+O1xuXG5cdFtrZXk6IHN0cmluZ106IGFueTtcbn1cblxuZXhwb3J0IGNsYXNzIEJhc2VGb3JtRmllbGQgZXh0ZW5kcyBSZWFjdC5QdXJlQ29tcG9uZW50PEJhc2VGb3JtRmllbGRQcm9wcz4ge1xuXG5cdHN0YXRpYyBkZWZhdWx0UHJvcHM6IFBhcnRpYWw8QmFzZUZvcm1GaWVsZFByb3BzPiA9IHt9O1xuXG5cdHN0YXRpYyBkZWZhdWx0U3R5bGVzID0gKHRoZW1lOiBUaGVtZSk6IEJhc2VGb3JtRmllbGRTdHlsZXMgPT4gKHtcblx0XHRsZWZ0Q29udGFpbmVyOiB7XG5cdFx0XHRwYWRkaW5nUmlnaHQ6IHRoZW1lLnNwYWNpbmcudW5pdCAqIDIsXG5cdFx0fSxcblx0XHRtYWluQ29udGFpbmVyOiB7XG5cdFx0XHRmbGV4OiAxLFxuXHRcdH0sXG5cdFx0cmlnaHRDb250YWluZXI6IHtcblx0XHRcdHBhZGRpbmdMZWZ0OiB0aGVtZS5zcGFjaW5nLnVuaXQgKiAyLFxuXHRcdH0sXG5cdFx0cm9vdDoge1xuXHRcdFx0YWxpZ25JdGVtczogJ2NlbnRlcicsXG5cdFx0XHRmbGV4RGlyZWN0aW9uOiAncm93Jyxcblx0XHRcdGp1c3RpZnlDb250ZW50OiAnZmxleC1zdGFydCcsXG5cdFx0XHRwYWRkaW5nSG9yaXpvbnRhbDogdGhlbWUuc3BhY2luZy51bml0ICogMixcblx0XHRcdHBhZGRpbmdWZXJ0aWNhbDogdGhlbWUuc3BhY2luZy51bml0ICogMixcblx0XHR9XG5cdH0pXG5cblx0cmVuZGVyKCkge1xuXG5cdFx0Y29uc3QgeyBNYWluQ29tcG9uZW50LCBjaGlsZHJlbiwgbGVmdCwgcmlnaHQsIHN0eWxlczogX3N0eWxlcywgLi4ucHJvcHMgfSA9IHRoaXMucHJvcHM7XG5cdFx0Y29uc3Qgc3R5bGVzID0gX3N0eWxlcyBhcyBCYXNlRm9ybUZpZWxkU3R5bGVzO1xuXG5cdFx0cmV0dXJuIChcblx0XHRcdDxWaWV3IHN0eWxlPXtzdHlsZXMucm9vdH0gdGVzdElEPVwiYmFzZS1mb3JtLWZpZWxkXCI+XG5cdFx0XHRcdHtsZWZ0ICYmIDxWaWV3IHN0eWxlPXtzdHlsZXMubGVmdENvbnRhaW5lcn0gdGVzdElEPVwiYmFzZS1mb3JtLWZpZWxkLWxlZnRcIj57bGVmdH08L1ZpZXc+fVxuXHRcdFx0XHR7TWFpbkNvbXBvbmVudCAmJlxuXHRcdFx0XHRcdDxWaWV3IHN0eWxlPXtzdHlsZXMubWFpbkNvbnRhaW5lcn0gdGVzdElEPVwiYmFzZS1mb3JtLWZpZWxkLW1haW5cIj5cblx0XHRcdFx0XHRcdDxNYWluQ29tcG9uZW50IHsuLi5wcm9wc30+XG5cdFx0XHRcdFx0XHRcdHtjaGlsZHJlbn1cblx0XHRcdFx0XHRcdDwvTWFpbkNvbXBvbmVudD5cblx0XHRcdFx0XHQ8L1ZpZXc+XG5cdFx0XHRcdH1cblx0XHRcdFx0e3JpZ2h0ICYmIDxWaWV3IHN0eWxlPXtzdHlsZXMucmlnaHRDb250YWluZXJ9IHRlc3RJRD1cImJhc2UtZm9ybS1maWVsZC1yaWdodFwiPntyaWdodH08L1ZpZXc+fVxuXHRcdFx0PC9WaWV3PlxuXHRcdCk7XG5cdH1cbn1cbiJdfQ==

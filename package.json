@@ -107,6 +107,7 @@
     "@bluebase/core": "^4.0.0-aplha.14",
     "@bluebase/plugin-material-ui": "^1.9.0",
     "@bluebase/plugin-react-native-paper": "^1.1.1",
+    "@bluebase/plugin-vector-icons": "^0.0.1",
     "@bluebase/storybook-addon": "^3.0.0",
     "@blueeast/tslint-config-blueeast": "^0.7.0",
     "@storybook/addon-a11y": "^5.0.6",

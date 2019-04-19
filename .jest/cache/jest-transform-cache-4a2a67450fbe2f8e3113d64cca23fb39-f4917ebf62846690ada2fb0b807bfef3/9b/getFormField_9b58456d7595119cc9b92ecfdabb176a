@@ -1,0 +1,293 @@
+e23eb7530a902c2f290c416a04a3a720
+"use strict";
+
+/* istanbul ignore next */
+var cov_1qrslsnyci = function () {
+  var path = "/home/muzzamil/Documents/bluebase/plugin-json-schema-components/src/JsonForm/getFormField.ts";
+  var hash = "7342c82e4eabf63f84261821d5fe8beb52bd0228";
+
+  var Function = function () {}.constructor;
+
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/home/muzzamil/Documents/bluebase/plugin-json-schema-components/src/JsonForm/getFormField.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 3,
+          column: 29
+        },
+        end: {
+          line: 3,
+          column: 84
+        }
+      },
+      "1": {
+        start: {
+          line: 5,
+          column: 26
+        },
+        end: {
+          line: 5,
+          column: 101
+        }
+      },
+      "2": {
+        start: {
+          line: 7,
+          column: 0
+        },
+        end: {
+          line: 9,
+          column: 3
+        }
+      },
+      "3": {
+        start: {
+          line: 11,
+          column: 19
+        },
+        end: {
+          line: 11,
+          column: 50
+        }
+      },
+      "4": {
+        start: {
+          line: 13,
+          column: 20
+        },
+        end: {
+          line: 13,
+          column: 58
+        }
+      },
+      "5": {
+        start: {
+          line: 14,
+          column: 21
+        },
+        end: {
+          line: 14,
+          column: 39
+        }
+      },
+      "6": {
+        start: {
+          line: 15,
+          column: 25
+        },
+        end: {
+          line: 34,
+          column: 1
+        }
+      },
+      "7": {
+        start: {
+          line: 36,
+          column: 0
+        },
+        end: {
+          line: 38,
+          column: 2
+        }
+      },
+      "8": {
+        start: {
+          line: 37,
+          column: 2
+        },
+        end: {
+          line: 37,
+          column: 213
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "(anonymous_0)",
+        decl: {
+          start: {
+            line: 36,
+            column: 23
+          },
+          end: {
+            line: 36,
+            column: 24
+          }
+        },
+        loc: {
+          start: {
+            line: 36,
+            column: 39
+          },
+          end: {
+            line: 38,
+            column: 1
+          }
+        },
+        line: 36
+      }
+    },
+    branchMap: {
+      "0": {
+        loc: {
+          start: {
+            line: 37,
+            column: 9
+          },
+          end: {
+            line: 37,
+            column: 212
+          }
+        },
+        type: "cond-expr",
+        locations: [{
+          start: {
+            line: 37,
+            column: 44
+          },
+          end: {
+            line: 37,
+            column: 149
+          }
+        }, {
+          start: {
+            line: 37,
+            column: 152
+          },
+          end: {
+            line: 37,
+            column: 212
+          }
+        }],
+        line: 37
+      },
+      "1": {
+        loc: {
+          start: {
+            line: 37,
+            column: 9
+          },
+          end: {
+            line: 37,
+            column: 41
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 37,
+            column: 9
+          },
+          end: {
+            line: 37,
+            column: 13
+          }
+        }, {
+          start: {
+            line: 37,
+            column: 17
+          },
+          end: {
+            line: 37,
+            column: 41
+          }
+        }],
+        line: 37
+      }
+    },
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0
+    },
+    f: {
+      "0": 0
+    },
+    b: {
+      "0": [0, 0],
+      "1": [0, 0]
+    },
+    _coverageSchema: "43e27e138ebf9cfc5966b082cf9a028302ed4184"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (coverage[path] && coverage[path].hash === hash) {
+    return coverage[path];
+  }
+
+  coverageData.hash = hash;
+  return coverage[path] = coverageData;
+}();
+
+var _interopRequireDefault =
+/* istanbul ignore next */
+(cov_1qrslsnyci.s[0]++, require("@babel/runtime/helpers/interopRequireDefault"));
+
+var _toConsumableArray2 =
+/* istanbul ignore next */
+(cov_1qrslsnyci.s[1]++, _interopRequireDefault(require("@babel/runtime/helpers/toConsumableArray")));
+
+/* istanbul ignore next */
+cov_1qrslsnyci.s[2]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var components_1 =
+/* istanbul ignore next */
+(cov_1qrslsnyci.s[3]++, require("@bluebase/components"));
+var DefaultInputs =
+/* istanbul ignore next */
+(cov_1qrslsnyci.s[4]++, ['FormTextInput', 'TextInput', 'Noop']);
+var DefaultButtons =
+/* istanbul ignore next */
+(cov_1qrslsnyci.s[5]++, ['Button', 'Noop']);
+var FieldResolutionMap =
+/* istanbul ignore next */
+(cov_1qrslsnyci.s[6]++, {
+  actions: ['FormActions', 'Noop'],
+  checkbox: ['FormCheckboxInput', 'Noop'],
+  color: ['FormColorInput'].concat(DefaultInputs),
+  component: ['JsonLayout', 'Noop'],
+  date: ['FormDateInput'].concat(DefaultInputs),
+  email: ['FormEmailInput'].concat(DefaultInputs),
+  number: ['FormNumberInput'].concat(DefaultInputs),
+  password: ['FormPasswordInput'].concat(DefaultInputs),
+  picker: ['FormPickerInput', 'Picker', 'Noop'],
+  'radio-group': ['FormRadioGroupInput', 'Noop'],
+  range: ['FormRangeInput'].concat(DefaultInputs),
+  reset: ['FormResetButton'].concat(DefaultButtons),
+  search: ['FormSearchInput'].concat(DefaultInputs),
+  submit: ['FormSubmitButton'].concat(DefaultButtons),
+  switch: ['FormSwitchInput', 'FormCheckboxInput', 'Noop'],
+  tel: ['FormTelInput'].concat(DefaultInputs),
+  time: ['FormTimeInput'].concat(DefaultInputs),
+  url: ['FormUrlInput'].concat(DefaultInputs)
+});
+
+/* istanbul ignore next */
+cov_1qrslsnyci.s[7]++;
+
+exports.getFormField = function (type) {
+  /* istanbul ignore next */
+  cov_1qrslsnyci.f[0]++;
+  cov_1qrslsnyci.s[8]++;
+  return (
+    /* istanbul ignore next */
+    (cov_1qrslsnyci.b[1][0]++, type) &&
+    /* istanbul ignore next */
+    (cov_1qrslsnyci.b[1][1]++, FieldResolutionMap[type]) ?
+    /* istanbul ignore next */
+    (cov_1qrslsnyci.b[0][0]++, components_1.getComponent.apply(components_1, (0, _toConsumableArray2.default)(FieldResolutionMap[type]))) :
+    /* istanbul ignore next */
+    (cov_1qrslsnyci.b[0][1]++, components_1.getComponent.apply(components_1, DefaultInputs))
+  );
+};

@@ -18,20 +18,21 @@ storiesOf('FormPasswordInput', module)
                     type='password'
                     name='sample'
                     label="Password"
-                    placeholder={"Here is placeholder"}
-                    //disabled = {true}
+                    placeholder="Here is placeholder"
                 />
             </Formik>
         </BlueBaseApp>
 
     ))   
-    .add('With MaxLength', () => (
+    .add('With Disabled', () => (
         <BlueBaseApp plugins={[Plugin]}>
             <Formik initialValues={{ sample : ''}} onSubmit={console.log}>
                 <FormPasswordInput
                     type='password'
                     name='sample'
                     label="Password"
+                    disabled = {true}
+
                 />
             </Formik>
         </BlueBaseApp>

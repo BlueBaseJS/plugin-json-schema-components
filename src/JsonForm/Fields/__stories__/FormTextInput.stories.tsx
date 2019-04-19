@@ -4,16 +4,14 @@ import React from 'react';
 import storiesOf from '@bluebase/storybook-addon';
 import { BlueBaseApp } from '@bluebase/core';
 import { Formik } from 'formik';
-import Plugin from '../../../'
-import MuiPlugin from '@bluebase/plugin-material-ui'
 import {plugins} from './getPlugins'
 
 const FormTextInput = getComponent<FormTextInputProps>('FormTextInput');
 
-function handleTextInputChange(value: any) {
-    console.log('text input value', value.target.value);
+function handleTextInputChange(event: any) {
+    console.log('text input value', event.target.value);
 }
-const textFieldClasses = {marginLeft:50}; 
+const textFieldClasses = {marginTop:50}; 
 
 
 storiesOf('FormTextInput', module)
@@ -24,17 +22,184 @@ storiesOf('FormTextInput', module)
                 <FormTextInput
                     type='text'
                     name='sample'
-                    label="haris"
-                     placeholder="hello" 
-                    autoComplete="Hello World !!"
+                    label="Muzamil"
+                     placeholder="Enter Name" 
                      autoFocus={true}
-                    maxLength = {2}
                 />
             </Formik>
         </BlueBaseApp>
 
     ))   
 
+    .add('With required -true', () => (
+        <BlueBaseApp plugins={plugins}>
+            <Formik initialValues={{ sample : ''}} onSubmit={console.log}>
+                <FormTextInput
+                    type='text'
+                    name='sample'
+                    label=""
+                    required = {true}
+                />
+            </Formik>
+        </BlueBaseApp>
+
+    ))
+    .add('With required-true and error-true', () => (
+        <BlueBaseApp plugins={plugins}>
+            <Formik initialValues={{ sample : ''}} onSubmit={console.log}>
+                <FormTextInput
+                    type='text'
+                    name='sample'
+                    label=""
+                    required = {true}
+                    error = {true}
+                />
+            </Formik>
+        </BlueBaseApp>
+
+    ))
+
+
+    .add('With Helper Text', () => (
+        <BlueBaseApp plugins={plugins}>
+            <Formik initialValues={{ sample : ''}} onSubmit={console.log}>
+                <FormTextInput
+                    type='text'
+                    name='sample'
+                    label=""
+                    helperText = {"Helper Text - Please Enter Text"}
+                />
+            </Formik>
+        </BlueBaseApp>
+
+    ))
+
+
+
+    .add('With Style object', () => (
+        <BlueBaseApp plugins={plugins}>
+            <Formik initialValues={{ sample : ''}} onSubmit={console.log}>
+                <FormTextInput
+                    type='text'
+                    name='sample'
+                    label="Username with style"
+                    style = {textFieldClasses}
+                />
+            </Formik>
+        </BlueBaseApp>
+
+    ))   
+
+    .add('With MaxLength-2', () => (
+        <BlueBaseApp plugins={plugins}>
+            <Formik initialValues={{ sample : ''}} onSubmit={console.log}>
+                <FormTextInput
+                    type='text'
+                    name='sample'
+                    label="Username with max length 2"
+                    maxLength = {2}
+                />
+            </Formik>
+        </BlueBaseApp>
+
+    ))
+    
+    .add('With Multiline and rows max 3', () => (
+        <BlueBaseApp plugins={plugins}>
+            <Formik initialValues={{ sample : ''}} onSubmit={console.log}>
+                <FormTextInput
+                    type='text'
+                    name='sample'
+                    //id="multiline-flexible"
+                    label="Multiline with rows max 3"
+                    multiline={true} 
+                    rowsMax = "3"
+                />
+            </Formik>
+        </BlueBaseApp>
+
+    ))
+
+        
+    .add('With Type Date', () => (
+        <BlueBaseApp plugins={plugins}>
+            <Formik initialValues={{ sample : ''}} onSubmit={console.log}>
+                <FormTextInput
+                    type='date'
+                    name='sample'
+                    label=""
+                />
+            </Formik>
+        </BlueBaseApp>
+
+    ))
+    .add('With underLine Color-green and editable-true', () => (
+        <BlueBaseApp plugins={plugins}>
+            <Formik initialValues={{ sample : ''}} onSubmit={console.log}>
+                <FormTextInput
+                    type='text'
+                    name='sample'
+                    editable={true}
+                    label=""
+                    underlineColor ="green"
+                />
+            </Formik>
+        </BlueBaseApp>
+
+    ))
+    .add('With Editable-false', () => (
+        <BlueBaseApp plugins={plugins}>
+            <Formik initialValues={{ sample : ''}} onSubmit={console.log}>
+                <FormTextInput
+                    type='text'
+                    name='sample'
+                    editable={false}
+                />
+            </Formik>
+        </BlueBaseApp>
+
+    ))
+    .add('With variant filled', () => (
+        <BlueBaseApp  plugins={plugins}>
+            <Formik initialValues={{ sample : ''}} onSubmit={console.log}>
+                <FormTextInput
+                    type='text'
+                    name='sample'
+                    label=""
+                    variant = "filled"
+                />
+            </Formik>
+        </BlueBaseApp>
+
+    ))
+
+    .add('With variant outlined', () => (
+        <BlueBaseApp  plugins={plugins}>
+            <Formik initialValues={{ sample : ''}} onSubmit={console.log}>
+                <FormTextInput
+                    type='text'
+                    name='sample'
+                    label=""
+                    variant = "outlined"
+                />
+            </Formik>
+        </BlueBaseApp>
+
+    ))
+
+    .add('With disbaled-true ', () => (
+        <BlueBaseApp  plugins={plugins}>
+            <Formik initialValues={{ sample : ''}} onSubmit={console.log}>
+                <FormTextInput
+                    type='text'
+                    name='sample'
+                    label=""
+                    disabled = {true}
+                />
+            </Formik>
+        </BlueBaseApp>
+
+    ))
 
 
     .add('With onChangeText', () => (
@@ -44,75 +209,12 @@ storiesOf('FormTextInput', module)
                     type='text'
                     name='sample'
                     onChange={handleTextInputChange} 
-                    maxLength = {2}
                 />
             </Formik>
         </BlueBaseApp>
 
     ))   
 
-
-    .add('With Style object', () => (
-        <BlueBaseApp plugins={[Plugin,MuiPlugin]}>
-            <Formik initialValues={{ sample : ''}} onSubmit={console.log}>
-                <FormTextInput
-                    type='text'
-                    name='sample'
-                    label="Username"
-                    style = {textFieldClasses}
-                />
-            </Formik>
-        </BlueBaseApp>
-
-    ))   
-
-    .add('With MaxLength', () => (
-        <BlueBaseApp plugins={[Plugin]}>
-            <Formik initialValues={{ sample : ''}} onSubmit={console.log}>
-                <FormTextInput
-                    type='text'
-                    name='sample'
-                    label="Username"
-                    maxLength = {2}
-                />
-            </Formik>
-        </BlueBaseApp>
-
-    ))
-    
-    .add('With Multiline', () => (
-        <BlueBaseApp plugins={[Plugin]}>
-            <Formik initialValues={{ sample : ''}} onSubmit={console.log}>
-                <FormTextInput
-                    type='text'
-                    name='sample'
-                    id="multiline-flexible"
-                    label="Multiline"
-                    multiline={true} 
-                    rowsMax="3"
-
-                />
-            </Formik>
-        </BlueBaseApp>
-
-    ))
-
-        
-    .add('With Type Date', () => (
-        <BlueBaseApp plugins={[Plugin]}>
-            <Formik initialValues={{ sample : ''}} onSubmit={console.log}>
-                <FormTextInput
-                    type='date'
-                    name='sample'
-                    editable={true}
-                    label=""
-                    underlineColor ="blue"
-
-                />
-            </Formik>
-        </BlueBaseApp>
-
-    ))
     
     
     

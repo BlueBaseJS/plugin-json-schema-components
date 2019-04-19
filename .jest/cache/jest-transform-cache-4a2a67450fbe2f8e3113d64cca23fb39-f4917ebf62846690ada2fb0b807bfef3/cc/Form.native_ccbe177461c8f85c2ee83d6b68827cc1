@@ -1,0 +1,11 @@
+3fb2dba79c81bc4c2089e3cd10708290
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var components_1 = require("@bluebase/components");
+
+exports.Form = components_1.Noop;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL211enphbWlsL0RvY3VtZW50cy9ibHVlYmFzZS9wbHVnaW4tanNvbi1zY2hlbWEtY29tcG9uZW50cy9zcmMvSnNvbkZvcm0vRm9ybS9Gb3JtLm5hdGl2ZS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7QUFBQSxJQUFBLFlBQUEsR0FBQSxPQUFBLENBQUEsc0JBQUEsQ0FBQTs7QUFBUyxPQUFBLENBQUEsSUFBQSxHQUFBLFlBQUEsQ0FBQSxJQUFBIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IHsgTm9vcCBhcyBGb3JtIH0gZnJvbSAnQGJsdWViYXNlL2NvbXBvbmVudHMnO1xuIl19

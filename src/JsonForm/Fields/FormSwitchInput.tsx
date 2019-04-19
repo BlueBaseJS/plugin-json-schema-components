@@ -23,7 +23,13 @@ export const FormSwitchInput = ({ type, ...props }: FormSwitchInputProps) => {
 				labelPlacement: 'start',
 				...props,
 				checked: Boolean(value),
-				onValueChange: (_value: any, checked: boolean) => form.setFieldValue(field.name, checked),
+				onValueChange: (_value: any, checked: boolean) => {
+					form.setFieldValue(field.name, checked);
+
+					value ? (props.onValueChange ? props.onValueChange(value,checked):null) :   (props.onValueChange ? props.onValueChange(value,checked) :null) 
+
+				
+				}
 			};
 
 			return (<BaseFormField MainComponent={Switch} {...inputProps} />);

@@ -1,18 +1,28 @@
-import { Button, ButtonProps } from '@bluebase/components';
+import { Button, ButtonProps, View } from '@bluebase/components';
 import { FormikContext, connect } from 'formik';
 import React from 'react';
+import { Theme } from '@bluebase/core';
+
 
 export interface FormSubmitButtonProps extends ButtonProps {
 	type: 'submit',
+	nested ? : boolean
 	name: string,
+	styles?:any
+
 }
 
-export const FormSubmitButton = connect((props: FormSubmitButtonProps & { formik: FormikContext<{}>; }) => {
+export const FormSubmitButton = connect( (props: FormSubmitButtonProps & { formik: FormikContext<{}>; }) => {
 
-	const { handleSubmit, isSubmitting } = props.formik;
+	const { handleSubmit, isSubmitting,styles,nested } = props;
 
 	return (
-		<Button disabled={isSubmitting} loading={isSubmitting} {...props} onPress={handleSubmit} type="submit" />
+		<View 
+		style={!nested ? styles.wrapper : null}
+		>
+			<Button disabled={isSubmitting} loading={isSubmitting} {...props} onPress={handleSubmit} type="submit" />
+		</View>
+
 	);
 });
 
@@ -22,3 +32,11 @@ FormSubmitButton.defaultProps = {
 	title: 'Submit',
 	variant: 'contained',
 };
+
+(FormSubmitButton as any).defaultStyles = (theme: Theme) => ({
+	wrapper: {
+		paddingHorizontal: theme.spacing.unit * 2,
+		paddingVertical: 2
+
+	}
+})

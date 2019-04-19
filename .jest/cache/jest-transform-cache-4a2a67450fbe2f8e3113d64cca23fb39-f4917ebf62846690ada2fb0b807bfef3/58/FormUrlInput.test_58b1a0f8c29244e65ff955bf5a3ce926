@@ -1,0 +1,69 @@
+2d75cab64c4157a38f0f6df08d205619
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var tslib_1 = require("tslib");
+
+var core_1 = require("@bluebase/core");
+
+var FormUrlInput_1 = require("../FormUrlInput");
+
+var formik_1 = require("formik");
+
+var index_1 = tslib_1.__importDefault(require("../../../index"));
+
+var react_1 = tslib_1.__importDefault(require("react"));
+
+var enzyme_1 = require("enzyme");
+
+var enzyme_async_helpers_1 = require("enzyme-async-helpers");
+
+var fieldProps = {
+  label: 'Home Page',
+  name: 'home-page',
+  required: true,
+  type: 'url'
+};
+var initialValues = {
+  'home-page': 'home.page'
+};
+describe('FormUrlInput', function () {
+  it('should render all form fields in the schema', function _callee() {
+    var onSubmit, component;
+    return _regenerator.default.async(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            onSubmit = jest.fn();
+            component = enzyme_1.mount(react_1.default.createElement(core_1.BlueBaseApp, {
+              plugins: [index_1.default]
+            }, react_1.default.createElement(formik_1.Formik, {
+              initialValues: initialValues,
+              onSubmit: onSubmit
+            }, react_1.default.createElement(FormUrlInput_1.FormUrlInput, (0, _extends2.default)({}, fieldProps)))));
+            _context.next = 4;
+            return _regenerator.default.awrap(enzyme_async_helpers_1.waitForElement(component, FormUrlInput_1.FormUrlInput));
+
+          case 4:
+            expect(component.find('TextInput').last().prop('name')).toBe('home-page');
+            expect(component.find('TextInput').last().prop('value')).toBe('home.page');
+            expect(component.find('TextInput').last().prop('type')).toBe('url');
+
+          case 7:
+          case "end":
+            return _context.stop();
+        }
+      }
+    });
+  });
+});
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL211enphbWlsL0RvY3VtZW50cy9ibHVlYmFzZS9wbHVnaW4tanNvbi1zY2hlbWEtY29tcG9uZW50cy9zcmMvSnNvbkZvcm0vRmllbGRzL19fdGVzdHNfXy9Gb3JtVXJsSW5wdXQudGVzdC50c3giXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7QUFBQSxJQUFBLE1BQUEsR0FBQSxPQUFBLENBQUEsZ0JBQUEsQ0FBQTs7QUFDQSxJQUFBLGNBQUEsR0FBQSxPQUFBLENBQUEsaUJBQUEsQ0FBQTs7QUFDQSxJQUFBLFFBQUEsR0FBQSxPQUFBLENBQUEsUUFBQSxDQUFBOztBQUNBLElBQUEsT0FBQSxHQUFBLE9BQUEsQ0FBQSxlQUFBLENBQUEsT0FBQSxDQUFBLGdCQUFBLENBQUEsQ0FBQTs7QUFDQSxJQUFBLE9BQUEsR0FBQSxPQUFBLENBQUEsZUFBQSxDQUFBLE9BQUEsQ0FBQSxPQUFBLENBQUEsQ0FBQTs7QUFDQSxJQUFBLFFBQUEsR0FBQSxPQUFBLENBQUEsUUFBQSxDQUFBOztBQUNBLElBQUEsc0JBQUEsR0FBQSxPQUFBLENBQUEsc0JBQUEsQ0FBQTs7QUFFQSxJQUFNLFVBQVUsR0FBRztBQUNsQixFQUFBLEtBQUssRUFBRSxXQURXO0FBRWxCLEVBQUEsSUFBSSxFQUFFLFdBRlk7QUFHbEIsRUFBQSxRQUFRLEVBQUUsSUFIUTtBQUlsQixFQUFBLElBQUksRUFBRTtBQUpZLENBQW5CO0FBT0EsSUFBTSxhQUFhLEdBQUc7QUFDckIsZUFBYTtBQURRLENBQXRCO0FBS0EsUUFBUSxDQUFDLGNBQUQsRUFBaUIsWUFBSztBQUc3QixFQUFBLEVBQUUsQ0FBQyw2Q0FBRCxFQUFnRDtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFFM0MsWUFBQSxRQUYyQyxHQUVoQyxJQUFJLENBQUMsRUFBTCxFQUZnQztBQUkzQyxZQUFBLFNBSjJDLEdBSS9CLFFBQUEsQ0FBQSxLQUFBLENBQ2pCLE9BQUEsQ0FBQSxPQUFBLENBQUEsYUFBQSxDQUFDLE1BQUEsQ0FBQSxXQUFELEVBQVk7QUFBQyxjQUFBLE9BQU8sRUFBRSxDQUFDLE9BQUEsQ0FBQSxPQUFEO0FBQVYsYUFBWixFQUNDLE9BQUEsQ0FBQSxPQUFBLENBQUEsYUFBQSxDQUFDLFFBQUEsQ0FBQSxNQUFELEVBQU87QUFBQyxjQUFBLGFBQWEsRUFBRSxhQUFoQjtBQUErQixjQUFBLFFBQVEsRUFBRTtBQUF6QyxhQUFQLEVBQ0MsT0FBQSxDQUFBLE9BQUEsQ0FBQSxhQUFBLENBQUMsY0FBQSxDQUFBLFlBQUQsRUFBYSx1QkFBQSxFQUFBLEVBQUssVUFBTCxDQUFiLENBREQsQ0FERCxDQURpQixDQUorQjtBQUFBO0FBQUEsOENBWTNDLHNCQUFBLENBQUEsY0FBQSxDQUFlLFNBQWYsRUFBaUMsY0FBQSxDQUFBLFlBQWpDLENBWjJDOztBQUFBO0FBaUJqRCxZQUFBLE1BQU0sQ0FBQyxTQUFTLENBQUMsSUFBVixDQUFlLFdBQWYsRUFBNEIsSUFBNUIsR0FBbUMsSUFBbkMsQ0FBd0MsTUFBeEMsQ0FBRCxDQUFOLENBQXdELElBQXhELENBQTZELFdBQTdEO0FBQ0EsWUFBQSxNQUFNLENBQUMsU0FBUyxDQUFDLElBQVYsQ0FBZSxXQUFmLEVBQTRCLElBQTVCLEdBQW1DLElBQW5DLENBQXdDLE9BQXhDLENBQUQsQ0FBTixDQUF5RCxJQUF6RCxDQUE4RCxXQUE5RDtBQUNBLFlBQUEsTUFBTSxDQUFDLFNBQVMsQ0FBQyxJQUFWLENBQWUsV0FBZixFQUE0QixJQUE1QixHQUFtQyxJQUFuQyxDQUF3QyxNQUF4QyxDQUFELENBQU4sQ0FBd0QsSUFBeEQsQ0FBNkQsS0FBN0Q7O0FBbkJpRDtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQSxHQUFoRCxDQUFGO0FBcUJBLENBeEJPLENBQVIiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBCbHVlQmFzZUFwcCB9IGZyb20gJ0BibHVlYmFzZS9jb3JlJztcbmltcG9ydCB7IEZvcm1VcmxJbnB1dCB9IGZyb20gJy4uL0Zvcm1VcmxJbnB1dCc7XG5pbXBvcnQgeyBGb3JtaWsgfSBmcm9tICdmb3JtaWsnO1xuaW1wb3J0IFBsdWdpbiBmcm9tICcuLi8uLi8uLi9pbmRleCc7XG5pbXBvcnQgUmVhY3QgZnJvbSAncmVhY3QnO1xuaW1wb3J0IHsgbW91bnQgfSBmcm9tICdlbnp5bWUnO1xuaW1wb3J0IHsgd2FpdEZvckVsZW1lbnQgfSBmcm9tICdlbnp5bWUtYXN5bmMtaGVscGVycyc7XG5cbmNvbnN0IGZpZWxkUHJvcHMgPSB7XG5cdGxhYmVsOiAnSG9tZSBQYWdlJyxcblx0bmFtZTogJ2hvbWUtcGFnZScsXG5cdHJlcXVpcmVkOiB0cnVlLFxuXHR0eXBlOiAndXJsJyxcbn07XG5cbmNvbnN0IGluaXRpYWxWYWx1ZXMgPSB7XG5cdCdob21lLXBhZ2UnOiAnaG9tZS5wYWdlJyxcbn07XG5cblxuZGVzY3JpYmUoJ0Zvcm1VcmxJbnB1dCcsICgpID0+IHtcblxuXG5cdGl0KCdzaG91bGQgcmVuZGVyIGFsbCBmb3JtIGZpZWxkcyBpbiB0aGUgc2NoZW1hJywgYXN5bmMgKCkgPT4ge1xuXG5cdFx0Y29uc3Qgb25TdWJtaXQgPSBqZXN0LmZuKCk7XG5cblx0XHRjb25zdCBjb21wb25lbnQgPSBtb3VudChcblx0XHRcdDxCbHVlQmFzZUFwcCBwbHVnaW5zPXtbUGx1Z2luXX0+XG5cdFx0XHRcdDxGb3JtaWsgaW5pdGlhbFZhbHVlcz17aW5pdGlhbFZhbHVlc30gb25TdWJtaXQ9e29uU3VibWl0fT5cblx0XHRcdFx0XHQ8Rm9ybVVybElucHV0IHsuLi5maWVsZFByb3BzIGFzIGFueX0gLz5cblx0XHRcdFx0PC9Gb3JtaWs+XG5cdFx0XHQ8L0JsdWVCYXNlQXBwPlxuXHRcdCk7XG5cblx0XHRhd2FpdCB3YWl0Rm9yRWxlbWVudChjb21wb25lbnQgYXMgYW55LCBGb3JtVXJsSW5wdXQpO1xuXG5cdFx0Ly8gZXhwZWN0KGNvbXBvbmVudCkudG9NYXRjaFNuYXBzaG90KCk7XG5cblx0XHQvLyBDaGVjayBmaWVsZHNcblx0XHRleHBlY3QoY29tcG9uZW50LmZpbmQoJ1RleHRJbnB1dCcpLmxhc3QoKS5wcm9wKCduYW1lJykpLnRvQmUoJ2hvbWUtcGFnZScpO1xuXHRcdGV4cGVjdChjb21wb25lbnQuZmluZCgnVGV4dElucHV0JykubGFzdCgpLnByb3AoJ3ZhbHVlJykpLnRvQmUoJ2hvbWUucGFnZScpO1xuXHRcdGV4cGVjdChjb21wb25lbnQuZmluZCgnVGV4dElucHV0JykubGFzdCgpLnByb3AoJ3R5cGUnKSkudG9CZSgndXJsJyk7XG5cdH0pO1xufSk7XG4iXX0=

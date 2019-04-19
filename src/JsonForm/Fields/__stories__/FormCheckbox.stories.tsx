@@ -8,13 +8,26 @@ import {plugins} from './getPlugins'
 
 const FormCheckboxInput = getComponent<FormCheckboxInputProps>('FormCheckboxInput');
 
-function handleChecked(value: any) {
-    console.log('Checked ', value.target.value);
-}
+function handleChecked(event: any,selected:any) {
+    console.log('Previous state', event);
+    console.log('slected ', selected);
+};
 
 storiesOf('FormCheckboxInput', module)
 
-    .add('with label checked prop and color', () => (
+    .add('with label', () => (
+        <BlueBaseApp plugins={plugins}>
+            <Formik initialValues={{ sample : ''}} onSubmit={console.log}>
+                <FormCheckboxInput
+                    type='checkbox'
+                    name='sample'
+                    label= "Muzamil"
+                />
+            </Formik>
+        </BlueBaseApp>
+
+    ))   
+    .add('with checked-true and color green', () => (
         <BlueBaseApp plugins={plugins}>
             <Formik initialValues={{ sample : ''}} onSubmit={console.log}>
                 <FormCheckboxInput
@@ -22,43 +35,118 @@ storiesOf('FormCheckboxInput', module)
                     name='sample'
                     label= "Muzamil"
                     checked = {true}
-                    color = "primary"
-                    
+                    color = "green"
                 />
             </Formik>
         </BlueBaseApp>
 
     ))   
-
-    .add('With label , value and label placement as prop', () => (
+    .add('with color secondary', () => (
         <BlueBaseApp plugins={plugins}>
             <Formik initialValues={{ sample : ''}} onSubmit={console.log}>
                 <FormCheckboxInput
                     type='checkbox'
                     name='sample'
-                    label="With some props"
-                    value = "I am Value"
-                    labelPlacement = "start"
-                    
+                    label= "Muzamil"
+                    checked = {true}
+                    color = "secondary"
                 />
             </Formik>
         </BlueBaseApp>
 
     ))   
+
+    .add('With label , and labelPlacement-start', () => (
+        <BlueBaseApp plugins={plugins}>
+            <Formik initialValues={{ sample : ''}} onSubmit={console.log}>
+                <FormCheckboxInput
+                    type='checkbox'
+                    name='sample'
+                    label="Label"
+                    value = "I am Value"
+                    labelPlacement = "start"
+                />
+            </Formik>
+        </BlueBaseApp>
+
+    ))   
+    .add('With labelPlacement-top', () => (
+        <BlueBaseApp plugins={plugins}>
+            <Formik initialValues={{ sample : ''}} onSubmit={console.log}>
+                <FormCheckboxInput
+                    type='checkbox'
+                    name='sample'
+                    label="Label"
+                    value = "I am Value"
+                    labelPlacement = "top"
+                />
+            </Formik>
+        </BlueBaseApp>
+
+    ))   
+    .add('With labelPlacement-end', () => (
+        <BlueBaseApp plugins={plugins}>
+            <Formik initialValues={{ sample : ''}} onSubmit={console.log}>
+                <FormCheckboxInput
+                    type='checkbox'
+                    name='sample'
+                    label="Label"
+                    value = "I am Value"
+                    labelPlacement = "end"
+                />
+            </Formik>
+        </BlueBaseApp>
+
+    ))   
+ 
+    .add('with disbaled', () => (
+        <BlueBaseApp plugins={plugins}>
+            <Formik initialValues={{ sample : ''}} onSubmit={console.log}>
+                <FormCheckboxInput
+                    type='checkbox'
+                    name='sample'
+                    disabled ={true}
+                    />
+            </Formik>
+        </BlueBaseApp>
+
+    ))   
+    .add('with interminate ', () => (
+        <BlueBaseApp plugins={plugins}>
+            <Formik initialValues={{ sample : ''}} onSubmit={console.log}>
+            <>
+                <FormCheckboxInput
+                    type='checkbox'
+                    name='sample'
+                    indeterminate ={true}
+                    label = 'Male'
+                />
+                 <FormCheckboxInput
+                    type='checkbox'
+                    name='sample'
+                    indeterminate ={true}
+                    label = 'Female'
+
+                />
+                </>
+            </Formik>
+        </BlueBaseApp>
+
+    ))   
+
     .add('On value Change', () => (
         <BlueBaseApp plugins={plugins}>
             <Formik initialValues={{ sample : ''}} onSubmit={console.log}>
                 <FormCheckboxInput
                     type='checkbox'
                     name='sample'
+                    label = 'check me'
                     onValueChange={handleChecked}
-                    
                 />
             </Formik>
         </BlueBaseApp>
 
-    ))   
-
+    ))  
 
     
     
