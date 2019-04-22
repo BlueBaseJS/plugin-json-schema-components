@@ -1,23 +1,30 @@
 import { BlueBaseApp } from '@bluebase/core';
 import { FormSwitchInput } from '../FormSwitchInput';
-import { Formik } from 'formik';
+import { Formik  } from 'formik';
 import Plugin from '../../../index';
 import React from 'react';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
 
-const fieldProps = {
+const fieldProps = [{
+	label: 'Autos Login',
+	name: 'muzamil',
+	type: 'switch',
+	value : true,
+	checked : true,
+},
+{
 	label: 'Auto Login',
 	name: 'auto-login',
 	type: 'switch',
-};
-
-// const initialValues = {
-// 	'auto-login': true,
-// };
-
+	value : false,
+	checked : false
+}];
 
 describe('FormSwitchInput', () => {
+
+		const getIn = jest.mock('formik')
+
 
 
 	it('should a switch with value true', async () => {
@@ -26,8 +33,10 @@ describe('FormSwitchInput', () => {
 
 		const component = mount(
 			<BlueBaseApp plugins={[Plugin]}>
-				<Formik initialValues={{ 'auto-login': true }} onSubmit={onSubmit}>
-					<FormSwitchInput {...fieldProps as any} />
+				<Formik initialValues={{ 'auto-login': true}} onSubmit={onSubmit} >
+
+					<FormSwitchInput {...fieldProps[0] as any} getIn = {getIn} />
+					
 				</Formik>
 			</BlueBaseApp>
 		);
@@ -37,8 +46,9 @@ describe('FormSwitchInput', () => {
 		// expect(component).toMatchSnapshot();
 
 		// Check fields
-		expect(component.find('Switch').last().prop('name')).toBe('auto-login');
-		expect(component.find('Switch').last().prop('checked')).toBe(true);
+		expect(component.find('Switch').last().prop('name')).toBe('muzamil');
+		expect(component.find('Switch').last().prop('checked')).toBe(false);
+		expect(component.find('Switch').last().prop('value')).toBe(true);
 	});
 
 
@@ -49,7 +59,7 @@ describe('FormSwitchInput', () => {
 		const component = mount(
 			<BlueBaseApp plugins={[Plugin]}>
 				<Formik initialValues={{ 'auto-login': false }} onSubmit={onSubmit}>
-					<FormSwitchInput {...fieldProps as any} />
+					<FormSwitchInput {...fieldProps[1] as any} />
 				</Formik>
 			</BlueBaseApp>
 		);
@@ -61,6 +71,8 @@ describe('FormSwitchInput', () => {
 		// Check fields
 		expect(component.find('Switch').last().prop('name')).toBe('auto-login');
 		expect(component.find('Switch').last().prop('checked')).toBe(false);
+		expect(component.find('Switch').last().prop('value')).toBe(false);
+
 	});
 
 
@@ -69,9 +81,45 @@ describe('FormSwitchInput', () => {
 		const onSubmit = jest.fn();
 
 		const component = mount(
-			<BlueBaseApp plugins={[Plugin]}>
+			<BlueBaseApp plugins={[Plugin]}>p
 				<Formik initialValues={{ 'auto-login': false }} onSubmit={onSubmit}>
-					<FormSwitchInput {...fieldProps as any} />
+					<FormSwitchInput {...fieldProps[0] as any} />
+				</Formik>
+			</BlueBaseApp>
+		);
+
+		await waitForElement(component as any, FormSwitchInput);
+
+		// Initial state should be false
+		let SwitchComponent = component.find('Switch').last();
+
+		// Check fields
+		expect(SwitchComponent.prop('name')).toBe('muzamil');
+		expect(SwitchComponent.prop('checked')).toBe(false);
+
+		// Update State
+		const onValueChange: any = SwitchComponent.prop('onValueChange');
+
+		onValueChange(true, true);
+		component.update();
+		// expect(component).toMatchSnapshot();
+
+		// New state should be true
+		SwitchComponent = component.find('Switch').first();
+		expect(SwitchComponent.prop('name')).toBe('muzamil');
+		expect(SwitchComponent.prop('checked')).toBe(true);
+		expect(SwitchComponent.prop('value')).toBe(true);
+
+	});
+
+	it('should update switch value from onValueChange callback with value', async () => {
+
+		const onSubmit = jest.fn();
+
+		const component = mount(
+			<BlueBaseApp plugins={[Plugin]}>p
+				<Formik initialValues={{ 'auto-login': false }} onSubmit={onSubmit}>
+					<FormSwitchInput {...fieldProps[1] as any} />
 				</Formik>
 			</BlueBaseApp>
 		);
@@ -88,13 +136,14 @@ describe('FormSwitchInput', () => {
 		// Update State
 		const onValueChange: any = SwitchComponent.prop('onValueChange');
 
-		onValueChange(null, true);
+		onValueChange(false, false);
 		component.update();
 		// expect(component).toMatchSnapshot();
 
 		// New state should be true
 		SwitchComponent = component.find('Switch').first();
 		expect(SwitchComponent.prop('name')).toBe('auto-login');
-		expect(SwitchComponent.prop('checked')).toBe(true);
+		expect(SwitchComponent.prop('checked')).toBe(false);
+		expect(SwitchComponent.prop('value')).toBe(false);
 	});
 });

@@ -8,12 +8,6 @@ import {plugins} from './getPlugins'
 
 const FormUrlInput = getComponent<FormUrlInputProps>('FormUrlInput');
 
-// function handleTextInputChange(event: any) {
-//     console.log('text input value', event.target.value);
-// }
-
-
-
 storiesOf('FormUrlInput', module)
 
     .add('With Placeholder ,label and autofocus', () => (
@@ -22,7 +16,6 @@ storiesOf('FormUrlInput', module)
                 <FormUrlInput
                     type='url'
                     name='sample'
-                    label="Muzamil"
                      placeholder="Enter Name" 
                      autoFocus={true}
                      required = {true}

@@ -8,7 +8,6 @@ import { View } from '@bluebase/components';
 export interface FormActionsStyles {
 	fieldContainerLeft: StyleProp<ViewStyle>;
 	fieldContainerRight: StyleProp<ViewStyle>;
-	fieldContainerBetween :StyleProp<ViewStyle>;
 	rootSpaceBetween : StyleProp<ViewStyle>;
 	root: StyleProp<ViewStyle>;
 	rootLeft: StyleProp<ViewStyle>;
@@ -27,16 +26,15 @@ export interface FormActionsProps {
 
 const FieldWrapper = ({ field, parent,children }: FieldWrapperProps) => {
 
-	const { direction, styles, style, textAlignment } = parent;
+	const { direction, styles ,style} = parent;
 
 	return (
 		<View
-			key={field.name}
-			style={[direction === "left" ? styles.fieldContainerLeft : direction === "right" ? styles.fieldContainerRight : direction === "space-between" ? styles.fieldContainerBetween : null,
-			textAlignment === "left" ? styles.textContainerLeft : textAlignment === "right" ? styles.textContainerRight : null, style ]}
-		>
-		{children}
-		</View>
+		key={field.name}
+		style={direction === 'left'? styles.fieldContainerLeft : direction === "right" ? styles.fieldContainerRight :style }
+	>
+	{children}
+	</View>
 	);
 };
 
@@ -50,15 +48,16 @@ export const FormActions = (props: FormActionsProps) => {
 	const styles = _styles as FormActionsStyles;
 	return (
 		
-		<View style={[styles.root, direction === 'left' ? styles.rootLeft :  direction === 'right' ? styles.rootRight : direction === 'space-between' ? styles.rootSpaceBetween : null, style]} testID="form-actions">
-			<FormFields FieldWrapper={FieldWrapper} {...props}  />
-		</View>
+		<View style={[styles.root, direction === 'left' ? styles.rootLeft :  direction === 'right' ? styles.rootRight : direction === 'space-between' ? styles.rootSpaceBetween : null, style]}
+		
+		testID="form-actions">
+		<FormFields {...props} FieldWrapper={FieldWrapper} />
+	</View>
 	);
 };
 
 FormActions.defaultProps = {
 	direction: 'right',
-	//textAlignment: 'left'
 };
 
 FormActions.defaultStyles = (theme: Theme): FormActionsStyles => ({
@@ -67,11 +66,6 @@ FormActions.defaultStyles = (theme: Theme): FormActionsStyles => ({
 	},
 	fieldContainerRight: {
 		marginRight: theme.spacing.unit * 2,
-	},
-	
-	fieldContainerBetween :{
-		marginLeft: theme.spacing.unit * 0,
-		marginRight: theme.spacing.unit * 0,
 	},
 	root: {
 		flexDirection: 'row',

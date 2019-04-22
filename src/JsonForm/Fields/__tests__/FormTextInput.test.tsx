@@ -12,11 +12,21 @@ const fieldProps = [{
 	name: 'username',
 	required: true,
 	type: 'text',
+	number : 123
 }, {
 	label: 'Email',
 	name: 'email',
 	required: true,
 	type: 'email',
+},{
+	label: 'number',
+	name: 'number',
+	type: 'number',
+},
+{
+	label: 'url',
+	name: 'url',
+	type: 'url',
 }];
 
 const initialValues = {
@@ -97,6 +107,70 @@ describe('FormTextInput', () => {
 		expect(validate('foo@bar.com')).toBeUndefined();
 	});
 
+	it('should validate number field', async () => {
+
+		const onSubmit = jest.fn();
+
+		const component = mount(
+			<BlueBaseApp plugins={[Plugin]}>
+				<Formik initialValues={initialValues} onSubmit={onSubmit}>
+					<FormTextInput {...fieldProps[2]} />
+				</Formik>
+			</BlueBaseApp>
+		);
+
+		await waitForElement(component as any, FormTextInput);
+
+		// expect(component).toMatchSnapshot();
+
+		const validate: any = component.find('FieldInner[name="number"]').last().prop('validate');
+
+		// Check fields
+		expect(validate('name')).toBe('Please enter a valid number');
+	});
+	it('should only be alphabet', async () => {
+
+		const onSubmit = jest.fn();
+
+		const component = mount(
+			<BlueBaseApp plugins={[Plugin]}>
+				<Formik initialValues={initialValues} onSubmit={onSubmit}>
+					<FormTextInput {...fieldProps[0]} />
+				</Formik>
+			</BlueBaseApp>
+		);
+
+		await waitForElement(component as any, FormTextInput);
+
+		// expect(component).toMatchSnapshot();
+
+		const validate: any = component.find('FieldInner[name="username"]').last().prop('validate');
+
+		// Check fields
+		expect(validate(12)).toBe('Should only be alphabet');
+	});
+	it('should only be url', async () => {
+
+		const onSubmit = jest.fn();
+
+		const component = mount(
+			<BlueBaseApp plugins={[Plugin]}>
+				<Formik initialValues={initialValues} onSubmit={onSubmit}>
+					<FormTextInput {...fieldProps[3]} />
+				</Formik>
+			</BlueBaseApp>
+		);
+
+		await waitForElement(component as any, FormTextInput);
+
+		// expect(component).toMatchSnapshot();
+
+		const validate: any = component.find('FieldInner[name="url"]').last().prop('validate');
+
+		// Check fields
+		expect(validate('asad')).toBe('Please enter a valid Url');
+	});
+
 
 	it('should update field value when onChangeText callback is invoked', async () => {
 
@@ -172,7 +246,7 @@ describe('FormTextInput', () => {
 
 		setTimeout(() => {
 			expect(component).toMatchSnapshot();
-			expect(component.find('TextInput').last().prop('helperText')).toBe('This field is required');
+			expect(component.find('TextInput').last().prop('helperText')).toBe('This is a helper text');
 			// expect(onSubmit).toHaveBeenCalledTimes(1);
 		});
 	});

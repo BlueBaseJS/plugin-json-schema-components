@@ -17,9 +17,8 @@ export const FormSubmitButton = connect( (props: FormSubmitButtonProps & { formi
 	const { handleSubmit, isSubmitting,styles,nested } = props;
 
 	return (
-		<View 
-		style={!nested ? styles.wrapper : null}
-		>
+		<View style={nested === false ?  styles.wrapper : {}} >
+
 			<Button disabled={isSubmitting} loading={isSubmitting} {...props} onPress={handleSubmit} type="submit" />
 		</View>
 

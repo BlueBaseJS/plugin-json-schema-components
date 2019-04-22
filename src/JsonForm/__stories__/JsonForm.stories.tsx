@@ -102,10 +102,11 @@ storiesOf('JsonForm', module)
 							name: 'form-actions',
 							type: 'actions',
 
-							fields: [{
+							fields: [ {
 								name: 'reset',
 								type: 'reset',
-							}, {
+								nested : true
+							},{
 								name: 'submit',
 								title: 'Login',
 								type: 'submit',
@@ -113,6 +114,32 @@ storiesOf('JsonForm', module)
 
 							}]
 						},
+
+						{
+							direction: 'right',
+							name: 'form-actions',
+							type: 'actions',
+
+							fields: [{
+								name: 'reset',
+								type: 'reset',
+								nested : true
+							}]
+						},
+						{
+							direction: 'right',
+							name: 'form-actions',
+							type: 'actions',
+
+							fields: [{
+								name: 'submit',
+								type: 'submit',
+								nested : true
+							
+							}]
+						},
+
+
 						{
 							name: 'submit',
 							title: 'SIGN Button',
@@ -123,7 +150,7 @@ storiesOf('JsonForm', module)
 						},
 						
 						{
-							direction: 'left',
+							direction: 'right',
 						   name: 'form-actions',
 						   type: 'actions',
 						   fields: [

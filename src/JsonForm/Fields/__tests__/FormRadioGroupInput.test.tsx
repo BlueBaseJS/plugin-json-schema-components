@@ -81,4 +81,35 @@ describe('FormRadioGroupInput', () => {
 		expect(component.find('RadioGroup').first().prop('name')).toBe('lang');
 		expect(component.find('RadioGroup').first().prop('value')).toBe('java');
 	});
+	it('should update radio-group value from onValueChange callback with null', async () => {
+
+		const onSubmit = jest.fn();
+
+		const component = mount(
+			<BlueBaseApp plugins={[Plugin, MaterialUIPlugin]}>
+				<Formik initialValues={initialValues} onSubmit={onSubmit}>
+					<FormRadioGroupInput {...fieldProps as any} />
+				</Formik>
+			</BlueBaseApp>
+		);
+
+		await waitForElement(component as any, FormRadioGroupInput);
+
+		// Initial state should be false
+
+		// Check fields
+		expect(component.find('RadioGroup').first().prop('name')).toBe('lang');
+		expect(component.find('RadioGroup').first().prop('value')).toBe('js');
+
+		// Update State
+		const onValueChange: any = component.find('RadioGroup').first().prop('onValueChange');
+
+		onValueChange(null);
+		component.update();
+		// expect(component).toMatchSnapshot();
+
+		// New state should be true
+		expect(component.find('RadioGroup').first().prop('name')).toBe('lang');
+		expect(component.find('RadioGroup').first().prop('value')).toBe(null);
+	});
 });

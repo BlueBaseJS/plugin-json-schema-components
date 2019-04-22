@@ -34,18 +34,10 @@ const validate = (props: FormTextInputProps) => (value: string) => {
 		error = 'Should only be alphabet';
 	}
 
-	else if(type === 'date'  ){
-		error = value;
-	}
-
 	//if number field is incorrect
 	else if (type === 'number' && !/^(0|[1-9]\d*)(\.\d+)?$/.test(value)){
 		error = 'Please enter a valid number'
 	}
-
-	// else if (type === 'password' && value != password ){
-	// 	error = 'Password not matched'
-	// }
 
 	// If field 'email'
 	else if (type === 'email' && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {

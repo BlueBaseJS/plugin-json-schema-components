@@ -44,7 +44,40 @@ describe('FormRangeInput', () => {
 		expect(component.find('Slider').last().prop('value')).toBe(26);
 	});
 
-	it('should update slider value from onValueChange callback', async () => {
+	it('should update slider value from onValueChange callback with null', async () => {
+
+		const onSubmit = jest.fn();
+
+		const component = mount(
+			<BlueBaseApp plugins={[Plugin]}>
+				<Formik initialValues={initialValues} onSubmit={onSubmit}>
+					<FormRangeInput {...fieldProps as any} />
+				</Formik>
+			</BlueBaseApp>
+		);
+
+		await waitForElement(component as any, FormRangeInput);
+
+		// Initial state should be false
+		let SliderComponent = component.find('Slider').last();
+
+		// Check fields
+		expect(SliderComponent.prop('name')).toBe('temp');
+		expect(SliderComponent.prop('value')).toBe(26);
+
+		// Update State
+		const onValueChange: any = SliderComponent.prop('onValueChange');
+
+		onValueChange(null);
+		component.update();
+		// expect(component).toMatchSnapshot();
+
+		// New state should be true
+		SliderComponent = component.find('Slider').first();
+		expect(SliderComponent.prop('name')).toBe('temp');
+		expect(SliderComponent.prop('value')).toBe(null);
+	});
+	it('should update slider value from onValueChange callback with value', async () => {
 
 		const onSubmit = jest.fn();
 
