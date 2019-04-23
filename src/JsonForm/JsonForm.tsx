@@ -1,5 +1,5 @@
 import { Formik, FormikConfig, FormikValues } from 'formik';
-import { BlueBaseFilter } from '@bluebase/core';
+import { BlueBaseFilter } from '@bluebase/components';
 import { Form } from './Form';
 import { FormFieldProps } from './Fields';
 import { FormFields } from './FormFields';

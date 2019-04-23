@@ -1,4 +1,5 @@
-import { BlueBase, BlueBaseContext, BlueBaseFilter, MaybeArray } from '@bluebase/core';
+import { BlueBase, BlueBaseContext, MaybeArray } from '@bluebase/core';
+import  { BlueBaseFilter } from '@bluebase/components'
 import { JsonComponentNode, JsonSchemaParser } from '../lib';
 import React from 'react';
 

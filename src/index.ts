@@ -19,6 +19,8 @@ import { JsonLayout } from './JsonLayout';
 // import { TextInput } from 'react-native';
 import { createPlugin } from '@bluebase/core';
 
+export * from './JsonForm';
+
 export default createPlugin({
 	categories: ['ui'],
 	description: 'A utility to build pluggable components based on JSON schema!',
@@ -41,6 +43,8 @@ export default createPlugin({
 		FormSwitchInput,
 		FormTextInput,
 		FormUrlInput,
+
+		
 		JsonForm,
 		JsonLayout,
 	},
