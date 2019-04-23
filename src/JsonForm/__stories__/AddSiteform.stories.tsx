@@ -93,7 +93,7 @@ storiesOf('Add sites', module)
           },
           onSubmit: (values, form) => {
             // tslint:disable-next-line: no-console
-            console.log('Email sent', values);
+            console.log('Site Added', values);
 
             setTimeout(() => {
               form.setSubmitting(false);

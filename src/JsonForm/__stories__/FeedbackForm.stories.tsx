@@ -45,7 +45,7 @@ storiesOf('Feed Back Form', module)
 					},
 					onSubmit: (values, form) => {
 						// tslint:disable-next-line: no-console
-						console.log('Email sent', values);
+						console.log('FeedBack sent', values);
 
 						setTimeout(() => {
 							form.setSubmitting(false);

@@ -106,7 +106,7 @@ storiesOf('SignUp', module)
 					},
 					onSubmit: (values, form) => {
 						// tslint:disable-next-line: no-console
-						console.log('Login form submitted by following values', values);
+						console.log('SignUp form submitted by following values', values);
 
 						setTimeout(() => {
 							form.setSubmitting(false);

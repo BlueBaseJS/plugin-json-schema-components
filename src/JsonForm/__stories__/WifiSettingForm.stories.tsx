@@ -120,7 +120,7 @@ storiesOf('Wifi Setting Form', module)
 					},
 					onSubmit: (values, form) => {
 						// tslint:disable-next-line: no-console
-						console.log('Login form submitted by following values', values);
+						console.log('', values);
 
 						setTimeout(() => {
 							form.setSubmitting(false);

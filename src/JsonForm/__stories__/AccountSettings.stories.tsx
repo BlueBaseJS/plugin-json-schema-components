@@ -104,7 +104,7 @@ storiesOf('Account Settings', module)
 					},
 					onSubmit: (values, form) => {
 						// tslint:disable-next-line: no-console
-						console.log('Email sent', values);
+						console.log('Password changed', values);
 
 						setTimeout(() => {
 							form.setSubmitting(false);
@@ -156,7 +156,7 @@ storiesOf('Account Settings', module)
 					},
 					onSubmit: (values, form) => {
 						// tslint:disable-next-line: no-console
-						console.log('Email sent', values);
+						console.log('Email Changed', values);
 
 						setTimeout(() => {
 							form.setSubmitting(false);

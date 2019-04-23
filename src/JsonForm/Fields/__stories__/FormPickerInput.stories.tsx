@@ -13,7 +13,6 @@ function onChange(name: any,selected:any) {
     console.log('Selected ', selected);
 };
 
-
 storiesOf('FormPickerInput', module)
     .add('With Picker', () => (
         <BlueBaseApp plugins={plugins}>
@@ -132,7 +131,7 @@ storiesOf('FormPickerInput', module)
                     items= {[{label:"Male",value:"Male"  },
                     {label:"Node",value:"Node"  },
                      {label:"Java",value:"Java"  }]}
-                    onValueChange =  {onChange}                  
+                    onValueChange =  {onChange}      
                   
                 >
                 </FormPickerInput>

@@ -36,7 +36,7 @@ storiesOf('Forgot Password', module)
 						{
                             direction: 'left',
                             name: 'form-actions',
-                            type: 'actions',
+							type: 'actions',
                             fields: [
                                 {
                                     schema: {

@@ -19,7 +19,6 @@ storiesOf('Prediction Rate', module)
 							label: 'Unit Rate',
 							name: 'text',
 							type: 'text',
-							//error : 'Pleas',
 							helperText : 'Please provide unit rate',
 							placeholder :'Please enter your Asset name',
 							
@@ -31,7 +30,7 @@ storiesOf('Prediction Rate', module)
 					},
 					onSubmit: (values, form) => {
 						// tslint:disable-next-line: no-console
-						console.log('Login form submitted by following values', values);
+						console.log('Prediction Entered', values);
 
 						setTimeout(() => {
 							form.setSubmitting(false);

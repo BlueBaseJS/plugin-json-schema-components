@@ -17,11 +17,7 @@ export const FormSwitchInput = ({ type, ...props }: FormSwitchInputProps) => {
 		{({ field, form  }: any) => {
 
 			const name = props.name;
-			console.log('valllname',name)
-
 			const value = getIn(form.values, name);
-			console.log('valllvalue',value)
-
 			const inputProps: any = {
 				labelPlacement: 'start',
 				...props,

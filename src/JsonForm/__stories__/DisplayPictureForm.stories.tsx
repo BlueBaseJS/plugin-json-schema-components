@@ -46,7 +46,7 @@ storiesOf('Display Picture', module)
 					},
 					onSubmit: (values, form) => {
 						// tslint:disable-next-line: no-console
-						console.log('Email sent', values);
+						console.log('', values);
 
 						setTimeout(() => {
 							form.setSubmitting(false);

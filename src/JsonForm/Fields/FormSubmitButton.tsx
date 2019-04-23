@@ -9,7 +9,6 @@ export interface FormSubmitButtonProps extends ButtonProps {
 	nested ? : boolean
 	name: string,
 	styles?:any
-	onPress ? :any
 
 }
 

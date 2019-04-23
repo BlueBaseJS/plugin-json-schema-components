@@ -52,7 +52,7 @@ storiesOf('Seacrh Form', module)
 							name: 'search',
 							type: 'search',
 							required: false,
-							fullWidth : true,
+							//fullWidth : true,
 							variant : "outlined",
 							placeholder : "Search",
 
