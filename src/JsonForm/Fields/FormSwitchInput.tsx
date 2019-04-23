@@ -17,35 +17,22 @@ export const FormSwitchInput = ({ type, ...props }: FormSwitchInputProps) => {
 		{({ field, form  }: any) => {
 
 			const name = props.name;
-			console.log('valll',name)
+			console.log('valllname',name)
 
-					const value = getIn(form.values, name);
-			console.log('valll',value)
+			const value = getIn(form.values, name);
+			console.log('valllvalue',value)
 
 			const inputProps: any = {
 				labelPlacement: 'start',
 				...props,
 				checked: Boolean(value),
+
 				onValueChange: (_value: any, checked: boolean) => {
 					form.setFieldValue(field.name, checked);
-				
-					value ? props.onValueChange ? props.onValueChange(value,checked):null :   (props.onValueChange ? props.onValueChange(value,checked) :null) 
-
-					// if (value){
-					// 	if(props.onValueChange){
-					// 		props.onValueChange(value,checked)
-					// 	}
-					// }
-					// else if (!value){
-					// 	if(props.onValueChange){
-					// 		props.onValueChange(value,checked)
-					// 	}
-					// }
-					// if (val){
-					// 	if(props.onValueChange){
-					// 		props.onValueChange(value,checked)
-					// 	}
-					// }
+					
+					if (value !== undefined && props.onValueChange) {
+						props.onValueChange(value, checked)
+					}
 				}
 			};
 

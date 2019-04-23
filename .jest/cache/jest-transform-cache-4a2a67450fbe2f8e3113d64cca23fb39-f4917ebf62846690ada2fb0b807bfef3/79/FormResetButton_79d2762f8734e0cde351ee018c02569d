@@ -1,0 +1,392 @@
+749c9143ecb2400c9719c701371dda2f
+"use strict";
+
+/* istanbul ignore next */
+var cov_1cfdlsks08 = function () {
+  var path = "/home/muzzamil/Documents/bluebase/plugin-json-schema-components/src/JsonForm/Fields/FormResetButton.tsx";
+  var hash = "8e7c5d0ac236f4a4cc2a0631c3092e1ef1e25949";
+
+  var Function = function () {}.constructor;
+
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/home/muzzamil/Documents/bluebase/plugin-json-schema-components/src/JsonForm/Fields/FormResetButton.tsx",
+    statementMap: {
+      "0": {
+        start: {
+          line: 3,
+          column: 29
+        },
+        end: {
+          line: 3,
+          column: 84
+        }
+      },
+      "1": {
+        start: {
+          line: 5,
+          column: 16
+        },
+        end: {
+          line: 5,
+          column: 81
+        }
+      },
+      "2": {
+        start: {
+          line: 7,
+          column: 0
+        },
+        end: {
+          line: 9,
+          column: 3
+        }
+      },
+      "3": {
+        start: {
+          line: 11,
+          column: 14
+        },
+        end: {
+          line: 11,
+          column: 30
+        }
+      },
+      "4": {
+        start: {
+          line: 13,
+          column: 19
+        },
+        end: {
+          line: 13,
+          column: 50
+        }
+      },
+      "5": {
+        start: {
+          line: 15,
+          column: 15
+        },
+        end: {
+          line: 15,
+          column: 32
+        }
+      },
+      "6": {
+        start: {
+          line: 17,
+          column: 14
+        },
+        end: {
+          line: 17,
+          column: 55
+        }
+      },
+      "7": {
+        start: {
+          line: 19,
+          column: 13
+        },
+        end: {
+          line: 19,
+          column: 48
+        }
+      },
+      "8": {
+        start: {
+          line: 20,
+          column: 0
+        },
+        end: {
+          line: 32,
+          column: 3
+        }
+      },
+      "9": {
+        start: {
+          line: 21,
+          column: 15
+        },
+        end: {
+          line: 21,
+          column: 27
+        }
+      },
+      "10": {
+        start: {
+          line: 22,
+          column: 15
+        },
+        end: {
+          line: 22,
+          column: 27
+        }
+      },
+      "11": {
+        start: {
+          line: 23,
+          column: 15
+        },
+        end: {
+          line: 23,
+          column: 27
+        }
+      },
+      "12": {
+        start: {
+          line: 24,
+          column: 15
+        },
+        end: {
+          line: 24,
+          column: 68
+        }
+      },
+      "13": {
+        start: {
+          line: 26,
+          column: 2
+        },
+        end: {
+          line: 31,
+          column: 7
+        }
+      },
+      "14": {
+        start: {
+          line: 33,
+          column: 0
+        },
+        end: {
+          line: 37,
+          column: 2
+        }
+      },
+      "15": {
+        start: {
+          line: 39,
+          column: 0
+        },
+        end: {
+          line: 46,
+          column: 2
+        }
+      },
+      "16": {
+        start: {
+          line: 40,
+          column: 2
+        },
+        end: {
+          line: 45,
+          column: 4
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "(anonymous_0)",
+        decl: {
+          start: {
+            line: 20,
+            column: 43
+          },
+          end: {
+            line: 20,
+            column: 44
+          }
+        },
+        loc: {
+          start: {
+            line: 20,
+            column: 60
+          },
+          end: {
+            line: 32,
+            column: 1
+          }
+        },
+        line: 20
+      },
+      "1": {
+        name: "(anonymous_1)",
+        decl: {
+          start: {
+            line: 39,
+            column: 40
+          },
+          end: {
+            line: 39,
+            column: 41
+          }
+        },
+        loc: {
+          start: {
+            line: 39,
+            column: 57
+          },
+          end: {
+            line: 46,
+            column: 1
+          }
+        },
+        line: 39
+      }
+    },
+    branchMap: {
+      "0": {
+        loc: {
+          start: {
+            line: 27,
+            column: 11
+          },
+          end: {
+            line: 27,
+            column: 49
+          }
+        },
+        type: "cond-expr",
+        locations: [{
+          start: {
+            line: 27,
+            column: 30
+          },
+          end: {
+            line: 27,
+            column: 44
+          }
+        }, {
+          start: {
+            line: 27,
+            column: 47
+          },
+          end: {
+            line: 27,
+            column: 49
+          }
+        }],
+        line: 27
+      }
+    },
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0,
+      "13": 0,
+      "14": 0,
+      "15": 0,
+      "16": 0
+    },
+    f: {
+      "0": 0,
+      "1": 0
+    },
+    b: {
+      "0": [0, 0]
+    },
+    _coverageSchema: "43e27e138ebf9cfc5966b082cf9a028302ed4184"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (coverage[path] && coverage[path].hash === hash) {
+    return coverage[path];
+  }
+
+  coverageData.hash = hash;
+  return coverage[path] = coverageData;
+}();
+
+var _interopRequireDefault =
+/* istanbul ignore next */
+(cov_1cfdlsks08.s[0]++, require("@babel/runtime/helpers/interopRequireDefault"));
+
+var _extends2 =
+/* istanbul ignore next */
+(cov_1cfdlsks08.s[1]++, _interopRequireDefault(require("@babel/runtime/helpers/extends")));
+
+/* istanbul ignore next */
+cov_1cfdlsks08.s[2]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var tslib_1 =
+/* istanbul ignore next */
+(cov_1cfdlsks08.s[3]++, require("tslib"));
+var components_1 =
+/* istanbul ignore next */
+(cov_1cfdlsks08.s[4]++, require("@bluebase/components"));
+var formik_1 =
+/* istanbul ignore next */
+(cov_1cfdlsks08.s[5]++, require("formik"));
+var react_1 =
+/* istanbul ignore next */
+(cov_1cfdlsks08.s[6]++, tslib_1.__importDefault(require("react")));
+var Button =
+/* istanbul ignore next */
+(cov_1cfdlsks08.s[7]++, components_1.getComponent('Button'));
+
+/* istanbul ignore next */
+cov_1cfdlsks08.s[8]++;
+exports.FormResetButton = formik_1.connect(function (props) {
+  /* istanbul ignore next */
+  cov_1cfdlsks08.f[0]++;
+  var nested =
+  /* istanbul ignore next */
+  (cov_1cfdlsks08.s[9]++, props.nested),
+      formik =
+  /* istanbul ignore next */
+  (cov_1cfdlsks08.s[10]++, props.formik),
+      styles =
+  /* istanbul ignore next */
+  (cov_1cfdlsks08.s[11]++, props.styles),
+      others =
+  /* istanbul ignore next */
+  (cov_1cfdlsks08.s[12]++, tslib_1.__rest(props, ["nested", "formik", "styles"]));
+
+  /* istanbul ignore next */
+  cov_1cfdlsks08.s[13]++;
+  return react_1.default.createElement(components_1.View, {
+    style: nested === false ?
+    /* istanbul ignore next */
+    (cov_1cfdlsks08.b[0][0]++, styles.wrapper) :
+    /* istanbul ignore next */
+    (cov_1cfdlsks08.b[0][1]++, {})
+  }, react_1.default.createElement(Button, (0, _extends2.default)({}, others, {
+    onPress: formik.handleReset,
+    type: "reset"
+  })));
+});
+
+/* istanbul ignore next */
+cov_1cfdlsks08.s[14]++;
+exports.FormResetButton.defaultProps = {
+  name: 'reset',
+  title: 'Reset',
+  variant: 'text'
+};
+
+/* istanbul ignore next */
+cov_1cfdlsks08.s[15]++;
+
+exports.FormResetButton.defaultStyles = function (theme) {
+  /* istanbul ignore next */
+  cov_1cfdlsks08.f[1]++;
+  cov_1cfdlsks08.s[16]++;
+  return {
+    wrapper: {
+      paddingHorizontal: theme.spacing.unit * 2,
+      paddingVertical: 2
+    }
+  };
+};

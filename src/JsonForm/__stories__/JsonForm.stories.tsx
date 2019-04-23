@@ -139,7 +139,6 @@ storiesOf('JsonForm', module)
 							}]
 						},
 
-
 						{
 							name: 'submit',
 							title: 'SIGN Button',

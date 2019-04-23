@@ -25,13 +25,11 @@ export const FormResetButton = connect((props: FormResetButtonProps & { formik: 
 }
 );
 
-
 FormResetButton.defaultProps = {
 	name: 'reset',
 	title: 'Reset',
 	variant: 'text',
 };
-
 
 (FormResetButton as any).defaultStyles = (theme: Theme) => ({
 	wrapper: {

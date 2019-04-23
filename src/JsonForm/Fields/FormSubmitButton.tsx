@@ -9,6 +9,7 @@ export interface FormSubmitButtonProps extends ButtonProps {
 	nested ? : boolean
 	name: string,
 	styles?:any
+	onPress ? :any
 
 }
 
@@ -17,7 +18,7 @@ export const FormSubmitButton = connect( (props: FormSubmitButtonProps & { formi
 	const { handleSubmit, isSubmitting,styles,nested } = props;
 
 	return (
-		<View style={nested === false ?  styles.wrapper : {}} >
+		<View style={nested === true ? {} :  styles.wrapper } >
 
 			<Button disabled={isSubmitting} loading={isSubmitting} {...props} onPress={handleSubmit} type="submit" />
 		</View>

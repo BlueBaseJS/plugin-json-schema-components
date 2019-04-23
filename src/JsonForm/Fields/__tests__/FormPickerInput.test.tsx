@@ -82,14 +82,15 @@ describe('FormPickerInput', () => {
 		expect(PickerComponent.prop('name')).toBe('lang');
 		expect(PickerComponent.prop('value')).toBe('java');
 	});
-	it('should update picker value from onValueChange callback with null', async () => {
+	
+	it('should update picker value from onValueChange callback with prop', async () => {
 
 		const onSubmit = jest.fn();
 
 		const component = mount(
 			<BlueBaseApp plugins={[Plugin]}>
 				<Formik initialValues={initialValues} onSubmit={onSubmit}>
-					<FormPickerInput {...fieldProps as any} />
+					<FormPickerInput onValueChange={()=>null} {...fieldProps as any} />
 				</Formik>
 			</BlueBaseApp>
 		);

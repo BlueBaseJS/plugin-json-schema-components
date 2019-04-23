@@ -54,7 +54,7 @@ describe('FormResetButton', () => {
 		const component = mount(
 			<BlueBaseApp plugins={[Plugin, MaterialUIPlugin]}>
 				<Formik initialValues={initialValues} onSubmit={onSubmit}>
-					<FormResetButton {...fieldProps[1] as any} />
+					<FormResetButton  styles={{wrapper:{}}} {...fieldProps[1] as any} />
 				</Formik>
 			</BlueBaseApp>
 		);

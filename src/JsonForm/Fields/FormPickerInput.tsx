@@ -15,24 +15,26 @@ export const FormPickerInput = ({ type, items, ...props }: FormPickerInputProps)
 
 	return (
 		<Field {...props}>
-		{({ field, form }: any) => {
+			{({ field, form }: any) => {
 
-			const inputProps: any = {
-				...props,
-				...field,
-				onValueChange: (value: any) => {
-				form.setFieldValue(field.name, value),
-				//selectedValue: field.value,
-				!value ?  null : props.onValueChange ? props.onValueChange(field.name,value) : null;
-				}
-			};
+				const inputProps: any = {
+					...props,
+					...field,
+					onValueChange: (value: any) => {
+						form.setFieldValue(field.name, value);
 
-			return (
-				<BaseFormField MainComponent={Picker} {...inputProps}>
-				{items.map(i => <Picker.Item key={String(i.value)} {...i} />)}
-				</BaseFormField>
-			);
-		}}
+						if (value !== undefined && props.onValueChange) {
+							props.onValueChange(field.name, value)
+						}
+					}
+				};
+
+				return (
+					<BaseFormField MainComponent={Picker} {...inputProps}>
+						{items.map(i => <Picker.Item key={String(i.value)} {...i} />)}
+					</BaseFormField>
+				);
+			}}
 		</Field>
 	);
 };

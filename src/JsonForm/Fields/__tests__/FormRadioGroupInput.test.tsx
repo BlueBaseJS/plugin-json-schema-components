@@ -81,14 +81,14 @@ describe('FormRadioGroupInput', () => {
 		expect(component.find('RadioGroup').first().prop('name')).toBe('lang');
 		expect(component.find('RadioGroup').first().prop('value')).toBe('java');
 	});
-	it('should update radio-group value from onValueChange callback with null', async () => {
+	it('should update radio-group value from onValueChange callback as prop', async () => {
 
 		const onSubmit = jest.fn();
 
 		const component = mount(
 			<BlueBaseApp plugins={[Plugin, MaterialUIPlugin]}>
 				<Formik initialValues={initialValues} onSubmit={onSubmit}>
-					<FormRadioGroupInput {...fieldProps as any} />
+					<FormRadioGroupInput onValueChange={()=>null} {...fieldProps as any} />
 				</Formik>
 			</BlueBaseApp>
 		);

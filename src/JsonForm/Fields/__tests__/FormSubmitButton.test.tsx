@@ -11,14 +11,12 @@ const fieldProps = [{
 	name: 'submit',
 	title: 'Login',
     type: 'submit',
-	loading : false,
-	nested : true
+	nested : true,
 },
 {
 	name: 'submit',
 	title: 'Login',
     type: 'submit',
-	loading : false,
 	nested : false
 }];
 
@@ -28,7 +26,7 @@ const initialValues = {
 
 describe('FormSubmitButton', () => {
 	
-	it('should render all form fields in the schema', async () => {
+	it('should render all form fields in the schema nested true', async () => {
 
 		const onSubmit = jest.fn();
 
@@ -46,22 +44,21 @@ describe('FormSubmitButton', () => {
 
 		// Check fields
 		
-		expect(component.find('Button').first().prop('loading')).toBe(false);
 		expect(component.find('Button').first().prop('title')).toBe('Login');
 		expect(component.find('Button').first().prop('type')).toBe('submit');
 
-		// const onPress: any = component.find('Button').first().prop('onPress');
-		// onPress();
-		// component.update();
+		//const onPress: any = component.find('Button').first().prop('onPress');
+		//onPress();
+		component.update();
 
 
-		// const formik: any = component.find('Button').first().prop('formik');
-		// formik.handleSubmit();
-		// component.update();
+		const formik: any = component.find('Button').first().prop('formik');
+		formik.handleSubmit();
+		component.update();
 
 		setTimeout(() => {
-			 expect(component).toMatchSnapshot();
-			expect(onSubmit).toHaveBeenCalledTimes(0);
+			 //expect(component).toMatchSnapshot();
+			expect(onSubmit).toHaveBeenCalledTimes(1);
 		});
 
 	});
@@ -72,7 +69,7 @@ describe('FormSubmitButton', () => {
 		const component = mount(
 			<BlueBaseApp plugins={[Plugin, MaterialUIPlugin]}>
 				<Formik initialValues={initialValues} onSubmit={onSubmit}>
-					<FormSubmitButton {...fieldProps[1] as any} />
+					<FormSubmitButton styles={{wrapper:{}}} {...fieldProps[1] as any} />
 				</Formik>
 			</BlueBaseApp>
 		);
@@ -83,22 +80,21 @@ describe('FormSubmitButton', () => {
 
 		// Check fields
 		
-		expect(component.find('Button').first().prop('loading')).toBe(false);
 		expect(component.find('Button').first().prop('title')).toBe('Login');
 		expect(component.find('Button').first().prop('type')).toBe('submit');
 
 		// const onPress: any = component.find('Button').first().prop('onPress');
 		// onPress();
-		// component.update();
+		component.update();
 
 
-		// const formik: any = component.find('Button').first().prop('formik');
-		// formik.handleSubmit();
-		// component.update();
+		const formik: any = component.find('Button').first().prop('formik');
+		formik.handleSubmit();
+		component.update();
 
 		setTimeout(() => {
 			 //expect(component).toMatchSnapshot();
-			expect(onSubmit).toHaveBeenCalledTimes(0);
+			expect(onSubmit).toHaveBeenCalledTimes(1);
 		});
 
 	});

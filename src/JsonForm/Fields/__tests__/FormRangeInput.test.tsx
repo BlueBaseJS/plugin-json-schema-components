@@ -43,8 +43,8 @@ describe('FormRangeInput', () => {
 		expect(component.find('Slider').last().prop('name')).toBe('temp');
 		expect(component.find('Slider').last().prop('value')).toBe(26);
 	});
-
-	it('should update slider value from onValueChange callback with null', async () => {
+	
+	it('should update slider value from onValueChange callback with no as prop', async () => {
 
 		const onSubmit = jest.fn();
 
@@ -77,14 +77,15 @@ describe('FormRangeInput', () => {
 		expect(SliderComponent.prop('name')).toBe('temp');
 		expect(SliderComponent.prop('value')).toBe(null);
 	});
-	it('should update slider value from onValueChange callback with value', async () => {
+
+	it('should update slider value from onValueChange callback as prop', async () => {
 
 		const onSubmit = jest.fn();
 
 		const component = mount(
 			<BlueBaseApp plugins={[Plugin]}>
 				<Formik initialValues={initialValues} onSubmit={onSubmit}>
-					<FormRangeInput {...fieldProps as any} />
+					<FormRangeInput onValueChange={()=>null} {...fieldProps as any} />
 				</Formik>
 			</BlueBaseApp>
 		);
@@ -110,4 +111,5 @@ describe('FormRangeInput', () => {
 		expect(SliderComponent.prop('name')).toBe('temp');
 		expect(SliderComponent.prop('value')).toBe(20);
 	});
+
 });

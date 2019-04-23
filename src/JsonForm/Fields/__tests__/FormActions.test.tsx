@@ -10,7 +10,7 @@ import deepmerge from 'deepmerge';
 
 
 const fieldProps = {
-	direction: 'right',
+	//direction: 'right',
 	name: 'form-actions',
 	type: 'actions',
 
@@ -33,7 +33,7 @@ const initialValues = {
 
 describe('FormActions', () => {
 
-	it('should render all form fields in the schema', async () => {
+	it('should render all form fields in the schema with direction right', async () => {
 
 		const onSubmit = jest.fn();
 
@@ -42,7 +42,7 @@ describe('FormActions', () => {
 		const component = mount(
 			<BlueBaseApp plugins={[Plugin, MaterialUIPlugin]}>
 				<Formik initialValues={initialValues} onSubmit={onSubmit}>
-					<FormActions {...fieldProps as any} />
+					<FormActions {...fieldProps as any} direction = 'right' />
 				</Formik>
 			</BlueBaseApp>
 		);
@@ -95,7 +95,7 @@ describe('FormActions', () => {
 		const component = mount(
 			<BlueBaseApp plugins={[Plugin, MaterialUIPlugin]}>
 				<Formik initialValues={initialValues} onSubmit={onSubmit}>
-					<FormActions {...fieldProps as any} direction = "space-between"  />
+					<FormActions style={{}} {...fieldProps as any} direction = "space-between"  />
 				</Formik>
 			</BlueBaseApp>
 		);
@@ -111,5 +111,29 @@ describe('FormActions', () => {
 		// Check fields
 		expect(rootStyles.justifyContent).toBe('space-between');
 		// expect(childStyles.marginLeft).toBe(16);
+	});
+	it('should render all form fields in the schema with empty style object', async () => {
+
+		const onSubmit = jest.fn();
+		const FormActions = getComponent('FormActions');
+
+		const component = mount(
+			<BlueBaseApp plugins={[Plugin, MaterialUIPlugin]}>
+				<Formik initialValues={initialValues} onSubmit={onSubmit}>
+					<FormActions  direction={null} {...fieldProps as any} />
+				</Formik>
+			</BlueBaseApp>
+		);
+
+		await waitForElement(component as any, FormActions);
+
+		 //expect(component).toMatchSnapshot();
+
+		const root: any = component.find('[testID="form-actions"]').first().prop('style');
+		const rootStyles: any = deepmerge.all(root.filter((x: any) => !!x));
+		// const childStyles: any = component.find('FieldWrapper View').first().prop('style');
+
+		// Check fields
+		expect(rootStyles.justifyContent).toBeUndefined;
 	});
 });

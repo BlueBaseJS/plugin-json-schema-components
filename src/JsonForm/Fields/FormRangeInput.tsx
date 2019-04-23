@@ -29,11 +29,12 @@ export const FormRangeInput = ({ min, max, ...rest }: FormRangeInputProps) => {
 				...props,
 				name: field.name,
 				onValueChange: (value: any) => {
-					form.setFieldValue(field.name, value) ,
-					!value ?  null : rest.onValueChange ? rest.onValueChange(value) : null;
-
+					form.setFieldValue(field.name, value)
+					
+					if (value !== undefined && props.onValueChange) {
+						props.onValueChange( value)
+					}
 				},
-
 				value: field.value,
 			};
 

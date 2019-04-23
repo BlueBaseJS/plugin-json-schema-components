@@ -8,7 +8,7 @@ import { View } from '@bluebase/components';
 export interface FormActionsStyles {
 	fieldContainerLeft: StyleProp<ViewStyle>;
 	fieldContainerRight: StyleProp<ViewStyle>;
-	rootSpaceBetween : StyleProp<ViewStyle>;
+	rootSpaceBetween: StyleProp<ViewStyle>;
 	root: StyleProp<ViewStyle>;
 	rootLeft: StyleProp<ViewStyle>;
 	rootRight: StyleProp<ViewStyle>;
@@ -24,17 +24,17 @@ export interface FormActionsProps {
 }
 
 
-const FieldWrapper = ({ field, parent,children }: FieldWrapperProps) => {
+const FieldWrapper = ({ field, parent, children }: FieldWrapperProps) => {
 
-	const { direction, styles ,style} = parent;
+	const { direction, styles, style } = parent;
 
 	return (
 		<View
-		key={field.name}
-		style={direction === 'left'? styles.fieldContainerLeft : direction === "right" ? styles.fieldContainerRight :style }
-	>
-	{children}
-	</View>
+			key={field.name}
+			style={direction === 'left' ? styles.fieldContainerLeft : direction === "right" ? styles.fieldContainerRight : style}
+		>
+			{children}
+		</View>
 	);
 };
 
@@ -44,15 +44,16 @@ const FieldWrapper = ({ field, parent,children }: FieldWrapperProps) => {
  */
 export const FormActions = (props: FormActionsProps) => {
 
-	const { direction, style, styles: _styles } = props;
+	const { direction, styles: _styles } = props;
 	const styles = _styles as FormActionsStyles;
 	return (
-		
-		<View style={[styles.root, direction === 'left' ? styles.rootLeft :  direction === 'right' ? styles.rootRight : direction === 'space-between' ? styles.rootSpaceBetween : null, style]}
-		
-		testID="form-actions">
-		<FormFields {...props} FieldWrapper={FieldWrapper} />
-	</View>
+
+		<View style={[styles.root,direction === 'left' ?styles.rootLeft :direction === 'right' ?styles.rootRight :direction === 'space-between' ?styles.rootSpaceBetween :null
+		]}
+
+			testID="form-actions">
+			<FormFields {...props} FieldWrapper={FieldWrapper} />
+		</View>
 	);
 };
 
@@ -69,11 +70,11 @@ FormActions.defaultStyles = (theme: Theme): FormActionsStyles => ({
 	},
 	root: {
 		flexDirection: 'row',
-		 paddingVertical: theme.spacing.unit * 2,
+		paddingVertical: theme.spacing.unit * 2,
 	},
 	rootLeft: {
 		justifyContent: 'flex-start',
-		
+
 	},
 	rootRight: {
 		justifyContent: 'flex-end',

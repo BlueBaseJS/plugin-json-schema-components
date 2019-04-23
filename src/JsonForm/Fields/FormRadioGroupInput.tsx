@@ -20,12 +20,13 @@ export const FormRadioGroupInput = ({ type, items, ...props }: FormRadioGroupInp
 			const inputProps: any = {
 				...props,
 				...field,
+				
 				onValueChange: (value: any) =>
 				{
 					form.setFieldValue(field.name, value)
-					!value ?  null : props.onValueChange ? props.onValueChange(value) : null;
-					
-
+					if (value !== undefined && props.onValueChange) {
+						props.onValueChange( value)
+					}
 				}
 			};
 
