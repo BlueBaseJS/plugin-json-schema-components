@@ -4,12 +4,13 @@ const DefaultInputs = ['FormTextInput', 'TextInput', 'Noop'];
 const DefaultButtons = ['Button', 'Noop'];
 
 const FieldResolutionMap: any = {
-	actions: ['FormActions', 'Noop'],
 	checkbox: ['FormCheckboxInput', 'Noop'],
 	color: ['FormColorInput', ...DefaultInputs],
 	component: ['JsonLayout', 'Noop'],
 	date: ['FormDateInput', ...DefaultInputs],
 	email: ['FormEmailInput', ...DefaultInputs],
+	'inline': ['InlineFields', 'Noop'],
+	'inline-fields': ['InlineFields', 'Noop'],
 	number: ['FormNumberInput', ...DefaultInputs],
 	password: ['FormPasswordInput', ...DefaultInputs],
 	picker: ['FormPickerInput', 'Picker', 'Noop'],

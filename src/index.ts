@@ -1,6 +1,5 @@
 import {
 	BaseFormField,
-	FormActions,
 	FormCheckboxInput,
 	FormEmailInput,
 	FormNumberInput,
@@ -13,6 +12,7 @@ import {
 	FormSwitchInput,
 	FormTextInput,
 	FormUrlInput,
+	InlineFields,
 	JsonForm,
 } from './JsonForm';
 import { JsonLayout } from './JsonLayout';
@@ -30,7 +30,6 @@ export default createPlugin({
 
 	components: {
 		BaseFormField,
-		FormActions,
 		FormCheckboxInput,
 		FormEmailInput,
 		FormNumberInput,
@@ -43,6 +42,7 @@ export default createPlugin({
 		FormSwitchInput,
 		FormTextInput,
 		FormUrlInput,
+		InlineFields,
 		JsonForm,
 		JsonLayout,
 	},

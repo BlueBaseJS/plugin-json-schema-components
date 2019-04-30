@@ -1,4 +1,3 @@
-export * from './FormActions';
 export * from './FormCheckboxInput';
 export * from './FormEmailInput';
 export * from './FormFieldProps';
@@ -12,3 +11,4 @@ export * from './FormSubmitButton';
 export * from './FormSwitchInput';
 export * from './FormTextInput';
 export * from './FormUrlInput';
+export * from './InlineFields';

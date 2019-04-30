@@ -1,4 +1,3 @@
-import { FormActionsProps } from './FormActions';
 import { FormCheckboxInputProps } from './FormCheckboxInput';
 import { FormComponentFieldProps } from './FormComponentField';
 import { FormEmailInputProps } from './FormEmailInput';
@@ -10,9 +9,10 @@ import { FormSubmitButtonProps } from './FormSubmitButton';
 import { FormSwitchInputProps } from './FormSwitchInput';
 import { FormTextInputProps } from './FormTextInput';
 import { FormUrlInputProps } from './FormUrlInput';
+import { InlineFieldsProps } from './InlineFields';
 
 export type FormFieldProps = { type: string } & (
-	| FormActionsProps
+	| InlineFieldsProps
 	| FormCheckboxInputProps
 	| FormComponentFieldProps
 	| FormEmailInputProps

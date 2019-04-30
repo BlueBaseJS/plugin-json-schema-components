@@ -5,21 +5,21 @@ import React from 'react';
 import { Theme } from '@bluebase/core';
 import { View } from '@bluebase/components';
 
-export interface FormActionsStyles {
-	fieldContainerLeft: StyleProp<ViewStyle>;
-	fieldContainerRight: StyleProp<ViewStyle>;
+export interface InlineFieldsStyles {
+	fieldContainer: StyleProp<ViewStyle>;
+	fieldContainerFill: StyleProp<ViewStyle>;
 	root: StyleProp<ViewStyle>;
 	rootLeft: StyleProp<ViewStyle>;
 	rootRight: StyleProp<ViewStyle>;
 }
 
-export interface FormActionsProps {
+export interface InlineFieldsProps {
 	type: 'actions';
 	name: string;
 	direction: 'left' | 'right';
 	fields: FormFieldProps[];
 	style?: StyleProp<ViewStyle>;
-	styles?: Partial<FormActionsStyles>;
+	styles?: Partial<InlineFieldsStyles>;
 }
 
 
@@ -30,7 +30,7 @@ const FieldWrapper = ({ field, parent, children }: FieldWrapperProps) => {
 	return (
 		<View
 			key={field.name}
-			style={direction === 'left' ? styles.fieldContainerLeft : styles.fieldContainerRight}
+			style={[styles.fieldContainer, !direction && styles.fieldContainerFill]}
 		>
 		{children}
 		</View>
@@ -41,32 +41,40 @@ const FieldWrapper = ({ field, parent, children }: FieldWrapperProps) => {
  * A component that renders form actions, i.e. submit or reset buttons
  * @param props
  */
-export const FormActions = (props: FormActionsProps) => {
+export const InlineFields = (props: InlineFieldsProps) => {
 
-	const { direction, style, styles: _styles } = props;
-	const styles = _styles as FormActionsStyles;
+	const { direction, style, styles = {} } = props;
+
+	const stylesheet = [styles.root];
+
+	if (direction === 'left') {
+		stylesheet.push(styles.rootLeft);
+	} else if (direction === 'right') {
+		stylesheet.push(styles.rootRight);
+	}
+
+	stylesheet.push(style);
 
 	return (
-		<View style={[styles.root, direction === 'left' ? styles.rootLeft : styles.rootRight, style]} testID="form-actions">
+		<View style={stylesheet} testID="form-actions">
 			<FormFields {...props} FieldWrapper={FieldWrapper} />
 		</View>
 	);
 };
 
-FormActions.defaultProps = {
-	direction: 'right'
+InlineFields.defaultProps = {
 };
 
-FormActions.defaultStyles = (theme: Theme): FormActionsStyles => ({
-	fieldContainerLeft: {
-		marginLeft: theme.spacing.unit * 2,
+InlineFields.defaultStyles = (theme: Theme): InlineFieldsStyles => ({
+	fieldContainer: {
+		margin: -theme.spacing.unit,
 	},
-	fieldContainerRight: {
-		marginRight: theme.spacing.unit * 2,
+	fieldContainerFill: {
+		flex: 1,
 	},
 	root: {
 		flexDirection: 'row',
-		paddingVertical: theme.spacing.unit * 2,
+		padding: theme.spacing.unit,
 	},
 	rootLeft: {
 		justifyContent: 'flex-start',

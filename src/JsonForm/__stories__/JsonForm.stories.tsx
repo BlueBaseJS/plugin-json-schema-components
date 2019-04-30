@@ -14,6 +14,24 @@ storiesOf('JsonForm', module)
 				schema={{
 					fields: [
 						{
+							name: 'form-actions',
+							type: 'inline',
+
+							fields: [{
+								label: 'First Name',
+								name: 'firstname',
+								type: 'text',
+							}, {
+								label: 'Last Name',
+								name: 'lastname',
+								type: 'text',
+							}]
+						},
+						{
+							schema: { component: 'Divider' },
+							type: 'component',
+						},
+						{
 							label: 'Username',
 							name: 'username',
 							required: true,
@@ -99,7 +117,7 @@ storiesOf('JsonForm', module)
 						{
 							direction: 'right',
 							name: 'form-actions',
-							type: 'actions',
+							type: 'inline',
 
 							fields: [{
 								name: 'reset',
