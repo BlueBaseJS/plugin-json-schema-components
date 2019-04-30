@@ -10,6 +10,11 @@ export interface FormUrlInputProps extends FormTextInputProps {
 }
 
 export const FormUrlInput = (props: FormUrlInputProps) => (
-	<FormTextInput {...props} type="url" />
+	<FormTextInput
+		{...props}
+		autoCapitalize="none"
+		keyboardType="numeric"
+		type="url"
+	/>
 );
 

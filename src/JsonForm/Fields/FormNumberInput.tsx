@@ -20,6 +20,10 @@ export interface FormNumberInputProps extends FormTextInputProps {
 }
 
 export const FormNumberInput = (props: FormNumberInputProps) => (
-	<FormTextInput {...props} type="number" />
+	<FormTextInput
+		keyboardType="numeric"
+		{...props}
+		type="number"
+	/>
 );
 

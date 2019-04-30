@@ -10,6 +10,11 @@ export interface FormEmailInputProps extends FormTextInputProps {
 }
 
 export const FormEmailInput = (props: FormEmailInputProps) => (
-	<FormTextInput {...props} type="email" keyboardType="email-address" />
+	<FormTextInput
+		{...props}
+		type="email"
+		keyboardType="email-address"
+		autoCapitalize="none"
+	/>
 );
 
