@@ -12,7 +12,7 @@ const FormEmailInput = getComponent<FormEmailInputProps>('FormEmailInput');
 
 storiesOf('FormEmailInput', module)
 
-    .add('With MaxLength', () => (
+    .add('With defaultprops', () => (
         <BlueBaseApp plugins={[Plugin,MuiPlugin]}>
             <Formik initialValues={{ sample : ''}} onSubmit={console.log}>
                 <FormEmailInput

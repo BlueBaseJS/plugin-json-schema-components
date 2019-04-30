@@ -8,8 +8,8 @@ import {plugins} from './getPlugins'
 
 const FormSubmitButton = getComponent<FormSubmitButtonProps>('FormSubmitButton');
 
-function handleSubmit  (event :any) {
-    console.log('Called ',event);
+function handleSubmit  (e:any) {
+    console.log('Called',e);
 }
 
 storiesOf('FormSubmitButton', module)
@@ -22,7 +22,7 @@ storiesOf('FormSubmitButton', module)
                     type='submit'
                     title = "Button"
                     color = "primary"
-                    fullWidth = {true}
+                    fullWidth = {false}
                     
                 />
             </Formik>
@@ -165,7 +165,7 @@ storiesOf('FormSubmitButton', module)
                     name='sample'
                     color = "primary"
                     size = 'large'
-                    onPress = {handleSubmit}
+                    onPress = {(e)=>handleSubmit(e)}
                 />
             </Formik>
         </BlueBaseApp>

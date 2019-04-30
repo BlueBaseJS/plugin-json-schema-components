@@ -9,6 +9,7 @@ const JsonForm = getComponent<JsonFormProps>('JsonForm');
 storiesOf('Add sites', module)
 
   .add('With default props', () => (
+    
     <ScrollView>
       <JsonForm
         schema={{

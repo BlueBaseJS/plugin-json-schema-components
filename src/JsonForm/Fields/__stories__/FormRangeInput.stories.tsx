@@ -8,9 +8,9 @@ import {plugins} from './getPlugins'
 const FormRangeInput = getComponent<FormRangeInputProps>('FormRangeInput');
 
 function handle (value:any) {
-
     console.log(value)
 }
+
 storiesOf('Form Range Input', module)
 
     .add('With min-16 max-32 props', () => (
@@ -98,7 +98,6 @@ storiesOf('Form Range Input', module)
                     type='range'
                     name='range'
                     onValueChange= {handle}
-                    
                 >
                 </FormRangeInput>
             </Formik>

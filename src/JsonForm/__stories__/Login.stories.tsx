@@ -23,7 +23,7 @@ storiesOf('Login', module)
 							label: 'Password',
 							name: 'password',
 							type: 'password',
-							required: true,
+							required: true,	
 						},
 						{
 							direction: 'left',

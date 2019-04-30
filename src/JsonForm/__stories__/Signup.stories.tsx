@@ -76,6 +76,7 @@ storiesOf('SignUp', module)
 							title: 'SIGN UP',
 							type: 'submit',
 							color : 'primary',
+							//fullWidth : false
 							
 						},
 						

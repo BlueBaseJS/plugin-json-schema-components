@@ -6,7 +6,6 @@
 
 function loadStories() {
   require('../../../src/JsonForm/Fields/__stories__/FormCheckbox.stories');
-  require('../../../src/JsonForm/Fields/__stories__/FormDateInput.stories');
   require('../../../src/JsonForm/Fields/__stories__/FormEmailInput.stories');
   require('../../../src/JsonForm/Fields/__stories__/FormNumberInput.stories');
   require('../../../src/JsonForm/Fields/__stories__/FormPasswordInput.stories');
@@ -25,7 +24,7 @@ function loadStories() {
   require('../../../src/JsonForm/__stories__/FeedbackForm.stories');
   require('../../../src/JsonForm/__stories__/Filter.stories');
   require('../../../src/JsonForm/__stories__/ForgotPassword.stories');
-  require('../../../src/JsonForm/__stories__/JsonForm.stories');
+  require('../../../src/JsonForm/__stories__/JsonFormExample.stories');
   require('../../../src/JsonForm/__stories__/Location.stories');
   require('../../../src/JsonForm/__stories__/Login.stories');
   require('../../../src/JsonForm/__stories__/PredictionRateForm.stories');
@@ -38,7 +37,6 @@ function loadStories() {
 
 const stories = [
   '../../../src/JsonForm/Fields/__stories__/FormCheckbox.stories',
-  '../../../src/JsonForm/Fields/__stories__/FormDateInput.stories',
   '../../../src/JsonForm/Fields/__stories__/FormEmailInput.stories',
   '../../../src/JsonForm/Fields/__stories__/FormNumberInput.stories',
   '../../../src/JsonForm/Fields/__stories__/FormPasswordInput.stories',
@@ -57,7 +55,7 @@ const stories = [
   '../../../src/JsonForm/__stories__/FeedbackForm.stories',
   '../../../src/JsonForm/__stories__/Filter.stories',
   '../../../src/JsonForm/__stories__/ForgotPassword.stories',
-  '../../../src/JsonForm/__stories__/JsonForm.stories',
+  '../../../src/JsonForm/__stories__/JsonFormExample.stories',
   '../../../src/JsonForm/__stories__/Location.stories',
   '../../../src/JsonForm/__stories__/Login.stories',
   '../../../src/JsonForm/__stories__/PredictionRateForm.stories',

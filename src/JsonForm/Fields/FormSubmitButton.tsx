@@ -14,12 +14,12 @@ export interface FormSubmitButtonProps extends ButtonProps {
 
 export const FormSubmitButton = connect( (props: FormSubmitButtonProps & { formik: FormikContext<{}>; }) => {
 
-	const { handleSubmit, isSubmitting,styles,nested } = props;
+	const { onPress, isSubmitting,styles,nested } = props;
 
 	return (
 		<View style={nested === true ? {} :  styles.wrapper } >
 
-			<Button disabled={isSubmitting} loading={isSubmitting} {...props} onPress={handleSubmit} type="submit" />
+			<Button disabled={isSubmitting} loading={isSubmitting} {...props} onPress={onPress} type="submit" />
 		</View>
 
 	);

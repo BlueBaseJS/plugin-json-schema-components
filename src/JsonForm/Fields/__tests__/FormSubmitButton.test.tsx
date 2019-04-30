@@ -47,8 +47,8 @@ describe('FormSubmitButton', () => {
 		expect(component.find('Button').first().prop('title')).toBe('Login');
 		expect(component.find('Button').first().prop('type')).toBe('submit');
 
-		//const onPress: any = component.find('Button').first().prop('onPress');
-		//onPress();
+		const onPress: any = component.find('Button').first().prop('onPress');
+		onPress;
 		component.update();
 
 
@@ -83,8 +83,8 @@ describe('FormSubmitButton', () => {
 		expect(component.find('Button').first().prop('title')).toBe('Login');
 		expect(component.find('Button').first().prop('type')).toBe('submit');
 
-		// const onPress: any = component.find('Button').first().prop('onPress');
-		// onPress();
+		const onPress: any = component.find('Button').first().prop('onPress');
+		onPress;
 		component.update();
 
 

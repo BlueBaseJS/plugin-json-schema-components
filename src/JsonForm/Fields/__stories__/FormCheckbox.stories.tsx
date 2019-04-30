@@ -99,7 +99,7 @@ storiesOf('FormCheckboxInput', module)
 
     ))   
  
-    .add('with disbaled', () => (
+    .add('with disabled', () => (
         <BlueBaseApp plugins={plugins}>
             <Formik initialValues={{ sample : ''}} onSubmit={console.log}>
                 <FormCheckboxInput

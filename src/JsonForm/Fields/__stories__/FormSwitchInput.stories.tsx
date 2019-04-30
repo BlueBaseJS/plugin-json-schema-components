@@ -10,7 +10,6 @@ const FormSwitchInput = getComponent<FormSwitchInputProps>('FormSwitchInput');
 
 const onChange = (event:any,selected:any) => {
     console.log('Previous state', event);
-
     console.log("Selected" ,selected)
   };
 
