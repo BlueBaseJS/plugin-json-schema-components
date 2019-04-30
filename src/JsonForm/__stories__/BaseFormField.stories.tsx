@@ -1,7 +1,8 @@
-import { Picker, Slider, Text, getComponent } from '@bluebase/components';
+import { Picker, Slider, Text } from '@bluebase/components';
 import { BaseFormFieldProps } from '../BaseFormField';
 // import { FormTextInputProps } from '../Fields';
 import React from 'react';
+import { getComponent } from '@bluebase/core';
 import storiesOf from '@bluebase/storybook-addon';
 
 const BaseFormField = getComponent<BaseFormFieldProps>('BaseFormField');

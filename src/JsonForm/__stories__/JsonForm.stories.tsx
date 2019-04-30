@@ -1,7 +1,7 @@
 import { JsonFormProps } from '..';
 import React from 'react';
 import { ScrollView } from 'react-native';
-import { getComponent } from '@bluebase/components';
+import { getComponent } from '@bluebase/core';
 import storiesOf from '@bluebase/storybook-addon';
 
 const JsonForm = getComponent<JsonFormProps>('JsonForm');
@@ -120,7 +120,7 @@ storiesOf('JsonForm', module)
 						temp: 26,
 						username: '',
 					},
-					onSubmit: (values, form) => {
+					onSubmit: (values: any, form: any) => {
 						// tslint:disable-next-line: no-console
 						console.log('Login form submitted by following values', values);
 
