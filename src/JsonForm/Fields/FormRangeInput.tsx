@@ -1,7 +1,8 @@
-import { Slider, SliderProps, Text, getComponent } from '@bluebase/components';
+import { Slider, SliderProps, Text } from '@bluebase/components';
 import { BaseFormFieldProps } from '../BaseFormField';
 import { Field } from 'formik';
 import React from 'react';
+import { getComponent } from '@bluebase/core';
 
 export interface FormRangeInputProps extends SliderProps {
 	type: 'range',

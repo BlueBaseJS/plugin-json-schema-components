@@ -1,4 +1,4 @@
-import { getComponent } from '@bluebase/components';
+import { getComponent } from '@bluebase/core';
 
 const DefaultInputs = ['FormTextInput', 'TextInput', 'Noop'];
 const DefaultButtons = ['Button', 'Noop'];

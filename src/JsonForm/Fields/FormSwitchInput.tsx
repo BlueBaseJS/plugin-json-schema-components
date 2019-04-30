@@ -1,7 +1,8 @@
 import { Field, getIn } from 'formik';
-import { Switch, SwitchProps, getComponent } from '@bluebase/components';
+import { Switch, SwitchProps } from '@bluebase/components';
 import { BaseFormFieldProps } from '../BaseFormField';
 import React from 'react';
+import { getComponent } from '@bluebase/core';
 
 export interface FormSwitchInputProps extends SwitchProps {
 	type: 'switch',
