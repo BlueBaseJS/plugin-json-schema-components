@@ -1,4 +1,4 @@
-import { Slider, SliderProps, Text } from '@bluebase/components';
+import { Slider, SliderProps } from '@bluebase/components';
 import { BaseFormFieldProps } from '../BaseFormField';
 import { Field } from 'formik';
 import React from 'react';
@@ -32,10 +32,11 @@ export const FormRangeInput = ({ min, max, ...rest }: FormRangeInputProps) => {
 				onValueChange: (value: any) => {
 					form.setFieldValue(field.name, value);
 				},
+				showValue: true,
 				value: field.value,
 			};
 
-			return (<BaseFormField MainComponent={Slider} right={<Text>{field.value}</Text>} {...inputProps} />);
+			return (<BaseFormField MainComponent={Slider} {...inputProps} />);
 		}}
 	</Field>
 	);
