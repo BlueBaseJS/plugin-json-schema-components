@@ -1,6 +1,6 @@
 # 🎊  Json Schema Component
 
-##### Whats its all about :
+##### Whats its all about
 
  Using this component we can make cross platform forms means you can make forms i.e login,signup etc easily using json objects. Thats really cool. 
  On the other side we can also make forms using component approach. Form validation handling is already done using formik libarary.
@@ -116,7 +116,7 @@
 |   interminate  |   ✔️   |     ✔️     |  ✔️ |
 |  onValueChange |   ✔️   |      ?     |  ?  |
 
-###### Issues :
+###### Issues
 
 Icon not showing on natives
 
@@ -147,7 +147,7 @@ Components are located in **src/JsonForms/Fields**
 Parent component **src/JsonForms/BaseFormField**
 Json form component **src/JsonForms/JsonForm** by which all json objects(forms) being able to render
 
-# Parent component
+## Parent component
 
 All forms fields goes towrds `src/JsonForms/BaseFormField` component . It has left,right and main component props. Main component renders the fields . It means **we can also specify** icon, text , image and anything on the left or right side with these props.
 
@@ -198,7 +198,7 @@ All of objects which have type 'actions'  goes towards this file `src/JsonForm/F
 
 Direction has predetermined props left ,right ,space-between to place our nested childs according to that . It means if direction is right then the submit button is placed on right of the form. Property applies on the child , in our case it applies on submit button. We can render more nested childs. 
 
-##### Common mistakes :
+##### Common mistakes
 
 -   When making 'submit' or 'reset' type form **WITHIN** (nested in) the 'actions' type form **MUST** use property 'nested = true' for that. (only applies for button type forms) (As exmple defined above)
 -   You can also apply style to the 'action' type form
@@ -209,7 +209,7 @@ Direction has predetermined props left ,right ,space-between to place our nested
 
 Here down is the path for the more examples of json forms
 
-# TextInputs controls- type based
+## TextInputs controls- type based
 
 All **flow** of text Inputs  i.e email,password,text,number,url with type defined as **text, number, email, number** etc are going towards the `FormTextInput` along with some must given Formik values .
 Validation of formik is handling on the upper level ,we have just wrap our component in the formik wrapper with some default values as prop to formik. For example
