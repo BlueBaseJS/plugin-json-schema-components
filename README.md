@@ -15,46 +15,45 @@ clone it and run `yarn install`
 
 ## TextInput Props
 
-|   TextInput    | 🌏 Web | 📱 Android | IOS  |
+|    TextInput   | 🌏 Web | 📱 Android |  IOS |
 | :------------: | :----: | :--------: | :--: |
-|   multiline    |   ✔️   |     ✔️     |  ✔️  |
-| underlineColor |   ?    |     ✔️     |  ✔️  |
-|   maxLength    |   ✖️   |     ✔️     |  ✔️  |
-|     error      |   ✔️   |     ?      |  ?   |
-|  placeholder   |   ✔️   |     ✔️     | ️ ✔️ |
-|     style      |   ✔️   |     ✔️     | ️ ✔️ |
-|     label      |   ✔️   |     ✔️     | ️ ✔️ |
-|    variant     |   ✔️   |     ✔️     | ️ ✔️ |
-|    rowsMax     |   ✔️   |     ?      |  ?   |
+|    multiline   |   ✔️   |     ✔️     |  ✔️  |
+| underlineColor |    ?   |     ✔️     |  ✔️  |
+|    maxLength   |   ✖️   |     ✔️     |  ✔️  |
+|      error     |   ✔️   |      ?     |   ?  |
+|   placeholder  |   ✔️   |     ✔️     | ️ ✔️ |
+|      style     |   ✔️   |     ✔️     | ️ ✔️ |
+|      label     |   ✔️   |     ✔️     | ️ ✔️ |
+|     variant    |   ✔️   |     ✔️     | ️ ✔️ |
+|     rowsMax    |   ✔️   |      ?     |   ?  |
 |    editable    |   ✔️   |     ✔️     | ️ ✔️ |
-|   autofocus    |   ✔️   |     ✔️     | ️ ✔️ |
+|    autofocus   |   ✔️   |     ✔️     | ️ ✔️ |
 |    required    |   ✔️   |     ✖️     | ️ ✖️ |
 |   helperText   |   ✔️   |     ✖️     | ️ ✖️ |
-|     style      |   ✔️   |     ✔️     | ️ ✔️ |
-|    disabled    |   ✔️   |     ?      |  ?   |
-|    onChange    |   ✔️   |     ✔️     |  ️ ✔️  |
+|      style     |   ✔️   |     ✔️     | ️ ✔️ |
+|    disabled    |   ✔️   |      ?     |   ?  |
+|    onChange    |   ✔️   |     ✔️     | ️ ✔️ |
 
 ## Picker Props
 
 |         Picker         | 🌏 Web | 📱 Android | IOS |
 | :--------------------: | :----: | :--------: | :-: |
-|        disabled        |   ✔️   |     ✖️     | ✖️  |
-|         error          |   ✔️   |     ✖️     | ✖️  |
-|       helperText       |   ✔️   |     ✖️     | ✖️  |
-|         label          |   ✔️   |     ✖️     | ✖️  |
-|        variant         |   ✔️   |     ✖️     | ✖️  |
+|        disabled        |   ✔️   |     ✖️     |  ✖️ |
+|          error         |   ✔️   |     ✖️     |  ✖️ |
+|       helperText       |   ✔️   |     ✖️     |  ✖️ |
+|          label         |   ✔️   |     ✖️     |  ✖️ |
+|         variant        |   ✔️   |     ✖️     |  ✖️ |
 |          mode          |   ✔️   |     ✔️     |  ?  |
-|      placeholder       |   ✔️   |     ✖️     | ✖️  |
-|         style          |   ✔️   |     ✖️     | ✖️  |
-|         style          |   ✖️   |     ✖️     | ✖️  |
-|     selectedValue      |   ?    |     ?      |  ?  |
+|       placeholder      |   ✔️   |     ✖️     |  ✖️ |
+|          style         |   ✔️   |     ✖️     |  ✖️ |
+|          style         |   ✖️   |     ✖️     |  ✖️ |
+|      selectedValue     |    ?   |      ?     |  ?  |
 | items-array of objects |   ✔️   |     ✔️     |  ?  |
-|     onValueChange      |   ✔️   |     ✔️     |  ?  |
+|      onValueChange     |   ✔️   |     ✔️     |  ?  |
 
 ###### Common Mistakes
 
-- items - is the array of objects to be render in label-value form i.e
-
+\-items is the array of objects to be render in label-value form i.e
 
                 items= {[
                           {label:"Male",value:"Female"  },
@@ -63,58 +62,58 @@ clone it and run `yarn install`
 
 ## RadioGroup Props
 
-|  RadioGroup   | 🌏 Web | 📱 Android | IOS |
+|   RadioGroup  | 🌏 Web | 📱 Android | IOS |
 | :-----------: | :----: | :--------: | :-: |
-|   disabled    |   ✔️   |     ✖️     | ✖️  |
-|     error     |   ✔️   |     ✖️     | ✖️  |
-|  helperText   |   ✔️   |     ✔️     | ✔️  |
-|     label     |   ✔️   |     ✔️     | ✔️  |
-|     label     |   ✔️   |     ✖️     | ✖️  |
-|    variant    |   ✔️   |     ✖️     | ✖️  |
-|     mode      |   ✔️   |     ✔️     |  ?  |
-|  placeholder  |   ✔️   |     ✖️     | ✖️  |
-|     style     |   ✔️   |     ✖️     | ✖️  |
+|    disabled   |   ✔️   |     ✖️     |  ✖️ |
+|     error     |   ✔️   |     ✖️     |  ✖️ |
+|   helperText  |   ✔️   |     ✔️     |  ✔️ |
+|     label     |   ✔️   |     ✔️     |  ✔️ |
+|     label     |   ✔️   |     ✖️     |  ✖️ |
+|    variant    |   ✔️   |     ✖️     |  ✖️ |
+|      mode     |   ✔️   |     ✔️     |  ?  |
+|  placeholder  |   ✔️   |     ✖️     |  ✖️ |
+|     style     |   ✔️   |     ✖️     |  ✖️ |
 | onValueChange |   ✔️   |     ✔️     |  ?  |
 
 ## Switch Props
 
 |     Switch     | 🌏 Web | 📱 Android | IOS |
 | :------------: | :----: | :--------: | :-: |
-|     label      |   ✔️   |     ✔️     | ✔️  |
-|     color      |   ✔️   |     ✖️     | ✔️  |
-| labelPlacement |   ✔️   |     ✔️     | ✔️  |
-|    disabled    |   ✔️   |     ✔️     | ✔️  |
-|     value      |   ?    |     ?      |  ?  |
-|    variant     |   ✔️   |     ✖️     | ✖️  |
-| onValueChange  |   ✔️   |     ?      |  ?  |
+|      label     |   ✔️   |     ✔️     |  ✔️ |
+|      color     |   ✔️   |     ✖️     |  ✔️ |
+| labelPlacement |   ✔️   |     ✔️     |  ✔️ |
+|    disabled    |   ✔️   |     ✔️     |  ✔️ |
+|      value     |    ?   |      ?     |  ?  |
+|     variant    |   ✔️   |     ✖️     |  ✖️ |
+|  onValueChange |   ✔️   |      ?     |  ?  |
 
 ## Button Props
 
-|           Button            | 🌏 Web | 📱Android | IOS |
-| :-------------------------: | :----: | :-------: | :-: |
-|         children-RN         |   ✔️   |    ✔️     | ✔️  |
-|            color            |   ✔️   |    ✔️     | ✔️  |
-|            title            |   ✔️   |    ✔️     | ✔️  |
-| variant i.e (text,outlined) |   ✔️   |    ✔️     | ✔️  |
-|          fullWidth          |   ✖️   |    already fullWidth       |  ?  |
-|            value            |   ?    |     ?     |  ?  |
-|            size             |   ✔️   |    ✖️     | ✖️  |
-|          disabled           |   ✔️   |    ✔️     | ✔️  |
-|           loading           |   ✖️   |    ✔️     | ✔️  |
-|           onPress           |   ✔️   |    ✖️     |  ?  |
+|            Button           | 🌏 Web |     📱Android     | IOS |
+| :-------------------------: | :----: | :---------------: | :-: |
+|         children-RN         |   ✔️   |         ✔️        |  ✔️ |
+|            color            |   ✔️   |         ✔️        |  ✔️ |
+|            title            |   ✔️   |         ✔️        |  ✔️ |
+| variant i.e (text,outlined) |   ✔️   |         ✔️        |  ✔️ |
+|          fullWidth          |   ✖️   | already fullWidth |  ?  |
+|            value            |    ?   |         ?         |  ?  |
+|             size            |   ✔️   |         ✖️        |  ✖️ |
+|           disabled          |   ✔️   |         ✔️        |  ✔️ |
+|           loading           |   ✖️   |         ✔️        |  ✔️ |
+|           onPress           |   ✔️   |         ✖️        |  ?  |
 
 ## Checkbox Props
 
 |    checkbox    | 🌏 Web | 📱 Android | IOS |
 | :------------: | :----: | :--------: | :-: |
-|    checked     |   ✖️   |     ✖️     | ✖️  |
-|     color      |   ✔️   |     ?      |  ?  |
-|    disabled    |   ✔️   |     ✔️     | ✔️  |
-|     value      |   ✖️   |     ?      |  ?  |
-| labelPlacement |   ✔️   |     ?      |  ?  |
-|     label      |   ✔️   |     ✔️     | ✔️  |
-|  interminate   |   ✔️   |     ✔️     | ✔️  |
-| onValueChange  |   ✔️   |     ?      |  ?  |
+|     checked    |   ✖️   |     ✖️     |  ✖️ |
+|      color     |   ✔️   |      ?     |  ?  |
+|    disabled    |   ✔️   |     ✔️     |  ✔️ |
+|      value     |   ✖️   |      ?     |  ?  |
+| labelPlacement |   ✔️   |      ?     |  ?  |
+|      label     |   ✔️   |     ✔️     |  ✔️ |
+|   interminate  |   ✔️   |     ✔️     |  ✔️ |
+|  onValueChange |   ✔️   |      ?     |  ?  |
 
 ###### Issues
 
@@ -122,17 +121,17 @@ Icon not showing on natives
 
 ## Range Props
 
-| Range/slider  | 🌏 Web | 📱 Android | IOS |
+|  Range/slider | 🌏 Web | 📱 Android | IOS |
 | :-----------: | :----: | :--------: | :-: |
-|    checked    |   ✖️   |     ✖️     | ✖️  |
-|     color     |   ✔️   |     ?      |  ?  |
-|      min      |   ✔️   |     ✔️     | ✔️  |
-|      max      |   ✔️   |     ✔️     | ✔️  |
-|     step      |   ✔️   |     ✔️     | ✔️  |
-|     label     |   ✔️   |     ✖️     | ✖️  |
-|     error     |   ✔️   |     ✖️     | ✖️  |
-|  helperText   |   ✔️   |     ✖️     | ✖️  |
-|   disabled    |   ✔️   |     ✔️     | ✔️  |
+|    checked    |   ✖️   |     ✖️     |  ✖️ |
+|     color     |   ✔️   |      ?     |  ?  |
+|      min      |   ✔️   |     ✔️     |  ✔️ |
+|      max      |   ✔️   |     ✔️     |  ✔️ |
+|      step     |   ✔️   |     ✔️     |  ✔️ |
+|     label     |   ✔️   |     ✖️     |  ✖️ |
+|     error     |   ✔️   |     ✖️     |  ✖️ |
+|   helperText  |   ✔️   |     ✖️     |  ✖️ |
+|    disabled   |   ✔️   |     ✔️     |  ✔️ |
 | onValueChange |   ✔️   |     ✔️     |  ?  |
 
 ##### Default values
@@ -145,7 +144,7 @@ native : 0-1
 Json form examples located in **src/JsonForms/stories**
 
 Components are located in **src/JsonForms/Fields**
--Here you will find _tests_ and _stories_ of all running components
+\-Here you will find _tests_ and _stories_ of all running components
 
 Parent component **src/JsonForms/BaseFormField**
 
@@ -204,10 +203,10 @@ Direction has predetermined props left ,right ,space-between to place our nested
 
 ##### Common mistakes
 
-- When making 'submit' or 'reset' type form **WITHIN** (nested in) the 'actions' type form **MUST** use property 'nested = true' for that. (only applies for button type forms) (As exmple defined above)
-- You can also apply style to the 'action' type form
-- **Don't** use nested property for texts
-- Initialvalues and onSubmit object is **must** .
+-   When making 'submit' or 'reset' type form **WITHIN** (nested in) the 'actions' type form **MUST** use property 'nested = true' for that. (only applies for button type forms) (As exmple defined above)
+-   You can also apply style to the 'action' type form
+-   **Don't** use nested property for texts
+-   Initialvalues and onSubmit object is **must** .
 
 ###### Hint : This component basicaly allows us to render things in a row
 
