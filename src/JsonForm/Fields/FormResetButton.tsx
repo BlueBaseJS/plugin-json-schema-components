@@ -1,5 +1,5 @@
-import { ButtonProps, getComponent ,View} from '@bluebase/components';
-import { FormikContext, connect } from 'formik';
+import { ButtonProps, View,getComponent } from '@bluebase/components';
+import { FormikContext,connect  } from 'formik';
 import React from 'react';
 import { Theme } from '@bluebase/core';
 
@@ -20,7 +20,7 @@ export const FormResetButton = connect((props: FormResetButtonProps & { formik: 
 	<View style={nested === false ?  styles.wrapper : {}} >
 		<Button {...others} onPress={formik.handleReset} type="reset" />
 	 </View>
-	)
+	);
 }
 );
 
@@ -36,4 +36,4 @@ FormResetButton.defaultProps = {
 		paddingVertical: 2
 
 	}
-})
+});

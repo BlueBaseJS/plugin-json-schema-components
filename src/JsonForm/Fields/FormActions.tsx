@@ -31,7 +31,7 @@ const FieldWrapper = ({ field, parent, children }: FieldWrapperProps) => {
 	return (
 		<View
 			key={field.name}
-			style={direction === 'left' ? styles.fieldContainerLeft : direction === "right" ? styles.fieldContainerRight : style}
+			style={direction === 'left' ? styles.fieldContainerLeft : direction === 'right' ? styles.fieldContainerRight : style}
 		>
 			{children}
 		</View>
@@ -48,10 +48,13 @@ export const FormActions = (props: FormActionsProps) => {
 	const styles = _styles as FormActionsStyles;
 	return (
 
-		<View style={[styles.root,direction === 'left' ?styles.rootLeft :direction === 'right' ?styles.rootRight :direction === 'space-between' ?styles.rootSpaceBetween :null
-		]}
-
-			testID="form-actions">
+		<View
+			style={[styles.root, direction === 'left' ? styles.rootLeft :
+				direction === 'right' ? styles.rootRight :
+					direction === 'space-between' ? styles.rootSpaceBetween : null
+			]}
+			testID="form-actions"
+		>
 			<FormFields {...props} FieldWrapper={FieldWrapper} />
 		</View>
 	);

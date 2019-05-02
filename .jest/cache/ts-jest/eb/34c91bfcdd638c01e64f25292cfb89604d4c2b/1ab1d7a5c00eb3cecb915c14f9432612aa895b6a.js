@@ -1,8 +1,0 @@
-"use strict";
-const { Form } = require('./Form.ts');
-describe('Form', () => {
-    it('im doing this just for coverage 🤦‍♂️', async () => {
-        expect(Form).toBeTruthy();
-    });
-});
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoiL2hvbWUvbXV6emFtaWwvRG9jdW1lbnRzL2JsdWViYXNlL3BsdWdpbi1qc29uLXNjaGVtYS1jb21wb25lbnRzL3NyYy9Kc29uRm9ybS9Gb3JtL0Jhc2VGb3JtRmllbGQudGVzdC50c3giLCJtYXBwaW5ncyI6IjtBQUFBLE1BQU0sRUFBRSxJQUFJLEVBQUUsR0FBRyxPQUFPLENBQUMsV0FBVyxDQUFDLENBQUM7QUFFdEMsUUFBUSxDQUFDLE1BQU0sRUFBRSxHQUFHLEVBQUU7SUFHckIsRUFBRSxDQUFDLHVDQUF1QyxFQUFFLEtBQUssSUFBSSxFQUFFO1FBQ3RELE1BQU0sQ0FBQyxJQUFJLENBQUMsQ0FBQyxVQUFVLEVBQUUsQ0FBQztJQUMzQixDQUFDLENBQUMsQ0FBQztBQUVKLENBQUMsQ0FBQyxDQUFDIiwibmFtZXMiOltdLCJzb3VyY2VzIjpbIi9ob21lL211enphbWlsL0RvY3VtZW50cy9ibHVlYmFzZS9wbHVnaW4tanNvbi1zY2hlbWEtY29tcG9uZW50cy9zcmMvSnNvbkZvcm0vRm9ybS9CYXNlRm9ybUZpZWxkLnRlc3QudHN4Il0sInNvdXJjZXNDb250ZW50IjpbImNvbnN0IHsgRm9ybSB9ID0gcmVxdWlyZSgnLi9Gb3JtLnRzJyk7XG5cbmRlc2NyaWJlKCdGb3JtJywgKCkgPT4ge1xuXG5cblx0aXQoJ2ltIGRvaW5nIHRoaXMganVzdCBmb3IgY292ZXJhZ2Ug8J+kpuKAjeKZgu+4jycsIGFzeW5jICgpID0+IHtcblx0XHRleHBlY3QoRm9ybSkudG9CZVRydXRoeSgpO1xuXHR9KTtcblxufSk7XG4iXSwidmVyc2lvbiI6M30=

@@ -44,7 +44,6 @@ export default createPlugin({
 		FormTextInput,
 		FormUrlInput,
 
-		
 		JsonForm,
 		JsonLayout,
 	},

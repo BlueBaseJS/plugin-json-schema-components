@@ -17,7 +17,7 @@ export const FormSubmitButton = connect( (props: FormSubmitButtonProps & { formi
 	const { onPress, isSubmitting,styles,nested } = props;
 
 	return (
-		<View style={nested === true ? {} :  styles.wrapper } >
+		<View style={nested === true ? {} :  styles.wrapper} >
 
 			<Button disabled={isSubmitting} loading={isSubmitting} {...props} onPress={onPress} type="submit" />
 		</View>
@@ -38,4 +38,4 @@ FormSubmitButton.defaultProps = {
 		paddingVertical: 2
 
 	}
-})
+});

@@ -25,9 +25,9 @@ export const FormSwitchInput = ({ type, ...props }: FormSwitchInputProps) => {
 
 				onValueChange: (_value: any, checked: boolean) => {
 					form.setFieldValue(field.name, checked);
-					
+
 					if (value !== undefined && props.onValueChange) {
-						props.onValueChange(value, checked)
+						props.onValueChange(value, checked);
 					}
 				}
 			};

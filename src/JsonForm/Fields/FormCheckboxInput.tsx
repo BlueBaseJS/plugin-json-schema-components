@@ -23,10 +23,10 @@ export const FormCheckboxInput = (props: FormCheckboxInputProps) => {
 					...props,
 					checked: Boolean(value),
 					onValueChange: (_value: any, checked: boolean) => {
-						form.setFieldValue(field.name, checked)
+						form.setFieldValue(field.name, checked);
 
 						if (value !== undefined && props.onValueChange) {
-							props.onValueChange(value, checked)
+							props.onValueChange(value, checked);
 						}
 
 					}

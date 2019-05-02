@@ -1,4 +1,4 @@
-import Plugin from '../../../'
-import MuiPlugin from '@bluebase/plugin-material-ui'
+import MuiPlugin from '@bluebase/plugin-material-ui';
+import Plugin from '../../../';
 
-export const plugins = [Plugin,MuiPlugin];
+export const plugins = [Plugin, MuiPlugin];
