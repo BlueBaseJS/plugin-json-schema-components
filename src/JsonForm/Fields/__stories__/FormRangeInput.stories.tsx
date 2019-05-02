@@ -19,11 +19,10 @@ storiesOf('Form Range Input', module)
                 <FormRangeInput
                     type='range'
                     name='range'
-                    min = {16}
+                    min={16}
                     max = {32}
                     step = {1}
-                >
-                </FormRangeInput>
+                />
             </Formik>
         </BlueBaseApp>
     ))
