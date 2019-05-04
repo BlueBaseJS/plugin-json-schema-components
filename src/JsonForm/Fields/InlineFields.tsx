@@ -22,7 +22,6 @@ export interface InlineFieldsProps {
 	styles?: Partial<InlineFieldsStyles>;
 }
 
-
 const FieldWrapper = ({ field, parent, children }: FieldWrapperProps) => {
 
 	const { direction, styles } = parent;

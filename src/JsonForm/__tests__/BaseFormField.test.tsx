@@ -1,4 +1,5 @@
-import { Slider, Text, getComponent } from '@bluebase/components';
+import { Slider, Text } from '@bluebase/components';
+import {getComponent} from '@bluebase/core'
 import { BaseFormFieldProps } from '..';
 import { BlueBaseApp } from '@bluebase/core';
 import Plugin from '../../index';
@@ -55,5 +56,7 @@ describe('BaseFormField', () => {
 		expect(component.find('[testID="base-form-field-right"]')).toHaveLength(0);
 
 	});
+
+
 
 });

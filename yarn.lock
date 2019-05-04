@@ -1110,6 +1110,14 @@
     deepmerge "^3.2.0"
     tslib "^1.9.3"
 
+"@bluebase/components@^5.9.0":
+  version "5.9.0"
+  resolved "https://registry.yarnpkg.com/@bluebase/components/-/components-5.9.0.tgz#d66717ef85cc545066f8dde6e158ed56ae1d6861"
+  integrity sha512-+anK1ODEfwg9xUUfBGHpBzVWr3VmjTh3Sz/yEE1Wnsdqwt6rd7BG2w5BE9QGTpuSn7ygx/kDLrjfa5sF18wgLg==
+  dependencies:
+    deepmerge "^3.2.0"
+    tslib "^1.9.3"
+
 "@bluebase/core@^4.0.0-aplha.24":
   version "4.0.0-aplha.24"
   resolved "https://registry.yarnpkg.com/@bluebase/core/-/core-4.0.0-aplha.24.tgz#78ac1519adb99814ae1237a8d55b35d66b13b18a"
