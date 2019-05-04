@@ -32,5 +32,5 @@ storiesOf('BaseFormField', module)
 		<Picker.Item label="Java" value="java" />
 	</BaseFormField>
 ))
-	
-	;
+
+;

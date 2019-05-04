@@ -1,7 +1,10 @@
 import {
 	BaseFormField,
+	ErrorList,
+	ErrorListItem,
 	FormCheckboxInput,
 	FormEmailInput,
+	FormErrors,
 	FormNumberInput,
 	FormPasswordInput,
 	FormPickerInput,
@@ -30,8 +33,11 @@ export default createPlugin({
 
 	components: {
 		BaseFormField,
+		ErrorList,
+		ErrorListItem,
 		FormCheckboxInput,
 		FormEmailInput,
+		FormErrors,
 		FormNumberInput,
 		FormPasswordInput,
 		FormPickerInput,

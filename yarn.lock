@@ -1151,6 +1151,14 @@
     react-native-paper "^2.15.0"
     tslib "^1.9.3"
 
+"@bluebase/plugin-vector-icons@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@bluebase/plugin-vector-icons/-/plugin-vector-icons-0.1.1.tgz#8f30fd63f5b0fd1ca5ea44ee8e9f700985a4fe9f"
+  integrity sha512-EwxezBDn436VyDxzmGZ/ryB04z3SBK5ZbLQ8LLKeedQBjEyC3MmSkC5cPDkermVBeA8zp09r9PZsz053UXju9w==
+  dependencies:
+    deepmerge "^3.2.0"
+    react-native-vector-icons "^6.4.2"
+
 "@bluebase/storybook-addon@^3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@bluebase/storybook-addon/-/storybook-addon-3.0.0.tgz#b38c1bb66f026898f00cbbf8cc4c13fcb0bfe93c"
@@ -12766,6 +12774,15 @@ react-native-vector-icons@6.0.0:
     lodash "^4.0.0"
     prop-types "^15.6.2"
     yargs "^8.0.2"
+
+react-native-vector-icons@^6.4.2:
+  version "6.4.2"
+  resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-6.4.2.tgz#ee0b097e783387544ed160a3192a437c097e551d"
+  integrity sha512-G7Y5HksOQkCanFWKJ+fjwP38XL8tQREOSnw7jrbq28AFrrv41YtafOF4uDSDS7HxMRXs17HeEzn24OzJb63iuA==
+  dependencies:
+    lodash "^4.0.0"
+    prop-types "^15.6.2"
+    yargs "^13.2.2"
 
 react-native-view-shot@2.5.0:
   version "2.5.0"
