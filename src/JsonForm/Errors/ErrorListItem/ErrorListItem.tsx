@@ -42,6 +42,7 @@ ErrorListItem.defaultStyles = (theme: Theme): ErrorListItemStyles => ({
 
 	text: {
 		color: theme.palette.error.main,
+		flexShrink: 1,
 		paddingHorizontal: theme.spacing.unit,
 	}
 });
