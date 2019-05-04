@@ -9,6 +9,7 @@ const FieldResolutionMap: any = {
 	component: ['JsonLayout', 'Noop'],
 	date: ['FormDateInput', ...DefaultInputs],
 	email: ['FormEmailInput', ...DefaultInputs],
+	
 	inline: ['InlineFields', 'Noop'],
 	'inline-fields': ['InlineFields', 'Noop'],
 	number: ['FormNumberInput', ...DefaultInputs],
