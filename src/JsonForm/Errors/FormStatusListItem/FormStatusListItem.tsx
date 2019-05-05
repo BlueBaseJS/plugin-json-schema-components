@@ -1,4 +1,4 @@
-import { Body2, Icon, View } from '@bluebase/components';
+import { Body2, FormattedMessage, Icon, View } from '@bluebase/components';
 import { TextStyle, ViewStyle } from 'react-native';
 import React from 'react';
 import { Theme } from '@bluebase/core';
@@ -70,7 +70,9 @@ export const FormStatusListItem = ({ children, divider, styles = {}, type }: For
 	return (
 		<View style={rootStyles}>
 			<Body2 style={iconStyles}><Icon name={iconName} size={16} /></Body2>
-			<Body2 style={textStyles}>{children}</Body2>
+			<FormattedMessage component={Body2} style={textStyles}>
+				{children}
+			</FormattedMessage>
 		</View>
 	);
 };
