@@ -101,7 +101,7 @@ describe('SignupForm', () => {
 			// Post Validation
 			firstName = wrapper.find('TextInput[name="firstName"]').first();
 			expect(firstName.prop('error')).toBe(true);
-			expect(firstName.prop('helperText')).toBe('I\'m sorry, but we don\'t like your name.');
+			expect(firstName.prop('helperText')).toBe('I m sorry, but we dont like your name.');
 
 			password = wrapper.find('TextInput[name="password"]').first();
 			expect(password.prop('error')).toBe(true);
