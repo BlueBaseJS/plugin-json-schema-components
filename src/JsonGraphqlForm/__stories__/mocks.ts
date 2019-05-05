@@ -66,7 +66,7 @@ export const graphQLErrorsBadUserInput = {
 					code: 'BAD_USER_INPUT',
 					exception: {
 						validationErrors: {
-							firstName: 'I\'m sorry, but we don\'t like your name.',
+							firstName: "I'm sorry, but we don't like your name.",
 							password: 'The password cannot be less than 8 characters',
 						},
 					},
