@@ -44,16 +44,16 @@ const mapQueryDataToInitialValues = (data: any) => {
 	}
 };
 
-const onSuccess = (_res: any, _vals: any, { setStatus }: any) => setStatus({ success: ['Done!'] });
+// const onSuccess = (_res: any, _vals: any, { setStatus }: any) => setStatus({ success: ['Done!'] });
 
-export const EditProfileProfileForm = () => (
+export const EditProfileProfileForm = (props: Partial<JsonGraphqlFormProps>) => (
 
 	<JsonGraphqlForm
 		query={{ query: ViewerQuery }}
 		mutation={{ mutation: EditProfileMutation }}
 
 		mapQueryDataToInitialValues={mapQueryDataToInitialValues}
-		onSuccess={onSuccess}
+		// onSuccess={onSuccess}
 
 		schema={{
 			title: 'Edit Profile',
@@ -88,6 +88,8 @@ export const EditProfileProfileForm = () => (
 				}
 			],
 		}}
+
+		{...props}
 	/>
 );
 

@@ -13,7 +13,11 @@ const Query = getComponent<QueryProps>('GraphqlQuery');
 export type mapFormValuesToMutationVariablesFn<Values = any> = (values: Values) => any;
 export type mapQueryDataToInitialValuesFn<Values = any> = (data: any) => Values;
 
-export interface JsonGraphqlFormProps<Values = FormikValues> extends JsonFormProps<Values> {
+export type JsonGraphqlFormOnErrorFn = (error: ApolloError) => void;
+export type JsonGraphqlFormOnSuccessFn<Values = FormikValues> =
+(result: void | FetchResult, values: Values, actions: FormikActions<Values>) => void;
+
+export type JsonGraphqlFormProps<Values = FormikValues> = JsonFormProps<Values> & {
 
 	/**
 	 * GraphqlMutation component props. This mutation will be executed when
@@ -39,9 +43,10 @@ export interface JsonGraphqlFormProps<Values = FormikValues> extends JsonFormPro
 	 */
 	mapQueryDataToInitialValues?: (data: any) => Values;
 
-	onError?: (error: ApolloError) => void;
-	onSuccess?: (result: void | FetchResult, values: Values, actions: FormikActions<Values>) => void;
-}
+	onError?: JsonGraphqlFormOnErrorFn;
+
+	onSuccess?: JsonGraphqlFormOnSuccessFn<Values>;
+};
 
 /**
  * A JsonForm that is compatible with GraphQL APIs. This means it will
@@ -136,10 +141,12 @@ export class JsonGraphqlForm<Values = FormikValues> extends React.PureComponent<
 	protected onSubmit(mutate: MutationFn) {
 
 		const BB: BlueBase = this.context;
-		const { onError, onSuccess } = this.props;
 
 		const mapFormValuesToMutationVariables =
 			this.props.mapFormValuesToMutationVariables as mapFormValuesToMutationVariablesFn;
+
+		const onError = this.props.onError as JsonGraphqlFormOnErrorFn;
+		const onSuccess = this.props.onSuccess as JsonGraphqlFormOnSuccessFn<Values>;
 
 		// The onSubmit handler
 		return (values: Values, actions: FormikActions<Values>) => {
@@ -158,9 +165,7 @@ export class JsonGraphqlForm<Values = FormikValues> extends React.PureComponent<
 					setSubmitting(false);
 
 					// If there was an onSuccess param, call it
-					if (onSuccess) {
-						onSuccess(result, values, actions);
-					}
+					onSuccess(result, values, actions);
 				},
 				(error: ApolloError) => {
 
@@ -177,9 +182,7 @@ export class JsonGraphqlForm<Values = FormikValues> extends React.PureComponent<
 					}
 
 					// If there was an onError param, call it
-					if (onError) {
-						onError(error);
-					}
+					onError(error);
 				}
 			);
 		};
@@ -194,22 +197,20 @@ const graphqlToFormErrors = (error: ApolloError) : FormErrors => {
 		form: []
 	};
 
-	if (error.graphQLErrors) {
-		error.graphQLErrors.forEach((e: any) => {
+	error.graphQLErrors.forEach((e: any) => {
 
-			if (e.extensions && e.extensions.code === 'BAD_USER_INPUT') {
-				const fieldErrors = e.extensions.exception.validationErrors;
+		if (e.extensions && e.extensions.code === 'BAD_USER_INPUT') {
+			const fieldErrors = e.extensions.exception.validationErrors;
 
-				errors = {
-					...errors,
-					...fieldErrors,
-				};
-			}
-			else {
-				errors.form.push(e.message);
-			}
-		});
-	}
+			errors = {
+				...errors,
+				...fieldErrors,
+			};
+		}
+		else {
+			errors.form.push(e.message);
+		}
+	});
 
 	if (error.networkError) {
 		// tslint:disable-next-line: max-line-length

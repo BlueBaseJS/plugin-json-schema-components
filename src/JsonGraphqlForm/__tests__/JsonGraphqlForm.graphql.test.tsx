@@ -1,5 +1,5 @@
 import 'cross-fetch/polyfill';
-import { SignupForm, mocks } from '../__stories__';
+import { EditProfileProfileForm, SignupForm, mocks } from '../__stories__';
 import { BlueBaseApp } from '@bluebase/core';
 import BlueBasePluginApollo from '@bluebase/plugin-apollo';
 import { MockedProvider } from 'react-apollo/test-utils';
@@ -110,6 +110,35 @@ describe('SignupForm', () => {
 
 		it('should show a success state', async () => {
 
+			const onSuccess = (_res: any, _vals: any, { setStatus }: any) => setStatus({ success: ['Done!'] });
+
+			const wrapper = mount(
+				<BlueBaseApp plugins={[BlueBasePluginApollo, Plugin]}>
+					<MockedProvider mocks={[mocks.success]} addTypename={false}>
+						<SignupForm onSuccess={onSuccess} />
+					</MockedProvider>
+				</BlueBaseApp>
+			);
+
+			await waitForElement(wrapper, SignupForm);
+
+			const onPress: () => void = wrapper.find('Button').first().prop('onPress');
+			onPress(); // fires the mutation
+
+			wrapper.update();
+			expect(wrapper.find('FormStatusList[type="success"]').first().prop('items')).toHaveLength(0);
+
+			await wait(100); // wait for response
+			wrapper.update();
+
+			// expect(wrapper).toMatchSnapshot();
+			const items: string[] = wrapper.find('FormStatusList[type="success"]').first().prop('items');
+			expect(items).toHaveLength(1);
+			expect(items[0]).toBe('Done!');
+		});
+
+		it('should not crash without a custom onSuccess handler', async () => {
+
 			const wrapper = mount(
 				<BlueBaseApp plugins={[BlueBasePluginApollo, Plugin]}>
 					<MockedProvider mocks={[mocks.success]} addTypename={false}>
@@ -131,8 +160,28 @@ describe('SignupForm', () => {
 
 			// expect(wrapper).toMatchSnapshot();
 			const items: string[] = wrapper.find('FormStatusList[type="success"]').first().prop('items');
-			expect(items).toHaveLength(1);
-			expect(items[0]).toBe('Done!');
+			expect(items).toHaveLength(0);
+		});
+
+		it('should fetcth initialValues from a graphql query', async () => {
+
+			const wrapper = mount(
+				<BlueBaseApp plugins={[BlueBasePluginApollo, Plugin]}>
+					<MockedProvider mocks={[mocks.viewerQuery, mocks.success]} addTypename={false}>
+						<EditProfileProfileForm onError={null as any} onSuccess={null as any} />
+					</MockedProvider>
+				</BlueBaseApp>
+			);
+
+			await waitForElement(wrapper, EditProfileProfileForm);
+
+			// expect(wrapper).toMatchSnapshot();
+			expect(wrapper.find('TextInput[name="firstName"]').first().prop('value')).toBe('Abdul Rehman');
+			expect(wrapper.find('TextInput[name="lastName"]').first().prop('value')).toBe('Talat');
+
+			// fires the mutation
+			const onPress: () => void = wrapper.find('Button').first().prop('onPress');
+			onPress();
 		});
 
 	});

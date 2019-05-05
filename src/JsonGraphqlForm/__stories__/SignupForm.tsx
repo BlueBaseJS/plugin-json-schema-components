@@ -25,11 +25,15 @@ export interface SignupFormValues {
 
 const JsonGraphqlForm = getComponent<JsonGraphqlFormProps<SignupFormValues>>('JsonGraphqlForm');
 
-export const SignupForm = () => (
+// const onSuccess = (_res: any, _vals: any, { setStatus }: any) => setStatus({ success: ['Done!'] });
+
+export const SignupForm = (props: Partial<JsonGraphqlFormProps>) => (
 
 	<JsonGraphqlForm
 		mutation={{ mutation: SignupMutation }}
-		onSuccess={(_res: any, _vals: any, { setStatus }: any) => setStatus({ success: ['Done!'] })}
+
+		// onSuccess={onSuccess}
+
 		schema={{
 			title: 'Sign up',
 
@@ -86,6 +90,8 @@ export const SignupForm = () => (
 				password: 'abc',
 			},
 		}}
+
+		{...props}
 	/>
 );
 
