@@ -1,7 +1,7 @@
 import { JsonFormProps } from '..';
 import React from 'react';
 import { ScrollView } from 'react-native';
-import { getComponent } from '@bluebase/core';
+import { getComponent, BlueBaseConsumer, BlueBase } from '@bluebase/core';
 import storiesOf from '@bluebase/storybook-addon';
 
 const JsonForm = getComponent<JsonFormProps>('JsonForm');
@@ -164,8 +164,8 @@ storiesOf('JsonForm', module)
 
 				fields: [
 					{
-						name: 'errors',
-						type: 'errors',
+						name: 'status',
+						type: 'status',
 					},
 					{
 						name: 'submit',
@@ -180,4 +180,61 @@ storiesOf('JsonForm', module)
 			}}
 		/>
 	</ScrollView>
-));
+))
+
+
+.add('Pluggable Form', () => {
+
+	const FormWithFilters = () => (
+		<JsonForm
+
+			filter="foo.bar"
+
+			schema={{
+
+				title: 'Pluggable Form',
+
+				description: 'Any plugin can modify this form',
+
+				fields: [
+					{
+						label: 'Name',
+						name: 'name',
+						type: 'text',
+					},
+					{
+						name: 'submit',
+						title: 'Login',
+						type: 'submit',
+					}
+				],
+				onSubmit: (_values: any, { setErrors, setSubmitting }: any) => {
+					setSubmitting(false);
+					setErrors({ form: ['An error occurred', 'Another error occurred'] });
+				},
+			}}
+		/>
+	);
+
+
+	return (
+		<BlueBaseConsumer>
+		{(BB: BlueBase) => {
+
+			BB.Filters.register({
+				event: 'foo.bar',
+				value: (schema) => ({
+					...schema,
+					fields: [{
+						label: 'Username',
+						name: 'username',
+						type: 'text',
+					}, ...schema.fields]
+				})
+			});
+
+			return <FormWithFilters />;
+		}}
+		</BlueBaseConsumer>
+	);
+});
