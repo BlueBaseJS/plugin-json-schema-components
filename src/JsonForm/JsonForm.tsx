@@ -1,6 +1,6 @@
-import { BlueBaseFilter, View, H6, Body2 } from '@bluebase/components';
+import { BlueBaseFilter, Body2, H6, View } from '@bluebase/components';
 import { Formik, FormikConfig, FormikValues } from 'formik';
-import { StyleProp, ViewStyle, TextStyle } from 'react-native';
+import { StyleProp, TextStyle, ViewStyle } from 'react-native';
 import { Form } from './Form';
 import { FormFieldProps } from './Fields';
 import { FormFields } from './FormFields';

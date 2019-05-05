@@ -1,16 +1,16 @@
 import {
 	BaseFormField,
-	ErrorList,
-	ErrorListItem,
 	FormCheckboxInput,
 	FormEmailInput,
-	FormErrors,
 	FormNumberInput,
 	FormPasswordInput,
 	FormPickerInput,
 	FormRadioGroupInput,
 	FormRangeInput,
 	FormResetButton,
+	FormStatus,
+	FormStatusList,
+	FormStatusListItem,
 	FormSubmitButton,
 	FormSwitchInput,
 	FormTextInput,
@@ -18,11 +18,13 @@ import {
 	InlineFields,
 	JsonForm,
 } from './JsonForm';
+import { JsonGraphqlForm } from './JsonGraphqlForm';
 import { JsonLayout } from './JsonLayout';
 // import { TextInput } from 'react-native';
 import { createPlugin } from '@bluebase/core';
 
 export * from './JsonForm';
+export * from './JsonGraphqlForm';
 
 export default createPlugin({
 	categories: ['ui'],
@@ -33,23 +35,24 @@ export default createPlugin({
 
 	components: {
 		BaseFormField,
-		ErrorList,
-		ErrorListItem,
 		FormCheckboxInput,
 		FormEmailInput,
-		FormErrors,
 		FormNumberInput,
 		FormPasswordInput,
 		FormPickerInput,
 		FormRadioGroupInput,
 		FormRangeInput,
 		FormResetButton,
+		FormStatus,
+		FormStatusList,
+		FormStatusListItem,
 		FormSubmitButton,
 		FormSwitchInput,
 		FormTextInput,
 		FormUrlInput,
 		InlineFields,
 		JsonForm,
+		JsonGraphqlForm,
 		JsonLayout,
 	},
 });
