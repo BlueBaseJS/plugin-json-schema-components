@@ -1,10 +1,12 @@
 import { Card } from '@bluebase/components';
+import { EditProfileProfileForm } from './EditProfileProfileForm';
 import { MockedProvider } from 'react-apollo/test-utils';
 import React from 'react';
 import { SignupForm } from './SignupForm';
 import { mocks } from '.';
 import storiesOf from '@bluebase/storybook-addon';
-import { EditProfileProfileForm } from './EditProfileProfileForm';
+
+const onSuccess = (_res: any, _vals: any, { setStatus }: any) => setStatus({ success: ['Done!'] });
 
 storiesOf('JsonGraphqlForm', module)
 
@@ -34,7 +36,7 @@ storiesOf('JsonGraphqlForm', module)
 .add('Success', () => (
 	<Card style={{ width: 400, margin: 40 }}>
 		<MockedProvider mocks={[mocks.success]} addTypename={false}>
-			<SignupForm />
+			<SignupForm onSuccess={onSuccess} />
 		</MockedProvider>
 	</Card>
 ))
