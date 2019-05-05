@@ -1,4 +1,5 @@
 import { SignupMutation } from './SignupForm';
+import { ViewerQuery } from './EditProfileProfileForm';
 
 // tslint:disable: max-line-length object-literal-sort-keys
 
@@ -95,6 +96,24 @@ export const success = {
 				lastName: 'testing',
 				password: 'abc',
 				accessToken: ''
+			}
+		}
+	},
+};
+
+
+export const viewerQuery = {
+	request: {
+		query: ViewerQuery,
+	},
+	result: {
+		data: {
+			viewer: {
+				me: {
+					id: '5ccec1e892b8486b652aa670',
+					firstName: 'Abdul Rehman',
+					lastName: 'Talat',
+				}
 			}
 		}
 	},

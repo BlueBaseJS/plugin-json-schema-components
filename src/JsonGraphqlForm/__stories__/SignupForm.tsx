@@ -21,7 +21,6 @@ export interface SignupFormValues {
 	lastName: string;
 	email: string;
 	password: string;
-	confirmPassword: string;
 }
 
 const JsonGraphqlForm = getComponent<JsonGraphqlFormProps<SignupFormValues>>('JsonGraphqlForm');

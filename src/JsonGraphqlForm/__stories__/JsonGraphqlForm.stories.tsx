@@ -4,6 +4,7 @@ import React from 'react';
 import { SignupForm } from './SignupForm';
 import { mocks } from '.';
 import storiesOf from '@bluebase/storybook-addon';
+import { EditProfileProfileForm } from './EditProfileProfileForm';
 
 storiesOf('JsonGraphqlForm', module)
 
@@ -34,6 +35,14 @@ storiesOf('JsonGraphqlForm', module)
 	<Card style={{ width: 400, margin: 40 }}>
 		<MockedProvider mocks={[mocks.success]} addTypename={false}>
 			<SignupForm />
+		</MockedProvider>
+	</Card>
+))
+
+.add('Initial Data from Query', () => (
+	<Card style={{ width: 400, margin: 40 }}>
+		<MockedProvider mocks={[mocks.viewerQuery]} addTypename={false}>
+			<EditProfileProfileForm />
 		</MockedProvider>
 	</Card>
 ))
