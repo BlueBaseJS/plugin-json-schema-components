@@ -1,8 +1,10 @@
+import { BlueBase, BlueBaseApp, BlueBaseConsumer, IntlMessages, getComponent } from '@bluebase/core';
 import { JsonFormProps } from '..';
+import Plugin from '../../index';
 import React from 'react';
 import { ScrollView } from 'react-native';
-import { getComponent, BlueBaseConsumer, BlueBase } from '@bluebase/core';
 import storiesOf from '@bluebase/storybook-addon';
+import { ui } from './plugins';
 
 const JsonForm = getComponent<JsonFormProps>('JsonForm');
 
@@ -150,6 +152,67 @@ storiesOf('JsonForm', module)
 		/>
 	</ScrollView>
 ))
+
+
+
+.add('Internationalization', () => {
+
+	const props = {
+
+		configs: {
+			direction: 'rtl',
+			locale: 'ur',
+		},
+
+		filters: {
+			'bluebase.intl.messages.ur': (messages: IntlMessages) => ({
+				...messages,
+				'A sample form with internationalization.': 'بین الاقوامی کاری کے ساتھ ایک نمونہ فارم.',
+				'Enter your password here': 'یہاں اپنا پاس ورڈ درج کریں',
+				'Enter your username here': 'یہاں آپ کا صارف نام درج کریں',
+				'Login': 'لاگ ان',
+				'Password': 'پاس ورڈ',
+				'Username': 'صارف کا نام',
+			})
+		},
+
+		plugins: [ui, Plugin]
+	};
+
+	return (
+		<BlueBaseApp {...props}>
+			<JsonForm
+				schema={{
+
+					title: 'Login',
+
+					description: 'A sample form with internationalization.',
+
+					fields: [
+						{
+							helperText: 'Enter your username here',
+							label: 'Username',
+							name: 'username',
+							placeholder: 'Username',
+							type: 'text',
+						},
+						{
+							helperText: 'Enter your password here',
+							label: 'Password',
+							name: 'username',
+							type: 'text',
+						},
+						{
+							name: 'submit',
+							title: 'Login',
+							type: 'submit',
+						}
+					],
+				}}
+			/>
+		</BlueBaseApp>
+	);
+})
 
 
 

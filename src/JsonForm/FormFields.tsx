@@ -1,4 +1,5 @@
 import { FormFieldProps } from './Fields';
+import { IntlContext } from '@bluebase/core';
 import React from 'react';
 import { getFormField } from './getFormField';
 
@@ -26,6 +27,8 @@ export type FormFieldsProps<T = {}> = {
  * function as a param.
  */
 export class FormFields extends React.Component<FormFieldsProps> {
+
+	static contextType = IntlContext;
 
 	private fields: {
 		[key: string]: React.ComponentType<any>
@@ -73,10 +76,23 @@ export class FormFields extends React.Component<FormFieldsProps> {
 	 * Render a single field
 	 * @param field
 	 */
-	private renderField(field: FormFieldProps, index: number, parent: FormFieldsProps) {
+	private renderField(field: FormFieldProps & any, index: number, parent: FormFieldsProps) {
+		const { __ } = this.context;
 		const { FieldWrapper } = this.props;
 
 		field.name = field.name || `${index}-${field.type}`;
+
+		field = {
+			...field,
+			name: field.name || `${index}-${field.type}`,
+
+			// Translate
+			helperText: field.helperText ? __(field.helperText) : field.helperText,
+			label: field.label ? __(field.label) : field.label,
+			placeholder: field.placeholder ? __(field.placeholder) : field.placeholder,
+			title: field.title ? __(field.title) : field.title,
+		};
+
 		const key = field.name;
 
 		const Component = this.fields[field.type];

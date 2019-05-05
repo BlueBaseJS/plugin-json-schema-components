@@ -1,4 +1,4 @@
-import { BlueBaseFilter, Body2, H6, View } from '@bluebase/components';
+import { BlueBaseFilter, Body2, FormattedMessage, H6, View } from '@bluebase/components';
 import { Formik, FormikConfig, FormikValues } from 'formik';
 import { StyleProp, TextStyle, ViewStyle } from 'react-native';
 import { Form } from './Form';
@@ -99,12 +99,26 @@ export const JsonForm = (props: JsonFormProps) => {
 			<View style={styles.header}>
 			{
 				title
-				? <H6 style={[styles.title, !!description && styles.titlePadding]}>{title}</H6>
+				? (
+					<FormattedMessage
+						component={H6}
+						style={[styles.title, !!description && styles.titlePadding]}
+					>
+						{title}
+					</FormattedMessage>
+				)
 				: null
 			}
 			{
 				description
-				? <Body2 style={styles.description}>{description}</Body2>
+				? (
+					<FormattedMessage
+						component={Body2}
+						style={styles.description}
+					>
+						{description}
+					</FormattedMessage>
+				)
 				: null
 			}
 			</View>
