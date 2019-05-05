@@ -163,7 +163,7 @@ describe('SignupForm', () => {
 			expect(items).toHaveLength(0);
 		});
 
-		it('should fetcth initialValues from a graphql query', async () => {
+		it('should fetch initialValues from a graphql query', async () => {
 
 			const wrapper = mount(
 				<BlueBaseApp plugins={[BlueBasePluginApollo, Plugin]}>
@@ -177,6 +177,7 @@ describe('SignupForm', () => {
 
 			// expect(wrapper).toMatchSnapshot();
 			expect(wrapper.find('TextInput[name="firstName"]').first().prop('value')).toBe('Abdul Rehman');
+
 			expect(wrapper.find('TextInput[name="lastName"]').first().prop('value')).toBe('Talat');
 
 			// fires the mutation
