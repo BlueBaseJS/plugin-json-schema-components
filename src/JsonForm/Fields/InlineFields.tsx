@@ -43,7 +43,7 @@ const FieldWrapper = ({ field, parent, children }: FieldWrapperProps) => {
  */
 export const InlineFields = (props: InlineFieldsProps) => {
 
-	const { direction, style, styles = {} } = props;
+	const { direction, style, styles={} } = props;
 
 	const stylesheet = [styles.root];
 
