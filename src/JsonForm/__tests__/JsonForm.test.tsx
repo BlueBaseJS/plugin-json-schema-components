@@ -74,7 +74,7 @@ describe('FormFields', () => {
 
 		const component = mount(
 			<BlueBaseApp plugins={[Plugin]} filters={{ 'pluggable-form': filter }}>
-				<JsonForm schema={{ fields, initialValues, onSubmit }} style={{}}  filter="pluggable-form" />
+				<JsonForm schema={{ fields, initialValues, onSubmit }} filter="pluggable-form" />
 			</BlueBaseApp>
 		);
 

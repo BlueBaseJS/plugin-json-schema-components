@@ -131,6 +131,8 @@ storiesOf('JsonForm', module)
 						}]
 					}
 				],
+				
+				
 				initialValues: {
 					'auto-login': true,
 					gender: 'female',
@@ -140,6 +142,7 @@ storiesOf('JsonForm', module)
 					temp: 26,
 					username: '',
 				},
+				
 				onSubmit: (values: any, form: any) => {
 					// tslint:disable-next-line: no-console
 					console.log('Login form submitted by following values', values);
@@ -148,6 +151,7 @@ storiesOf('JsonForm', module)
 						form.setSubmitting(false);
 					}, 2000);
 				},
+				
 			}}
 		/>
 	</ScrollView>

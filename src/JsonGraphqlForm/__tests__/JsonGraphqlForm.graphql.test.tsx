@@ -172,17 +172,23 @@ describe('SignupForm', () => {
 					</MockedProvider>
 				</BlueBaseApp>
 			);
-
 			await waitForElement(wrapper, EditProfileProfileForm);
+			 expect(wrapper).toMatchSnapshot();
 
-			// expect(wrapper).toMatchSnapshot();
-			// expect(wrapper.find('TextInput[name="firstName"]').first().prop('value')).toBe('Abdul Rehman');
+			 await wait(500); // wait for response
+			 wrapper.update();
 
-			// expect(wrapper.find('TextInput[name="lastName"]').first().prop('value')).toBe('Talat');
+			// const data=wrapper.find('MockedProvider').first().prop('mocks');
+			// console.log('x',data[0].result);
+			// console.log(typeof data);
+
+			expect(wrapper.find('TextInput[name="firstName"]').first().prop('value')).toBe('Abdul Rehman');
+
+			expect(wrapper.find('TextInput[name="lastName"]').first().prop('value')).toBe('Talat');
 
 			// fires the mutation
-			// const onPress: () => void = wrapper.find('Button').first().prop('onPress');
-			// onPress();
+			const onPress: () => void = wrapper.find('Button').first().prop('onPress');
+			onPress();
 		});
 
 	});

@@ -49,7 +49,7 @@ describe('JsonLayout', () => {
 		});
 		const component = TestRenderer.create(
 			<BlueBaseApp>
-				<Layout/>
+				<Layout />
 			</BlueBaseApp>
 		);
 
@@ -93,7 +93,7 @@ describe('JsonLayout', () => {
 						},
 						text: 'This component is generated through JsonLayout Component',
 					}
-				}
+					}
 				/>
 			</BlueBaseApp>
 		);
@@ -126,9 +126,10 @@ describe('JsonLayout', () => {
 		setTimeout(() => {
 			const tree = component.toJSON();
 			expect(tree).toMatchSnapshot();
-			// expect((tree as any).children[0].children.join()).toBe('🚨 BlueBase Error');
-			// expect((tree as any).children[1].children.join())
-				// .toBe('Could not parse React JSON Schema. Reason: Could not resolve component.');
+
+			expect((tree as any).children[0].children[0].children[0].children[0].children[0]).toBe('🚨 BlueBase Error')
+
+			expect((tree as any).children[0].children[0].children[0].children[1].children[0]).toBe('Could not parse React JSON Schema. Reason: Could not resolve component.');
 			done();
 		});
 	});
