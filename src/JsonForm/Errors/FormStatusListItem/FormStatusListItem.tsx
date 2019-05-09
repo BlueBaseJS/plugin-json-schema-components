@@ -68,9 +68,10 @@ export const FormStatusListItem = ({ children, divider, styles = {}, type }: For
 	}
 
 	return (
-		<View 
-		style={rootStyles} 
-		testID="FormStatusListitem-View">
+		<View
+			style={rootStyles}
+			testID="FormStatusListitem-View"
+		>
 			<Body2 style={iconStyles}><Icon name={iconName} size={16} /></Body2>
 			<FormattedMessage component={Body2} style={textStyles}>
 				{children}

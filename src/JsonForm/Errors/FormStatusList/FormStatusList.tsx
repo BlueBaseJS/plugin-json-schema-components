@@ -48,9 +48,10 @@ export const FormStatusList = ({ items = [], styles = {}, type }: FormStatusList
 	}
 
 	return (
-		<View 
-		style={rootStyles}  
-		testID="FormStatusList-view">
+		<View
+			style={rootStyles}
+			testID="FormStatusList-view"
+		>
 			{items.map((error, index) => (
 				<FormStatusListItem
 					key={index}
