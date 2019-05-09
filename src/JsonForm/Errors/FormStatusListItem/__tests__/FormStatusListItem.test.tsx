@@ -85,7 +85,7 @@ describe('FormStatusListItem', () => {
 
 	});
 
-	it('should render all with divider prop', async () => {
+	it('should render all with divider prop and type XYZ', async () => {
 		const FormStatusListItem = getComponent('FormStatusListItem');
 
 		const component = mount(
@@ -99,6 +99,7 @@ describe('FormStatusListItem', () => {
 		);
 		await waitForElement(component as any, FormStatusListItem);
 
+		//for default style and coverage of default switch
 		const root: any = component.find('[testID="FormStatusListitem-View"]').last().props()
 		 expect(root.style.borderBottomWidth).toEqual(1)
 

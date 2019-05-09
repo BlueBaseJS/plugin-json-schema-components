@@ -4,21 +4,15 @@ import { getComponent } from '@bluebase/core';
 
 const FormStatusList = getComponent('FormStatusList');
 
-export interface IProps {
-	errors :any,
-	status :any,
-	formik:any,
-}
-
-export const FormStatus = connect((props:IProps) => {
-	const errors = props.formik.errors && (props.formik.errors.form)
-	const warnings = props.formik.status && (props.formik.status.warnings)
-	 const success = props.formik.status && (props.formik.status.success);
+export const FormStatus = connect((props: any) => {
+	const errors = props.formik.errors && (props.formik.errors as any).form;
+	const warnings = props.formik.status && (props.formik.status as any).warnings;
+	const success = props.formik.status && (props.formik.status as any).success;
 
 	return (
 		<React.Fragment>
 			<FormStatusList type="success" items={success || []} />
-			<FormStatusList type="success" items={warnings || []} />
+			<FormStatusList type="warning" items={warnings || []} />
 			<FormStatusList type="error" items={errors || []} />
 		</React.Fragment>
 	);
