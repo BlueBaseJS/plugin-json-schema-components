@@ -11,6 +11,7 @@ const fields: FormFieldProps[] = [{
 	name: 'username',
 	required: true,
 	type: 'text',
+	
 }, {
 	schema: { component: 'Text', text: 'Text Component' },
 	type: 'component',
@@ -91,7 +92,6 @@ describe('FormFields', () => {
 	});
 
 
-
 		it('should hook into the form to modify the schema with title', async () => {
 
 		const onSubmit = jest.fn();
@@ -112,6 +112,11 @@ describe('FormFields', () => {
 		expect(component.find('FormFields').childAt(1).prop('name')).toBe('1-component');
 		expect(component.find('FormFields').childAt(2).prop('name')).toBe('temp');
 		expect(component.find('FormFields').childAt(3).prop('name')).toBe('3-component');
+
+		//as schema is going to Formik so we find Formik and check if title arrived
+		expect(component.find('Formik').prop('title')).toEqual('Testing')
+
+
 	});
 
 	it('should hook into the form to modify the schema with description', async () => {
@@ -120,7 +125,7 @@ describe('FormFields', () => {
 
 		const component = mount(
 			<BlueBaseApp plugins={[Plugin]} >
-				<JsonForm schema={{ fields, initialValues, onSubmit ,description : 'Description is here'}} />
+				<JsonForm schema={{ fields, initialValues, onSubmit ,description:'Description is here'}} />
 			</BlueBaseApp>
 		);
 
@@ -134,6 +139,10 @@ describe('FormFields', () => {
 		expect(component.find('FormFields').childAt(1).prop('name')).toBe('1-component');
 		expect(component.find('FormFields').childAt(2).prop('name')).toBe('temp');
 		expect(component.find('FormFields').childAt(3).prop('name')).toBe('3-component');
+
+		//as schema is going to Formik so we find Formik and check if description arrived
+		expect(component.find('Formik').prop('description')).toEqual('Description is here')
+
 	});
 
 });
