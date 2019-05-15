@@ -64,8 +64,6 @@ describe('FormStatusList', () => {
 		expect(component.find('[testID="FormStatusList-loop"]').exists()).toBeTruthy()
 		expect(element1).toEqual('item1')
 		expect(element2).toEqual('item2')
-		
-
 	});
 
 	it('should render all error list with type -error', async () => {
