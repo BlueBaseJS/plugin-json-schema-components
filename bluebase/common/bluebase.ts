@@ -1,4 +1,7 @@
 import { BlueBase, BootOptions } from '@bluebase/core';
+import BlueBasePluginApollo from '@bluebase/plugin-apollo';
+import { MaterialCommunityIcons } from '@bluebase/plugin-vector-icons';
+import Plugin from '../../src';
 
 // This file contain all the apps, plugins and configuration which are required
 // for booting bluebase. see https://blueeast.gitbooks.io/bluebase/
@@ -12,6 +15,8 @@ export default {
 	},
 
 	plugins: [
-		require('../../src')
+		MaterialCommunityIcons,
+		BlueBasePluginApollo,
+		Plugin,
 	],
 };

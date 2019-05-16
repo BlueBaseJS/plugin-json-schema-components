@@ -1,6 +1,6 @@
 import { FormTextInputProps } from './FormTextInput';
 import React from 'react';
-import { getComponent } from '@bluebase/components';
+import { getComponent } from '@bluebase/core';
 
 const FormTextInput = getComponent('FormTextInput');
 
@@ -10,6 +10,11 @@ export interface FormUrlInputProps extends FormTextInputProps {
 }
 
 export const FormUrlInput = (props: FormUrlInputProps) => (
-	<FormTextInput {...props} type="url" />
+	<FormTextInput
+		{...props}
+		autoCapitalize="none"
+		keyboardType="numeric"
+		type="url"
+	/>
 );
 
