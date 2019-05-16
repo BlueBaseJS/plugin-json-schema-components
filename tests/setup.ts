@@ -1,5 +1,6 @@
 import 'jest-enzyme';
 import 'react-native';
+
 import Adapter from 'enzyme-adapter-react-16';
 import Enzyme from 'enzyme';
 
@@ -10,6 +11,7 @@ const { JSDOM } = require('jsdom');
 
 const jsdom = new JSDOM('<!doctype html><html><body></body></html>');
 const { window } = jsdom;
+window.Date = Date;
 
 function copyProps(src: any, target: any) {
 	Object.defineProperties(target, {
@@ -29,6 +31,7 @@ global.document = window.document;
 global.navigator = {
 	userAgent: 'node.js',
 };
+
 copyProps(window, global);
 
 /**

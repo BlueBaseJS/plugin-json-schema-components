@@ -11,6 +11,7 @@ const fields: FormFieldProps[] = [{
 	name: 'username',
 	required: true,
 	type: 'text',
+	
 }, {
 	schema: { component: 'Text', text: 'Text Component' },
 	type: 'component',
@@ -88,6 +89,60 @@ describe('FormFields', () => {
 		expect(component.find('FormFields').childAt(1).prop('name')).toBe('1-component');
 		expect(component.find('FormFields').childAt(2).prop('name')).toBe('temp');
 		expect(component.find('FormFields').childAt(3).prop('name')).toBe('3-component');
+	});
+
+
+		it('should hook into the form to modify the schema with title', async () => {
+
+		const onSubmit = jest.fn();
+
+		const component = mount(
+			<BlueBaseApp plugins={[Plugin]} >
+				<JsonForm schema={{ fields, initialValues, onSubmit ,title : 'Testing'}} />
+			</BlueBaseApp>
+		);
+
+		await waitForElement(component as any, JsonForm);
+
+		// expect(component).toMatchSnapshot();
+
+		// Check fields
+		expect(component.find('FormFields').children()).toHaveLength(4);
+		expect(component.find('FormFields').childAt(0).prop('name')).toBe('username');
+		expect(component.find('FormFields').childAt(1).prop('name')).toBe('1-component');
+		expect(component.find('FormFields').childAt(2).prop('name')).toBe('temp');
+		expect(component.find('FormFields').childAt(3).prop('name')).toBe('3-component');
+
+		//as schema is going to Formik so we find Formik and check if title arrived
+		expect(component.find('Formik').prop('title')).toEqual('Testing')
+
+
+	});
+
+	it('should hook into the form to modify the schema with description', async () => {
+
+		const onSubmit = jest.fn();
+
+		const component = mount(
+			<BlueBaseApp plugins={[Plugin]} >
+				<JsonForm schema={{ fields, initialValues, onSubmit ,description:'Description is here'}} />
+			</BlueBaseApp>
+		);
+
+		await waitForElement(component as any, JsonForm);
+
+		// expect(component).toMatchSnapshot();
+
+		// Check fields
+		expect(component.find('FormFields').children()).toHaveLength(4);
+		expect(component.find('FormFields').childAt(0).prop('name')).toBe('username');
+		expect(component.find('FormFields').childAt(1).prop('name')).toBe('1-component');
+		expect(component.find('FormFields').childAt(2).prop('name')).toBe('temp');
+		expect(component.find('FormFields').childAt(3).prop('name')).toBe('3-component');
+
+		//as schema is going to Formik so we find Formik and check if description arrived
+		expect(component.find('Formik').prop('description')).toEqual('Description is here')
+
 	});
 
 });

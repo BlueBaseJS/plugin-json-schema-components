@@ -1,6 +1,6 @@
 import { JsonLayoutProps } from '..';
 import React from 'react';
-import { getComponent } from '@bluebase/components';
+import { getComponent } from '@bluebase/core';
 import storiesOf from '@bluebase/storybook-addon';
 
 const JsonLayout = getComponent<JsonLayoutProps>('JsonLayout');
