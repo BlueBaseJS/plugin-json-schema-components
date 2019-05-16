@@ -1,5 +1,7 @@
 import 'cross-fetch/polyfill';
+
 import { EditProfileProfileForm, SignupForm, mocks } from '../__stories__';
+
 import { BlueBaseApp } from '@bluebase/core';
 import BlueBasePluginApollo from '@bluebase/plugin-apollo';
 import { MockedProvider } from 'react-apollo/test-utils';
@@ -8,8 +10,9 @@ import React from 'react';
 import { mount } from 'enzyme';
 import wait from 'waait';
 import { waitForElement } from 'enzyme-async-helpers';
+import waitForExpect from 'wait-for-expect';
 
-describe('SignupForm', () => {
+describe('JsonGraphqlForm', () => {
 
 	describe('GraphQL', () => {
 
@@ -32,11 +35,10 @@ describe('SignupForm', () => {
 			wrapper.update();
 			expect(wrapper.find('FormStatusList[type="error"]').first().prop('items')).toHaveLength(0);
 
-			await wait(100); // wait for response
-
-			wrapper.update();
-			//  expect(wrapper).toMatchSnapshot();
-			expect(wrapper.find('FormStatusList[type="error"]').first().prop('items')).toHaveLength(1);
+			await waitForExpect(() => {
+				wrapper.update();
+				expect(wrapper.find('FormStatusList[type="error"]').first().prop('items')).toHaveLength(1);
+			}, 1000);
 		});
 
 		it('should show an unauthenticated error', async () => {
