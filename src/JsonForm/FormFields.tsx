@@ -84,7 +84,6 @@ export class FormFields extends React.Component<FormFieldsProps> {
 
 		field = {
 			...field,
-			name: field.name || `${index}-${field.type}`,
 
 			// Translate
 			helperText: field.helperText ? __(field.helperText) : field.helperText,
