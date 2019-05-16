@@ -48,12 +48,16 @@ export const FormStatusList = ({ items = [], styles = {}, type }: FormStatusList
 	}
 
 	return (
-		<View style={rootStyles}>
+		<View
+			style={rootStyles}
+			testID="FormStatusList-view"
+		>
 			{items.map((error, index) => (
 				<FormStatusListItem
 					key={index}
 					divider={index < items.length - 1}
 					type={type}
+					testID="FormStatusList-loop"
 				>
 					{error}
 				</FormStatusListItem>

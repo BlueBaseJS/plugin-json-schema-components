@@ -172,7 +172,7 @@ describe('FormTextInput', () => {
 
 		setTimeout(() => {
 			expect(component).toMatchSnapshot();
-			expect(component.find('TextInput').last().prop('helperText')).toBe('This field is required');
+			expect(component.find('TextInput').last().prop('helperText')).toBe('This is a helper text');
 			// expect(onSubmit).toHaveBeenCalledTimes(1);
 		});
 	});

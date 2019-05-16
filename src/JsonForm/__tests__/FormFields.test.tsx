@@ -12,7 +12,10 @@ import { waitForElement } from 'enzyme-async-helpers';
 const fields: FormFieldProps[] = [{
 	label: 'Username',
 	name: 'username',
+	helperText:"please enter username",
+	title:"Name",
 	required: true,
+	placeholder:'enter username',
 	type: 'text',
 }, {
 	schema: { component: 'Text', text: 'Text Component' },

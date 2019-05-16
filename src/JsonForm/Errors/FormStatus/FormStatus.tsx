@@ -4,7 +4,7 @@ import { getComponent } from '@bluebase/core';
 
 const FormStatusList = getComponent('FormStatusList');
 
-export const FormStatus = connect((props) => {
+export const FormStatus = connect((props: any) => {
 	const errors = props.formik.errors && (props.formik.errors as any).form;
 	const warnings = props.formik.status && (props.formik.status as any).warnings;
 	const success = props.formik.status && (props.formik.status as any).success;

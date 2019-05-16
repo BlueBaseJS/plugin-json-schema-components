@@ -1,5 +1,7 @@
 import 'cross-fetch/polyfill';
+
 import { EditProfileProfileForm, SignupForm, mocks } from '../__stories__';
+
 import { BlueBaseApp } from '@bluebase/core';
 import BlueBasePluginApollo from '@bluebase/plugin-apollo';
 import { MockedProvider } from 'react-apollo/test-utils';
@@ -8,8 +10,9 @@ import React from 'react';
 import { mount } from 'enzyme';
 import wait from 'waait';
 import { waitForElement } from 'enzyme-async-helpers';
+import waitForExpect from 'wait-for-expect';
 
-describe('SignupForm', () => {
+describe('JsonGraphqlForm', () => {
 
 	describe('GraphQL', () => {
 
@@ -32,11 +35,10 @@ describe('SignupForm', () => {
 			wrapper.update();
 			expect(wrapper.find('FormStatusList[type="error"]').first().prop('items')).toHaveLength(0);
 
-			await wait(100); // wait for response
-
-			wrapper.update();
-			// expect(wrapper).toMatchSnapshot();
-			expect(wrapper.find('FormStatusList[type="error"]').first().prop('items')).toHaveLength(1);
+			await waitForExpect(() => {
+				wrapper.update();
+				expect(wrapper.find('FormStatusList[type="error"]').first().prop('items')).toHaveLength(1);
+			}, 1000);
 		});
 
 		it('should show an unauthenticated error', async () => {
@@ -101,7 +103,7 @@ describe('SignupForm', () => {
 			// Post Validation
 			firstName = wrapper.find('TextInput[name="firstName"]').first();
 			expect(firstName.prop('error')).toBe(true);
-			expect(firstName.prop('helperText')).toBe('I\'m sorry, but we don\'t like your name.');
+			expect(firstName.prop('helperText')).toBe('I m sorry, but we dont like your name.');
 
 			password = wrapper.find('TextInput[name="password"]').first();
 			expect(password.prop('error')).toBe(true);
@@ -163,7 +165,7 @@ describe('SignupForm', () => {
 			expect(items).toHaveLength(0);
 		});
 
-		it('should fetcth initialValues from a graphql query', async () => {
+		it('should fetch initialValues from a graphql query', async () => {
 
 			const wrapper = mount(
 				<BlueBaseApp plugins={[BlueBasePluginApollo, Plugin]}>
@@ -172,16 +174,19 @@ describe('SignupForm', () => {
 					</MockedProvider>
 				</BlueBaseApp>
 			);
-
 			await waitForElement(wrapper, EditProfileProfileForm);
+			//  expect(wrapper).toMatchSnapshot();
 
-			// expect(wrapper).toMatchSnapshot();
-			expect(wrapper.find('TextInput[name="firstName"]').first().prop('value')).toBe('Abdul Rehman');
-			expect(wrapper.find('TextInput[name="lastName"]').first().prop('value')).toBe('Talat');
+			 await wait(500); // wait for response
+			 wrapper.update();
 
-			// fires the mutation
-			const onPress: () => void = wrapper.find('Button').first().prop('onPress');
-			onPress();
+			 expect(wrapper.find('TextInput[name="firstName"]').first().prop('value')).toBe('Abdul Rehman');
+
+			 expect(wrapper.find('TextInput[name="lastName"]').first().prop('value')).toBe('Talat');
+
+			 // fires the mutation
+			 const onPress: () => void = wrapper.find('Button').first().prop('onPress');
+			 onPress();
 		});
 
 	});
