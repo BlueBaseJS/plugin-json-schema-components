@@ -1,6 +1,7 @@
 import { BlueBaseFilter, Body2, FormattedMessage, H6, View } from '@bluebase/components';
 import { Formik, FormikConfig, FormikValues } from 'formik';
 import { StyleProp, TextStyle, ViewStyle } from 'react-native';
+
 import { Form } from './Form';
 import { FormFieldProps } from './Fields';
 import { FormFields } from './FormFields';
@@ -12,7 +13,6 @@ export interface FormProps<Values = FormikValues> extends FormikConfig<Values> {
 }
 
 export type JsonFormSchema<Values = FormikValues> = FormProps<Values> & {
-
 	/** Form title */
 	title?: string;
 
@@ -28,7 +28,6 @@ export interface JsonFormStyles {
 	description: StyleProp<TextStyle>;
 }
 export interface JsonFormProps<Values = FormikValues> {
-
 	/** JSON Schema. */
 	schema: JsonFormSchema<Values>;
 
@@ -43,10 +42,10 @@ export interface JsonFormProps<Values = FormikValues> {
 
 	styles?: Partial<JsonFormStyles>;
 
-  /**
-   * Used to locate this view in end-to-end tests.
-   */
-	testID?: string,
+	/**
+	 * Used to locate this view in end-to-end tests.
+	 */
+	testID?: string;
 }
 
 /**
@@ -54,13 +53,12 @@ export interface JsonFormProps<Values = FormikValues> {
  * @param props
  */
 const JsonFormInternal = (props: JsonFormProps) => {
-
 	const { schema } = props;
 	const { fields, ...rest } = schema;
 
 	return (
 		<Formik {...rest}>
-			<Form>
+			<Form style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
 				<FormFields fields={fields} />
 			</Form>
 		</Formik>
@@ -72,7 +70,6 @@ const JsonFormInternal = (props: JsonFormProps) => {
  * @param props
  */
 export const JsonForm = (props: JsonFormProps) => {
-
 	const { args, filter, schema, style, styles = {} } = props;
 	const { description, fields, title, ...rest } = schema;
 
@@ -80,14 +77,10 @@ export const JsonForm = (props: JsonFormProps) => {
 
 	if (filter) {
 		node = (
-			<BlueBaseFilter
-				filter={filter}
-				value={schema}
-				args={args}
-			>
-			{(filteredSchema: JsonFormProps['schema']) => {
-				return <JsonFormInternal schema={filteredSchema} {...rest} />;
-			}}
+			<BlueBaseFilter filter={filter} value={schema} args={args}>
+				{(filteredSchema: JsonFormProps['schema']) => {
+					return <JsonFormInternal schema={filteredSchema} {...rest} />;
+				}}
 			</BlueBaseFilter>
 		);
 	}
@@ -97,44 +90,34 @@ export const JsonForm = (props: JsonFormProps) => {
 	if (title || description) {
 		header = (
 			<View style={styles.header}>
-			{
-				title
-				? (
+				{title ? (
 					<FormattedMessage
 						component={H6}
 						style={[styles.title, !!description && styles.titlePadding]}
 					>
 						{title}
 					</FormattedMessage>
-				)
-				: null
-			}
-			{
-				description
-				? (
-					<FormattedMessage
-						component={Body2}
-						style={styles.description}
-					>
+				) : null}
+				{description ? (
+					<FormattedMessage component={Body2} style={styles.description}>
 						{description}
 					</FormattedMessage>
-				)
-				: null
-			}
+				) : null}
 			</View>
 		);
 	}
 
 	return (
 		<View style={[styles.root, style]}>
-			{header}{node}
+			{header}
+			{node}
 		</View>
 	);
 };
 
 JsonForm.defaultStyles = (theme: Theme) => ({
-
 	root: {
+		flex: 1,
 	},
 
 	header: {
