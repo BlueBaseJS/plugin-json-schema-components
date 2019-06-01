@@ -229,8 +229,8 @@ const graphqlToFormErrors = (error: ApolloError): FormErrors => {
 	});
 
 	if (error.networkError) {
-		// tslint:disable-next-line: max-line-length
 		errors.form.push(
+			// tslint:disable-next-line: max-line-length
 			'A network error occurred. This may be because of your network connection, or a server error. Please try again later.'
 		);
 	}
