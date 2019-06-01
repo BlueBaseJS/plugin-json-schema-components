@@ -1,7 +1,8 @@
 import { BlueBase, BlueBaseContext, getComponent } from '@bluebase/core';
 import { FetchResult, MutationFn, MutationProps, QueryProps, QueryResult } from 'react-apollo';
-import { FormikActions, FormikValues } from 'formik';
+import { FormikActions, FormikContext, FormikValues } from 'formik';
 import { JsonFormProps, JsonFormSchema } from '../JsonForm';
+
 import { ApolloError } from 'apollo-client';
 import React from 'react';
 import { StatefulComponent } from '@bluebase/components';
@@ -14,11 +15,13 @@ export type mapFormValuesToMutationVariablesFn<Values = any> = (values: Values) 
 export type mapQueryDataToInitialValuesFn<Values = any> = (data: any) => Values;
 
 export type JsonGraphqlFormOnErrorFn = (error: ApolloError) => void;
-export type JsonGraphqlFormOnSuccessFn<Values = FormikValues> =
-(result: void | FetchResult, values: Values, actions: FormikActions<Values>) => void;
+export type JsonGraphqlFormOnSuccessFn<Values = FormikValues> = (
+	result: void | FetchResult,
+	values: Values,
+	actions: FormikActions<Values>
+) => void;
 
 export type JsonGraphqlFormProps<Values = FormikValues> = JsonFormProps<Values> & {
-
 	/**
 	 * GraphqlMutation component props. This mutation will be executed when
 	 * a form is submitted.
@@ -53,14 +56,19 @@ export type JsonGraphqlFormProps<Values = FormikValues> = JsonFormProps<Values> 
  * fetch initial data from a GraphQL query and execute a mutation on form
  * submission.
  */
-export class JsonGraphqlForm<Values = FormikValues> extends React.PureComponent<JsonGraphqlFormProps<Values>> {
-
+export class JsonGraphqlForm<Values = FormikValues> extends React.PureComponent<
+	JsonGraphqlFormProps<Values>
+> {
 	static contextType = BlueBaseContext;
 
 	static defaultProps: Partial<JsonGraphqlFormProps> = {
 		mapFormValuesToMutationVariables: (v: any) => v,
-		onError: () => { return; },
-		onSuccess: () => { return; },
+		onError: () => {
+			return;
+		},
+		onSuccess: () => {
+			return;
+		},
 	};
 
 	constructor(props: JsonGraphqlFormProps<Values>) {
@@ -71,13 +79,12 @@ export class JsonGraphqlForm<Values = FormikValues> extends React.PureComponent<
 	}
 
 	public render() {
-
 		const { query } = this.props;
-		const mapQueryDataToInitialValues = this.props.mapQueryDataToInitialValues as mapQueryDataToInitialValuesFn;
+		const mapQueryDataToInitialValues = this.props
+			.mapQueryDataToInitialValues as mapQueryDataToInitialValuesFn;
 
 		// If there is now query, we don't need to fetch initial data
 		if (!query) {
-
 			// Just render the form as is
 			return this.renderForm();
 		}
@@ -88,14 +95,13 @@ export class JsonGraphqlForm<Values = FormikValues> extends React.PureComponent<
 
 		return (
 			<Query {...query}>
-			{(result: QueryResult) => (
-				<StatefulComponent {...result} isEmpty={isEmpty}>
-					{this.renderForm(mapQueryDataToInitialValues(result.data))}
-				</StatefulComponent>
-			)}
+				{(result: QueryResult) => (
+					<StatefulComponent {...result} isEmpty={isEmpty}>
+						{this.renderForm(mapQueryDataToInitialValues(result.data))}
+					</StatefulComponent>
+				)}
 			</Query>
 		);
-
 	}
 
 	/**
@@ -121,17 +127,35 @@ export class JsonGraphqlForm<Values = FormikValues> extends React.PureComponent<
 
 		return (
 			<Mutation {...mutation}>
-			{(mutate: MutationFn) => (
-				<JsonForm
-					{...rest}
-					schema={{
-						...schema,
-						onSubmit: this.onSubmit(mutate),
-					}}
-				/>
-			)}
+				{(mutate: MutationFn) => (
+					<JsonForm
+						{...rest}
+						schema={{
+							...schema,
+							onChange: this.onChange(mutate),
+							onSubmit: this.onSubmit(mutate),
+						}}
+					/>
+				)}
 			</Mutation>
 		);
+	}
+
+	/**
+	 * Returns the onChange event handler (this function is not the handler itself).
+	 * @param mutate
+	 */
+	protected onChange(mutate: MutationFn) {
+		const onChange = this.props.schema && this.props.schema.onChange;
+
+		if (!onChange) {
+			return;
+		}
+
+		// The onChange handler
+		return (current: FormikContext<Values>, prev: FormikContext<Values>) => {
+			onChange(current, prev, mutate);
+		};
 	}
 
 	/**
@@ -139,28 +163,24 @@ export class JsonGraphqlForm<Values = FormikValues> extends React.PureComponent<
 	 * @param mutate
 	 */
 	protected onSubmit(mutate: MutationFn) {
-
 		const BB: BlueBase = this.context;
 
-		const mapFormValuesToMutationVariables =
-			this.props.mapFormValuesToMutationVariables as mapFormValuesToMutationVariablesFn;
+		const mapFormValuesToMutationVariables = this.props
+			.mapFormValuesToMutationVariables as mapFormValuesToMutationVariablesFn;
 
 		const onError = this.props.onError as JsonGraphqlFormOnErrorFn;
 		const onSuccess = this.props.onSuccess as JsonGraphqlFormOnSuccessFn<Values>;
 
 		// The onSubmit handler
 		return (values: Values, actions: FormikActions<Values>) => {
-
 			const { setSubmitting, setErrors } = actions;
 
 			// map values
 			const variables = mapFormValuesToMutationVariables(values);
 
 			// Mutate
-			mutate({ variables })
-			.then(
-				(result) => {
-
+			mutate({ variables }).then(
+				result => {
 					// Mutation was successful
 					setSubmitting(false);
 
@@ -168,7 +188,6 @@ export class JsonGraphqlForm<Values = FormikValues> extends React.PureComponent<
 					onSuccess(result, values, actions);
 				},
 				(error: ApolloError) => {
-
 					// Bummer! Mutation was not successful
 					setSubmitting(false);
 
@@ -191,14 +210,12 @@ export class JsonGraphqlForm<Values = FormikValues> extends React.PureComponent<
 
 type FormErrors = { form: string[] } & { [key: string]: string };
 
-const graphqlToFormErrors = (error: ApolloError) : FormErrors => {
-
+const graphqlToFormErrors = (error: ApolloError): FormErrors => {
 	let errors: any = {
-		form: []
+		form: [],
 	};
 
 	error.graphQLErrors.forEach((e: any) => {
-
 		if (e.extensions && e.extensions.code === 'BAD_USER_INPUT') {
 			const fieldErrors = e.extensions.exception.validationErrors;
 
@@ -206,15 +223,16 @@ const graphqlToFormErrors = (error: ApolloError) : FormErrors => {
 				...errors,
 				...fieldErrors,
 			};
-		}
-		else {
+		} else {
 			errors.form.push(e.message);
 		}
 	});
 
 	if (error.networkError) {
 		// tslint:disable-next-line: max-line-length
-		errors.form.push('A network error occurred. This may be because of your network connection, or a server error. Please try again later.');
+		errors.form.push(
+			'A network error occurred. This may be because of your network connection, or a server error. Please try again later.'
+		);
 	}
 
 	return errors;

@@ -3,18 +3,17 @@ import React from 'react';
 import { getComponent } from '@bluebase/core';
 import gql from 'graphql-tag';
 
-
 export const SignupMutation = gql`
-mutation SignupMutation ($data:JSON) {
-	signup(input: {data: $data}) {
-    id,
-    firstName,
-    lastName,
-    email,
-    accessToken,
-  }
-}`;
-
+	mutation SignupMutation($data: JSON) {
+		signup(input: { data: $data }) {
+			id
+			firstName
+			lastName
+			email
+			accessToken
+		}
+	}
+`;
 
 export interface SignupFormValues {
 	firstName: string;
@@ -28,10 +27,8 @@ const JsonGraphqlForm = getComponent<JsonGraphqlFormProps<SignupFormValues>>('Js
 // const onSuccess = (_res: any, _vals: any, { setStatus }: any) => setStatus({ success: ['Done!'] });
 
 export const SignupForm = (props: Partial<JsonGraphqlFormProps>) => (
-
 	<JsonGraphqlForm
 		mutation={{ mutation: SignupMutation }}
-
 		// onSuccess={onSuccess}
 
 		schema={{
@@ -47,17 +44,20 @@ export const SignupForm = (props: Partial<JsonGraphqlFormProps>) => (
 					name: 'fullName',
 					type: 'inline',
 
-					fields: [{
-						label: 'First Name',
-						name: 'firstName',
-						required: true,
-						type: 'text',
-					}, {
-						label: 'Last Name',
-						name: 'lastName',
-						required: true,
-						type: 'text',
-					}]
+					fields: [
+						{
+							label: 'First Name',
+							name: 'firstName',
+							required: true,
+							type: 'text',
+						},
+						{
+							label: 'Last Name',
+							name: 'lastName',
+							required: true,
+							type: 'text',
+						},
+					],
 				},
 				{
 					label: 'Email',
@@ -80,7 +80,7 @@ export const SignupForm = (props: Partial<JsonGraphqlFormProps>) => (
 					name: 'submit',
 					title: 'Sign up',
 					type: 'submit',
-				}
+				},
 			],
 
 			initialValues: {
@@ -90,8 +90,6 @@ export const SignupForm = (props: Partial<JsonGraphqlFormProps>) => (
 				password: 'abc',
 			},
 		}}
-
 		{...props}
 	/>
 );
-
