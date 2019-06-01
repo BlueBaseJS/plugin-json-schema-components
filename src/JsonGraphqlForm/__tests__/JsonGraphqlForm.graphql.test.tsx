@@ -4,6 +4,7 @@ import { EditProfileProfileForm, SignupForm, mocks } from '../__stories__';
 
 import { BlueBaseApp } from '@bluebase/core';
 import BlueBasePluginApollo from '@bluebase/plugin-apollo';
+import { FormikContext } from 'formik';
 import { MockedProvider } from 'react-apollo/test-utils';
 import Plugin from '../../index';
 import React from 'react';
@@ -13,11 +14,8 @@ import { waitForElement } from 'enzyme-async-helpers';
 import waitForExpect from 'wait-for-expect';
 
 describe('JsonGraphqlForm', () => {
-
 	describe('GraphQL', () => {
-
 		it('should show a network error', async () => {
-
 			const wrapper = mount(
 				<BlueBaseApp
 					plugins={[BlueBasePluginApollo, Plugin]}
@@ -29,20 +27,32 @@ describe('JsonGraphqlForm', () => {
 
 			await waitForElement(wrapper, SignupForm);
 
-			const onPress: () => void = wrapper.find('Button').first().prop('onPress');
+			const onPress: () => void = wrapper
+				.find('Button')
+				.first()
+				.prop('onPress');
 			onPress(); // fires the mutation
 
 			wrapper.update();
-			expect(wrapper.find('FormStatusList[type="error"]').first().prop('items')).toHaveLength(0);
+			expect(
+				wrapper
+					.find('FormStatusList[type="error"]')
+					.first()
+					.prop('items')
+			).toHaveLength(0);
 
 			await waitForExpect(() => {
 				wrapper.update();
-				expect(wrapper.find('FormStatusList[type="error"]').first().prop('items')).toHaveLength(1);
+				expect(
+					wrapper
+						.find('FormStatusList[type="error"]')
+						.first()
+						.prop('items')
+				).toHaveLength(1);
 			}, 1000);
 		});
 
 		it('should show an unauthenticated error', async () => {
-
 			const wrapper = mount(
 				<BlueBaseApp plugins={[BlueBasePluginApollo, Plugin]}>
 					<MockedProvider mocks={[mocks.graphQLErrorsUnAuthenticated]} addTypename={false}>
@@ -53,22 +63,32 @@ describe('JsonGraphqlForm', () => {
 
 			await waitForElement(wrapper, SignupForm);
 
-			const onPress: () => void = wrapper.find('Button').first().prop('onPress');
+			const onPress: () => void = wrapper
+				.find('Button')
+				.first()
+				.prop('onPress');
 			onPress(); // fires the mutation
 
 			wrapper.update();
-			expect(wrapper.find('FormStatusList[type="error"]').first().prop('items')).toHaveLength(0);
+			expect(
+				wrapper
+					.find('FormStatusList[type="error"]')
+					.first()
+					.prop('items')
+			).toHaveLength(0);
 
 			await wait(100); // wait for response
 			wrapper.update();
 
-			const items: string[] = wrapper.find('FormStatusList[type="error"]').first().prop('items');
+			const items: string[] = wrapper
+				.find('FormStatusList[type="error"]')
+				.first()
+				.prop('items');
 			expect(items).toHaveLength(1);
 			expect(items[0]).toBe('forbidden');
 		});
 
 		it('should show field errors', async () => {
-
 			const wrapper = mount(
 				<BlueBaseApp plugins={[BlueBasePluginApollo, Plugin]}>
 					<MockedProvider mocks={[mocks.graphQLErrorsBadUserInput]} addTypename={false}>
@@ -80,12 +100,20 @@ describe('JsonGraphqlForm', () => {
 			await waitForElement(wrapper, SignupForm);
 
 			// fires the mutation
-			const onPress: () => void = wrapper.find('Button').first().prop('onPress');
+			const onPress: () => void = wrapper
+				.find('Button')
+				.first()
+				.prop('onPress');
 			onPress();
 
 			// wait for response
 			wrapper.update();
-			expect(wrapper.find('FormStatusList[type="error"]').first().prop('items')).toHaveLength(0);
+			expect(
+				wrapper
+					.find('FormStatusList[type="error"]')
+					.first()
+					.prop('items')
+			).toHaveLength(0);
 
 			// Pre Validation
 			let firstName: any = wrapper.find('TextInput[name="firstName"]').first();
@@ -111,8 +139,8 @@ describe('JsonGraphqlForm', () => {
 		});
 
 		it('should show a success state', async () => {
-
-			const onSuccess = (_res: any, _vals: any, { setStatus }: any) => setStatus({ success: ['Done!'] });
+			const onSuccess = (_res: any, _vals: any, { setStatus }: any) =>
+				setStatus({ success: ['Done!'] });
 
 			const wrapper = mount(
 				<BlueBaseApp plugins={[BlueBasePluginApollo, Plugin]}>
@@ -124,23 +152,33 @@ describe('JsonGraphqlForm', () => {
 
 			await waitForElement(wrapper, SignupForm);
 
-			const onPress: () => void = wrapper.find('Button').first().prop('onPress');
+			const onPress: () => void = wrapper
+				.find('Button')
+				.first()
+				.prop('onPress');
 			onPress(); // fires the mutation
 
 			wrapper.update();
-			expect(wrapper.find('FormStatusList[type="success"]').first().prop('items')).toHaveLength(0);
+			expect(
+				wrapper
+					.find('FormStatusList[type="success"]')
+					.first()
+					.prop('items')
+			).toHaveLength(0);
 
 			await wait(100); // wait for response
 			wrapper.update();
 
 			// expect(wrapper).toMatchSnapshot();
-			const items: string[] = wrapper.find('FormStatusList[type="success"]').first().prop('items');
+			const items: string[] = wrapper
+				.find('FormStatusList[type="success"]')
+				.first()
+				.prop('items');
 			expect(items).toHaveLength(1);
 			expect(items[0]).toBe('Done!');
 		});
 
 		it('should not crash without a custom onSuccess handler', async () => {
-
 			const wrapper = mount(
 				<BlueBaseApp plugins={[BlueBasePluginApollo, Plugin]}>
 					<MockedProvider mocks={[mocks.success]} addTypename={false}>
@@ -151,22 +189,32 @@ describe('JsonGraphqlForm', () => {
 
 			await waitForElement(wrapper, SignupForm);
 
-			const onPress: () => void = wrapper.find('Button').first().prop('onPress');
+			const onPress: () => void = wrapper
+				.find('Button')
+				.first()
+				.prop('onPress');
 			onPress(); // fires the mutation
 
 			wrapper.update();
-			expect(wrapper.find('FormStatusList[type="success"]').first().prop('items')).toHaveLength(0);
+			expect(
+				wrapper
+					.find('FormStatusList[type="success"]')
+					.first()
+					.prop('items')
+			).toHaveLength(0);
 
 			await wait(100); // wait for response
 			wrapper.update();
 
 			// expect(wrapper).toMatchSnapshot();
-			const items: string[] = wrapper.find('FormStatusList[type="success"]').first().prop('items');
+			const items: string[] = wrapper
+				.find('FormStatusList[type="success"]')
+				.first()
+				.prop('items');
 			expect(items).toHaveLength(0);
 		});
 
 		it('should fetch initialValues from a graphql query', async () => {
-
 			const wrapper = mount(
 				<BlueBaseApp plugins={[BlueBasePluginApollo, Plugin]}>
 					<MockedProvider mocks={[mocks.viewerQuery, mocks.success]} addTypename={false}>
@@ -177,19 +225,71 @@ describe('JsonGraphqlForm', () => {
 			await waitForElement(wrapper, EditProfileProfileForm);
 			//  expect(wrapper).toMatchSnapshot();
 
-			 await wait(500); // wait for response
-			 wrapper.update();
+			await wait(500); // wait for response
+			wrapper.update();
 
-			 expect(wrapper.find('TextInput[name="firstName"]').first().prop('value')).toBe('Abdul Rehman');
+			expect(
+				wrapper
+					.find('TextInput[name="firstName"]')
+					.first()
+					.prop('value')
+			).toBe('Abdul Rehman');
 
-			 expect(wrapper.find('TextInput[name="lastName"]').first().prop('value')).toBe('Talat');
+			expect(
+				wrapper
+					.find('TextInput[name="lastName"]')
+					.first()
+					.prop('value')
+			).toBe('Talat');
 
-			 // fires the mutation
-			 const onPress: () => void = wrapper.find('Button').first().prop('onPress');
-			 onPress();
+			// fires the mutation
+			const onPress: () => void = wrapper
+				.find('Button')
+				.first()
+				.prop('onPress');
+			onPress();
 		});
-
 	});
 
+	describe('FormikEffect', () => {
+		it('should render execute onChange callback when values change', async () => {
+			const onChange = jest.fn();
 
+			const wrapper = mount(
+				<BlueBaseApp plugins={[BlueBasePluginApollo, Plugin]}>
+					<MockedProvider mocks={[mocks.viewerQuery, mocks.success]} addTypename={false}>
+						<EditProfileProfileForm
+							onError={null as any}
+							onSuccess={null as any}
+							schema={{ onChange } as any}
+						/>
+					</MockedProvider>
+				</BlueBaseApp>
+			);
+			await waitForElement(wrapper, 'JsonForm');
+			//  expect(wrapper).toMatchSnapshot();
+
+			// await wait(500); // wait for response
+			// wrapper.update();
+
+			const formik: FormikContext<any> = wrapper
+				.find('FormikEffect')
+				.first()
+				.prop('formik');
+
+			// Change values, should trigger callback
+			formik.setValues({ firstName: 'foo' });
+
+			// Check fields
+			expect(onChange).toHaveBeenCalledTimes(1);
+			expect(onChange.mock.calls[0][0].values).toMatchObject({ firstName: 'foo' });
+			expect(onChange.mock.calls[0][1].values).toMatchObject({});
+
+			// Keep values same, should not trigger callback
+			formik.setValues({ firstName: 'foo' });
+
+			// Check fields
+			expect(onChange).toHaveBeenCalledTimes(1);
+		});
+	});
 });

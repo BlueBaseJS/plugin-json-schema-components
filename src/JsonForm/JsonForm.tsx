@@ -1,10 +1,11 @@
 import { BlueBaseFilter, Body2, FormattedMessage, H6, View } from '@bluebase/components';
-import { Formik, FormikConfig, FormikValues } from 'formik';
+import { Formik, FormikConfig, FormikContext, FormikValues } from 'formik';
 import { StyleProp, TextStyle, ViewStyle } from 'react-native';
 
 import { Form } from './Form';
 import { FormFieldProps } from './Fields';
 import { FormFields } from './FormFields';
+import FormikEffect from './FormikEffect';
 import React from 'react';
 import { Theme } from '@bluebase/core';
 
@@ -18,6 +19,9 @@ export type JsonFormSchema<Values = FormikValues> = FormProps<Values> & {
 
 	/** Form description */
 	description?: string;
+
+	/** Event handler called when values are updated */
+	onChange?: (current: FormikContext<Values>, prev: FormikContext<Values>, ...props: any[]) => void;
 };
 
 export interface JsonFormStyles {
@@ -58,9 +62,12 @@ const JsonFormInternal = (props: JsonFormProps) => {
 
 	return (
 		<Formik {...rest}>
-			<Form style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-				<FormFields fields={fields} />
-			</Form>
+			<React.Fragment>
+				{schema.onChange ? <FormikEffect onChange={schema.onChange} /> : null}
+				<Form style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+					<FormFields fields={fields} />
+				</Form>
+			</React.Fragment>
 		</Formik>
 	);
 };

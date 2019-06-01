@@ -3,7 +3,6 @@ import React from 'react';
 import { getComponent } from '@bluebase/core';
 import gql from 'graphql-tag';
 
-
 export const ViewerQuery = gql`
 	{
 		viewer {
@@ -17,29 +16,28 @@ export const ViewerQuery = gql`
 `;
 
 export const EditProfileMutation = gql`
-	mutation EditProfileMutation ($data:JSON) {
-		signup(input: {data: $data}) {
-			id,
-			firstName,
-			lastName,
+	mutation EditProfileMutation($data: JSON) {
+		signup(input: { data: $data }) {
+			id
+			firstName
+			lastName
 		}
 	}
 `;
-
 
 export interface EditProfileProfileFormValues {
 	firstName: string;
 	lastName: string;
 }
 
-const JsonGraphqlForm = getComponent<JsonGraphqlFormProps<EditProfileProfileFormValues>>('JsonGraphqlForm');
-
+const JsonGraphqlForm = getComponent<JsonGraphqlFormProps<EditProfileProfileFormValues>>(
+	'JsonGraphqlForm'
+);
 
 const mapQueryDataToInitialValues = (data: any) => {
 	try {
 		return data.viewer.me;
-	}
-	catch (_e) {
+	} catch (_e) {
 		return null;
 	}
 };
@@ -47,11 +45,9 @@ const mapQueryDataToInitialValues = (data: any) => {
 // const onSuccess = (_res: any, _vals: any, { setStatus }: any) => setStatus({ success: ['Done!'] });
 
 export const EditProfileProfileForm = (props: Partial<JsonGraphqlFormProps>) => (
-
 	<JsonGraphqlForm
 		query={{ query: ViewerQuery }}
 		mutation={{ mutation: EditProfileMutation }}
-
 		mapQueryDataToInitialValues={mapQueryDataToInitialValues}
 		// onSuccess={onSuccess}
 
@@ -59,6 +55,8 @@ export const EditProfileProfileForm = (props: Partial<JsonGraphqlFormProps>) => 
 			title: 'Edit Profile',
 
 			description: 'This initial values of this form were loaded through a GraphQL query!',
+
+			// onChange: (formik: any, _prev: any, mutate: any) => console.log(formik.values, mutate),
 
 			validateOnBlur: false,
 			validateOnChange: false,
@@ -85,11 +83,9 @@ export const EditProfileProfileForm = (props: Partial<JsonGraphqlFormProps>) => 
 					name: 'submit',
 					title: 'Save',
 					type: 'submit',
-				}
+				},
 			],
 		}}
-
 		{...props}
 	/>
 );
-
