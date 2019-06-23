@@ -1,10 +1,10 @@
 import { BlueBase, BlueBaseContext, MaybeArray } from '@bluebase/core';
 import { JsonComponentNode, JsonSchemaParser } from '../lib';
+
 import { BlueBaseFilter } from '@bluebase/components';
 import React from 'react';
 
 export interface JsonLayoutProps {
-
 	/** JSON Schema. */
 	schema: MaybeArray<JsonComponentNode>;
 
@@ -14,15 +14,14 @@ export interface JsonLayoutProps {
 	/** Arguments for the filter. */
 	args?: { [key: string]: any };
 
-  /**
-   * Used to locate this view in end-to-end tests.
-   */
-	testID?: string,
+	/**
+	 * Used to locate this view in end-to-end tests.
+	 */
+	testID?: string;
 }
 
 const getComponent = (BB: BlueBase) => {
 	return ({ component }: JsonComponentNode) => {
-
 		return BB.Components.has(String(component)) ? BB.Components.resolve(String(component)) : null;
 	};
 };
@@ -54,11 +53,9 @@ const getComponent = (BB: BlueBase) => {
  * ```
  */
 export class JsonLayout extends React.PureComponent<JsonLayoutProps> {
-
-	static contextType = BlueBaseContext;
+	static contextType: React.Context<BlueBase> = BlueBaseContext;
 
 	render() {
-
 		const BB: BlueBase = this.context;
 
 		const { filter, schema, args } = this.props;
@@ -69,15 +66,9 @@ export class JsonLayout extends React.PureComponent<JsonLayoutProps> {
 			return parser.parseSchema(schema);
 		}
 
-		const children = (loadedSchema: MaybeArray<JsonComponentNode>) => parser.parseSchema(loadedSchema);
+		const children = (loadedSchema: MaybeArray<JsonComponentNode>) =>
+			parser.parseSchema(loadedSchema);
 
-		return (
-			<BlueBaseFilter
-				filter={filter}
-				value={schema}
-				args={args}
-				children={children}
-			/>
-		);
+		return <BlueBaseFilter filter={filter} value={schema} args={args} children={children} />;
 	}
 }
