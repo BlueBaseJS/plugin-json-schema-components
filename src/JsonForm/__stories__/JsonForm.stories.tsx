@@ -5,11 +5,11 @@ import {
 	IntlMessages,
 	getComponent,
 } from '@bluebase/core';
+import { ScrollView, View } from 'react-native';
 
 import { JsonFormProps } from '..';
 import Plugin from '../../index';
 import React from 'react';
-import { ScrollView } from 'react-native';
 import storiesOf from '@bluebase/storybook-addon';
 import { ui } from './plugins';
 
@@ -173,6 +173,53 @@ storiesOf('JsonForm', module)
 				}}
 			/>
 		</ScrollView>
+	))
+
+	.add('Full Height Form', () => (
+		<View style={{ height: 500 }}>
+			<JsonForm
+				schema={{
+					// onChange: (formik: any) => console.log(formik.values),
+
+					fields: [
+						{
+							label: 'Name',
+							name: 'name',
+							required: true,
+							type: 'text',
+						},
+						{
+							schema: {
+								component: 'View',
+								props: {
+									style: {
+										flex: 1,
+									},
+								},
+							},
+							type: 'component',
+						},
+						{
+							fullWidth: true,
+							name: 'submit',
+							title: 'Connect',
+							type: 'submit',
+						},
+					],
+
+					initialValues: {},
+
+					onSubmit: (values: any, form: any) => {
+						// tslint:disable-next-line: no-console
+						console.log('Login form submitted by following values', values);
+
+						setTimeout(() => {
+							form.setSubmitting(false);
+						}, 2000);
+					},
+				}}
+			/>
+		</View>
 	))
 
 	.add('Internationalization', () => {

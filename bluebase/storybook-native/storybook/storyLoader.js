@@ -5,6 +5,7 @@
 // https://github.com/elderfo/react-native-storybook-loader.git
 
 function loadStories() {
+  require('../../../src/JsonForm/Errors/FormStatus/__stories__/FormStatus.stories');
   require('../../../src/JsonForm/Errors/FormStatusList/__stories__/FormStatusList.stories');
   require('../../../src/JsonForm/Errors/FormStatusListItem/__stories__/FormStatusListItem.stories');
   require('../../../src/JsonForm/__stories__/BaseFormField.stories');
@@ -15,6 +16,7 @@ function loadStories() {
 }
 
 const stories = [
+  '../../../src/JsonForm/Errors/FormStatus/__stories__/FormStatus.stories',
   '../../../src/JsonForm/Errors/FormStatusList/__stories__/FormStatusList.stories',
   '../../../src/JsonForm/Errors/FormStatusListItem/__stories__/FormStatusListItem.stories',
   '../../../src/JsonForm/__stories__/BaseFormField.stories',
