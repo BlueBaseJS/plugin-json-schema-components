@@ -124,7 +124,7 @@ export const JsonForm = (props: JsonFormProps) => {
 
 JsonForm.defaultStyles = (theme: Theme) => ({
 	root: {
-		flex: 1,
+		flexGrow: 1,
 	},
 
 	header: {

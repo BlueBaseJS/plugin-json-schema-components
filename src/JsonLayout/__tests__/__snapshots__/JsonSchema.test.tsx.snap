@@ -20,37 +20,6 @@ exports[`JsonLayout should create layout through createJsonLayout function 1`] =
 </Text>
 `;
 
-exports[`JsonLayout should render a null for unknown component 1`] = `
-<RCTScrollView>
-  <View>
-    <RCTSafeAreaView>
-      <View
-        style={
-          Object {
-            "alignItems": "center",
-            "flex": 1,
-            "justifyContent": "center",
-          }
-        }
-      >
-        <Text
-          style={
-            Object {
-              "fontWeight": "bold",
-            }
-          }
-        >
-          🚨 BlueBase Error
-        </Text>
-        <Text>
-          Could not parse React JSON Schema. Reason: Could not resolve component.
-        </Text>
-      </View>
-    </RCTSafeAreaView>
-  </View>
-</RCTScrollView>
-`;
-
 exports[`JsonLayout should render a text component with red color 1`] = `
 <Text
   style={
