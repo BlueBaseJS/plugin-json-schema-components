@@ -18,6 +18,7 @@ import {
 	InlineFields,
 	JsonForm,
 } from './JsonForm';
+
 import { JsonGraphqlForm } from './JsonGraphqlForm';
 import { JsonLayout } from './JsonLayout';
 // import { TextInput } from 'react-native';
@@ -25,6 +26,8 @@ import { createPlugin } from '@bluebase/core';
 
 export * from './JsonForm';
 export * from './JsonGraphqlForm';
+export * from './JsonLayout';
+export * from './JsonSchemaParser';
 
 export default createPlugin({
 	categories: ['ui'],
