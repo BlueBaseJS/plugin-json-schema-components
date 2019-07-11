@@ -22,7 +22,16 @@ export interface JsonLayoutProps {
 
 const getComponent = (BB: BlueBase) => {
 	return ({ component }: JsonComponentNode) => {
-		return BB.Components.has(String(component)) ? BB.Components.resolve(String(component)) : null;
+		const name = String(component);
+
+		if (!BB.Components.has(name)) {
+			return null;
+		}
+
+		const Component = BB.Components.resolve(String(component));
+		Component.displayName = name;
+
+		return Component;
 	};
 };
 
