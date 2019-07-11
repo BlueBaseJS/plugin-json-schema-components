@@ -129,7 +129,7 @@ describe('JsonLayout', () => {
 			);
 
 			expect((tree as any).children[0].children[0].children[0].children[1].children[0]).toBe(
-				'Could not parse React JSON Schema. Reason: Could not resolve component.'
+				'Could not parse React JSON Schema. Reason: Could not resolve component: Foo.'
 			);
 			done();
 		});

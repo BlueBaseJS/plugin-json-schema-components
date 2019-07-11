@@ -77,7 +77,10 @@ export class JsonSchemaParser {
 			return Component;
 		}
 
-		throw Error('Could not parse React JSON Schema. Reason: Could not resolve component.');
+		const componentName = node.component;
+		throw Error(
+			`Could not parse React JSON Schema. Reason: Could not resolve component: ${componentName}.`
+		);
 	}
 
 	resolveComponentChildren({
