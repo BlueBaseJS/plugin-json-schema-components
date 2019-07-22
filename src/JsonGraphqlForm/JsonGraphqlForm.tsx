@@ -1,4 +1,4 @@
-import { BlueBase, BlueBaseContext, getComponent } from '@bluebase/core';
+import { BlueBase, BlueBaseContext, Omit, getComponent } from '@bluebase/core';
 import { FetchResult, MutationFn, MutationProps, QueryProps, QueryResult } from 'react-apollo';
 import { FormikActions, FormikContext, FormikValues } from 'formik';
 import { JsonFormProps, JsonFormSchema } from '../JsonForm';
@@ -21,12 +21,15 @@ export type JsonGraphqlFormOnSuccessFn<Values = FormikValues> = (
 	actions: FormikActions<Values>
 ) => void;
 
-export type JsonGraphqlFormProps<Values = FormikValues> = JsonFormProps<Values> & {
+export type JsonGraphqlFormProps<Values = FormikValues> = Omit<JsonFormProps<Values>, 'schema'> & {
+	/** JSON Schema. */
+	schema: Partial<JsonFormSchema<Values>>;
+
 	/**
 	 * GraphqlMutation component props. This mutation will be executed when
 	 * a form is submitted.
 	 */
-	mutation: MutationProps<any, Values>;
+	mutation: Omit<MutationProps<any, Values>, 'children'>;
 
 	/**
 	 * A function that converts form values to mutation variables.
@@ -38,7 +41,7 @@ export type JsonGraphqlFormProps<Values = FormikValues> = JsonFormProps<Values> 
 	 * GraphqlQuery component props. The result of this query will be used
 	 * as initial values of the form.
 	 */
-	query?: QueryProps;
+	query?: Omit<QueryProps<any, Values>, 'children'>;
 
 	/**
 	 * A function that converts query result to initial form values.
