@@ -1,4 +1,5 @@
 import { StyleProp, ViewStyle } from 'react-native';
+
 import React from 'react';
 import { Theme } from '@bluebase/core';
 import { View } from '@bluebase/components';
@@ -52,7 +53,7 @@ export class BaseFormField extends React.PureComponent<BaseFormFieldProps> {
 				{left && <View style={styles.leftContainer} testID="base-form-field-left">{left}</View>}
 				{MainComponent &&
 					<View style={styles.mainContainer} testID="base-form-field-main">
-						<MainComponent {...props}>
+						<MainComponent   {...props}>
 							{children}
 						</MainComponent>
 					</View>

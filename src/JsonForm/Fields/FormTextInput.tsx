@@ -1,18 +1,25 @@
+import { Subtitle2, TextInputProps } from '@bluebase/components';
+import { Theme, getComponent } from '@bluebase/core';
+
 import { BaseFormFieldProps } from '../BaseFormField';
 import { Field } from 'formik';
 import React from 'react';
-import { TextInputProps } from '@bluebase/components';
-import { getComponent } from '@bluebase/core';
+import { ViewStyle } from 'react-native';
 
 const BaseFormField = getComponent<BaseFormFieldProps>('BaseFormField');
 const TextInput = getComponent<TextInputProps>('TextInput');
 
+export interface FormTextInputStyles {
+
+	root?: ViewStyle
+}
 export type FormTextInputProps<T = {}> = TextInputProps & BaseFormFieldProps & T & {
 	children?: React.ReactNode;
 	validate?: ((value: any) => string | Promise<void> | undefined);
 	name: string;
 	type?: string;
 	value?: any;
+	styles: FormTextInputStyles;
 	innerRef?: (instance: any) => void;
 };
 
@@ -45,7 +52,7 @@ export const FormTextInput = (props: FormTextInputProps) => (
 				onChange: undefined,
 				...props,
 				error: (form.errors[name] && form.touched[name]) || props.error,
-				helperText: form.errors[name] || props.helperText,
+				helperText: <Subtitle2 style={props.styles.root}>{form.errors[name]}</Subtitle2> || props.helperText,
 				onChangeText: (text: string) => {
 					form.handleChange(name)(text);
 					// props.onChangeText && props.onChangeText(text);
@@ -60,3 +67,10 @@ export const FormTextInput = (props: FormTextInputProps) => (
 FormTextInput.defaultProps = {
 	MainComponent: TextInput
 };
+
+FormTextInput.defaultStyles = (_theme: Theme) => ({
+
+	root: {
+		color: 'red'
+	}
+});
