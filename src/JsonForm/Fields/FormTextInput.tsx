@@ -65,7 +65,7 @@ export const FormTextInput = (props: FormTextInputProps) => {
 				return (<BaseFormField {...inputProps} />);
 			}}
 		</Field>
-	)
+	);
 };
 
 FormTextInput.defaultProps = {
