@@ -19,7 +19,7 @@ export type FormTextInputProps<T = {}> = TextInputProps & BaseFormFieldProps & T
 	name: string;
 	type?: string;
 	value?: any;
-	styles: FormTextInputStyles;
+	styles?: FormTextInputStyles;
 	innerRef?: (instance: any) => void;
 };
 
@@ -41,28 +41,32 @@ const validate = (props: FormTextInputProps) => (value: string) => {
 	return error;
 };
 
-export const FormTextInput = (props: FormTextInputProps) => (
-	<Field {...props} validate={props.validate || validate(props)}>
-		{({ field, form }: any) => {
+export const FormTextInput = (props: FormTextInputProps) => {
+	const { styles = {} } = props;
 
-			const name = props.name;
+	return (
+		<Field {...props} validate={props.validate || validate(props)}>
+			{({ field, form }: any) => {
 
-			const inputProps = {
-				...field,
-				onChange: undefined,
-				...props,
-				error: (form.errors[name] && form.touched[name]) || props.error,
-				helperText: <Subtitle2 style={props.styles.root}>{form.errors[name]}</Subtitle2> || props.helperText,
-				onChangeText: (text: string) => {
-					form.handleChange(name)(text);
-					// props.onChangeText && props.onChangeText(text);
-				},
-			};
+				const name = props.name;
 
-			return (<BaseFormField {...inputProps} />);
-		}}
-	</Field>
-);
+				const inputProps = {
+					...field,
+					onChange: undefined,
+					...props,
+					error: (form.errors[name] && form.touched[name]) || props.error,
+					helperText: form.errors[name] ? <Subtitle2 style={styles.root}>{form.errors[name]}</Subtitle2> : props.helperText,
+					onChangeText: (text: string) => {
+						form.handleChange(name)(text);
+						// props.onChangeText && props.onChangeText(text);
+					},
+				};
+
+				return (<BaseFormField {...inputProps} />);
+			}}
+		</Field>
+	)
+};
 
 FormTextInput.defaultProps = {
 	MainComponent: TextInput
