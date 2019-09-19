@@ -1,9 +1,9 @@
-import { Subtitle2, TextInputProps } from '@bluebase/components';
 import { Theme, getComponent } from '@bluebase/core';
 
 import { BaseFormFieldProps } from '../BaseFormField';
 import { Field } from 'formik';
 import React from 'react';
+import { TextInputProps } from '@bluebase/components';
 import { ViewStyle } from 'react-native';
 
 const BaseFormField = getComponent<BaseFormFieldProps>('BaseFormField');
@@ -42,7 +42,6 @@ const validate = (props: FormTextInputProps) => (value: string) => {
 };
 
 export const FormTextInput = (props: FormTextInputProps) => {
-	const { styles = {} } = props;
 
 	return (
 		<Field {...props} validate={props.validate || validate(props)}>
@@ -54,8 +53,8 @@ export const FormTextInput = (props: FormTextInputProps) => {
 					...field,
 					onChange: undefined,
 					...props,
-					error: (form.errors[name] && form.touched[name]) || props.error,
-					helperText: form.errors[name] ? <Subtitle2 style={styles.root}>{form.errors[name]}</Subtitle2> : props.helperText,
+					error: form.errors[name] || props.error,
+					helperText: form.errors[name] || props.helperText,
 					onChangeText: (text: string) => {
 						form.handleChange(name)(text);
 						// props.onChangeText && props.onChangeText(text);
