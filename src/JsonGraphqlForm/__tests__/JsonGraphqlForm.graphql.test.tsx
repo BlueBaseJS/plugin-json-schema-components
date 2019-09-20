@@ -117,7 +117,7 @@ describe('JsonGraphqlForm', () => {
 
 			// Pre Validation
 			let firstName: any = wrapper.find('TextInput[name="firstName"]').first();
-			expect(firstName.prop('error')).toBe(undefined);;
+			expect(firstName.prop('error')).toBe(undefined);
 			expect(firstName.prop('helperText')).toBe(undefined);
 
 			let password: any = wrapper.find('TextInput[name="password"]').first();
@@ -131,11 +131,11 @@ describe('JsonGraphqlForm', () => {
 			// Post Validation
 			firstName = wrapper.find('TextInput[name="firstName"]').first();
 			expect(firstName.prop('error')).toBe(true);
-
+			expect(firstName.prop('helperText')).toBe('I m sorry, but we dont like your name.');
 
 			password = wrapper.find('TextInput[name="password"]').first();
 			expect(password.prop('error')).toBe(true);
-
+			expect(password.prop('helperText')).toBe('The password cannot be less than 8 characters');
 		});
 
 		it('should show a success state', async () => {
