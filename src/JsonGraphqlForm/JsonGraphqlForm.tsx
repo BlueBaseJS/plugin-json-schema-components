@@ -14,7 +14,9 @@ const Query = getComponent<QueryProps>('GraphqlQuery');
 export type mapFormValuesToMutationVariablesFn<Values = any> = (values: Values) => any;
 export type mapQueryDataToInitialValuesFn<Values = any> = (data: any) => Values;
 
-export type JsonGraphqlFormOnErrorFn<Values = FormikValues> = (error: ApolloError, values: Values,
+export type JsonGraphqlFormOnErrorFn<Values = FormikValues> = (
+	error: ApolloError,
+	values: Values,
 	actions: FormikActions<Values>
 
 ) => void;
