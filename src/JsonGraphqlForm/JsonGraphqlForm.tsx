@@ -14,7 +14,12 @@ const Query = getComponent<QueryProps>('GraphqlQuery');
 export type mapFormValuesToMutationVariablesFn<Values = any> = (values: Values) => any;
 export type mapQueryDataToInitialValuesFn<Values = any> = (data: any) => Values;
 
-export type JsonGraphqlFormOnErrorFn = (error: ApolloError) => void;
+export type JsonGraphqlFormOnErrorFn<Values = FormikValues> = (
+	error: ApolloError,
+	values: Values,
+	actions: FormikActions<Values>
+
+) => void;
 export type JsonGraphqlFormOnSuccessFn<Values = FormikValues> = (
 	result: void | FetchResult,
 	values: Values,
@@ -204,7 +209,7 @@ export class JsonGraphqlForm<Values = FormikValues> extends React.PureComponent<
 					}
 
 					// If there was an onError param, call it
-					onError(error);
+					onError(error, values, actions);
 				}
 			);
 		};
