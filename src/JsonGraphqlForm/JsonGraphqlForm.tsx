@@ -207,7 +207,7 @@ export class JsonGraphqlForm<Values = FormikValues> extends React.PureComponent<
 					}
 
 					// If there was an onError param, call it
-					onError(error, values);
+					onError(error, values, actions);
 				}
 			);
 		};
