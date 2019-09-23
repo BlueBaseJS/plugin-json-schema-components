@@ -1,4 +1,5 @@
 import { StyleProp, ViewStyle } from 'react-native';
+
 import React from 'react';
 import { Theme } from '@bluebase/core';
 import { View } from '@bluebase/components';

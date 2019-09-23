@@ -61,7 +61,7 @@ export type JsonGraphqlFormProps<Values = FormikValues> = Omit<JsonFormProps<Val
  */
 export class JsonGraphqlForm<Values = FormikValues> extends React.PureComponent<
 	JsonGraphqlFormProps<Values>
-> {
+	> {
 	static contextType: React.Context<BlueBase> = BlueBaseContext;
 
 	static defaultProps: Partial<JsonGraphqlFormProps> = {
