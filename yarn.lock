@@ -1369,6 +1369,14 @@
     deepmerge "^3.2.0"
     tslib "^1.9.3"
 
+"@bluebase/components@^5.15.3":
+  version "5.15.3"
+  resolved "https://registry.yarnpkg.com/@bluebase/components/-/components-5.15.3.tgz#b8109f049a9428527c5cc4be0fec1df70f190f34"
+  integrity sha512-YArXlkZD4eAB9IA2psgsor1defEiUnh9JT5F71gr60dYulfDKBnEogOUiztgavE5tm6qwd275+ZB8mOO5NYT9A==
+  dependencies:
+    deepmerge "^3.2.0"
+    tslib "^1.9.3"
+
 "@bluebase/components@^5.9.0":
   version "5.9.0"
   resolved "https://registry.yarnpkg.com/@bluebase/components/-/components-5.9.0.tgz#d66717ef85cc545066f8dde6e158ed56ae1d6861"
