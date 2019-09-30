@@ -1369,18 +1369,10 @@
     deepmerge "^3.2.0"
     tslib "^1.9.3"
 
-"@bluebase/components@^5.15.3":
+"@bluebase/components@^5.15.0", "@bluebase/components@^5.15.3":
   version "5.15.3"
   resolved "https://registry.yarnpkg.com/@bluebase/components/-/components-5.15.3.tgz#b8109f049a9428527c5cc4be0fec1df70f190f34"
   integrity sha512-YArXlkZD4eAB9IA2psgsor1defEiUnh9JT5F71gr60dYulfDKBnEogOUiztgavE5tm6qwd275+ZB8mOO5NYT9A==
-  dependencies:
-    deepmerge "^3.2.0"
-    tslib "^1.9.3"
-
-"@bluebase/components@^5.9.0":
-  version "5.9.0"
-  resolved "https://registry.yarnpkg.com/@bluebase/components/-/components-5.9.0.tgz#d66717ef85cc545066f8dde6e158ed56ae1d6861"
-  integrity sha512-+anK1ODEfwg9xUUfBGHpBzVWr3VmjTh3Sz/yEE1Wnsdqwt6rd7BG2w5BE9QGTpuSn7ygx/kDLrjfa5sF18wgLg==
   dependencies:
     deepmerge "^3.2.0"
     tslib "^1.9.3"
@@ -1417,13 +1409,13 @@
     react-apollo "^2.5.5"
     tslib "^1.9.3"
 
-"@bluebase/plugin-material-ui@^2.7.3":
-  version "2.7.3"
-  resolved "https://registry.yarnpkg.com/@bluebase/plugin-material-ui/-/plugin-material-ui-2.7.3.tgz#7d384cca39026404c7fdfb556ded4694a6570a1c"
-  integrity sha512-dvqvGOZ0h9TfKW41L8u7Kv6cvfnik0zN5aOMsZx9lc2Fd53Ysnw3NBST35R8VQ2EHCqZZ3iP7TvHZcLOGZL70g==
+"@bluebase/plugin-material-ui@^2.8.2":
+  version "2.8.2"
+  resolved "https://registry.yarnpkg.com/@bluebase/plugin-material-ui/-/plugin-material-ui-2.8.2.tgz#a03e161118a7db8f6eff6352d1936fe46c46088b"
+  integrity sha512-F5gKYhC2F2W93zchNn2urgOeGbIZyutQhYjcLMb344fUwtsiDN9gUj61VneCGtn0MkhBGvMfLPjrqui/sMquTw==
   dependencies:
     "@bluebase/component-mapper" "^1.4.0"
-    "@bluebase/components" "^5.9.0"
+    "@bluebase/components" "^5.15.0"
     "@material-ui/core" "^3.9.3"
     "@material-ui/lab" "^3.0.0-alpha.30"
     deepmerge "^3.2.0"
