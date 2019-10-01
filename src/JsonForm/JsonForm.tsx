@@ -9,11 +9,11 @@ import FormikEffect from './FormikEffect';
 import React from 'react';
 import { Theme } from '@bluebase/core';
 
-export interface FormProps<Values = FormikValues> extends FormikConfig<Values> {
+export interface FormProps<Values extends FormikValues> extends FormikConfig<Values> {
 	fields: FormFieldProps[];
 }
 
-export type JsonFormSchema<Values = FormikValues> = FormProps<Values> & {
+export type JsonFormSchema<Values extends FormikValues> = FormProps<Values> & {
 	/** Form title */
 	title?: string;
 
@@ -31,7 +31,7 @@ export interface JsonFormStyles {
 	titlePadding: StyleProp<TextStyle>;
 	description: StyleProp<TextStyle>;
 }
-export interface JsonFormProps<Values = FormikValues> {
+export interface JsonFormProps<Values extends FormikValues> {
 	/** JSON Schema. */
 	schema: JsonFormSchema<Values>;
 
@@ -56,7 +56,7 @@ export interface JsonFormProps<Values = FormikValues> {
  * A component that takes a json schema and converts it into a form.
  * @param props
  */
-const JsonFormInternal = (props: JsonFormProps) => {
+const JsonFormInternal = <Values extends FormikValues>(props: JsonFormProps<Values>) => {
 	const { schema } = props;
 	const { fields, ...rest } = schema;
 
@@ -76,7 +76,7 @@ const JsonFormInternal = (props: JsonFormProps) => {
  * A component that takes a json schema and converts it into a form.
  * @param props
  */
-export const JsonForm = (props: JsonFormProps) => {
+export const JsonForm = <Values extends FormikValues>(props: JsonFormProps<Values>) => {
 	const { args, filter, schema, style, styles = {} } = props;
 	const { description, fields, title, ...rest } = schema;
 
@@ -85,7 +85,7 @@ export const JsonForm = (props: JsonFormProps) => {
 	if (filter) {
 		node = (
 			<BlueBaseFilter filter={filter} value={schema} args={args}>
-				{(filteredSchema: JsonFormProps['schema']) => {
+				{(filteredSchema: JsonFormProps<Values>['schema']) => {
 					return <JsonFormInternal schema={filteredSchema} {...rest} />;
 				}}
 			</BlueBaseFilter>

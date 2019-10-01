@@ -13,7 +13,17 @@ import React from 'react';
 import storiesOf from '@bluebase/storybook-addon';
 import { ui } from './plugins';
 
-const JsonForm = getComponent<JsonFormProps>('JsonForm');
+const JsonForm = getComponent<
+	JsonFormProps<{
+		'auto-login': boolean;
+		gender: string;
+		lang: string;
+		password: string;
+		remember: boolean;
+		temp: number;
+		username: string;
+	}>
+>('JsonForm');
 
 storiesOf('JsonForm', module)
 	.add('With default props', () => (
@@ -207,7 +217,7 @@ storiesOf('JsonForm', module)
 						},
 					],
 
-					initialValues: {},
+					initialValues: {} as any,
 
 					onSubmit: (values: any, form: any) => {
 						// tslint:disable-next-line: no-console
@@ -247,32 +257,36 @@ storiesOf('JsonForm', module)
 		return (
 			<BlueBaseApp {...props}>
 				<JsonForm
-					schema={{
-						title: 'Login',
+					schema={
+						{
+							title: 'Login',
 
-						description: 'A sample form with internationalization.',
+							description: 'A sample form with internationalization.',
 
-						fields: [
-							{
-								helperText: 'Enter your username here',
-								label: 'Username',
-								name: 'username',
-								placeholder: 'Username',
-								type: 'text',
-							},
-							{
-								helperText: 'Enter your password here',
-								label: 'Password',
-								name: 'username',
-								type: 'text',
-							},
-							{
-								name: 'submit',
-								title: 'Login',
-								type: 'submit',
-							},
-						],
-					}}
+							fields: [
+								{
+									helperText: 'Enter your username here',
+									label: 'Username',
+									name: 'username',
+									placeholder: 'Username',
+									type: 'text',
+								},
+								{
+									helperText: 'Enter your password here',
+									label: 'Password',
+									name: 'username',
+									type: 'text',
+								},
+								{
+									name: 'submit',
+									title: 'Login',
+									type: 'submit',
+								},
+							],
+
+							initialValues: {} as any,
+						} as any
+					}
 				/>
 			</BlueBaseApp>
 		);
@@ -297,6 +311,8 @@ storiesOf('JsonForm', module)
 							type: 'submit',
 						},
 					],
+
+					initialValues: {} as any,
 					onSubmit: (_values: any, { setErrors, setSubmitting }: any) => {
 						setSubmitting(false);
 						setErrors({ form: ['An error occurred', 'Another error occurred'] });
@@ -327,6 +343,8 @@ storiesOf('JsonForm', module)
 							type: 'submit',
 						},
 					],
+
+					initialValues: {} as any,
 					onSubmit: (_values: any, { setErrors, setSubmitting }: any) => {
 						setSubmitting(false);
 						setErrors({ form: ['An error occurred', 'Another error occurred'] });
