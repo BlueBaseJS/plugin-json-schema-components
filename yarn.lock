@@ -1307,21 +1307,22 @@
     deepmerge "^3.2.0"
     tslib "^1.9.3"
 
-"@bluebase/components@^5.9.0":
-  version "5.9.0"
-  resolved "https://registry.yarnpkg.com/@bluebase/components/-/components-5.9.0.tgz#d66717ef85cc545066f8dde6e158ed56ae1d6861"
-  integrity sha512-+anK1ODEfwg9xUUfBGHpBzVWr3VmjTh3Sz/yEE1Wnsdqwt6rd7BG2w5BE9QGTpuSn7ygx/kDLrjfa5sF18wgLg==
+"@bluebase/components@^5.15.0", "@bluebase/components@^5.15.3":
+  version "5.15.3"
+  resolved "https://registry.yarnpkg.com/@bluebase/components/-/components-5.15.3.tgz#b8109f049a9428527c5cc4be0fec1df70f190f34"
+  integrity sha512-YArXlkZD4eAB9IA2psgsor1defEiUnh9JT5F71gr60dYulfDKBnEogOUiztgavE5tm6qwd275+ZB8mOO5NYT9A==
   dependencies:
     deepmerge "^3.2.0"
     tslib "^1.9.3"
 
-"@bluebase/core@^4.0.0-aplha.27":
-  version "4.0.0-aplha.27"
-  resolved "https://registry.yarnpkg.com/@bluebase/core/-/core-4.0.0-aplha.27.tgz#f7dea206836b45fd8196a1cc4f47a9d89a09c6d6"
-  integrity sha512-bnwGXL3MO2KCYnmCUM0e8U01x/gHOkWbScvMq/SQgDAxkoEWqxSG034ZL8lELyuRjdGK+5PZ6ucu7wowJ7omQg==
+"@bluebase/core@^5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@bluebase/core/-/core-5.1.0.tgz#e88fbe13a7ea3ef187c533acb5fc07e830058a49"
+  integrity sha512-HmaAQyxsScZMmDHI5JZ2Sw1jLDMVp4flNqiA7F1S98g/U1f+8RwiENXUw+oUOP+6MRJ6IHrkJrrmKKHqpVzEog==
   dependencies:
-    deepmerge "^3.2.0"
+    deepmerge "^4.0.0"
     hoist-non-react-statics "^3.3.0"
+    is-plain-object "^3.0.0"
     lodash.flowright "^3.5.0"
     lodash.isboolean "^3.0.3"
     lodash.isfunction "^3.0.9"
@@ -1330,7 +1331,7 @@
     lodash.kebabcase "^4.1.1"
     react-loadable "^5.5.0"
     rtl-detect "^1.0.2"
-    tslib "^1.9.3"
+    tslib "^1.10.0"
 
 "@bluebase/plugin-apollo@^1.1.1":
   version "1.1.1"
@@ -1347,13 +1348,13 @@
     react-apollo "^2.5.5"
     tslib "^1.9.3"
 
-"@bluebase/plugin-material-ui@^2.7.3":
-  version "2.7.3"
-  resolved "https://registry.yarnpkg.com/@bluebase/plugin-material-ui/-/plugin-material-ui-2.7.3.tgz#7d384cca39026404c7fdfb556ded4694a6570a1c"
-  integrity sha512-dvqvGOZ0h9TfKW41L8u7Kv6cvfnik0zN5aOMsZx9lc2Fd53Ysnw3NBST35R8VQ2EHCqZZ3iP7TvHZcLOGZL70g==
+"@bluebase/plugin-material-ui@^2.8.2":
+  version "2.8.2"
+  resolved "https://registry.yarnpkg.com/@bluebase/plugin-material-ui/-/plugin-material-ui-2.8.2.tgz#a03e161118a7db8f6eff6352d1936fe46c46088b"
+  integrity sha512-F5gKYhC2F2W93zchNn2urgOeGbIZyutQhYjcLMb344fUwtsiDN9gUj61VneCGtn0MkhBGvMfLPjrqui/sMquTw==
   dependencies:
     "@bluebase/component-mapper" "^1.4.0"
-    "@bluebase/components" "^5.9.0"
+    "@bluebase/components" "^5.15.0"
     "@material-ui/core" "^3.9.3"
     "@material-ui/lab" "^3.0.0-alpha.30"
     deepmerge "^3.2.0"
@@ -5939,6 +5940,11 @@ deepmerge@^3.3.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-3.3.0.tgz#d3c47fd6f3a93d517b14426b0628a17b0125f5f7"
   integrity sha512-GRQOafGHwMHpjPx9iCvTgpu9NojZ49q794EEL94JVEw6VaeA8XTUyBKvAkOOjBX9oJNiV6G3P+T+tihFjo2TqA==
+
+deepmerge@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-4.0.0.tgz#3e3110ca29205f120d7cb064960a39c3d2087c09"
+  integrity sha512-YZ1rOP5+kHor4hMAH+HRQnBQHg+wvS1un1hAOuIcxcBy0hzcUf6Jg2a1w65kpoOUnurOfZbERwjI1TfZxNjcww==
 
 defer-to-connect@^1.0.1:
   version "1.0.2"
