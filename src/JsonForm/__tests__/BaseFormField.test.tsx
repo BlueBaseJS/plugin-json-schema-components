@@ -1,9 +1,11 @@
 import { Slider, Text } from '@bluebase/components';
-import {getComponent} from '@bluebase/core'
+
 import { BaseFormFieldProps } from '..';
 import { BlueBaseApp } from '@bluebase/core';
+import BluebasePluginMaterialUI from "@bluebase/plugin-material-ui"
 import Plugin from '../../index';
 import React from 'react';
+import { getComponent } from '@bluebase/core'
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
 
@@ -14,7 +16,7 @@ describe('BaseFormField', () => {
 
 		const BaseFormField = getComponent<BaseFormFieldProps>('BaseFormField');
 		const component = mount(
-			<BlueBaseApp plugins={[Plugin]}>
+			<BlueBaseApp plugins={[Plugin, BluebasePluginMaterialUI]}>
 				<BaseFormField
 					left={<Text>Temp</Text>}
 					right={<Text>26</Text>}

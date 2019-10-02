@@ -32,8 +32,7 @@ export const FormCheckboxInput = (props: FormCheckboxInputProps) => {
 						// MUI checkboxes have their own padding
 						const styles: any = {};
 						const source = BB.Components.getMeta('Checkbox', 'source', {});
-
-						if (source.type === 'plugin' && source.key === 'material-ui') {
+						if (source && source.type === 'plugin' && source.key === 'material-ui') {
 							styles.root = {
 								paddingVertical: 4,
 							};

@@ -1,4 +1,7 @@
+import ""
+
 import { BlueBaseApp } from '@bluebase/core';
+import BluebasePluginMaterialUI from "@bluebase/plugin-material-ui"
 import { FieldWrapperProps } from '../FormFields';
 import { FormFieldProps } from '../Fields';
 import { FormFields } from '..';
@@ -10,134 +13,134 @@ import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
 
 const fields: FormFieldProps[] = [{
-	helperText: 'please enter username',
-	label: 'Username',
-	name: 'username',
-	placeholder:'enter username',
-	required: true,
-	title:'Name',
-	type: 'text',
+    helperText: 'please enter username',
+    label: 'Username',
+    name: 'username',
+    placeholder: 'enter username',
+    required: true,
+    title: 'Name',
+    type: 'text',
 }, {
-	schema: { component: 'Text', text: 'Text Component' },
-	type: 'component',
+    schema: { component: 'Text', text: 'Text Component' },
+    type: 'component',
 }, {
-	label: 'Temp',
-	max: 32,
-	min: 16,
-	name: 'temp',
-	step: 1,
-	type: 'range',
+    label: 'Temp',
+    max: 32,
+    min: 16,
+    name: 'temp',
+    step: 1,
+    type: 'range',
 }];
 
 const initialValues = {
-	// 'auto-login': true,
-	// lang: 'js',
-	// password: '',
-	// remember: true,
-	temp: 26,
-	username: '',
+    // 'auto-login': true,
+    // lang: 'js',
+    // password: '',
+    // remember: true,
+    temp: 26,
+    username: '',
 };
 
 const FieldWrapper = (props: FieldWrapperProps) => (
-	<Text>{props.field.type}</Text>
+    <Text>{props.field.type}</Text>
 );
 
 
 describe('FormFields', () => {
 
 
-	it('should render all form fields in the schema', async () => {
+    it('should render all form fields in the schema', async () => {
 
-		const onSubmit = jest.fn();
+        const onSubmit = jest.fn();
 
-		const component = mount(
-			<BlueBaseApp plugins={[Plugin]}>
-				<Formik initialValues={initialValues} onSubmit={onSubmit}>
-					<FormFields fields={fields} />
-				</Formik>
-			</BlueBaseApp>
-		);
+        const component = mount(
+            <BlueBaseApp plugins={[Plugin, BluebasePluginMaterialUI]}>
+                <Formik initialValues={initialValues} onSubmit={onSubmit}>
+                    <FormFields fields={fields} />
+                </Formik>
+            </BlueBaseApp>
+        );
 
-		await waitForElement(component as any, FormFields);
+        await waitForElement(component as any, FormFields);
 
-		// expect(component).toMatchSnapshot();
+        // expect(component).toMatchSnapshot();
 
-		// Check fields
-		expect(component.find('FormTextInput_TextInput_Noop').last().prop('name')).toBe('username');
-		expect(component.find('FormRangeInput_FormTextInput_TextInput_Noop').last().prop('name')).toBe('temp');
-		expect(component.find('JsonLayout_Noop Text').last().text()).toBe('Text Component');
+        // Check fields
+        expect(component.find('FormTextInput_TextInput_Noop').last().prop('name')).toBe('username');
+        expect(component.find('FormRangeInput_FormTextInput_TextInput_Noop').last().prop('name')).toBe('temp');
+        expect(component.find('JsonLayout_Noop Text').last().text()).toBe('Text Component');
 
-		expect(component.find('FormFields').children()).toHaveLength(3);
-		expect(component.find('FormFields').childAt(0).prop('name')).toBe('username');
-		expect(component.find('FormFields').childAt(1).prop('name')).toBe('1-component');
-		expect(component.find('FormFields').childAt(2).prop('name')).toBe('temp');
-	});
+        expect(component.find('FormFields').children()).toHaveLength(3);
+        expect(component.find('FormFields').childAt(0).prop('name')).toBe('username');
+        expect(component.find('FormFields').childAt(1).prop('name')).toBe('1-component');
+        expect(component.find('FormFields').childAt(2).prop('name')).toBe('temp');
+    });
 
-	it('should not render any field if fields property is undefined', async () => {
+    it('should not render any field if fields property is undefined', async () => {
 
-		const onSubmit = jest.fn();
+        const onSubmit = jest.fn();
 
-		const component = mount(
-			<BlueBaseApp plugins={[Plugin]}>
-				<Formik initialValues={initialValues} onSubmit={onSubmit}>
-					<FormFields fields={undefined as any} />
-				</Formik>
-			</BlueBaseApp>
-		);
+        const component = mount(
+            <BlueBaseApp plugins={[Plugin, BluebasePluginMaterialUI]}>
+                <Formik initialValues={initialValues} onSubmit={onSubmit}>
+                    <FormFields fields={undefined as any} />
+                </Formik>
+            </BlueBaseApp>
+        );
 
-		await waitForElement(component as any, FormFields);
+        await waitForElement(component as any, FormFields);
 
-		// expect(component).toMatchSnapshot();
+        // expect(component).toMatchSnapshot();
 
-		expect(component.find('FormFields').last().children()).toHaveLength(0);
-	});
+        expect(component.find('FormFields').last().children()).toHaveLength(0);
+    });
 
-	it('should render custom children, if children prop is provided', async () => {
+    it('should render custom children, if children prop is provided', async () => {
 
-		const onSubmit = jest.fn();
+        const onSubmit = jest.fn();
 
-		const component = mount(
-			<BlueBaseApp plugins={[Plugin]}>
-				<Formik initialValues={initialValues} onSubmit={onSubmit}>
-					<FormFields fields={fields}>
-					{(renderField) => fields.map((f, i) => renderField(f, i, {} as any))}
-					</FormFields>
-				</Formik>
-			</BlueBaseApp>
-		);
+        const component = mount(
+            <BlueBaseApp plugins={[Plugin, BluebasePluginMaterialUI]}>
+                <Formik initialValues={initialValues} onSubmit={onSubmit}>
+                    <FormFields fields={fields}>
+                        {(renderField) => fields.map((f, i) => renderField(f, i, {} as any))}
+                    </FormFields>
+                </Formik>
+            </BlueBaseApp>
+        );
 
-		await waitForElement(component as any, FormFields);
+        await waitForElement(component as any, FormFields);
 
-		// expect(component).toMatchSnapshot();
+        // expect(component).toMatchSnapshot();
 
-		expect(component.find('FormTextInput_TextInput_Noop').last().prop('name')).toBe('username');
-		expect(component.find('FormRangeInput_FormTextInput_TextInput_Noop').last().prop('name')).toBe('temp');
+        expect(component.find('FormTextInput_TextInput_Noop').last().prop('name')).toBe('username');
+        expect(component.find('FormRangeInput_FormTextInput_TextInput_Noop').last().prop('name')).toBe('temp');
 
-		// expect(component.find('JsonLayout_Noop').last().prop('name')).toBe('1-component');
-		expect(component.find('JsonLayout_Noop Text').last().text()).toBe('Text Component');
-	});
+        // expect(component.find('JsonLayout_Noop').last().prop('name')).toBe('1-component');
+        expect(component.find('JsonLayout_Noop Text').last().text()).toBe('Text Component');
+    });
 
 
-	it('should wrap fields in FieldWrapper component', async () => {
+    it('should wrap fields in FieldWrapper component', async () => {
 
-		const onSubmit = jest.fn();
+        const onSubmit = jest.fn();
 
-		const component = mount(
-			<BlueBaseApp plugins={[Plugin]}>
-				<Formik initialValues={initialValues} onSubmit={onSubmit}>
-					<FormFields fields={fields} FieldWrapper={FieldWrapper} />
-				</Formik>
-			</BlueBaseApp>
-		);
+        const component = mount(
+            <BlueBaseApp plugins={[Plugin, BluebasePluginMaterialUI]}>
+                <Formik initialValues={initialValues} onSubmit={onSubmit}>
+                    <FormFields fields={fields} FieldWrapper={FieldWrapper} />
+                </Formik>
+            </BlueBaseApp>
+        );
 
-		await waitForElement(component as any, FormFields);
+        await waitForElement(component as any, FormFields);
 
-		// expect(component).toMatchSnapshot();
+        // expect(component).toMatchSnapshot();
 
-		expect(component.find('FieldWrapper').at(0).text()).toBe('text');
-		expect(component.find('FieldWrapper').at(1).text()).toBe('component');
-		expect(component.find('FieldWrapper').at(2).text()).toBe('range');
-	});
+        expect(component.find('FieldWrapper').at(0).text()).toBe('text');
+        expect(component.find('FieldWrapper').at(1).text()).toBe('component');
+        expect(component.find('FieldWrapper').at(2).text()).toBe('range');
+    });
 
 
 

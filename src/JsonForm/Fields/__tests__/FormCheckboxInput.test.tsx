@@ -1,10 +1,10 @@
 import { BlueBaseApp } from '@bluebase/core';
 import { FormCheckboxInput } from '../FormCheckboxInput';
 import { Formik } from 'formik';
+import MaterialUIPlugin from '@bluebase/plugin-material-ui';
 import Plugin from '../../../index';
 import React from 'react';
-// import ReactNativePaperPlugin from '@bluebase/plugin-react-native-paper';
-import MaterialUIPlugin from '@bluebase/plugin-material-ui';
+import { createPlugin } from '@bluebase/core';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
 
@@ -18,7 +18,22 @@ const fieldProps = {
 // 	'auto-login': true,
 // };
 
+export const Checkbox: any = () => 'Checkbox'
 
+export const SamplePlugins = createPlugin({
+	description: 'testing',
+	key: 'sample',
+	name: 'sample',
+	version: 'test',
+
+	ThingThingholderImage: { uri: 'https://placeimg.com/300/300/arch' },
+
+
+	components: {
+		Checkbox
+	}
+
+});
 describe('FormCheckboxInput', () => {
 
 
@@ -71,7 +86,7 @@ describe('FormCheckboxInput', () => {
 		const onSubmit = jest.fn();
 
 		const component = mount(
-			<BlueBaseApp plugins={[Plugin, MaterialUIPlugin]}>
+			<BlueBaseApp plugins={[Plugin, SamplePlugins]}>
 				<Formik initialValues={{ 'auto-login': false }} onSubmit={onSubmit}>
 					<FormCheckboxInput {...fieldProps as any} />
 				</Formik>

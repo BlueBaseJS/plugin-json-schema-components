@@ -1,4 +1,5 @@
 import { BlueBaseApp } from '@bluebase/core';
+import BluebasePluginMaterialUI from "@bluebase/plugin-material-ui"
 import { FormFieldProps } from '../Fields';
 import { FormikContext } from 'formik';
 import { JsonForm } from '../JsonForm';
@@ -33,7 +34,7 @@ describe('FormikEffect', () => {
 		const onSubmit = jest.fn();
 
 		const component = mount(
-			<BlueBaseApp plugins={[Plugin]}>
+			<BlueBaseApp plugins={[Plugin, BluebasePluginMaterialUI]}>
 				<JsonForm schema={{ fields, initialValues: {}, onSubmit }} />
 			</BlueBaseApp>
 		);
@@ -51,7 +52,7 @@ describe('FormikEffect', () => {
 		const onChange = jest.fn();
 
 		const component = mount(
-			<BlueBaseApp plugins={[Plugin]}>
+			<BlueBaseApp plugins={[Plugin, BluebasePluginMaterialUI]}>
 				<JsonForm schema={{ fields, initialValues: {}, onSubmit, onChange }} />
 			</BlueBaseApp>
 		);
@@ -69,7 +70,7 @@ describe('FormikEffect', () => {
 		const onChange = jest.fn();
 
 		const component = mount(
-			<BlueBaseApp plugins={[Plugin]}>
+			<BlueBaseApp plugins={[Plugin, BluebasePluginMaterialUI]}>
 				<JsonForm schema={{ fields, initialValues: {}, onSubmit, onChange }} />
 			</BlueBaseApp>
 		);

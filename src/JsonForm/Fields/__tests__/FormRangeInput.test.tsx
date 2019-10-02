@@ -1,11 +1,11 @@
 import { BlueBaseApp } from '@bluebase/core';
+import BluebasePluginMaterialUI from '@bluebase/plugin-material-ui';
 import { FormRangeInput } from '../FormRangeInput';
 import { Formik } from 'formik';
 import Plugin from '../../../index';
 import React from 'react';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
-
 const fieldProps = {
 	label: 'Temp',
 	max: 32,
@@ -28,7 +28,7 @@ describe('FormRangeInput', () => {
 		const onSubmit = jest.fn();
 
 		const component = mount(
-			<BlueBaseApp plugins={[Plugin]}>
+			<BlueBaseApp plugins={[Plugin, BluebasePluginMaterialUI]}>
 				<Formik initialValues={initialValues} onSubmit={onSubmit}>
 					<FormRangeInput {...fieldProps as any} />
 				</Formik>
@@ -49,7 +49,7 @@ describe('FormRangeInput', () => {
 		const onSubmit = jest.fn();
 
 		const component = mount(
-			<BlueBaseApp plugins={[Plugin]}>
+			<BlueBaseApp plugins={[Plugin, BluebasePluginMaterialUI]}>
 				<Formik initialValues={initialValues} onSubmit={onSubmit}>
 					<FormRangeInput {...fieldProps as any} />
 				</Formik>
@@ -59,7 +59,7 @@ describe('FormRangeInput', () => {
 		await waitForElement(component as any, FormRangeInput);
 
 		// Initial state should be false
-		let SliderComponent = component.find('Slider').last();
+		let SliderComponent = component.find('Slider').first();
 
 		// Check fields
 		expect(SliderComponent.prop('name')).toBe('temp');
