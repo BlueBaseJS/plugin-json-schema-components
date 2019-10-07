@@ -1,11 +1,11 @@
 import { BlueBaseApp } from '@bluebase/core';
+import BlueBasePluginMaterialUI from "@bluebase/plugin-material-ui"
 import { FormSwitchInput } from '../FormSwitchInput';
 import { Formik } from 'formik';
 import Plugin from '../../../index';
 import React from 'react';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
-
 const fieldProps = {
 	label: 'Auto Login',
 	name: 'auto-login',
@@ -25,7 +25,7 @@ describe('FormSwitchInput', () => {
 		const onSubmit = jest.fn();
 
 		const component = mount(
-			<BlueBaseApp plugins={[Plugin]}>
+			<BlueBaseApp plugins={[Plugin, BlueBasePluginMaterialUI]}>
 				<Formik initialValues={{ 'auto-login': true }} onSubmit={onSubmit}>
 					<FormSwitchInput {...fieldProps as any} />
 				</Formik>
