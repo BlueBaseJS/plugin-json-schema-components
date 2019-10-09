@@ -19,7 +19,7 @@ storiesOf('JsonGraphqlForm', module)
 
 .add('With Authentication Error', () => (
 	<Card style={{ width: 400, margin: 40 }}>
-		<MockedProvider mocks={[mocks.graphQLErrorsUnAuthenticated]} addTypename={false}>
+		<MockedProvider mocks={[mocks.graphQLErrorsUnAuthenticated]as  any} addTypename={false}>
 			<SignupForm />
 		</MockedProvider>
 	</Card>
@@ -27,7 +27,7 @@ storiesOf('JsonGraphqlForm', module)
 
 .add('With Bad User Input', () => (
 	<Card style={{ width: 400, margin: 40 }}>
-		<MockedProvider mocks={[mocks.graphQLErrorsBadUserInput]} addTypename={false}>
+		<MockedProvider mocks={[mocks.graphQLErrorsBadUserInput] as any } addTypename={false}>
 			<SignupForm />
 		</MockedProvider>
 	</Card>

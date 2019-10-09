@@ -55,7 +55,7 @@ describe('JsonGraphqlForm', () => {
 		it('should show an unauthenticated error', async () => {
 			const wrapper = mount(
 				<BlueBaseApp plugins={[BlueBasePluginApollo, Plugin]}>
-					<MockedProvider mocks={[mocks.graphQLErrorsUnAuthenticated]} addTypename={false}>
+					<MockedProvider mocks={[mocks.graphQLErrorsUnAuthenticated]as any} addTypename={false}>
 						<SignupForm />
 					</MockedProvider>
 				</BlueBaseApp>
@@ -91,7 +91,7 @@ describe('JsonGraphqlForm', () => {
 		it('should show field errors', async () => {
 			const wrapper = mount(
 				<BlueBaseApp plugins={[BlueBasePluginApollo, Plugin]}>
-					<MockedProvider mocks={[mocks.graphQLErrorsBadUserInput]} addTypename={false}>
+					<MockedProvider mocks={[mocks.graphQLErrorsBadUserInput] as any } addTypename={false}>
 						<SignupForm />
 					</MockedProvider>
 				</BlueBaseApp>
