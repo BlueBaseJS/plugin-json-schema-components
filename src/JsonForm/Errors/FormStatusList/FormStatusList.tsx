@@ -20,8 +20,7 @@ export interface FormStatusListProps {
 
 const FormStatusListItem = getComponent<FormStatusListItemProps>('FormStatusListItem');
 
-export const FormStatusList = ({ items = [], styles = {}, type }: FormStatusListProps) => {
-
+export const FormStatusList = ({ items, styles = {}, type }: FormStatusListProps) => {
 	if (!items || items.length < 1) {
 		return null;
 	}
@@ -48,10 +47,7 @@ export const FormStatusList = ({ items = [], styles = {}, type }: FormStatusList
 	}
 
 	return (
-		<View
-			style={rootStyles}
-			testID="FormStatusList-view"
-		>
+		<View style={rootStyles} testID="FormStatusList-view">
 			{items.map((error, index) => (
 				<FormStatusListItem
 					key={index}
@@ -67,7 +63,7 @@ export const FormStatusList = ({ items = [], styles = {}, type }: FormStatusList
 };
 
 FormStatusList.defaultProps = {
-	type: 'error'
+	type: 'error',
 };
 
 FormStatusList.defaultStyles = (theme: Theme): FormStatusListStyles => ({

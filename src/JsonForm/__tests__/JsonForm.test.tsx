@@ -1,17 +1,17 @@
 import { BlueBaseApp } from '@bluebase/core';
+import BluebasePluginMaterialUI from '@bluebase/plugin-material-ui';
 import { FormFieldProps } from '../Fields';
 import { JsonForm } from '../JsonForm';
 import Plugin from '../../index';
 import React from 'react';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
-
 const fields: FormFieldProps[] = [{
 	label: 'Username',
 	name: 'username',
 	required: true,
 	type: 'text',
-	
+
 }, {
 	schema: { component: 'Text', text: 'Text Component' },
 	type: 'component',
@@ -42,7 +42,7 @@ describe('FormFields', () => {
 		const onSubmit = jest.fn();
 
 		const component = mount(
-			<BlueBaseApp plugins={[Plugin]}>
+			<BlueBaseApp plugins={[Plugin, BluebasePluginMaterialUI]}>
 				<JsonForm schema={{ fields, initialValues, onSubmit }} />
 			</BlueBaseApp>
 		);
@@ -74,7 +74,7 @@ describe('FormFields', () => {
 		};
 
 		const component = mount(
-			<BlueBaseApp plugins={[Plugin]} filters={{ 'pluggable-form': filter }}>
+			<BlueBaseApp plugins={[Plugin, BluebasePluginMaterialUI]} filters={{ 'pluggable-form': filter }}>
 				<JsonForm schema={{ fields, initialValues, onSubmit }} filter="pluggable-form" />
 			</BlueBaseApp>
 		);
@@ -92,13 +92,13 @@ describe('FormFields', () => {
 	});
 
 
-		it('should hook into the form to modify the schema with title', async () => {
+	it('should hook into the form to modify the schema with title', async () => {
 
 		const onSubmit = jest.fn();
 
 		const component = mount(
-			<BlueBaseApp plugins={[Plugin]} >
-				<JsonForm schema={{ fields, initialValues, onSubmit ,title : 'Testing'}} />
+			<BlueBaseApp plugins={[Plugin, BluebasePluginMaterialUI]} >
+				<JsonForm schema={{ fields, initialValues, onSubmit, title: 'Testing' }} />
 			</BlueBaseApp>
 		);
 
@@ -124,8 +124,8 @@ describe('FormFields', () => {
 		const onSubmit = jest.fn();
 
 		const component = mount(
-			<BlueBaseApp plugins={[Plugin]} >
-				<JsonForm schema={{ fields, initialValues, onSubmit ,description:'Description is here'}} />
+			<BlueBaseApp plugins={[Plugin, BluebasePluginMaterialUI]} >
+				<JsonForm schema={{ fields, initialValues, onSubmit, description: 'Description is here' }} />
 			</BlueBaseApp>
 		);
 

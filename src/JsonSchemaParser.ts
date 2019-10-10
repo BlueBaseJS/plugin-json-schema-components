@@ -35,7 +35,8 @@ export class JsonSchemaParser {
 	parseSubSchemas(subSchemas: JsonComponentNode[] = []): Array<React.ReactElement<any>> {
 		const Components: Array<React.ReactElement<any>> = [];
 		let index = 0;
-		for (const subSchema of subSchemas) {
+		let subSchema;
+		for (subSchema of subSchemas) {
 			subSchema.props = subSchema.props || {};
 			subSchema.props.key = subSchema.props.key || String(index);
 			const Component = this.parseSchema(subSchema) as React.ReactElement<any>;

@@ -22,17 +22,16 @@ export interface InlineFieldsProps {
 	styles?: Partial<InlineFieldsStyles>;
 }
 
-
 const FieldWrapper = ({ field, parent, children }: FieldWrapperProps) => {
-
 	const { direction, styles } = parent;
 
 	return (
 		<View
+			testID="fieldTest"
 			key={field.name}
-			style={[styles.fieldContainer, !direction && styles.fieldContainerFill]}
+			style={[styles && styles.fieldContainer, !direction && styles && styles.fieldContainerFill]}
 		>
-		{children}
+			{children}
 		</View>
 	);
 };
@@ -42,7 +41,6 @@ const FieldWrapper = ({ field, parent, children }: FieldWrapperProps) => {
  * @param props
  */
 export const InlineFields = (props: InlineFieldsProps) => {
-
 	const { direction, style, styles = {} } = props;
 
 	const stylesheet = [styles.root];
@@ -62,8 +60,7 @@ export const InlineFields = (props: InlineFieldsProps) => {
 	);
 };
 
-InlineFields.defaultProps = {
-};
+InlineFields.defaultProps = {};
 
 InlineFields.defaultStyles = (theme: Theme): InlineFieldsStyles => ({
 	fieldContainer: {
@@ -81,5 +78,5 @@ InlineFields.defaultStyles = (theme: Theme): InlineFieldsStyles => ({
 	},
 	rootRight: {
 		justifyContent: 'flex-end',
-	}
+	},
 });
