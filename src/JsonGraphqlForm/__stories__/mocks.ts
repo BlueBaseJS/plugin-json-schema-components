@@ -116,3 +116,16 @@ export const viewerQuery = {
 		},
 	},
 };
+
+export const viewerQuery1 = {
+	request: {
+		query: ViewerQuery,
+	},
+	result: {
+		data: {
+			viewer: {
+				me: {},
+			},
+		},
+	},
+};

@@ -249,6 +249,18 @@ describe('JsonGraphqlForm', () => {
 				.prop('onPress');
 			onPress();
 		});
+
+		it(' initialV', async () => {
+			const wrapper = mount(
+				<BlueBaseApp plugins={[BlueBasePluginApollo, Plugin]}>
+					<MockedProvider mocks={[mocks.viewerQuery]} addTypename={false}>
+						<EditProfileProfileForm onError={null as any} onSuccess={null as any} />
+					</MockedProvider>
+				</BlueBaseApp>
+			);
+			await waitForElement(wrapper, EditProfileProfileForm);
+			expect(wrapper).toEqual({});
+		});
 	});
 
 	describe('FormikEffect', () => {
