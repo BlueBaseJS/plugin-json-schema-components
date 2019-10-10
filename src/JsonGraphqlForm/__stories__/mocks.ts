@@ -124,7 +124,11 @@ export const viewerQuery1 = {
 	result: {
 		data: {
 			viewer: {
-				me: {},
+				me: {
+					id: '1',
+					firstName: 'Abdul',
+					lastName: '3',
+				},
 			},
 		},
 	},

@@ -145,7 +145,7 @@ export class JsonGraphqlForm<Values extends FormikValues> extends React.PureComp
 						schema={{
 							...schema,
 							fields: schema.fields || [],
-							initialValues: schema.initialValues || {},
+							initialValues: schema.initialValues!,
 							onChange: this.onChange(mutate),
 							onSubmit: this.onSubmit(mutate),
 						}}
