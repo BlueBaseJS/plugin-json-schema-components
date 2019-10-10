@@ -7,26 +7,30 @@ import { ApolloError } from 'apollo-client';
 import React from 'react';
 import { StatefulComponent } from '@bluebase/components';
 
-const JsonForm = getComponent<JsonFormProps>('JsonForm');
+const JsonForm = getComponent<JsonFormProps<any>>('JsonForm');
 const Mutation = getComponent<MutationProps>('GraphqlMutation');
 const Query = getComponent<QueryProps>('GraphqlQuery');
 
-export type mapFormValuesToMutationVariablesFn<Values = any> = (values: Values) => any;
-export type mapQueryDataToInitialValuesFn<Values = any> = (data: any) => Values;
+export type mapFormValuesToMutationVariablesFn<Values extends FormikValues> = (
+	values: Values
+) => any;
+export type mapQueryDataToInitialValuesFn<Values extends FormikValues> = (data: any) => Values;
 
-export type JsonGraphqlFormOnErrorFn<Values = FormikValues> = (
+export type JsonGraphqlFormOnErrorFn<Values extends FormikValues> = (
 	error: ApolloError,
 	values: Values,
 	actions: FormikActions<Values>
-
 ) => void;
-export type JsonGraphqlFormOnSuccessFn<Values = FormikValues> = (
+export type JsonGraphqlFormOnSuccessFn<Values extends FormikValues> = (
 	result: void | FetchResult,
 	values: Values,
 	actions: FormikActions<Values>
 ) => void;
 
-export type JsonGraphqlFormProps<Values = FormikValues> = Omit<JsonFormProps<Values>, 'schema'> & {
+export type JsonGraphqlFormProps<Values extends FormikValues> = Omit<
+	JsonFormProps<Values>,
+	'schema'
+> & {
 	/** JSON Schema. */
 	schema: Partial<JsonFormSchema<Values>>;
 
@@ -40,7 +44,7 @@ export type JsonGraphqlFormProps<Values = FormikValues> = Omit<JsonFormProps<Val
 	 * A function that converts form values to mutation variables.
 	 * By default values are sent as is to the mutation.
 	 */
-	mapFormValuesToMutationVariables?: mapFormValuesToMutationVariablesFn;
+	mapFormValuesToMutationVariables?: mapFormValuesToMutationVariablesFn<Values>;
 
 	/**
 	 * GraphqlQuery component props. The result of this query will be used
@@ -54,7 +58,7 @@ export type JsonGraphqlFormProps<Values = FormikValues> = Omit<JsonFormProps<Val
 	 */
 	mapQueryDataToInitialValues?: (data: any) => Values;
 
-	onError?: JsonGraphqlFormOnErrorFn;
+	onError?: JsonGraphqlFormOnErrorFn<Values>;
 
 	onSuccess?: JsonGraphqlFormOnSuccessFn<Values>;
 };
@@ -64,12 +68,12 @@ export type JsonGraphqlFormProps<Values = FormikValues> = Omit<JsonFormProps<Val
  * fetch initial data from a GraphQL query and execute a mutation on form
  * submission.
  */
-export class JsonGraphqlForm<Values = FormikValues> extends React.PureComponent<
+export class JsonGraphqlForm<Values extends FormikValues> extends React.PureComponent<
 	JsonGraphqlFormProps<Values>
-	> {
+> {
 	static contextType: React.Context<BlueBase> = BlueBaseContext;
 
-	static defaultProps: Partial<JsonGraphqlFormProps> = {
+	static defaultProps: Partial<JsonGraphqlFormProps<any>> = {
 		mapFormValuesToMutationVariables: (v: any) => v,
 		onError: () => {
 			return;
@@ -89,7 +93,7 @@ export class JsonGraphqlForm<Values = FormikValues> extends React.PureComponent<
 	public render() {
 		const { query } = this.props;
 		const mapQueryDataToInitialValues = this.props
-			.mapQueryDataToInitialValues as mapQueryDataToInitialValuesFn;
+			.mapQueryDataToInitialValues as mapQueryDataToInitialValuesFn<Values>;
 
 		// If there is now query, we don't need to fetch initial data
 		if (!query) {
@@ -140,6 +144,8 @@ export class JsonGraphqlForm<Values = FormikValues> extends React.PureComponent<
 						{...rest}
 						schema={{
 							...schema,
+							fields: schema.fields || [],
+							initialValues: schema.initialValues!,
 							onChange: this.onChange(mutate),
 							onSubmit: this.onSubmit(mutate),
 						}}
@@ -174,9 +180,9 @@ export class JsonGraphqlForm<Values = FormikValues> extends React.PureComponent<
 		const BB: BlueBase = this.context;
 
 		const mapFormValuesToMutationVariables = this.props
-			.mapFormValuesToMutationVariables as mapFormValuesToMutationVariablesFn;
+			.mapFormValuesToMutationVariables as mapFormValuesToMutationVariablesFn<Values>;
 
-		const onError = this.props.onError as JsonGraphqlFormOnErrorFn;
+		const onError = this.props.onError as JsonGraphqlFormOnErrorFn<Values>;
 		const onSuccess = this.props.onSuccess as JsonGraphqlFormOnSuccessFn<Values>;
 
 		// The onSubmit handler

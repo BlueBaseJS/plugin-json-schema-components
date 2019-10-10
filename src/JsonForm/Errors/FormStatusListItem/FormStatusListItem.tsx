@@ -1,5 +1,6 @@
 import { Body2, FormattedMessage, Icon, View } from '@bluebase/components';
 import { TextStyle, ViewStyle } from 'react-native';
+
 import React from 'react';
 import { Theme } from '@bluebase/core';
 
@@ -24,18 +25,22 @@ export interface FormStatusListItemProps {
 	divider?: boolean;
 	type?: 'error' | 'success' | 'warning';
 	styles?: Partial<FormStatusListItemStyles>;
+	testID?: string;
 }
 
-export const FormStatusListItem = ({ children, divider, styles = {}, type }: FormStatusListItemProps) => {
-
-
+export const FormStatusListItem = ({
+	children,
+	divider,
+	styles = {},
+	type,
+}: FormStatusListItemProps) => {
 	let iconName = '';
 	let iconStyles = styles.icon as ViewStyle;
 	let textStyles = styles.text as ViewStyle;
 
 	let rootStyles = {
 		...(styles.root as ViewStyle),
-		...(divider && styles.divider as ViewStyle)
+		...(divider && (styles.divider as ViewStyle)),
 	};
 
 	switch (type) {
@@ -68,11 +73,10 @@ export const FormStatusListItem = ({ children, divider, styles = {}, type }: For
 	}
 
 	return (
-		<View
-			style={rootStyles}
-			testID="FormStatusListitem-View"
-		>
-			<Body2 style={iconStyles}><Icon name={iconName} size={16} /></Body2>
+		<View style={rootStyles} testID="FormStatusListitem-View">
+			<Body2 style={iconStyles}>
+				<Icon name={iconName} size={16} />
+			</Body2>
 			<FormattedMessage component={Body2} style={textStyles}>
 				{children}
 			</FormattedMessage>
@@ -81,7 +85,7 @@ export const FormStatusListItem = ({ children, divider, styles = {}, type }: For
 };
 
 FormStatusListItem.defaultProps = {
-	type: 'error'
+	type: 'error',
 };
 
 FormStatusListItem.defaultStyles = (theme: Theme): FormStatusListItemStyles => ({

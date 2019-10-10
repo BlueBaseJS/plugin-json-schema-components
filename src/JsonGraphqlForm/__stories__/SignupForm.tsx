@@ -1,3 +1,4 @@
+import { FormikValues } from 'formik';
 import { JsonGraphqlFormProps } from '../';
 import React from 'react';
 import { getComponent } from '@bluebase/core';
@@ -15,7 +16,7 @@ export const SignupMutation = gql`
 	}
 `;
 
-export interface SignupFormValues {
+export interface SignupFormValues extends FormikValues {
 	firstName: string;
 	lastName: string;
 	email: string;
@@ -26,7 +27,7 @@ const JsonGraphqlForm = getComponent<JsonGraphqlFormProps<SignupFormValues>>('Js
 
 // const onSuccess = (_res: any, _vals: any, { setStatus }: any) => setStatus({ success: ['Done!'] });
 
-export const SignupForm = (props: Partial<JsonGraphqlFormProps>) => (
+export const SignupForm = (props: Partial<JsonGraphqlFormProps<any>>) => (
 	<JsonGraphqlForm
 		mutation={{ mutation: SignupMutation }}
 		// onSuccess={onSuccess}
