@@ -36,10 +36,11 @@ describe('JsonGraphqlForm', () => {
 			wrapper.update();
 			expect(
 				wrapper
-					.find('FormStatusList[type="error"]')
-					.first()
-					.prop('items')
-			).toHaveLength(0);
+					.find('FormStatus')
+					.last()
+					.find('Text')
+					.exists()
+			).toBe(false);
 
 			await waitForExpect(() => {
 				wrapper.update();
@@ -72,10 +73,11 @@ describe('JsonGraphqlForm', () => {
 			wrapper.update();
 			expect(
 				wrapper
-					.find('FormStatusList[type="error"]')
-					.first()
-					.prop('items')
-			).toHaveLength(0);
+					.find('FormStatus')
+					.last()
+					.find('Text')
+					.exists()
+			).toBe(false);
 
 			await wait(100); // wait for response
 			wrapper.update();
@@ -110,10 +112,11 @@ describe('JsonGraphqlForm', () => {
 			wrapper.update();
 			expect(
 				wrapper
-					.find('FormStatusList[type="error"]')
-					.first()
-					.prop('items')
-			).toHaveLength(0);
+					.find('FormStatus')
+					.last()
+					.find('Text')
+					.exists()
+			).toBe(false);
 
 			// Pre Validation
 			let firstName: any = wrapper.find('TextInput[name="firstName"]').first();
@@ -161,10 +164,11 @@ describe('JsonGraphqlForm', () => {
 			wrapper.update();
 			expect(
 				wrapper
-					.find('FormStatusList[type="success"]')
-					.first()
-					.prop('items')
-			).toHaveLength(0);
+					.find('FormStatus')
+					.last()
+					.find('Text')
+					.exists()
+			).toBe(false);
 
 			await wait(100); // wait for response
 			wrapper.update();
@@ -198,20 +202,23 @@ describe('JsonGraphqlForm', () => {
 			wrapper.update();
 			expect(
 				wrapper
-					.find('FormStatusList[type="success"]')
-					.first()
-					.prop('items')
-			).toHaveLength(0);
+					.find('FormStatus')
+					.last()
+					.find('Text')
+					.exists()
+			).toBe(false);
 
 			await wait(100); // wait for response
 			wrapper.update();
 
 			// expect(wrapper).toMatchSnapshot();
-			const items: string[] = wrapper
-				.find('FormStatusList[type="success"]')
-				.first()
-				.prop('items');
-			expect(items).toHaveLength(0);
+			expect(
+				wrapper
+					.find('FormStatus')
+					.last()
+					.find('Text')
+					.exists()
+			).toBe(false);
 		});
 
 		// it('should fetch initialValues from a graphql query', async () => {
