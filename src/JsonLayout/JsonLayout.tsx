@@ -20,20 +20,23 @@ export interface JsonLayoutProps {
 	testID?: string;
 }
 
-const getComponent = (BB: BlueBase) => {
+function getComponent(BB: BlueBase) {
 	return ({ component }: JsonComponentNode) => {
 		const name = String(component);
+
+		// FIXME: Nasty error in production mode,
+		// View is RCTView. Find a more elegant solution in future.
+		if (name === 'RCTView') {
+			return BB.Components.resolve('View');
+		}
 
 		if (!BB.Components.has(name)) {
 			return null;
 		}
 
-		const Component = BB.Components.resolve(String(component));
-		Component.displayName = name;
-
-		return Component;
+		return BB.Components.resolve(name);
 	};
-};
+}
 
 /**
  * # 🍱 JsonLayout
