@@ -5,7 +5,7 @@ import {
 	IntlMessages,
 	getComponent,
 } from '@bluebase/core';
-import { ScrollView, View } from 'react-native';
+import { ScrollView, Text, View } from 'react-native';
 
 import { JsonFormProps } from '..';
 import Plugin from '../../index';
@@ -24,6 +24,8 @@ const JsonForm = getComponent<
 		username: string;
 	}>
 >('JsonForm');
+
+const CustomField = () => <Text>Custom Field</Text>;
 
 storiesOf('JsonForm', module)
 	.add('With default props', () => (
@@ -180,6 +182,33 @@ storiesOf('JsonForm', module)
 							form.setSubmitting(false);
 						}, 2000);
 					},
+				}}
+			/>
+		</ScrollView>
+	))
+
+	.add('Custom Field', () => (
+		<ScrollView>
+			<JsonForm
+				schema={{
+					// onChange: (formik: any) => console.log(formik.values),
+
+					fieldTypes: {
+						custom: [CustomField],
+					},
+
+					fields: [
+						{
+							name: 'custom-field',
+							type: 'custom',
+						},
+					],
+
+					initialValues: {
+						// 'custom-field': true,
+					} as any,
+
+					onSubmit: () => {},
 				}}
 			/>
 		</ScrollView>

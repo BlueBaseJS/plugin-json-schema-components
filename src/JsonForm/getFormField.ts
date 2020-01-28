@@ -3,7 +3,10 @@ import { getComponent } from '@bluebase/core';
 const DefaultInputs = ['FormTextInput', 'TextInput', 'Noop'];
 const DefaultButtons = ['Button', 'Noop'];
 
-const FieldResolutionMap: any = {
+export type FieldResolutionMapItem = Array<string | React.ComponentType<any>>;
+export type FieldResolutionMapType = { [key: string]: FieldResolutionMapItem };
+
+const FieldResolutionMap: FieldResolutionMapType = {
 	checkbox: ['FormCheckboxInput', 'Noop'],
 	color: ['FormColorInput', ...DefaultInputs],
 	component: ['JsonLayout', 'Noop'],
@@ -26,7 +29,11 @@ const FieldResolutionMap: any = {
 	url: ['FormUrlInput', ...DefaultInputs],
 };
 
-export const getFormField = (type: string) =>
-	type && FieldResolutionMap[type]
-		? getComponent(...FieldResolutionMap[type])
-		: getComponent(...DefaultInputs);
+export const getFormField = (type: string, map?: FieldResolutionMapType) => {
+	const finalMap: FieldResolutionMapType = {
+		...FieldResolutionMap,
+		...map,
+	};
+
+	return type && finalMap[type] ? getComponent(...finalMap[type]) : getComponent(...DefaultInputs);
+};
