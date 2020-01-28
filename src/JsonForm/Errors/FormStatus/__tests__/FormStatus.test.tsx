@@ -1,44 +1,39 @@
 import { BlueBaseApp, getComponent } from '@bluebase/core';
-import { Formik, FormikContext } from 'formik';
 
-import { FormStatus as Form } from '../FormStatus';
+import { FormStatusProps } from '../FormStatus';
+import { Formik } from 'formik';
 import MaterialUIPlugin from '@bluebase/plugin-material-ui';
 import Plugin from '../../../..';
 import React from 'react';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
 
-const FormStatus = getComponent('FormStatus');
+const FormStatus = getComponent<FormStatusProps>('FormStatus');
 
 describe('FormStatus', () => {
 	it('should render success status', async () => {
-		const component = mount(
+		const wrapper = mount(
 			<BlueBaseApp plugins={[Plugin, MaterialUIPlugin]}>
-				<Formik initialValues={{ value: 'Test' }} onSubmit={() => null}>
+				<Formik
+					initialValues={{ value: 'Test' }}
+					onSubmit={(() => null) as any}
+					initialStatus={{ success: ['success'] }}
+				>
 					<FormStatus />
 				</Formik>
 			</BlueBaseApp>
 		);
 
-		await waitForElement(component as any, FormStatus);
-		const formik: FormikContext<any> = component
-			.find('FormikConnect(Function)')
-			.last()
-			.children()
-			.prop('formik');
-
-		formik.setFormikState({ status: { success: ['success'] } });
-		formik.handleSubmit();
-		component.update();
+		await waitForElement(wrapper as any, FormStatus);
 
 		expect(
-			component
-				.find('Text')
+			wrapper
+				.find('FormStatusList Text')
 				.last()
 				.text()
 		).toBe('success');
-		const styles: any = component
-			.find('Text')
+		const styles: any = wrapper
+			.find('FormStatusList Text')
 			.last()
 			.prop('style');
 
@@ -46,76 +41,53 @@ describe('FormStatus', () => {
 	});
 
 	it('should render warnings status', async () => {
-		const component = mount(
+		const wrapper = mount(
 			<BlueBaseApp plugins={[Plugin, MaterialUIPlugin]}>
-				<Formik initialValues={{ value: 'Test' }} onSubmit={() => null}>
+				<Formik
+					initialValues={{ value: 'Test' }}
+					onSubmit={(() => null) as any}
+					initialStatus={{ warnings: ['warnings'] }}
+				>
 					<FormStatus />
 				</Formik>
 			</BlueBaseApp>
 		);
 
-		await waitForElement(component as any, FormStatus);
-		const formik: FormikContext<any> = component
-			.find('FormikConnect(Function)')
-			.last()
-			.children()
-			.prop('formik');
-
-		formik.setFormikState({ status: { warnings: ['warnings'] } });
-		formik.handleSubmit();
-		component.update();
+		await waitForElement(wrapper as any, FormStatus);
 
 		expect(
-			component
-				.find('Text')
+			wrapper
+				.find('FormStatusList Text')
 				.last()
 				.text()
 		).toBe('warnings');
-		const styles: any = component
-			.find('Text')
+		const styles: any = wrapper
+			.find('FormStatusList Text')
 			.last()
 			.prop('style');
 
 		expect(styles[1].color).toBe('#ffa000');
 	});
 	it('should render error status', async () => {
-		const component = mount(
+		const wrapper = mount(
 			<BlueBaseApp plugins={[Plugin, MaterialUIPlugin]}>
-				<Formik initialValues={{ value: 'Test' }} onSubmit={() => null}>
+				<Formik
+					initialValues={{ value: 'Test' }}
+					onSubmit={(() => null) as any}
+					initialErrors={{ form: ['error'] } as any}
+				>
 					<FormStatus />
 				</Formik>
 			</BlueBaseApp>
 		);
 
-		await waitForElement(component as any, FormStatus);
-		const formik: FormikContext<any> = component
-			.find('FormikConnect(Function)')
-			.last()
-			.children()
-			.prop('formik');
+		await waitForElement(wrapper as any, FormStatus);
 
-		formik.setFormikState({ errors: { form: ['error'] } } as any);
-		formik.handleSubmit();
-		component.update();
-
-		const styles: any = component
-			.find('Text')
+		const styles: any = wrapper
+			.find('FormStatusList Text')
 			.last()
 			.prop('style');
 
 		expect(styles[1].color).toBe('#f44336');
-	});
-	it('should render component', async () => {
-		const component = mount(
-			<BlueBaseApp plugins={[Plugin, MaterialUIPlugin]}>
-				<Formik initialValues={{ value: 'Test' }} onSubmit={() => null}>
-					<Form styles={{}} />
-				</Formik>
-			</BlueBaseApp>
-		);
-
-		await waitForElement(component as any, Form);
-
-		expect(component.find('FormikConnect(Function)').exists()).toBe(true);
 	});
 });
