@@ -2,11 +2,12 @@ import { JsonLayout, createJsonLayout } from '../';
 
 import { BlueBaseApp } from '@bluebase/core';
 import React from 'react';
-import TestRenderer from 'react-test-renderer';
+import { mount } from 'enzyme';
+import { waitForElement } from 'enzyme-async-helpers';
 
 describe('JsonLayout', () => {
-	test(`should render a text component with red color`, done => {
-		const component = TestRenderer.create(
+	test(`should render a text component with red color`, async () => {
+		const wrapper = mount(
 			<BlueBaseApp>
 				<JsonLayout
 					schema={{
@@ -22,20 +23,17 @@ describe('JsonLayout', () => {
 			</BlueBaseApp>
 		);
 
-		setTimeout(() => {
-			const tree = component.toJSON();
-			expect((tree as any).props.style[1]).toMatchObject({
-				color: 'red',
-			});
-			expect((tree as any).children.join()).toBe(
-				'This component is generated through JsonLayout Component'
-			);
-			expect(tree).toMatchSnapshot();
-			done();
-		});
+		await waitForElement(wrapper, 'JsonLayout');
+
+		expect(
+			wrapper
+				.find('JsonLayout Text')
+				.last()
+				.text()
+		).toBe('This component is generated through JsonLayout Component');
 	});
 
-	test(`should create layout through createJsonLayout function`, done => {
+	test(`should create layout through createJsonLayout function`, async () => {
 		const Layout = createJsonLayout({
 			schema: {
 				component: 'Text',
@@ -47,26 +45,24 @@ describe('JsonLayout', () => {
 				text: 'This component is generated through JsonLayout Component',
 			},
 		});
-		const component = TestRenderer.create(
+
+		const wrapper = mount(
 			<BlueBaseApp>
 				<Layout />
 			</BlueBaseApp>
 		);
 
-		setTimeout(() => {
-			const tree = component.toJSON();
-			expect((tree as any).props.style[1]).toMatchObject({
-				color: 'red',
-			});
-			expect((tree as any).children.join()).toBe(
-				'This component is generated through JsonLayout Component'
-			);
-			expect(tree).toMatchSnapshot();
-			done();
-		});
+		await waitForElement(wrapper, 'JsonLayout');
+
+		expect(
+			wrapper
+				.find('JsonLayout Text')
+				.last()
+				.text()
+		).toBe('This component is generated through JsonLayout Component');
 	});
 
-	test(`should render a text component with red color that is processed by filters`, done => {
+	test(`should render a text component with red color that is processed by filters`, async () => {
 		const filter = (schema: any, args: { style: any }) => ({
 			...schema,
 			props: {
@@ -79,7 +75,7 @@ describe('JsonLayout', () => {
 			text: 'Content changed by filter!',
 		});
 
-		const component = TestRenderer.create(
+		const wrapper = mount(
 			<BlueBaseApp filters={{ 'content-filter': filter }}>
 				<JsonLayout
 					filter="content-filter"
@@ -97,19 +93,18 @@ describe('JsonLayout', () => {
 			</BlueBaseApp>
 		);
 
-		setTimeout(() => {
-			const tree = component.toJSON();
-			expect((tree as any).props.style[1]).toMatchObject({
-				color: 'blue',
-			});
-			expect((tree as any).children.join()).toBe('Content changed by filter!');
-			expect(tree).toMatchSnapshot();
-			done();
-		});
+		await waitForElement(wrapper, 'JsonLayout');
+
+		expect(
+			wrapper
+				.find('JsonLayout Text')
+				.last()
+				.text()
+		).toBe('Content changed by filter!');
 	});
 
-	test(`should render a null for unknown component`, done => {
-		const component = TestRenderer.create(
+	test(`should render a null for unknown component`, async () => {
+		const wrapper = mount(
 			<BlueBaseApp>
 				<JsonLayout
 					schema={{
@@ -120,18 +115,13 @@ describe('JsonLayout', () => {
 			</BlueBaseApp>
 		);
 
-		setTimeout(() => {
-			const tree = component.toJSON();
-			// expect(tree).toMatchSnapshot();
+		await waitForElement(wrapper, '[testID="error-message"]');
 
-			expect((tree as any).children[0].children[0].children[0].children[0].children[0]).toBe(
-				'🚨 BlueBase Error'
-			);
-
-			expect((tree as any).children[0].children[0].children[0].children[1].children[0]).toBe(
-				'Could not parse React JSON Schema. Reason: Could not resolve component: Foo.'
-			);
-			done();
-		});
+		expect(
+			wrapper
+				.find('[testID="error-message"]')
+				.last()
+				.text()
+		).toBe('Could not parse React JSON Schema. Reason: Could not resolve component: Foo.');
 	});
 });

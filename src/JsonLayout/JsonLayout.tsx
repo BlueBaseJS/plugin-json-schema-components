@@ -1,4 +1,4 @@
-import { BlueBase, BlueBaseContext, MaybeArray } from '@bluebase/core';
+import { BlueBase, MaybeArray, useBlueBase } from '@bluebase/core';
 import { JsonComponentNode, JsonSchemaParser } from '../lib';
 
 import { BlueBaseFilter } from '@bluebase/components';
@@ -27,17 +27,18 @@ function getComponent(BB: BlueBase) {
 		// FIXME: Nasty error in production mode,
 		// View is RCTView. Find a more elegant solution in future.
 		if (name === 'RCTView') {
-			return BB.Components.resolve('View');
+			return BB.Components.resolveFromCache('View');
 		}
 
 		if (!BB.Components.has(name)) {
 			return null;
 		}
 
-		return BB.Components.resolve(name);
+		return BB.Components.resolveFromCache(name);
 	};
 }
 
+// tslint:disable: jsdoc-format
 /**
  * # 🍱 JsonLayout
  *
@@ -49,38 +50,36 @@ function getComponent(BB: BlueBase) {
  *
  * ## Usage:
  * ```jsx
- * <JsonLayout
- * 	filter="content-filter"
- * 	args={{ style: { color: 'blue' } }}
- *  schema={{
- * 	 component: 'Text',
- * 	 props: {
- * 		 style: {
- * 			 color: 'red'
- * 		 }
- * 	 },
- * 	 text: 'This is the page content.',
- *  }
- * } />
+<JsonLayout
+	filter="content-filter"
+	args={{ style: { color: 'blue' } }}
+ schema={{
+	 component: 'Text',
+	 props: {
+		 style: {
+			 color: 'red'
+		 }
+	 },
+	 text: 'This is the page content.',
+ }
+} />
  * ```
  */
-export class JsonLayout extends React.PureComponent<JsonLayoutProps> {
-	static contextType: React.Context<BlueBase> = BlueBaseContext;
+export const JsonLayout: React.FunctionComponent<JsonLayoutProps> = (props: JsonLayoutProps) => {
+	const BB = useBlueBase();
+	const { filter, schema, args } = props;
 
-	render() {
-		const BB: BlueBase = this.context;
+	const parser = new JsonSchemaParser(getComponent(BB));
 
-		const { filter, schema, args } = this.props;
-		const parser = new JsonSchemaParser(getComponent(BB));
-
-		// There's no filter, we don't need to do complex async handling
-		if (!filter) {
-			return parser.parseSchema(schema);
-		}
-
-		const children = (loadedSchema: MaybeArray<JsonComponentNode>) =>
-			parser.parseSchema(loadedSchema);
-
-		return <BlueBaseFilter filter={filter} value={schema} args={args} children={children} />;
+	// There's no filter, we don't need to do complex async handling
+	if (!filter) {
+		return parser.parseSchema(schema) as React.ReactElement;
 	}
-}
+
+	const children = (loadedSchema: MaybeArray<JsonComponentNode>) =>
+		parser.parseSchema(loadedSchema);
+
+	return <BlueBaseFilter filter={filter} value={schema} args={args} children={children} />;
+};
+
+JsonLayout.displayName = 'JsonLayout';

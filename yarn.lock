@@ -1307,7 +1307,7 @@
     deepmerge "^3.2.0"
     tslib "^1.9.3"
 
-"@bluebase/components@^5.15.0", "@bluebase/components@^5.15.3":
+"@bluebase/components@^5.15.0":
   version "5.15.3"
   resolved "https://registry.yarnpkg.com/@bluebase/components/-/components-5.15.3.tgz#b8109f049a9428527c5cc4be0fec1df70f190f34"
   integrity sha512-YArXlkZD4eAB9IA2psgsor1defEiUnh9JT5F71gr60dYulfDKBnEogOUiztgavE5tm6qwd275+ZB8mOO5NYT9A==
@@ -1315,13 +1315,21 @@
     deepmerge "^3.2.0"
     tslib "^1.9.3"
 
-"@bluebase/core@^5.1.0":
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/@bluebase/core/-/core-5.1.0.tgz#e88fbe13a7ea3ef187c533acb5fc07e830058a49"
-  integrity sha512-HmaAQyxsScZMmDHI5JZ2Sw1jLDMVp4flNqiA7F1S98g/U1f+8RwiENXUw+oUOP+6MRJ6IHrkJrrmKKHqpVzEog==
+"@bluebase/components@^5.22.0":
+  version "5.22.0"
+  resolved "https://registry.yarnpkg.com/@bluebase/components/-/components-5.22.0.tgz#2f62e15f6b60dbc0d9de7a4e103526dff34db700"
+  integrity sha512-ZrofOoOfeCE5AHLWfmBH3qXDVFCPP+zsAEFCtvqJlNJHdvkXzKJ7CryByu+RYl2LKv8R9sjtAMKZ8HOEQpujHA==
+  dependencies:
+    deepmerge "^3.2.0"
+    tslib "^1.9.3"
+
+"@bluebase/core@^5.11.0":
+  version "5.11.0"
+  resolved "https://registry.yarnpkg.com/@bluebase/core/-/core-5.11.0.tgz#25107642bf0cc75db2ec7b7bcbd5ddf191f85bf3"
+  integrity sha512-VRo2zIXBmTGDoRS2BURWsvAS7BJbV1gV7EgCvBZSlC7W6oXiefgGcEHiZMmDFvyK9DLL45jQASEmtDEa6TDHew==
   dependencies:
     deepmerge "^4.0.0"
-    hoist-non-react-statics "^3.3.0"
+    hoist-non-react-statics "^3.3.1"
     is-plain-object "^3.0.0"
     lodash.flowright "^3.5.0"
     lodash.isboolean "^3.0.3"
@@ -8427,6 +8435,13 @@ hoist-non-react-statics@^3.1.0, hoist-non-react-statics@^3.2.1, hoist-non-react-
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-3.3.0.tgz#b09178f0122184fb95acf525daaecb4d8f45958b"
   integrity sha512-0XsbTXxgiaCDYDIWFcwkmerZPSwywfUqYmwT4jzewKTQSWoE6FCMoUVOeBJWK3E/CrWbxRG3m5GzY4lnIwGRBA==
+  dependencies:
+    react-is "^16.7.0"
+
+hoist-non-react-statics@^3.3.1:
+  version "3.3.2"
+  resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz#ece0acaf71d62c2969c2ec59feff42a4b1a85b45"
+  integrity sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==
   dependencies:
     react-is "^16.7.0"
 
