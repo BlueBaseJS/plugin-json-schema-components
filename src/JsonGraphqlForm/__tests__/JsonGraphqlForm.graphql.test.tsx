@@ -4,7 +4,7 @@ import { EditProfileProfileForm, SignupForm, mocks } from '../__stories__';
 
 import { BlueBaseApp } from '@bluebase/core';
 import BlueBasePluginApollo from '@bluebase/plugin-apollo';
-import { FormikContext } from 'formik';
+import { FormikContextType } from 'formik';
 import { MockedProvider } from 'react-apollo/test-utils';
 import Plugin from '../../index';
 import React from 'react';
@@ -291,7 +291,7 @@ describe('JsonGraphqlForm', () => {
 			// await wait(500); // wait for response
 			// wrapper.update();
 
-			const formik: FormikContext<any> = wrapper
+			const formik: FormikContextType<any> = wrapper
 				.find('FormikEffect')
 				.first()
 				.prop('formik');

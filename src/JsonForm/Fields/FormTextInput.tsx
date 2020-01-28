@@ -1,22 +1,24 @@
 import { BaseFormFieldProps } from '../BaseFormField';
-import { Field } from 'formik';
 import React from 'react';
 import { TextInputProps } from '@bluebase/components';
 import { getComponent } from '@bluebase/core';
+import { useField } from 'formik';
 
 const BaseFormField = getComponent<BaseFormFieldProps>('BaseFormField');
 const TextInput = getComponent<TextInputProps>('TextInput');
 
-export type FormTextInputProps<T = {}> = TextInputProps & BaseFormFieldProps & T & {
-	children?: React.ReactNode;
-	validate?: ((value: any) => string | Promise<void> | undefined);
-	name: string;
-	type?: string;
-	value?: any;
-	innerRef?: (instance: any) => void;
-};
+export type FormTextInputProps<T = {}> = TextInputProps &
+	BaseFormFieldProps &
+	T & {
+		children?: React.ReactNode;
+		validate?: (value: any) => string | Promise<void> | undefined;
+		name: string;
+		type?: string;
+		value?: any;
+		innerRef?: (instance: any) => void;
+	};
 
-const validate = (props: FormTextInputProps) => (value: string) => {
+export const validateFormTextInput = (props: FormTextInputProps) => (value: string) => {
 	const { required, type } = props;
 
 	let error;
@@ -34,29 +36,31 @@ const validate = (props: FormTextInputProps) => (value: string) => {
 	return error;
 };
 
-export const FormTextInput = (props: FormTextInputProps) => (
-	<Field {...props} validate={props.validate || validate(props)}>
-		{({ field, form }: any) => {
+export const FormTextInput = (props: FormTextInputProps) => {
+	const [field, meta, helpers] = useField({
+		...(props as any),
+		validate: props.validate || validateFormTextInput(props),
+	});
 
-			const name = props.name;
+	const inputProps = {
+		...field,
+		onChange: undefined,
+		...props,
+		error: !!meta.error || props.error,
+		helperText: meta.error || props.helperText,
+		onChangeText: helpers.setValue,
 
-			const inputProps = {
-				...field,
-				onChange: undefined,
-				...props,
-				error: !!form.errors[name] || props.error,
-				helperText: form.errors[name] || props.helperText,
-				onChangeText: (text: string) => {
-					form.handleChange(name)(text);
-					// props.onChangeText && props.onChangeText(text);
-				},
-			};
+		// onChangeText: (text: string) => {
+		// 	form.handleChange(name)(text);
+		// 	// props.onChangeText && props.onChangeText(text);
+		// },
+	};
 
-			return (<BaseFormField {...inputProps} />);
-		}}
-	</Field>
-);
+	return <BaseFormField {...inputProps} />;
+};
 
 FormTextInput.defaultProps = {
-	MainComponent: TextInput
+	MainComponent: TextInput,
 };
+
+FormTextInput.displayName = 'FormTextInput';

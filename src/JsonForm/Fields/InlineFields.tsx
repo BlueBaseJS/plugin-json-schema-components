@@ -1,5 +1,6 @@
 import { FieldWrapperProps, FormFields } from '../FormFields';
 import { StyleProp, ViewStyle } from 'react-native';
+
 import { FormFieldProps } from './FormFieldProps';
 import React from 'react';
 import { Theme } from '@bluebase/core';
@@ -59,6 +60,8 @@ export const InlineFields = (props: InlineFieldsProps) => {
 		</View>
 	);
 };
+
+InlineFields.displayName = 'InlineFields';
 
 InlineFields.defaultProps = {};
 

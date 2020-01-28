@@ -1,1 +1,3 @@
-export { Form } from 'formik';
+import { Noop } from '@bluebase/components';
+
+export const Form: any = Noop;

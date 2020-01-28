@@ -1,5 +1,5 @@
 import { BlueBaseFilter, Body2, FormattedMessage, H6, View } from '@bluebase/components';
-import { Formik, FormikConfig, FormikContext, FormikValues } from 'formik';
+import { Formik, FormikConfig, FormikContextType, FormikValues } from 'formik';
 import { StyleProp, TextStyle, ViewStyle } from 'react-native';
 
 import { Form } from './Form';
@@ -21,7 +21,11 @@ export type JsonFormSchema<Values extends FormikValues> = FormProps<Values> & {
 	description?: string;
 
 	/** Event handler called when values are updated */
-	onChange?: (current: FormikContext<Values>, prev: FormikContext<Values>, ...props: any[]) => void;
+	onChange?: (
+		current: FormikContextType<Values>,
+		prev: FormikContextType<Values>,
+		...props: any[]
+	) => void;
 };
 
 export interface JsonFormStyles {
