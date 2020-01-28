@@ -1,7 +1,7 @@
 import { BlueBaseApp } from '@bluebase/core';
-import BluebasePluginMaterialUI from "@bluebase/plugin-material-ui"
+import BluebasePluginMaterialUI from '@bluebase/plugin-material-ui';
 import { FormFieldProps } from '../Fields';
-import { FormikContext } from 'formik';
+import { FormikContextType } from 'formik';
 import { JsonForm } from '../JsonForm';
 import Plugin from '../../index';
 import React from 'react';
@@ -77,7 +77,7 @@ describe('FormikEffect', () => {
 
 		await waitForElement(component as any, JsonForm);
 
-		const formik: FormikContext<any> = component
+		const formik: FormikContextType<any> = component
 			.find('FormikEffect')
 			.first()
 			.prop('formik');

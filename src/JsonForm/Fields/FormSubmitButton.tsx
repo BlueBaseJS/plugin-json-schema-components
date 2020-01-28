@@ -1,8 +1,9 @@
 import { Button, ButtonProps, View } from '@bluebase/components';
-import { FormikContext, connect } from 'formik';
 import { Omit, Theme } from '@bluebase/core';
 import { StyleProp, ViewStyle } from 'react-native';
+
 import React from 'react';
+import { useFormikContext } from 'formik';
 
 export interface FormSubmitButtonStyles {
 	root: StyleProp<ViewStyle>;
@@ -15,9 +16,9 @@ export interface FormSubmitButtonProps extends Omit<ButtonProps, 'styles'> {
 	styles?: Partial<FormSubmitButtonStyles>;
 }
 
-export const FormSubmitButton = connect((props: FormSubmitButtonProps & { formik: FormikContext<{}>; }) => {
-
-	const { handleSubmit, isSubmitting } = props.formik;
+export const FormSubmitButton = (props: FormSubmitButtonProps) => {
+	const formik = useFormikContext();
+	const { handleSubmit, isSubmitting } = formik;
 	const { styles = {}, ...rest } = props;
 
 	return (
@@ -32,7 +33,7 @@ export const FormSubmitButton = connect((props: FormSubmitButtonProps & { formik
 			/>
 		</View>
 	);
-});
+};
 
 FormSubmitButton.defaultProps = {
 	color: 'primary',

@@ -1,7 +1,8 @@
 import { Button, ButtonProps, View } from '@bluebase/components';
-import { FormikContext, connect } from 'formik';
+import { FormikContextType, connect } from 'formik';
 import { Omit, Theme } from '@bluebase/core';
 import { StyleProp, ViewStyle } from 'react-native';
+
 import React from 'react';
 
 export interface FormResetButtonStyles {
@@ -15,22 +16,18 @@ export interface FormResetButtonProps extends Omit<ButtonProps, 'styles'> {
 	styles?: Partial<FormResetButtonStyles>;
 }
 
-export const FormResetButton = connect((props: FormResetButtonProps & { formik: FormikContext<{}>; }) => {
+export const FormResetButton = connect(
+	(props: FormResetButtonProps & { formik: FormikContextType<{}> }) => {
+		const { handleReset } = props.formik;
+		const { styles = {}, ...rest } = props;
 
-	const { handleReset } = props.formik;
-	const { styles = {}, ...rest } = props;
-
-	return (
-		<View style={styles.root}>
-			<Button
-				style={styles.button}
-				{...rest}
-				onPress={handleReset}
-				type="reset"
-			/>
-		</View>
-	);
-});
+		return (
+			<View style={styles.root}>
+				<Button style={styles.button} {...rest} onPress={handleReset} type="reset" />
+			</View>
+		);
+	}
+);
 
 FormResetButton.defaultProps = {
 	name: 'reset',

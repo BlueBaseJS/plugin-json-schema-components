@@ -1,6 +1,6 @@
 import { BlueBase, BlueBaseContext, Omit, getComponent } from '@bluebase/core';
 import { FetchResult, MutationFn, MutationProps, QueryProps, QueryResult } from 'react-apollo';
-import { FormikActions, FormikContext, FormikValues } from 'formik';
+import { FormikContextType, FormikHelpers, FormikValues } from 'formik';
 import { JsonFormProps, JsonFormSchema } from '../JsonForm';
 
 import { ApolloError } from 'apollo-client';
@@ -19,12 +19,12 @@ export type mapQueryDataToInitialValuesFn<Values extends FormikValues> = (data: 
 export type JsonGraphqlFormOnErrorFn<Values extends FormikValues> = (
 	error: ApolloError,
 	values: Values,
-	actions: FormikActions<Values>
+	actions: FormikHelpers<Values>
 ) => void;
 export type JsonGraphqlFormOnSuccessFn<Values extends FormikValues> = (
 	result: void | FetchResult,
 	values: Values,
-	actions: FormikActions<Values>
+	actions: FormikHelpers<Values>
 ) => void;
 
 export type JsonGraphqlFormProps<Values extends FormikValues> = Omit<
@@ -167,7 +167,7 @@ export class JsonGraphqlForm<Values extends FormikValues> extends React.PureComp
 		}
 
 		// The onChange handler
-		return (current: FormikContext<Values>, prev: FormikContext<Values>) => {
+		return (current: FormikContextType<Values>, prev: FormikContextType<Values>) => {
 			onChange(current, prev, mutate);
 		};
 	}
@@ -186,7 +186,7 @@ export class JsonGraphqlForm<Values extends FormikValues> extends React.PureComp
 		const onSuccess = this.props.onSuccess as JsonGraphqlFormOnSuccessFn<Values>;
 
 		// The onSubmit handler
-		return (values: Values, actions: FormikActions<Values>) => {
+		return (values: Values, actions: FormikHelpers<Values>) => {
 			const { setSubmitting, setErrors } = actions;
 
 			// map values
