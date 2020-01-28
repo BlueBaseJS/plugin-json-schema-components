@@ -36,6 +36,7 @@ export class JsonSchemaParser {
 		const Components: Array<React.ReactElement<any>> = [];
 		let index = 0;
 		let subSchema;
+
 		for (subSchema of subSchemas) {
 			subSchema.props = subSchema.props || {};
 			subSchema.props.key = subSchema.props.key || String(index);
@@ -43,11 +44,12 @@ export class JsonSchemaParser {
 			Components.push(Component);
 			index++;
 		}
+
 		return Components;
 	}
 
-	createComponent(schema: JsonComponentNode): React.ReactElement<any> {
-		const { text, props, component } = schema;
+	createComponent(node: JsonComponentNode): React.ReactElement<any> {
+		const { text, props, component } = node;
 
 		if (isNil(component)) {
 			throw Error(
@@ -55,33 +57,29 @@ export class JsonSchemaParser {
 			);
 		}
 
-		// // If schema.component is a React Component, return it
-		// if (!isString(component) && React.isValidElement(component)) {
-		// 	return component;
-		// }
-
-		const Component = this.resolveComponent(schema);
-		const Children = text || this.resolveComponentChildren(schema);
+		const Component = this.resolveComponent(node);
+		const Children = text || this.resolveComponentChildren(node);
 
 		return React.createElement(Component, props, Children);
 	}
 
 	resolveComponent(node: JsonComponentNode): React.ComponentType<any> {
+		const { component } = node;
+
 		// component is already a react component
-		if (!isString(node.component) && node.component === Object(node.component)) {
-			return node.component;
+		if (!isString(component) && component === Object(component)) {
+			return component;
 		}
 
 		const Component = this.getComponent(node);
 
-		if (Component) {
-			return Component;
+		if (!Component) {
+			throw Error(
+				`Could not parse React JSON Schema. Reason: Could not resolve component: ${component}.`
+			);
 		}
 
-		const componentName = node.component;
-		throw Error(
-			`Could not parse React JSON Schema. Reason: Could not resolve component: ${componentName}.`
-		);
+		return Component;
 	}
 
 	resolveComponentChildren({
