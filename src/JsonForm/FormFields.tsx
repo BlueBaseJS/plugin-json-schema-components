@@ -1,9 +1,14 @@
+import { FieldResolutionMapType, getFormField } from './getFormField';
+
 import { FormFieldProps } from './Fields';
 import { IntlContext } from '@bluebase/core';
 import React from 'react';
-import { getFormField } from './getFormField';
 
-export type renderFieldFn = (field: FormFieldProps, index: number, parent: FormFieldsProps) => React.ReactNode;
+export type renderFieldFn = (
+	field: FormFieldProps,
+	index: number,
+	parent: FormFieldsProps
+) => React.ReactNode;
 
 export type FieldWrapperProps<T = {}> = {
 	field: FormFieldProps;
@@ -18,7 +23,9 @@ export type FormFieldsProps<T = {}> = {
 	FieldWrapper?: React.ComponentType<FieldWrapperProps>;
 
 	/** If children prop if given, internal rendering mechanism will be ignored. */
-	children?: (renderField: renderFieldFn) => React.ReactNode
+	children?: (renderField: renderFieldFn) => React.ReactNode;
+
+	fieldTypes?: FieldResolutionMapType;
 } & T;
 
 /**
@@ -27,24 +34,22 @@ export type FormFieldsProps<T = {}> = {
  * function as a param.
  */
 export class FormFields extends React.Component<FormFieldsProps> {
-
 	static contextType = IntlContext;
 
 	private fields: {
-		[key: string]: React.ComponentType<any>
+		[key: string]: React.ComponentType<any>;
 	} = {};
 
 	constructor(props: FormFieldsProps) {
 		super(props);
 
-    // This binding is necessary to make `this` work in the callback
+		// This binding is necessary to make `this` work in the callback
 		this.renderField = this.renderField.bind(this);
 	}
 
 	// Before mounting, resolve all components and store them.
 	// So we don't end up creating a new component during every render
 	componentWillMount() {
-
 		const fields = this.props.fields || [];
 
 		// // If field map is already created, skip this op
@@ -56,13 +61,11 @@ export class FormFields extends React.Component<FormFieldsProps> {
 		// Resolve fields
 		fields.forEach(field => {
 			const type = field.type;
-			this.fields[type] = getFormField(type);
+			this.fields[type] = getFormField(type, this.props.fieldTypes);
 		});
-
 	}
 
 	render() {
-
 		const { children, fields = [] } = this.props;
 
 		if (children) {
@@ -95,10 +98,14 @@ export class FormFields extends React.Component<FormFieldsProps> {
 		const key = field.name;
 
 		const Component = this.fields[field.type];
-		const fieldNode =  <Component key={key} {...field} />;
+		const fieldNode = <Component key={key} {...field} />;
 
-		return FieldWrapper
-		? <FieldWrapper key={key} field={field} parent={parent}>{fieldNode}</FieldWrapper>
-		: fieldNode;
+		return FieldWrapper ? (
+			<FieldWrapper key={key} field={field} parent={parent}>
+				{fieldNode}
+			</FieldWrapper>
+		) : (
+			fieldNode
+		);
 	}
 }

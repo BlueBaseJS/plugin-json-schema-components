@@ -2,6 +2,7 @@ import { BlueBaseFilter, Body2, FormattedMessage, H6, View } from '@bluebase/com
 import { Formik, FormikConfig, FormikContextType, FormikValues } from 'formik';
 import { StyleProp, TextStyle, ViewStyle } from 'react-native';
 
+import { FieldResolutionMapType } from './getFormField';
 import { Form } from './Form';
 import { FormFieldProps } from './Fields';
 import { FormFields } from './FormFields';
@@ -26,6 +27,9 @@ export type JsonFormSchema<Values extends FormikValues> = FormProps<Values> & {
 		prev: FormikContextType<Values>,
 		...props: any[]
 	) => void;
+
+	/** Maps type field to React/BlueBase components. Use this to define custom fields. */
+	fieldTypes?: FieldResolutionMapType;
 };
 
 export interface JsonFormStyles {
@@ -62,14 +66,14 @@ export interface JsonFormProps<Values extends FormikValues> {
  */
 const JsonFormInternal = <Values extends FormikValues>(props: JsonFormProps<Values>) => {
 	const { schema } = props;
-	const { fields, ...rest } = schema;
+	const { fields, fieldTypes, ...rest } = schema;
 
 	return (
 		<Formik {...rest}>
 			<React.Fragment>
 				{schema.onChange ? <FormikEffect onChange={schema.onChange} /> : null}
 				<Form style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-					<FormFields fields={fields} />
+					<FormFields fields={fields} fieldTypes={fieldTypes} />
 				</Form>
 			</React.Fragment>
 		</Formik>
