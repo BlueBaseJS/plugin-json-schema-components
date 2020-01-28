@@ -33,6 +33,25 @@ describe('JsonLayout', () => {
 		).toBe('This component is generated through JsonLayout Component');
 	});
 
+	test(`should render a View when Component name is "RCTView"`, async () => {
+		const wrapper = mount(
+			<BlueBaseApp>
+				<JsonLayout
+					schema={{
+						component: 'RCTView',
+						props: {
+							testID: 'view-test',
+						},
+					}}
+				/>
+			</BlueBaseApp>
+		);
+
+		await waitForElement(wrapper, 'JsonLayout');
+
+		expect(wrapper.find('View[testID="view-test"]').exists()).toBe(true);
+	});
+
 	test(`should create layout through createJsonLayout function`, async () => {
 		const Layout = createJsonLayout({
 			schema: {
