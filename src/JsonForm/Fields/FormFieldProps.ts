@@ -23,4 +23,5 @@ export type FormFieldProps = { type: string } & (
 	| FormSubmitButtonProps
 	| FormSwitchInputProps
 	| FormTextInputProps
-	| FormUrlInputProps);
+	| FormUrlInputProps
+);
