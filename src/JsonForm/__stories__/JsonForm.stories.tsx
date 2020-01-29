@@ -5,8 +5,9 @@ import {
 	IntlMessages,
 	getComponent,
 } from '@bluebase/core';
-import { ScrollView, Text, View } from 'react-native';
+import { ScrollView, Text, TextInput, View } from 'react-native';
 
+import { FormTextInput } from '../Fields';
 import { JsonFormProps } from '..';
 import Plugin from '../../index';
 import React from 'react';
@@ -209,6 +210,41 @@ storiesOf('JsonForm', module)
 					} as any,
 
 					onSubmit: () => {},
+				}}
+			/>
+		</ScrollView>
+	))
+
+	.add('Simple TextInput', () => (
+		<ScrollView>
+			<JsonForm
+				schema={{
+					// onChange: (formik: any) => console.log(formik.values),
+
+					fieldTypes: {
+						text: [() => <FormTextInput MainComponent={TextInput} name="custom-field" />],
+					},
+
+					fields: [
+						{
+							name: 'custom-field',
+							required: true,
+							type: 'text',
+						},
+						{
+							name: 'submit',
+							type: 'submit',
+						},
+					],
+
+					initialValues: {
+						// 'custom-field': true,
+					} as any,
+
+					onSubmit: (values: any) => {
+						// tslint:disable-next-line: no-console
+						console.log('Login form submitted by following values', values);
+					},
 				}}
 			/>
 		</ScrollView>
