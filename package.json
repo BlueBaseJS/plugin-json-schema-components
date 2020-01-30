@@ -152,6 +152,7 @@
     "react-dom": "^16.12.0",
     "react-native-storybook-loader": "^1.8.1",
     "react-native-typescript-transformer": "^1.2.13",
+    "react-native-web": "^0.12.0",
     "react-test-renderer": "^16.12.0",
     "remark-cli": "^6.0.1",
     "remark-preset-lint-recommended": "^3.0.3",

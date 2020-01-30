@@ -1,5 +1,6 @@
 import {
 	BaseFormField,
+	FormArrayField,
 	FormCheckboxInput,
 	FormEmailInput,
 	FormNumberInput,
@@ -38,6 +39,7 @@ export default createPlugin({
 
 	components: {
 		BaseFormField,
+		FormArrayField,
 		FormCheckboxInput,
 		FormEmailInput,
 		FormNumberInput,

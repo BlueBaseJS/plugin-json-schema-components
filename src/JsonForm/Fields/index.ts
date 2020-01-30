@@ -1,3 +1,4 @@
+export * from './FormArrayField';
 export * from './FormCheckboxInput';
 export * from './FormEmailInput';
 export * from './FormFieldProps';
