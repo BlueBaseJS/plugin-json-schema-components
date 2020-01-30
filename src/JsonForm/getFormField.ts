@@ -7,6 +7,7 @@ export type FieldResolutionMapItem = Array<string | React.ComponentType<any>>;
 export type FieldResolutionMapType = { [key: string]: FieldResolutionMapItem };
 
 const FieldResolutionMap: FieldResolutionMapType = {
+	array: ['FormArrayField', 'Noop'],
 	checkbox: ['FormCheckboxInput', 'Noop'],
 	color: ['FormColorInput', ...DefaultInputs],
 	component: ['JsonLayout', 'Noop'],

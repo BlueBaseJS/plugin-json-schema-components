@@ -209,7 +209,11 @@ storiesOf('JsonForm', module)
 						// 'custom-field': true,
 					} as any,
 
-					onSubmit: () => {},
+					onSubmit: (values: any, form: any) => {
+						// tslint:disable-next-line: no-console
+						console.log('Form submitted by following values', values);
+						form.setSubmitting(false);
+					},
 				}}
 			/>
 		</ScrollView>
@@ -241,9 +245,62 @@ storiesOf('JsonForm', module)
 						// 'custom-field': true,
 					} as any,
 
-					onSubmit: (values: any) => {
+					onSubmit: (values: any, form: any) => {
 						// tslint:disable-next-line: no-console
-						console.log('Login form submitted by following values', values);
+						console.log('Form submitted by following values', values);
+						form.setSubmitting(false);
+					},
+				}}
+			/>
+		</ScrollView>
+	))
+
+	.add('Array Field', () => (
+		<ScrollView>
+			<JsonForm
+				schema={{
+					fields: [
+						{
+							name: 'friends',
+							type: 'array',
+
+							fields: [
+								{
+									label: 'First Name',
+									name: 'firstName',
+									required: true,
+									type: 'text',
+								},
+								{
+									label: 'Last Name',
+									name: 'lastName',
+									type: 'text',
+								},
+							],
+						},
+						{
+							name: 'submit',
+							type: 'submit',
+						},
+					],
+
+					initialValues: {
+						friends: [
+							{
+								firstName: 'Abdul Rehman',
+								lastName: 'Talat',
+							},
+							{
+								firstName: 'John',
+								lastName: 'Doe',
+							},
+						],
+					} as any,
+
+					onSubmit: (values: any, form: any) => {
+						// tslint:disable-next-line: no-console
+						console.log('Form submitted by following values', values);
+						form.setSubmitting(false);
 					},
 				}}
 			/>

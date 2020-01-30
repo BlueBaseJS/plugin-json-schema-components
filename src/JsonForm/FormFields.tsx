@@ -81,11 +81,12 @@ export class FormFields extends React.Component<FormFieldsProps> {
 	 */
 	private renderField(field: FormFieldProps & any, index: number, parent: FormFieldsProps) {
 		const { __ } = this.context;
-		const { FieldWrapper } = this.props;
+		const { FieldWrapper, fields, children, fieldTypes, ...rest } = this.props;
 
 		field.name = field.name || `${index}-${field.type}`;
 
 		field = {
+			...rest,
 			...field,
 
 			// Translate
