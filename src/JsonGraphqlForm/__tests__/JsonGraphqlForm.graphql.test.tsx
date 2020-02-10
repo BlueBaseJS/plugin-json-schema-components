@@ -49,6 +49,7 @@ describe('JsonGraphqlForm', () => {
 					.find('Text')
 					.exists()
 			).toBe(false);
+
 			expect(onError).toBeCalled();
 		});
 
@@ -67,6 +68,11 @@ describe('JsonGraphqlForm', () => {
 				.first()
 				.prop('onPress');
 			onPress();
+			const onError: any = wrapper
+				.find('JsonGraphqlForm')
+				.last()
+				.prop('onError');
+			onError();
 			// wait for response
 			wrapper.update();
 			expect(
@@ -152,6 +158,11 @@ describe('JsonGraphqlForm', () => {
 				.first()
 				.prop('onPress');
 			onPress(); // fires the mutation
+			const onSuccess: any = wrapper
+				.find('JsonGraphqlForm')
+				.last()
+				.prop('onSuccess');
+			onSuccess();
 			wrapper.update();
 			expect(
 				wrapper
