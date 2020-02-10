@@ -183,7 +183,6 @@ export class JsonGraphqlForm<Values extends FormikValues> extends React.PureComp
 
 			// map values
 			const variables = mapFormValuesToMutationVariables(values);
-
 			// Mutate
 			mutate({ variables }).then(
 				result => {
@@ -196,7 +195,6 @@ export class JsonGraphqlForm<Values extends FormikValues> extends React.PureComp
 				(error: ApolloError) => {
 					// Bummer! Mutation was not successful
 					setSubmitting(false);
-
 					// Set form errors
 					setErrors(graphqlToFormErrors(error) as any);
 

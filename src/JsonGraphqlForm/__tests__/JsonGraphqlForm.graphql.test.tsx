@@ -73,6 +73,15 @@ describe('JsonGraphqlForm', () => {
 				.last()
 				.prop('onError');
 			onError();
+			const actions: any = { setSubmitting: jest.fn(), setErrors: jest.fn() };
+			const onPress1: any = wrapper
+				.find('Formik')
+				.last()
+				.prop('onSubmit');
+			onPress1(
+				{ email: 'asd@as.cd', firstName: 'im only', lastName: 'testing', password: 'abc' },
+				actions
+			);
 			// wait for response
 			wrapper.update();
 			expect(
