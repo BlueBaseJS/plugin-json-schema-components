@@ -120,23 +120,15 @@ export class JsonGraphqlForm<Values extends FormikValues> extends React.PureComp
 	 * Renders the main form that executes a mutation on submit
 	 * @param initialValues
 	 */
-	protected renderForm(initialValues?: JsonFormSchema<Values>['initialValues']) {
+	protected renderForm(initialValues: JsonFormSchema<Values>['initialValues'] = {} as any) {
 		const {
 			mutation,
 			mapFormValuesToMutationVariables,
 			query,
 			mapQueryDataToInitialValues,
-			schema: _schema,
+			schema,
 			...rest
 		} = this.props;
-
-		const schema = _schema;
-
-		// If theres an initialValues param, set it in the schema
-		if (initialValues) {
-			schema.initialValues = initialValues;
-		}
-
 		return (
 			<Mutation {...mutation}>
 				{(mutate: MutationFn) => (
@@ -145,7 +137,7 @@ export class JsonGraphqlForm<Values extends FormikValues> extends React.PureComp
 						schema={{
 							...schema,
 							fields: schema.fields || [],
-							initialValues: schema.initialValues!,
+							initialValues,
 							onChange: this.onChange(mutate),
 							onSubmit: this.onSubmit(mutate),
 						}}
@@ -191,7 +183,6 @@ export class JsonGraphqlForm<Values extends FormikValues> extends React.PureComp
 
 			// map values
 			const variables = mapFormValuesToMutationVariables(values);
-
 			// Mutate
 			mutate({ variables }).then(
 				result => {
@@ -204,7 +195,6 @@ export class JsonGraphqlForm<Values extends FormikValues> extends React.PureComp
 				(error: ApolloError) => {
 					// Bummer! Mutation was not successful
 					setSubmitting(false);
-
 					// Set form errors
 					setErrors(graphqlToFormErrors(error) as any);
 
