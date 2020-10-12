@@ -198,7 +198,7 @@ describe('FormFields', () => {
 				.prop('name')
 		).toBe('3-component');
 
-		//as schema is going to Formik so we find Formik and check if title arrived
+		// as schema is going to Formik so we find Formik and check if title arrived
 		expect(component.find('Formik').prop('title')).toEqual('Testing');
 	});
 
@@ -244,7 +244,7 @@ describe('FormFields', () => {
 				.prop('name')
 		).toBe('3-component');
 
-		//as schema is going to Formik so we find Formik and check if description arrived
+		// as schema is going to Formik so we find Formik and check if description arrived
 		expect(component.find('Formik').prop('description')).toEqual('Description is here');
 	});
 });

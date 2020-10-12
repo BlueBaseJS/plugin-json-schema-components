@@ -1,5 +1,5 @@
 import { BlueBaseApp } from '@bluebase/core';
-import BlueBasePluginMaterialUI from "@bluebase/plugin-material-ui"
+import BlueBasePluginMaterialUI from "@bluebase/plugin-material-ui";
 import { FormSwitchInput } from '../FormSwitchInput';
 import { Formik } from 'formik';
 import Plugin from '../../../index';

@@ -1,13 +1,13 @@
-import { BlueBaseApp } from '@bluebase/core';
+import { BlueBaseApp, getComponent } from '@bluebase/core';
+
 import { Formik } from 'formik';
+import { InlineFields } from '../InlineFields';
 import MaterialUIPlugin from '@bluebase/plugin-material-ui';
 import Plugin from '../../../index';
 import React from 'react';
+import deepmerge from 'deepmerge';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
-import { getComponent } from '@bluebase/core';
-import deepmerge from 'deepmerge';
-import { InlineFields } from '../InlineFields';
 
 const fieldProps = {
 	direction: 'right',
@@ -158,7 +158,7 @@ describe('InlineFields', () => {
 				<Formik initialValues={initialValues} onSubmit={onSubmit}>
 					<InlineFields
 						style={{}}
-						//styles={{ fieldContainer: '', root: { justifyContent: 'flex-end' } }}
+						// styles={{ fieldContainer: '', root: { justifyContent: 'flex-end' } }}
 						{...(fieldProps as any)}
 					/>
 				</Formik>

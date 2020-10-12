@@ -1,10 +1,10 @@
-import { BlueBaseApp } from '@bluebase/core';
+import { BlueBaseApp , createPlugin } from '@bluebase/core';
 import { FormCheckboxInput } from '../FormCheckboxInput';
 import { Formik } from 'formik';
 import MaterialUIPlugin from '@bluebase/plugin-material-ui';
 import Plugin from '../../../index';
 import React from 'react';
-import { createPlugin } from '@bluebase/core';
+
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
 
@@ -18,7 +18,7 @@ const fieldProps = {
 // 	'auto-login': true,
 // };
 
-export const Checkbox: any = () => 'Checkbox'
+export const Checkbox: any = () => 'Checkbox';
 
 export const SamplePlugins = createPlugin({
 	description: 'testing',

@@ -1,11 +1,10 @@
+import { BlueBaseApp, getComponent } from '@bluebase/core';
 import { Slider, Text } from '@bluebase/components';
 
 import { BaseFormFieldProps } from '..';
-import { BlueBaseApp } from '@bluebase/core';
-import BluebasePluginMaterialUI from "@bluebase/plugin-material-ui"
+import BluebasePluginMaterialUI from "@bluebase/plugin-material-ui";
 import Plugin from '../../index';
 import React from 'react';
-import { getComponent } from '@bluebase/core'
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
 
