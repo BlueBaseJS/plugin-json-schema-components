@@ -1,15 +1,16 @@
 import { BlueBase, BlueBaseContext, Omit, getComponent } from '@bluebase/core';
-import { FetchResult, MutationFn, MutationProps, QueryProps, QueryResult } from 'react-apollo';
 import { FormikContextType, FormikHelpers, FormikValues } from 'formik';
 import { JsonFormProps, JsonFormSchema } from '../JsonForm';
+import { MutationComponentOptions, QueryComponentOptions } from '@apollo/react-components';
 
 import { ApolloError } from 'apollo-client';
+import { FetchResult } from 'apollo-link';
 import React from 'react';
 import { StatefulComponent } from '@bluebase/components';
 
 const JsonForm = getComponent<JsonFormProps<any>>('JsonForm');
-const Mutation = getComponent<MutationProps>('GraphqlMutation');
-const Query = getComponent<QueryProps>('GraphqlQuery');
+const Mutation = getComponent<MutationComponentOptions>('GraphqlMutation');
+const Query = getComponent<QueryComponentOptions>('GraphqlQuery');
 
 export type mapFormValuesToMutationVariablesFn<Values extends FormikValues> = (
 	values: Values
@@ -38,7 +39,7 @@ export type JsonGraphqlFormProps<Values extends FormikValues> = Omit<
 	 * GraphqlMutation component props. This mutation will be executed when
 	 * a form is submitted.
 	 */
-	mutation: Omit<MutationProps<any, Values>, 'children'>;
+	mutation: Omit<MutationComponentOptions<any, Values>, 'children'>;
 
 	/**
 	 * A function that converts form values to mutation variables.
@@ -50,7 +51,7 @@ export type JsonGraphqlFormProps<Values extends FormikValues> = Omit<
 	 * GraphqlQuery component props. The result of this query will be used
 	 * as initial values of the form.
 	 */
-	query?: Omit<QueryProps<any, Values>, 'children'>;
+	query?: Omit<QueryComponentOptions<any, Values>, 'children'>;
 
 	/**
 	 * A function that converts query result to initial form values.
@@ -107,7 +108,7 @@ export class JsonGraphqlForm<Values extends FormikValues> extends React.PureComp
 
 		return (
 			<Query {...query}>
-				{(result: QueryResult) => (
+				{(result: any) => (
 					<StatefulComponent {...result} isEmpty={isEmpty}>
 						{this.renderForm(mapQueryDataToInitialValues(result.data))}
 					</StatefulComponent>
@@ -131,7 +132,7 @@ export class JsonGraphqlForm<Values extends FormikValues> extends React.PureComp
 		} = this.props;
 		return (
 			<Mutation {...mutation}>
-				{(mutate: MutationFn) => (
+				{(mutate: any) => (
 					<JsonForm
 						{...rest}
 						schema={{
@@ -151,7 +152,7 @@ export class JsonGraphqlForm<Values extends FormikValues> extends React.PureComp
 	 * Returns the onChange event handler (this function is not the handler itself).
 	 * @param mutate
 	 */
-	protected onChange(mutate: MutationFn) {
+	protected onChange(mutate: any) {
 		const onChange = this.props.schema && this.props.schema.onChange;
 
 		if (!onChange) {
@@ -168,7 +169,7 @@ export class JsonGraphqlForm<Values extends FormikValues> extends React.PureComp
 	 * Returns the onSubmit event handler (this function is not the handler itself).
 	 * @param mutate
 	 */
-	protected onSubmit(mutate: MutationFn) {
+	protected onSubmit(mutate: any) {
 		const BB: BlueBase = this.context;
 
 		const mapFormValuesToMutationVariables = this.props
@@ -185,7 +186,7 @@ export class JsonGraphqlForm<Values extends FormikValues> extends React.PureComp
 			const variables = mapFormValuesToMutationVariables(values);
 			// Mutate
 			mutate({ variables }).then(
-				result => {
+				(result: any) => {
 					// Mutation was successful
 					setSubmitting(false);
 
@@ -234,7 +235,7 @@ const graphqlToFormErrors = (error: ApolloError): FormErrors => {
 
 	if (error.networkError) {
 		errors.form.push(
-			// tslint:disable-next-line: max-line-length
+			// eslint-disable-next-line max-len
 			'A network error occurred. This may be because of your network connection, or a server error. Please try again later.'
 		);
 	}

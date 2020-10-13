@@ -5,14 +5,12 @@ import { EditProfileProfileForm, SignupForm, mocks } from '../__stories__';
 import { BlueBaseApp } from '@bluebase/core';
 import BlueBasePluginApollo from '@bluebase/plugin-apollo';
 import { FormikContextType } from 'formik';
-import { MockedProvider } from 'react-apollo/test-utils';
+import { MockedProvider } from '@apollo/react-testing';
 import Plugin from '../../index';
 import React from 'react';
 import { mount } from 'enzyme';
 import wait from 'waait';
 import { waitForElement } from 'enzyme-async-helpers';
-
-// import waitForExpect from 'wait-for-expect';
 
 describe('JsonGraphqlForm', () => {
 	describe('GraphQL', () => {
@@ -250,7 +248,7 @@ describe('JsonGraphqlForm', () => {
 						</MockedProvider>
 					</BlueBaseApp>
 				);
-				await waitForElement(wrapper, 'JsonForm');
+				await waitForElement(wrapper, 'FormikEffect');
 				//  expect(wrapper).toMatchSnapshot();
 				// await wait(500); // wait for response
 				// wrapper.update();

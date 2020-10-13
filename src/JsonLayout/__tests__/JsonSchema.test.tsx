@@ -1,6 +1,6 @@
+import { BlueBaseApp, BlueBaseAppError } from '@bluebase/core';
 import { JsonLayout, createJsonLayout } from '../';
 
-import { BlueBaseApp } from '@bluebase/core';
 import React from 'react';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
@@ -124,7 +124,7 @@ describe('JsonLayout', () => {
 
 	test(`should render a null for unknown component`, async () => {
 		const wrapper = mount(
-			<BlueBaseApp>
+			<BlueBaseApp ErrorComponent={BlueBaseAppError}>
 				<JsonLayout
 					schema={{
 						component: 'Foo',

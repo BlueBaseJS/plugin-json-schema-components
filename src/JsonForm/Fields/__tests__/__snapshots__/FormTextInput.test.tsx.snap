@@ -1,0 +1,188 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormTextInput should render all form fields in the schema 1`] = `
+<Formik
+  initialValues={
+    Object {
+      "username": "foo",
+    }
+  }
+  onSubmit={[MockFunction]}
+>
+  <FormTextInput
+    MainComponent={[Function]}
+    helperText="This is a helper text"
+    label="Username"
+    name="username"
+    required={true}
+    type="text"
+  >
+    <BaseFormField
+      MainComponent={[Function]}
+      helperText="This is a helper text"
+      label="Username"
+      name="username"
+      onChangeText={[Function]}
+      required={true}
+      type="text"
+      value="foo"
+    >
+      <BaseFormField
+        MainComponent={[Function]}
+        helperText="This is a helper text"
+        label="Username"
+        name="username"
+        onChangeText={[Function]}
+        required={true}
+        type="text"
+        value="foo"
+      >
+        <Component
+          MainComponent={[Function]}
+          helperText="This is a helper text"
+          label="Username"
+          name="username"
+          onChangeText={[Function]}
+          required={true}
+          type="text"
+          value="foo"
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "flex-start",
+                "paddingHorizontal": 16,
+                "paddingVertical": 16,
+              }
+            }
+            testID="base-form-field"
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "paddingHorizontal": 16,
+                  "paddingVertical": 16,
+                }
+              }
+              testID="base-form-field"
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "justifyContent": "flex-start",
+                    "paddingHorizontal": 16,
+                    "paddingVertical": 16,
+                  }
+                }
+                testID="base-form-field"
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "justifyContent": "flex-start",
+                      "paddingHorizontal": 16,
+                      "paddingVertical": 16,
+                    }
+                  }
+                  testID="base-form-field"
+                >
+                  <View
+                    style={
+                      Object {
+                        "flex": 1,
+                      }
+                    }
+                    testID="base-form-field-main"
+                  >
+                    <View
+                      style={
+                        Object {
+                          "flex": 1,
+                        }
+                      }
+                      testID="base-form-field-main"
+                    >
+                      <View
+                        style={
+                          Object {
+                            "flex": 1,
+                          }
+                        }
+                        testID="base-form-field-main"
+                      >
+                        <View
+                          style={
+                            Object {
+                              "flex": 1,
+                            }
+                          }
+                          testID="base-form-field-main"
+                        >
+                          <TextInput
+                            helperText="This is a helper text"
+                            label="Username"
+                            name="username"
+                            onChangeText={[Function]}
+                            required={true}
+                            type="text"
+                            value="foo"
+                          >
+                            <TextInput
+                              helperText="This is a helper text"
+                              label="Username"
+                              name="username"
+                              onChangeText={[Function]}
+                              required={true}
+                              type="text"
+                              value="foo"
+                            >
+                              <Component
+                                allowFontScaling={true}
+                                helperText="This is a helper text"
+                                label="Username"
+                                name="username"
+                                onChangeText={[Function]}
+                                rejectResponderTermination={true}
+                                required={true}
+                                type="text"
+                                underlineColorAndroid="transparent"
+                                value="foo"
+                              >
+                                <TextInput
+                                  allowFontScaling={true}
+                                  helperText="This is a helper text"
+                                  label="Username"
+                                  name="username"
+                                  onChangeText={[Function]}
+                                  rejectResponderTermination={true}
+                                  required={true}
+                                  type="text"
+                                  underlineColorAndroid="transparent"
+                                  value="foo"
+                                />
+                              </Component>
+                            </TextInput>
+                          </TextInput>
+                        </View>
+                      </View>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            </View>
+          </View>
+        </Component>
+      </BaseFormField>
+    </BaseFormField>
+  </FormTextInput>
+</Formik>
+`;

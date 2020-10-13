@@ -37,6 +37,7 @@ const defaultStyles = (theme: Theme): BaseFormFieldStyles => ({
 		paddingVertical: theme.spacing.unit * 2,
 	}
 });
+
 export const BaseFormField = (props: BaseFormFieldProps) => {
 	const { MainComponent, children, left, right, styles: _styles, ...rest } = props;
 	const styles = useStyles('BaseFormField', props, defaultStyles);

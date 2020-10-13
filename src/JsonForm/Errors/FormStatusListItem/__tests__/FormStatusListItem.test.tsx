@@ -26,7 +26,7 @@ describe('FormStatusListItem', () => {
 		const color = root.children[1].props.style.color;
 		const children = root.children[1].props.children;
 
-		expect(component.find('FormStatusListItem').children()).toHaveLength(1);
+		expect(component.find(FormStatusListItem).children()).toHaveLength(1);
 		expect(color).toEqual('#4caf50');
 		expect(children).toEqual('Form is submitted successfully');
 	});
@@ -49,7 +49,7 @@ describe('FormStatusListItem', () => {
 		const color = root.children[1].props.style.color;
 		const children = root.children[1].props.children;
 
-		expect(component.find('FormStatusListItem').children()).toHaveLength(1);
+		expect(component.find(FormStatusListItem).children()).toHaveLength(1);
 		expect(color).toEqual('#ffa000');
 		expect(children).toEqual('Form fields are missing');
 	});
