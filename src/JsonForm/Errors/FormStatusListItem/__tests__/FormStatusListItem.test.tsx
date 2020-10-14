@@ -50,7 +50,7 @@ describe('FormStatusListItem', () => {
 		const children = root.children[1].props.children;
 
 		expect(component.find(FormStatusListItem).children()).toHaveLength(1);
-		expect(color).toEqual('#ffa000');
+		expect(color).toEqual('#f57c00');
 		expect(children).toEqual('Form fields are missing');
 	});
 	it('should render all formListItem with error scenario', async () => {

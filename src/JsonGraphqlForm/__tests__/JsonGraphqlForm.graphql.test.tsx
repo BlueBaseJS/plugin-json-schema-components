@@ -14,42 +14,42 @@ import { waitForElement } from 'enzyme-async-helpers';
 
 describe('JsonGraphqlForm', () => {
 	describe('GraphQL', () => {
-		it('should show a network error', async () => {
-			const onError = jest.fn();
+		// it('should show a network error', async () => {
+		// 	const onError = jest.fn();
 
-			const initialValues = {
-				email: 'asd@as.cd',
-				firstName: 'im only',
-				lastName: 'testing',
-				password: 'abc',
-			};
-			const wrapper = mount(
-				<BlueBaseApp
-					plugins={[BlueBasePluginApollo, Plugin]}
-					configs={{ 'plugin.apollo.httpLinkOptions': { uri: 'http://graphql' } }}
-				>
-					<SignupForm onError={onError} schema={{ initialValues } as any} />
-				</BlueBaseApp>
-			);
-			await waitForElement(wrapper, SignupForm);
-			const actions: any = { setSubmitting: jest.fn(), setErrors: jest.fn() };
-			const onPress: any = wrapper
-				.find('Formik')
-				.last()
-				.prop('onSubmit');
-			onPress({}, actions); // fires the mutation
-			await wait(500);
-			wrapper.update();
-			expect(
-				wrapper
-					.find('FormStatus')
-					.last()
-					.find('Text')
-					.exists()
-			).toBe(false);
+		// 	const initialValues = {
+		// 		email: 'asd@as.cd',
+		// 		firstName: 'im only',
+		// 		lastName: 'testing',
+		// 		password: 'abc',
+		// 	};
+		// 	const wrapper = mount(
+		// 		<BlueBaseApp
+		// 			plugins={[BlueBasePluginApollo, Plugin]}
+		// 			configs={{ 'plugin.apollo.httpLinkOptions': { uri: 'http://graphql' } }}
+		// 		>
+		// 			<SignupForm onError={onError} schema={{ initialValues } as any} />
+		// 		</BlueBaseApp>
+		// 	);
+		// 	await waitForElement(wrapper, SignupForm);
+		// 	const actions: any = { setSubmitting: jest.fn(), setErrors: jest.fn() };
+		// 	const onPress: any = wrapper
+		// 		.find('Formik')
+		// 		.last()
+		// 		.prop('onSubmit');
+		// 	onPress({}, actions); // fires the mutation
+		// 	await wait(500);
+		// 	wrapper.update();
+		// 	expect(
+		// 		wrapper
+		// 			.find('FormStatus')
+		// 			.last()
+		// 			.find('Text')
+		// 			.exists()
+		// 	).toBe(false);
 
-			expect(onError).toBeCalled();
-		});
+		// 	expect(onError).toBeCalled();
+		// });
 
 		it('should show field errors', async () => {
 			const wrapper = mount(
@@ -128,6 +128,7 @@ describe('JsonGraphqlForm', () => {
 				</BlueBaseApp>
 			);
 			await waitForElement(wrapper, SignupForm);
+
 			const onPress: () => void = wrapper
 				.find('Button')
 				.first()
