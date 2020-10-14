@@ -6,6 +6,6 @@ const FormStatus = getComponent('FormStatus');
 
 storiesOf('FormStatus', module)
 
-.add('With no items', () => (
-	<FormStatus  />
-))
+	.add('With no items', () => (
+		<FormStatus  />
+	));

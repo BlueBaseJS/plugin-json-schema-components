@@ -1,8 +1,9 @@
 import { Radio, RadioGroup, RadioGroupProps, RadioProps } from '@bluebase/components';
+
 import { BaseFormFieldProps } from '../BaseFormField';
-import { Field } from 'formik';
 import React from 'react';
 import { getComponent } from '@bluebase/core';
+import { useField } from 'formik';
 
 export interface FormRadioGroupInputProps extends RadioGroupProps {
 	type: 'radio-group',
@@ -14,23 +15,19 @@ const BaseFormField = getComponent <BaseFormFieldProps>('BaseFormField');
 
 export const FormRadioGroupInput = ({ type, items, ...props }: FormRadioGroupInputProps) => {
 
+	const [field,, helpers] = useField(props as any);
+	const { setValue } = helpers;
+
+	const inputProps: any = {
+		...props,
+		...field,
+		onValueChange: setValue,
+	};
+
 	return (
-		<Field {...props}>
-		{({ field, form }: any) => {
-
-			const inputProps: any = {
-				...props,
-				...field,
-				onValueChange: (v: any) => form.setFieldValue(field.name, v),
-			};
-
-			return (
-				<BaseFormField MainComponent={RadioGroup} {...inputProps}>
-				{items.map(i => <Radio key={String(i.value)} {...i} />)}
-				</BaseFormField>
-			);
-		}}
-		</Field>
+		<BaseFormField MainComponent={RadioGroup} {...inputProps}>
+			{items.map(i => <Radio key={String(i.value)} {...i} />)}
+		</BaseFormField>
 	);
 };
 

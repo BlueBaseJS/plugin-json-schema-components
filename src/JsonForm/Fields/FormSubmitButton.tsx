@@ -1,5 +1,5 @@
 import { Button, ButtonProps, View } from '@bluebase/components';
-import { Omit, Theme } from '@bluebase/core';
+import { Omit, Theme, useStyles } from '@bluebase/core';
 import { StyleProp, ViewStyle } from 'react-native';
 
 import React from 'react';
@@ -16,10 +16,18 @@ export interface FormSubmitButtonProps extends Omit<ButtonProps, 'styles'> {
 	styles?: Partial<FormSubmitButtonStyles>;
 }
 
+const defaultStyles = (theme: Theme) => ({
+	root: {
+		padding: theme.spacing.unit * 2,
+	},
+
+	button: {},
+});
+
 export const FormSubmitButton = (props: FormSubmitButtonProps) => {
-	const formik = useFormikContext();
-	const { handleSubmit, isSubmitting } = formik;
-	const { styles = {}, ...rest } = props;
+	const { handleSubmit, isSubmitting } = useFormikContext();
+	const { styles: _styles, ...rest } = props;
+	const styles = useStyles('FormSubmitButton', props, defaultStyles);
 
 	return (
 		<View style={styles.root}>
@@ -41,11 +49,3 @@ FormSubmitButton.defaultProps = {
 	title: 'Submit',
 	variant: 'contained',
 };
-
-(FormSubmitButton as any).defaultStyles = (theme: Theme) => ({
-	root: {
-		padding: theme.spacing.unit * 2,
-	},
-
-	button: {},
-});

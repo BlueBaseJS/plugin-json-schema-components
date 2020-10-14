@@ -1,6 +1,7 @@
 import { BlueBaseFilter, Body2, FormattedMessage, H6, View } from '@bluebase/components';
 import { Formik, FormikConfig, FormikContextType, FormikValues } from 'formik';
 import { StyleProp, TextStyle, ViewStyle } from 'react-native';
+import { Theme, useStyles } from '@bluebase/core';
 
 import { FieldResolutionMapType } from './getFormField';
 import { Form } from './Form';
@@ -8,7 +9,6 @@ import { FormFieldProps } from './Fields';
 import { FormFields } from './FormFields';
 import FormikEffect from './FormikEffect';
 import React from 'react';
-import { Theme } from '@bluebase/core';
 
 export interface FormProps<Values extends FormikValues> extends FormikConfig<Values> {
 	fields: FormFieldProps[];
@@ -80,13 +80,34 @@ const JsonFormInternal = <Values extends FormikValues>(props: JsonFormProps<Valu
 	);
 };
 
+const defaultStyles = (theme: Theme) => ({
+	root: {
+		flexGrow: 1,
+	},
+
+	header: {
+		padding: theme.spacing.unit * 2,
+	},
+
+	title: {},
+
+	titlePadding: {
+		paddingBottom: theme.spacing.unit,
+	},
+
+	description: {
+		color: theme.palette.text.disabled,
+	},
+});
+
 /**
  * A component that takes a json schema and converts it into a form.
  * @param props
  */
 export const JsonForm = <Values extends FormikValues>(props: JsonFormProps<Values>) => {
-	const { args, filter, schema, style, styles = {} } = props;
+	const { args, filter, schema, style } = props;
 	const { description, fields, title, ...rest } = schema;
+	const styles = useStyles('JsonForm', props, defaultStyles);
 
 	let node = <JsonFormInternal schema={schema} {...rest} />;
 
@@ -129,23 +150,3 @@ export const JsonForm = <Values extends FormikValues>(props: JsonFormProps<Value
 		</View>
 	);
 };
-
-JsonForm.defaultStyles = (theme: Theme) => ({
-	root: {
-		flexGrow: 1,
-	},
-
-	header: {
-		padding: theme.spacing.unit * 2,
-	},
-
-	title: {},
-
-	titlePadding: {
-		paddingBottom: theme.spacing.unit,
-	},
-
-	description: {
-		color: theme.palette.text.disabled,
-	},
-});

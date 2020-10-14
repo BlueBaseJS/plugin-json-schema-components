@@ -79,7 +79,11 @@ export const JsonLayout: React.FunctionComponent<JsonLayoutProps> = (props: Json
 	const children = (loadedSchema: MaybeArray<JsonComponentNode>) =>
 		parser.parseSchema(loadedSchema);
 
-	return <BlueBaseFilter filter={filter} value={schema} args={args} children={children} />;
+	return (
+		<BlueBaseFilter filter={filter} value={schema} args={args}>
+			{children}
+		</BlueBaseFilter>
+	);
 };
 
 JsonLayout.displayName = 'JsonLayout';

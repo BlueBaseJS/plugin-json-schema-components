@@ -1,11 +1,11 @@
-import { BlueBaseApp } from '@bluebase/core';
+import { BlueBaseApp, getComponent } from '@bluebase/core';
+
+import { FormStatusListItem } from '../FormStatusListItem';
 import MaterialUIPlugin from '@bluebase/plugin-material-ui';
+import Plugin from '../../../..';
 import React from 'react';
 import { mount } from 'enzyme';
-import Plugin from '../../../..';
 import { waitForElement } from 'enzyme-async-helpers';
-import { getComponent } from '@bluebase/core';
-import { FormStatusListItem } from '../FormStatusListItem';
 
 describe('FormStatusListItem', () => {
 	it('should render all formListItem with success scenario', async () => {
@@ -26,7 +26,7 @@ describe('FormStatusListItem', () => {
 		const color = root.children[1].props.style.color;
 		const children = root.children[1].props.children;
 
-		expect(component.find('FormStatusListItem').children()).toHaveLength(1);
+		expect(component.find(FormStatusListItem).children()).toHaveLength(1);
 		expect(color).toEqual('#4caf50');
 		expect(children).toEqual('Form is submitted successfully');
 	});
@@ -49,8 +49,8 @@ describe('FormStatusListItem', () => {
 		const color = root.children[1].props.style.color;
 		const children = root.children[1].props.children;
 
-		expect(component.find('FormStatusListItem').children()).toHaveLength(1);
-		expect(color).toEqual('#ffa000');
+		expect(component.find(FormStatusListItem).children()).toHaveLength(1);
+		expect(color).toEqual('#f57c00');
 		expect(children).toEqual('Form fields are missing');
 	});
 	it('should render all formListItem with error scenario', async () => {
@@ -84,12 +84,12 @@ describe('FormStatusListItem', () => {
 
 		const component = mount(
 			<BlueBaseApp plugins={[Plugin, MaterialUIPlugin]}>
-				<FormStatusListItem type="nothing" divider></FormStatusListItem>
+				<FormStatusListItem type="nothing" divider />
 			</BlueBaseApp>
 		);
 		await waitForElement(component as any, FormStatusListItem);
 
-		//for default style and coverage of default switch
+		// for default style and coverage of default switch
 		const root: any = component
 			.find('[testID="FormStatusListitem-View"]')
 			.last()
@@ -103,7 +103,7 @@ describe('FormStatusListItem', () => {
 		const component = mount(
 			<BlueBaseApp plugins={[Plugin, MaterialUIPlugin]}>
 				<FormStatusListItem
-					//styles={{ root: { style: { borderBottomWidth: 0 } } } as any}
+					// styles={{ root: { style: { borderBottomWidth: 0 } } } as any}
 					type="success"
 					divider
 				>
@@ -113,7 +113,7 @@ describe('FormStatusListItem', () => {
 		);
 		await waitForElement(component as any, FormStatusListItem);
 
-		//for default style and coverage of default switch
+		// for default style and coverage of default switch
 		// const root: any = component
 		// 	.find('[testID="FormStatusListitem-View"]')
 		// 	.last()

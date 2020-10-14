@@ -10,8 +10,8 @@ export interface JsonComponentNode {
 	component: string | React.ComponentType<any>;
 	text?: string;
 	props?: {
-		key?: string;
 		[key: string]: any;
+		key?: string;
 	};
 	children?: JsonComponentNode[];
 	name?: string;

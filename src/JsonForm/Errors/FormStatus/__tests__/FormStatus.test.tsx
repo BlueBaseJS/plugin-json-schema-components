@@ -66,7 +66,7 @@ describe('FormStatus', () => {
 			.last()
 			.prop('style');
 
-		expect(styles[1].color).toBe('#ffa000');
+		expect(styles[1].color).toBe('#f57c00');
 	});
 	it('should render error status', async () => {
 		const wrapper = mount(

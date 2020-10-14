@@ -3,7 +3,7 @@ import { FormTextInput, validateFormTextInput } from '../FormTextInput';
 import { BlueBaseApp } from '@bluebase/core';
 import { FormSubmitButton } from '../FormSubmitButton';
 import { Formik } from 'formik';
-import Plugin from '../../../index';
+import Plugin from '../../../';
 import React from 'react';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
@@ -29,6 +29,7 @@ const initialValues = {
 };
 
 describe('FormTextInput', () => {
+
 	it('should render all form fields in the schema', async () => {
 		const onSubmit = jest.fn();
 
@@ -40,9 +41,9 @@ describe('FormTextInput', () => {
 			</BlueBaseApp>
 		);
 
-		await waitForElement(wrapper as any, FormTextInput);
+		await waitForElement(wrapper as any, Formik);
 
-		// expect(wrapper).toMatchSnapshot();
+		expect(wrapper.find(Formik)).toMatchSnapshot();
 
 		// Check fields
 		expect(

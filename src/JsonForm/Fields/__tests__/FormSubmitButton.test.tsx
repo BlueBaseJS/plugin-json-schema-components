@@ -1,4 +1,5 @@
 import { BlueBaseApp } from '@bluebase/core';
+import { Button } from '@bluebase/components';
 import { FormSubmitButton } from '../FormSubmitButton';
 import { Formik } from 'formik';
 import MaterialUIPlugin from '@bluebase/plugin-material-ui';
@@ -24,7 +25,7 @@ describe('FormSubmitButton', () => {
 
 		const onSubmit = jest.fn();
 
-		const component = mount(
+		const wrapper = mount(
 			<BlueBaseApp plugins={[Plugin, MaterialUIPlugin]}>
 				<Formik initialValues={initialValues} onSubmit={onSubmit}>
 					<FormSubmitButton {...fieldProps as any} />
@@ -32,29 +33,12 @@ describe('FormSubmitButton', () => {
 			</BlueBaseApp>
 		);
 
-		await waitForElement(component as any, FormSubmitButton);
-
-		// expect(component).toMatchSnapshot();
+		await waitForElement(wrapper, FormSubmitButton);
 
 		// Check fields
-		expect(component.find('Button').first().prop('disabled')).toBe(false);
-		expect(component.find('Button').first().prop('loading')).toBe(false);
-		expect(component.find('Button').first().prop('title')).toBe('Login');
-		expect(component.find('Button').first().prop('type')).toBe('submit');
-
-		const onPress: any = component.find('Button').first().prop('onPress');
-		onPress();
-		// component.update();
-
-
-		// const formik: any = component.find('Button').first().prop('formik');
-		// formik.handleSubmit();
-		// component.update();
-
-		setTimeout(() => {
-			// expect(component).toMatchSnapshot();
-			expect(onSubmit).toHaveBeenCalledTimes(1);
-		});
-
+		expect(wrapper.find(Button).prop('disabled')).toBe(false);
+		expect(wrapper.find(Button).prop('loading')).toBe(false);
+		expect(wrapper.find(Button).prop('title')).toBe('Login');
+		expect(wrapper.find(Button).prop('type')).toBe('submit');
 	});
 });

@@ -1,8 +1,9 @@
 import { Picker, PickerItemProps, PickerProps } from '@bluebase/components';
+
 import { BaseFormFieldProps } from '../BaseFormField';
-import { Field } from 'formik';
 import React from 'react';
 import { getComponent } from '@bluebase/core';
+import { useField } from 'formik';
 
 export interface FormPickerInputProps extends PickerProps {
 	type: 'picker',
@@ -14,24 +15,20 @@ const BaseFormField = getComponent<BaseFormFieldProps>('BaseFormField');
 
 export const FormPickerInput = ({ type, items, ...props }: FormPickerInputProps) => {
 
+	const [field,, helpers] = useField(props as any);
+	const { setValue } = helpers;
+
+	const inputProps: any = {
+		...props,
+		...field,
+		onValueChange: setValue,
+		selectedValue: field.value,
+	};
+
 	return (
-		<Field {...props}>
-		{({ field, form }: any) => {
-
-			const inputProps: any = {
-				...props,
-				...field,
-				onValueChange: (v: any) => form.setFieldValue(field.name, v),
-				selectedValue: field.value,
-			};
-
-			return (
-				<BaseFormField MainComponent={Picker} {...inputProps}>
-				{items.map(i => <Picker.Item key={String(i.value)} {...i} />)}
-				</BaseFormField>
-			);
-		}}
-		</Field>
+		<BaseFormField MainComponent={Picker} {...inputProps}>
+			{items.map(i => <Picker.Item key={String(i.value)} {...i} />)}
+		</BaseFormField>
 	);
 };
 

@@ -9,7 +9,9 @@ import Enzyme from 'enzyme';
  */
 const { JSDOM } = require('jsdom');
 
-const jsdom = new JSDOM('<!doctype html><html><body></body></html>');
+const jsdom = new JSDOM('<!doctype html><html><body></body></html>', {
+	url: 'http://localhost'
+});
 const { window } = jsdom;
 window.Date = Date;
 
