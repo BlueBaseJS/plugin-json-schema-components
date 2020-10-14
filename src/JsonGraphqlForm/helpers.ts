@@ -2,7 +2,6 @@ import { ApolloError } from 'apollo-client';
 
 export const noop = (foo?: any) => foo;
 
-
 type FormErrors = { form: string[] } & { [key: string]: string };
 
 export const graphqlToFormErrors = (error: ApolloError): FormErrors => {
