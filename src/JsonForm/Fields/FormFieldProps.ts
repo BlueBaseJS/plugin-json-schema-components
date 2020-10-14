@@ -11,7 +11,20 @@ import { FormTextInputProps } from './FormTextInput';
 import { FormUrlInputProps } from './FormUrlInput';
 import { InlineFieldsProps } from './InlineFields';
 
-export type FormFieldProps = { type: string } & (
+export type FormFieldDisplayOptions = {
+	show?: {
+		[key: string]: any[];
+	};
+	hide?: {
+		[key: string]: any[];
+	};
+};
+
+export type FormFieldProps = {
+	[key: string]: any;
+	type: string;
+	displayOptions?: FormFieldDisplayOptions;
+} & (
 	| InlineFieldsProps
 	| FormCheckboxInputProps
 	| FormComponentFieldProps

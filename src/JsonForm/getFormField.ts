@@ -1,5 +1,4 @@
 import React from 'react';
-import { getComponent } from '@bluebase/core';
 const DefaultInputs = ['FormTextInput', 'TextInput', 'Noop'];
 const DefaultButtons = ['Button', 'Noop'];
 
@@ -36,5 +35,5 @@ export const getFormField = (type: string, map?: FieldResolutionMapType) => {
 		...map,
 	};
 
-	return type && finalMap[type] ? getComponent(...finalMap[type]) : getComponent(...DefaultInputs);
+	return type && finalMap[type] ? finalMap[type] : DefaultInputs;
 };

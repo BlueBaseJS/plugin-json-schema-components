@@ -1,8 +1,9 @@
 import "";
 
+import { FieldWrapperProps, isHidden } from '../FormFields';
+
 import { BlueBaseApp } from '@bluebase/core';
 import BluebasePluginMaterialUI from "@bluebase/plugin-material-ui";
-import { FieldWrapperProps } from '../FormFields';
 import { FormFieldProps } from '../Fields';
 import { FormFields } from '..';
 import { Formik } from 'formik';
@@ -143,5 +144,37 @@ describe('FormFields', () => {
 	});
 
 
+	describe('isHidden', () => {
+
+		const values = {
+			foo: 'bar',
+			bar: false,
+			temp: 26
+		};
+
+		it ('should return false if there are no displayOptions', () => {
+			expect(isHidden(values)).toBe(false);
+		});
+
+
+		it ('should return true when hide value matches', () => {
+			expect(isHidden(values, { hide: { temp: [26] } })).toBe(true);
+		});
+
+
+		it ('should return false when hide value doesnt match', () => {
+			expect(isHidden(values, { hide: { temp: [24] } })).toBe(false);
+		});
+
+
+		it ('should return true when show value matches', () => {
+			expect(isHidden(values, { show: { temp: [26] } })).toBe(false);
+		});
+
+
+		it ('should return false when show value doesnt match', () => {
+			expect(isHidden(values, { show: { temp: [24] } })).toBe(true);
+		});
+	});
 
 });
