@@ -148,7 +148,7 @@ storiesOf('JsonForm', module)
 						},
 						{
 							direction: 'right',
-							name: 'form-actions',
+							name: 'form-actions2',
 							type: 'inline',
 
 							fields: [
@@ -234,6 +234,55 @@ storiesOf('JsonForm', module)
 							name: 'custom-field',
 							required: true,
 							type: 'text',
+						},
+						{
+							name: 'submit',
+							type: 'submit',
+						},
+					],
+
+					initialValues: {
+						// 'custom-field': true,
+					} as any,
+
+					onSubmit: (values: any, form: any) => {
+						// tslint:disable-next-line: no-console
+						console.log('Form submitted by following values', values);
+						form.setSubmitting(false);
+					},
+				}}
+			/>
+		</ScrollView>
+	))
+
+
+
+	.add('Conditional Display', () => (
+		<ScrollView>
+			<JsonForm
+				schema={{
+					// onChange: (formik: any) => console.log(formik.values),
+
+					fields: [
+						{
+							label: 'Name',
+							name: 'custom-field',
+							type: 'text',
+						},
+						{
+							label: 'Advanced',
+							name: 'advanced',
+							type: 'checkbox',
+						},
+						{
+							label: 'Conditional Field',
+							name: 'conditional',
+							type: 'text',
+							displayOptions: {
+								show: {
+									advanced: [true]
+								}
+							}
 						},
 						{
 							name: 'submit',
