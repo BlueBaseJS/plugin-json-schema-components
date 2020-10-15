@@ -17,6 +17,7 @@ const fields: FormFieldProps[] = [{
 	helperText: 'please enter username',
 	label: 'Username',
 	name: 'username',
+	testID: 'userInput',
 	placeholder: 'enter username',
 	required: true,
 	title: 'Name',
@@ -25,6 +26,7 @@ const fields: FormFieldProps[] = [{
 	schema: { component: 'Text', text: 'Text Component' },
 	type: 'component',
 }, {
+	testID: "Range",
 	label: 'Temp',
 	max: 32,
 	min: 16,
@@ -64,12 +66,10 @@ describe('FormFields', () => {
 
 		await waitForElement(component as any, FormFields);
 
-		// expect(component).toMatchSnapshot();
 
 		// Check fields
-		expect(component.find('FormTextInput_TextInput_Noop').last().prop('name')).toBe('username');
-		expect(component.find('FormRangeInput_FormTextInput_TextInput_Noop').last().prop('name')).toBe('temp');
-		expect(component.find('JsonLayout_Noop Text').last().text()).toBe('Text Component');
+		expect(component.find('FormTextInput[testID="userInput"]').last().prop('name')).toBe('username');
+		expect(component.find('FormRangeInput[testID="Range"]').last().prop('name')).toBe('temp');
 
 		expect(component.find('FormFields').children()).toHaveLength(3);
 		expect(component.find('FormFields').childAt(0).prop('name')).toBe('username');
@@ -114,11 +114,11 @@ describe('FormFields', () => {
 
 		// expect(component).toMatchSnapshot();
 
-		expect(component.find('FormTextInput_TextInput_Noop').last().prop('name')).toBe('username');
-		expect(component.find('FormRangeInput_FormTextInput_TextInput_Noop').last().prop('name')).toBe('temp');
+		expect(component.find('FormTextInput[testID="userInput"]').last().prop('name')).toBe('username');
+		expect(component.find('FormRangeInput[testID="Range"]').last().prop('name')).toBe('temp');
 
 		// expect(component.find('JsonLayout_Noop').last().prop('name')).toBe('1-component');
-		expect(component.find('JsonLayout_Noop Text').last().text()).toBe('Text Component');
+		expect(component.find('JsonLayout Text').last().text()).toBe('Text Component');
 	});
 
 
@@ -152,27 +152,27 @@ describe('FormFields', () => {
 			temp: 26
 		};
 
-		it ('should return false if there are no displayOptions', () => {
+		it('should return false if there are no displayOptions', () => {
 			expect(isHidden(values)).toBe(false);
 		});
 
 
-		it ('should return true when hide value matches', () => {
+		it('should return true when hide value matches', () => {
 			expect(isHidden(values, { hide: { temp: [26] } })).toBe(true);
 		});
 
 
-		it ('should return false when hide value doesnt match', () => {
+		it('should return false when hide value doesnt match', () => {
 			expect(isHidden(values, { hide: { temp: [24] } })).toBe(false);
 		});
 
 
-		it ('should return true when show value matches', () => {
+		it('should return true when show value matches', () => {
 			expect(isHidden(values, { show: { temp: [26] } })).toBe(false);
 		});
 
 
-		it ('should return false when show value doesnt match', () => {
+		it('should return false when show value doesnt match', () => {
 			expect(isHidden(values, { show: { temp: [24] } })).toBe(true);
 		});
 	});

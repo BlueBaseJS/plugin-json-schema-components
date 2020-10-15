@@ -58,7 +58,7 @@ export function isHidden(values: any = {}, displayOptions?: FormFieldDisplayOpti
  * function as a param.
  */
 export const FormFields: React.FunctionComponent<FormFieldsProps> = (props: FormFieldsProps) => {
-	const { FieldWrapper, children, fields = [] , fieldTypes, ...rest } = props;
+	const { FieldWrapper, children, fields = [], fieldTypes, ...rest } = props;
 
 	const BB = useBlueBase();
 	const { __ } = useIntl();
@@ -68,7 +68,7 @@ export const FormFields: React.FunctionComponent<FormFieldsProps> = (props: Form
 
 		const { displayOptions, ...fieldOpts } = fieldInput;
 
-		const field : FormFieldProps = {
+		const field: FormFieldProps = {
 			...rest,
 			...fieldInput,
 
@@ -95,8 +95,8 @@ export const FormFields: React.FunctionComponent<FormFieldsProps> = (props: Form
 				{fieldNode}
 			</FieldWrapper>
 		) : (
-			fieldNode
-		);
+				fieldNode
+			);
 	};
 
 	if (children) {
