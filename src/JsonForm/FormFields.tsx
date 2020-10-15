@@ -95,8 +95,8 @@ export const FormFields: React.FunctionComponent<FormFieldsProps> = (props: Form
 				{fieldNode}
 			</FieldWrapper>
 		) : (
-				fieldNode
-			);
+			fieldNode
+		);
 	};
 
 	if (children) {

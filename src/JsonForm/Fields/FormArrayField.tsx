@@ -70,6 +70,14 @@ export const FormArrayField = (props: FormArrayFieldProps) => {
 		return (props.fields || []).map(f => ({ ...f, name: `${name}[${index}].${f.name}` }));
 	}
 
+	const RemoveFields = (remove: (index: number) => void, index: number) => () => {
+		return remove(index);
+	};
+
+	const PushFields = (push: (o: object) => void) => () => {
+		return push({});
+	};
+
 	return (
 		<FieldArray name={name}>
 			{({ push, remove }) => (
@@ -81,8 +89,7 @@ export const FormArrayField = (props: FormArrayFieldProps) => {
 								<IconButton
 									name="minus"
 									size={theme.spacing.unit * 2}
-									// tslint:disable-next-line: jsx-no-lambda
-									onPress={() => remove(index)}
+									onPress={RemoveFields(remove, index)}
 								/>
 							</View>
 						</View>
@@ -92,8 +99,7 @@ export const FormArrayField = (props: FormArrayFieldProps) => {
 							title="Add"
 							variant="outlined"
 							icon={{ type: 'icon', name: 'plus' }}
-							// tslint:disable-next-line: jsx-no-lambda
-							onPress={() => push({})}
+							onPress={PushFields(push)}
 						/>
 					</View>
 				</React.Fragment>
