@@ -18,8 +18,7 @@ export const networkError = {
 			name: 'ServerParseError',
 			response: {},
 			statusCode: 402,
-			bodyText:
-				`<!DOCTYPE html>\n<html lang="en">\n
+			bodyText: `<!DOCTYPE html>\n<html lang="en">\n
 				<head>\n<meta charset="utf-8">\n
 				<title>Error</title>\n</head>\n
 				<body>\n<pre>Cannot POST /graphql</pre>\n</body>\n</html>\n`,
