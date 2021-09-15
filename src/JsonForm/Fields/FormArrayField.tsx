@@ -17,6 +17,7 @@ export interface FormArrayFieldStyles {
 export interface FormArrayFieldProps {
 	type: 'array';
 	name: string;
+	label: string;
 	fields: FormFieldProps[];
 	style?: ViewStyle;
 	styles?: Partial<FormArrayFieldStyles>;
