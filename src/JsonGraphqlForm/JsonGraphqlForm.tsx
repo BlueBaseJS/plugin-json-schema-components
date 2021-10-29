@@ -1,13 +1,12 @@
+import { ApolloError, FetchResult, useMutation, useQuery } from '@apollo/client';
 import { FormikContextType, FormikHelpers, FormikValues } from 'formik';
 import { JsonFormProps, JsonFormSchema } from '../JsonForm';
-import { MutationComponentOptions, QueryComponentOptions } from '@apollo/react-components';
+import { MutationComponentOptions, QueryComponentOptions } from '@apollo/client/react/components';
 import { Omit, getComponent, useBlueBase } from '@bluebase/core';
 import React, { useCallback } from 'react';
 import { graphqlToFormErrors, noop } from './helpers';
-import { useMutation, useQuery } from '@apollo/react-hooks';
 
-import { ApolloError } from 'apollo-client';
-import { FetchResult } from 'apollo-link';
+
 import { StatefulComponent } from '@bluebase/components';
 import get from 'lodash.get';
 
@@ -116,7 +115,7 @@ export function JsonGraphqlForm<Values extends FormikValues>(props: JsonGraphqlF
 
 			// If there was an onSuccess param, call it
 			onSuccessFn!(mutationResult, values, actions);
-		} catch (error) {
+		} catch (error: any) {
 
 			// Bummer! Mutation was not successful
 			setSubmitting(false);

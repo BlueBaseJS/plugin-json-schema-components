@@ -5,7 +5,7 @@ import { EditProfileProfileForm, SignupForm, mocks } from '../__stories__';
 import { BlueBaseApp } from '@bluebase/core';
 import BlueBasePluginApollo from '@bluebase/plugin-apollo';
 import { FormikContextType } from 'formik';
-import { MockedProvider } from '@apollo/react-testing';
+import { MockedProvider } from '@apollo/client/testing';
 import Plugin from '../../index';
 import React from 'react';
 import { mount } from 'enzyme';

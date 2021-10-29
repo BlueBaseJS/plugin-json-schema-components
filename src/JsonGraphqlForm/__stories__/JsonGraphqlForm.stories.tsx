@@ -1,6 +1,6 @@
 import { Card } from '@bluebase/components';
 import { EditProfileProfileForm } from './EditProfileProfileForm';
-import { MockedProvider } from '@apollo/react-testing';
+import { MockedProvider } from '@apollo/client/testing';
 import React from 'react';
 import { SignupForm } from './SignupForm';
 import { mocks } from '.';

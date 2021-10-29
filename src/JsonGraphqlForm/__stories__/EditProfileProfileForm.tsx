@@ -1,7 +1,7 @@
 import { JsonGraphqlFormProps } from '..';
 import React from 'react';
 import { getComponent } from '@bluebase/core';
-import gql from 'graphql-tag';
+import { gql } from '@apollo/client';
 
 export const ViewerQuery = gql`
 	{

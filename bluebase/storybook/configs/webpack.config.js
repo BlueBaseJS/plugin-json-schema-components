@@ -1,14 +1,14 @@
-const { withUnimodules } = require('@expo/webpack-config/addons');
 const { resolve } = require('path');
+const createExpoWebpackConfigAsync = require('@expo/webpack-config');
 
-module.exports = ({ config }) => {
-	return withUnimodules(
-		config,
-		{
-			projectRoot: resolve(__dirname, '../../../'),
-		},
-		{
-			supportsFontLoading: false,
-		}
-	);
+// Expo CLI will await this method so you can optionally return a promise.
+module.exports = async function(env, argv) {
+	const config = await createExpoWebpackConfigAsync({
+		...env,
+		mode: 'development',
+		projectRoot: resolve(__dirname, '../../../'),
+	}, argv);
+
+	// Finally return the new config for the CLI to use.
+	return config;
 };
