@@ -1,15 +1,15 @@
-import { Card } from '@bluebase/components';
-import { EditProfileProfileForm } from './EditProfileProfileForm';
 import { MockedProvider } from '@apollo/client/testing';
-import React from 'react';
-import { SignupForm } from './SignupForm';
-import { mocks } from '.';
+import { Card } from '@bluebase/components';
 import storiesOf from '@bluebase/storybook-addon';
+import React from 'react';
+
+import { mocks } from '.';
+import { EditProfileProfileForm } from './EditProfileProfileForm';
+import { SignupForm } from './SignupForm';
 
 const onSuccess = (_res: any, _vals: any, { setStatus }: any) => setStatus({ success: ['Done!'] });
 
 storiesOf('JsonGraphqlForm', module)
-
 
 	.add('With Network Error', () => (
 		<Card style={{ width: 400, margin: 40 }}>
@@ -19,7 +19,7 @@ storiesOf('JsonGraphqlForm', module)
 
 	.add('With Authentication Error', () => (
 		<Card style={{ width: 400, margin: 40 }}>
-			<MockedProvider mocks={[mocks.graphQLErrorsUnAuthenticated]} addTypename={false}>
+			<MockedProvider mocks={[mocks.graphQLErrorsUnAuthenticated as any]} addTypename={false}>
 				<SignupForm />
 			</MockedProvider>
 		</Card>
@@ -27,7 +27,7 @@ storiesOf('JsonGraphqlForm', module)
 
 	.add('With Bad User Input', () => (
 		<Card style={{ width: 400, margin: 40 }}>
-			<MockedProvider mocks={[mocks.graphQLErrorsBadUserInput]} addTypename={false}>
+			<MockedProvider mocks={[mocks.graphQLErrorsBadUserInput as any]} addTypename={false}>
 				<SignupForm />
 			</MockedProvider>
 		</Card>

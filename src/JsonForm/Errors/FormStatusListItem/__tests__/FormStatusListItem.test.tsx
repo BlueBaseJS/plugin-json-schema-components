@@ -1,11 +1,11 @@
 import { BlueBaseApp, getComponent } from '@bluebase/core';
-
-import { FormStatusListItem } from '../FormStatusListItem';
 import MaterialUIPlugin from '@bluebase/plugin-material-ui';
-import Plugin from '../../../..';
-import React from 'react';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
+import React from 'react';
+
+import Plugin from '../../../..';
+import { FormStatusListItem } from '../FormStatusListItem';
 
 describe('FormStatusListItem', () => {
 	it('should render all formListItem with success scenario', async () => {
@@ -13,7 +13,7 @@ describe('FormStatusListItem', () => {
 
 		const component = mount(
 			<BlueBaseApp plugins={[Plugin, MaterialUIPlugin]}>
-				<FormStatusListItem type="success">{'Form is submitted successfully'}</FormStatusListItem>
+				<FormStatusListItem type="success">Form is submitted successfully</FormStatusListItem>
 			</BlueBaseApp>
 		);
 		await waitForElement(component as any, FormStatusListItem);
@@ -36,7 +36,7 @@ describe('FormStatusListItem', () => {
 
 		const component = mount(
 			<BlueBaseApp plugins={[Plugin, MaterialUIPlugin]}>
-				<FormStatusListItem type="warning">{'Form fields are missing'}</FormStatusListItem>
+				<FormStatusListItem type="warning">Form fields are missing</FormStatusListItem>
 			</BlueBaseApp>
 		);
 		await waitForElement(component as any, FormStatusListItem);
@@ -59,7 +59,7 @@ describe('FormStatusListItem', () => {
 		const component = mount(
 			<BlueBaseApp plugins={[Plugin, MaterialUIPlugin]}>
 				<FormStatusListItem type="error" divider>
-					{'Form is incomplete'}
+					Form is incomplete
 				</FormStatusListItem>
 			</BlueBaseApp>
 		);

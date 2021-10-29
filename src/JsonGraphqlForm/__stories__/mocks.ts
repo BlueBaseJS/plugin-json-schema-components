@@ -1,5 +1,5 @@
-import { SignupMutation } from './SignupForm';
 import { ViewerQuery } from './EditProfileProfileForm';
+import { SignupMutation } from './SignupForm';
 
 // tslint:disable: max-line-length object-literal-sort-keys
 

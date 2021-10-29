@@ -1,6 +1,5 @@
+import { connect, FormikContextType } from 'formik';
 import * as React from 'react';
-
-import { FormikContextType, connect } from 'formik';
 
 export interface FormikEffectProps<Values> {
 	onChange: (current: FormikContextType<Values>, prev: FormikContextType<Values>) => void;

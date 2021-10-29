@@ -1,8 +1,9 @@
-import { FormikValues } from 'formik';
-import { JsonGraphqlFormProps } from '../';
-import React from 'react';
-import { getComponent } from '@bluebase/core';
 import { gql } from '@apollo/client';
+import { getComponent } from '@bluebase/core';
+import { FormikValues } from 'formik';
+import React from 'react';
+
+import { JsonGraphqlFormProps } from '../';
 
 export const SignupMutation = gql`
 	mutation SignupMutation($data: JSON) {

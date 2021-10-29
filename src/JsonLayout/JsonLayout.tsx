@@ -1,8 +1,8 @@
-import { BlueBase, MaybeArray, useBlueBase } from '@bluebase/core';
-import { JsonComponentNode, JsonSchemaParser } from '../lib';
-
 import { BlueBaseFilter } from '@bluebase/components';
+import { BlueBase, MaybeArray, useBlueBase } from '@bluebase/core';
 import React from 'react';
+
+import { JsonComponentNode, JsonSchemaParser } from '../lib';
 
 export interface JsonLayoutProps {
 	/** JSON Schema. */

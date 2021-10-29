@@ -1,12 +1,12 @@
 import { BlueBaseApp, BlueBaseAppError } from '@bluebase/core';
-import { JsonLayout, createJsonLayout } from '../';
-
-import React from 'react';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
+import React from 'react';
+
+import { createJsonLayout, JsonLayout } from '../';
 
 describe('JsonLayout', () => {
-	test(`should render a text component with red color`, async () => {
+	test('should render a text component with red color', async () => {
 		const wrapper = mount(
 			<BlueBaseApp>
 				<JsonLayout
@@ -33,7 +33,7 @@ describe('JsonLayout', () => {
 		).toBe('This component is generated through JsonLayout Component');
 	});
 
-	test(`should render a View when Component name is "RCTView"`, async () => {
+	test('should render a View when Component name is "RCTView"', async () => {
 		const wrapper = mount(
 			<BlueBaseApp>
 				<JsonLayout
@@ -52,7 +52,7 @@ describe('JsonLayout', () => {
 		expect(wrapper.find('View[testID="view-test"]').exists()).toBe(true);
 	});
 
-	test(`should create layout through createJsonLayout function`, async () => {
+	test('should create layout through createJsonLayout function', async () => {
 		const Layout = createJsonLayout({
 			schema: {
 				component: 'Text',
@@ -81,7 +81,7 @@ describe('JsonLayout', () => {
 		).toBe('This component is generated through JsonLayout Component');
 	});
 
-	test(`should render a text component with red color that is processed by filters`, async () => {
+	test('should render a text component with red color that is processed by filters', async () => {
 		const filter = (schema: any, args: { style: any }) => ({
 			...schema,
 			props: {
@@ -122,7 +122,7 @@ describe('JsonLayout', () => {
 		).toBe('Content changed by filter!');
 	});
 
-	test(`should render a null for unknown component`, async () => {
+	test('should render a null for unknown component', async () => {
 		const wrapper = mount(
 			<BlueBaseApp ErrorComponent={BlueBaseAppError}>
 				<JsonLayout

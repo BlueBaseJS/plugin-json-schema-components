@@ -1,16 +1,16 @@
 import 'cross-fetch/polyfill';
 
-import { EditProfileProfileForm, SignupForm, mocks } from '../__stories__';
-
+import { MockedProvider } from '@apollo/client/testing';
 import { BlueBaseApp } from '@bluebase/core';
 import BlueBasePluginApollo from '@bluebase/plugin-apollo';
-import { FormikContextType } from 'formik';
-import { MockedProvider } from '@apollo/client/testing';
-import Plugin from '../../index';
-import React from 'react';
 import { mount } from 'enzyme';
-import wait from 'waait';
 import { waitForElement } from 'enzyme-async-helpers';
+import { FormikContextType } from 'formik';
+import React from 'react';
+import wait from 'waait';
+
+import Plugin from '../../index';
+import { EditProfileProfileForm, mocks, SignupForm } from '../__stories__';
 
 describe('JsonGraphqlForm', () => {
 	describe('GraphQL', () => {

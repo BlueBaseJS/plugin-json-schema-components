@@ -1,17 +1,17 @@
-import "";
-
-import { FieldWrapperProps, isHidden } from '../FormFields';
+import '';
 
 import { BlueBaseApp } from '@bluebase/core';
-import BluebasePluginMaterialUI from "@bluebase/plugin-material-ui";
-import { FormFieldProps } from '../Fields';
-import { FormFields } from '..';
-import { Formik } from 'formik';
-import Plugin from '../../index';
-import React from 'react';
-import { Text } from 'react-native';
+import BluebasePluginMaterialUI from '@bluebase/plugin-material-ui';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
+import { Formik } from 'formik';
+import React from 'react';
+import { Text } from 'react-native';
+
+import Plugin from '../../index';
+import { FormFields } from '..';
+import { FormFieldProps } from '../Fields';
+import { FieldWrapperProps, isHidden } from '../FormFields';
 
 const fields: FormFieldProps[] = [{
 	helperText: 'please enter username',
@@ -26,7 +26,7 @@ const fields: FormFieldProps[] = [{
 	schema: { component: 'Text', text: 'Text Component' },
 	type: 'component',
 }, {
-	testID: "Range",
+	testID: 'Range',
 	label: 'Temp',
 	max: 32,
 	min: 16,
@@ -48,9 +48,7 @@ const FieldWrapper = (props: FieldWrapperProps) => (
 	<Text>{props.field.type}</Text>
 );
 
-
 describe('FormFields', () => {
-
 
 	it('should render all form fields in the schema', async () => {
 
@@ -65,7 +63,6 @@ describe('FormFields', () => {
 		);
 
 		await waitForElement(component as any, FormFields);
-
 
 		// Check fields
 		expect(component.find('FormTextInput[testID="userInput"]').last().prop('name')).toBe('username');
@@ -121,7 +118,6 @@ describe('FormFields', () => {
 		expect(component.find('JsonLayout Text').last().text()).toBe('Text Component');
 	});
 
-
 	it('should wrap fields in FieldWrapper component', async () => {
 
 		const onSubmit = jest.fn();
@@ -143,7 +139,6 @@ describe('FormFields', () => {
 		expect(component.find('FieldWrapper').at(2).text()).toBe('range');
 	});
 
-
 	describe('isHidden', () => {
 
 		const values = {
@@ -156,21 +151,17 @@ describe('FormFields', () => {
 			expect(isHidden(values)).toBe(false);
 		});
 
-
 		it('should return true when hide value matches', () => {
 			expect(isHidden(values, { hide: { temp: [26] } })).toBe(true);
 		});
-
 
 		it('should return false when hide value doesnt match', () => {
 			expect(isHidden(values, { hide: { temp: [24] } })).toBe(false);
 		});
 
-
 		it('should return true when show value matches', () => {
 			expect(isHidden(values, { show: { temp: [26] } })).toBe(false);
 		});
-
 
 		it('should return false when show value doesnt match', () => {
 			expect(isHidden(values, { show: { temp: [24] } })).toBe(true);

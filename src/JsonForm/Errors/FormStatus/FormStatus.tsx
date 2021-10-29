@@ -1,9 +1,9 @@
-import { Theme, getComponent, useStyles } from '@bluebase/core';
+import { getComponent, Theme, useStyles } from '@bluebase/core';
+import { useFormikContext } from 'formik';
+import React from 'react';
 import { View, ViewStyle } from 'react-native';
 
 import { FormStatusListProps } from '../FormStatusList';
-import React from 'react';
-import { useFormikContext } from 'formik';
 
 const FormStatusList = getComponent<FormStatusListProps>('FormStatusList');
 

@@ -15,7 +15,7 @@
 [![Build Status](https://travis-ci.com/BlueBaseJS/plugin-json-schema-components.svg?branch=master)](https://travis-ci.com/BlueBaseJS/plugin-json-schema-components)
 [![codecov](https://codecov.io/gh/BlueBaseJS/plugin-json-schema-components/branch/master/graph/badge.svg)](https://codecov.io/gh/BlueBaseJS/plugin-json-schema-components)
 [![Greenkeeper badge](https://badges.greenkeeper.io/BlueBaseJS/plugin-json-schema-components.svg)](https://greenkeeper.io/) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/BlueBaseJS/plugin-json-schema-components/blob/master/CONTRIBUTING.md)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/3c79162871414b6aa7c15d1a423adeca)](https://www.codacy.com/app/BlueBaseJS/plugin-json-schema-components?utm_source=github.com&utm_medium=referral&utm_content=BlueBaseJS/plugin-json-schema-components&utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/3c79162871414b6aa7c15d1a423adeca)](https://www.codacy.com/app/BlueBaseJS/plugin-json-schema-components?utm\_source=github.com\&utm\_medium=referral\&utm\_content=BlueBaseJS/plugin-json-schema-components\&utm\_campaign=Badge\_Grade)
 [![Known Vulnerabilities](https://snyk.io/test/github/BlueBaseJS/plugin-json-schema-components/badge.svg)](https://snyk.io/test/github/BlueBaseJS/plugin-json-schema-components)
 
 ## 🤝 Compatibility
@@ -26,27 +26,27 @@
 
 ## Docs
 
--   [Storybook](https://bluebasejs.github.io/plugin-json-schema-components/storybook/)
--   [API Docs](https://bluebasejs.github.io/plugin-json-schema-components/)
+*   [Storybook](https://bluebasejs.github.io/plugin-json-schema-components/storybook/)
+*   [API Docs](https://bluebasejs.github.io/plugin-json-schema-components/)
 
 ## Input Fields
 
 This plugin provides following input fields out of the box:
 
--   [x] checkbox:	(FormCheckboxInput)
--   [ ] color
--   [x] date:	(FormDateInput)
--   [x] email: (FormEmailInput)
--   [ ] file
--   [x] number: (FormNumberInput)
--   [x] password: (FormPasswordInput)
--   [x] picker:	(FormPickerInput)
--   [x] radio-group:	(FormRadioGroupInput)
--   [x] range:	(FormRangeInput)
--   [x] reset: (FormResetButton)
--   [x] search:	(FormSearchInput)
--   [x] submit: (FormSubmitButton)
--   [x] tel:	(FormTelInput)
--   [x] text: (FormTextInput)
--   [x] time:	(FormTimeInput)
--   [x] url: (FormUrlInput)
+*   \[x] checkbox:	(FormCheckboxInput)
+*   \[ ] color
+*   \[x] date:	(FormDateInput)
+*   \[x] email: (FormEmailInput)
+*   \[ ] file
+*   \[x] number: (FormNumberInput)
+*   \[x] password: (FormPasswordInput)
+*   \[x] picker:	(FormPickerInput)
+*   \[x] radio-group:	(FormRadioGroupInput)
+*   \[x] range:	(FormRangeInput)
+*   \[x] reset: (FormResetButton)
+*   \[x] search:	(FormSearchInput)
+*   \[x] submit: (FormSubmitButton)
+*   \[x] tel:	(FormTelInput)
+*   \[x] text: (FormTextInput)
+*   \[x] time:	(FormTimeInput)
+*   \[x] url: (FormUrlInput)

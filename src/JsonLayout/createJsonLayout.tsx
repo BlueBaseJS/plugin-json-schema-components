@@ -1,6 +1,6 @@
-import { JsonLayout, JsonLayoutProps } from './JsonLayout';
-
 import React from 'react';
+
+import { JsonLayout, JsonLayoutProps } from './JsonLayout';
 
 export const createJsonLayout = (options: JsonLayoutProps) => {
 	const Component = () => (<JsonLayout {...options} />);

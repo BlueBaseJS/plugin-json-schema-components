@@ -1,12 +1,13 @@
 import { BlueBaseApp } from '@bluebase/core';
 import BlueBasePluginMaterialUI from '@bluebase/plugin-material-ui';
-import { FormArrayField } from '../FormArrayField';
-import { FormSubmitButton } from '../FormSubmitButton';
-import { Formik } from 'formik';
-import Plugin from '../../../index';
-import React from 'react';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
+import { Formik } from 'formik';
+import React from 'react';
+
+import Plugin from '../../../index';
+import { FormArrayField } from '../FormArrayField';
+import { FormSubmitButton } from '../FormSubmitButton';
 
 const fieldProps = [
 	{

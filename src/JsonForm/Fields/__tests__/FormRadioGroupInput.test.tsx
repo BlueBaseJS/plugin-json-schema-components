@@ -1,11 +1,12 @@
 import { BlueBaseApp } from '@bluebase/core';
-import { FormRadioGroupInput } from '../FormRadioGroupInput';
-import { Formik } from 'formik';
 import MaterialUIPlugin from '@bluebase/plugin-material-ui';
-import Plugin from '../../../index';
-import React from 'react';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
+import { Formik } from 'formik';
+import React from 'react';
+
+import Plugin from '../../../index';
+import { FormRadioGroupInput } from '../FormRadioGroupInput';
 
 const fieldProps = {
 	label: 'Language',
@@ -25,9 +26,7 @@ const initialValues = {
 	'lang': 'js',
 };
 
-
 describe('FormRadioGroupInput', () => {
-
 
 	it('should render a radio-group with value "js"', async () => {
 

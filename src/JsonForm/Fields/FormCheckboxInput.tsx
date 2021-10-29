@@ -1,9 +1,9 @@
 import { Checkbox, CheckboxProps } from '@bluebase/components';
 import { getComponent, useBlueBase } from '@bluebase/core';
+import { useField } from 'formik';
+import React from 'react';
 
 import { BaseFormFieldProps } from '../BaseFormField';
-import React from 'react';
-import { useField } from 'formik';
 
 export interface FormCheckboxInputProps extends CheckboxProps {
 	type: 'checkbox';

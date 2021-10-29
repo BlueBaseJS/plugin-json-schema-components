@@ -1,11 +1,12 @@
 import { BlueBaseApp } from '@bluebase/core';
-import BlueBasePluginMaterialUI from "@bluebase/plugin-material-ui";
-import { FormSwitchInput } from '../FormSwitchInput';
-import { Formik } from 'formik';
-import Plugin from '../../../index';
-import React from 'react';
+import BlueBasePluginMaterialUI from '@bluebase/plugin-material-ui';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
+import { Formik } from 'formik';
+import React from 'react';
+
+import Plugin from '../../../index';
+import { FormSwitchInput } from '../FormSwitchInput';
 const fieldProps = {
 	label: 'Auto Login',
 	name: 'auto-login',
@@ -16,9 +17,7 @@ const fieldProps = {
 // 	'auto-login': true,
 // };
 
-
 describe('FormSwitchInput', () => {
-
 
 	it('should a switch with value true', async () => {
 
@@ -41,7 +40,6 @@ describe('FormSwitchInput', () => {
 		expect(component.find('Switch').last().prop('checked')).toBe(true);
 	});
 
-
 	it('should a switch with value false', async () => {
 
 		const onSubmit = jest.fn();
@@ -62,7 +60,6 @@ describe('FormSwitchInput', () => {
 		expect(component.find('Switch').last().prop('name')).toBe('auto-login');
 		expect(component.find('Switch').last().prop('checked')).toBe(false);
 	});
-
 
 	it('should update switch value from onValueChange callback', async () => {
 

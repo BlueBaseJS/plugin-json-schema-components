@@ -1,15 +1,14 @@
-import { BlueBaseApp, getComponent } from '@bluebase/core';
 import { Slider, Text } from '@bluebase/components';
-
-import { BaseFormFieldProps } from '..';
-import BluebasePluginMaterialUI from "@bluebase/plugin-material-ui";
-import Plugin from '../../index';
-import React from 'react';
+import { BlueBaseApp, getComponent } from '@bluebase/core';
+import BluebasePluginMaterialUI from '@bluebase/plugin-material-ui';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
+import React from 'react';
+
+import Plugin from '../../index';
+import { BaseFormFieldProps } from '..';
 
 describe('BaseFormField', () => {
-
 
 	it('should render all elements', async () => {
 
@@ -36,7 +35,6 @@ describe('BaseFormField', () => {
 		expect(component.find('[testID="base-form-field-right"] Text').last().text()).toBe('26');
 
 	});
-
 
 	it('should not render any elements', async () => {
 

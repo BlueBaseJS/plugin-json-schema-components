@@ -1,9 +1,9 @@
 import { Radio, RadioGroup, RadioGroupProps, RadioProps } from '@bluebase/components';
-
-import { BaseFormFieldProps } from '../BaseFormField';
-import React from 'react';
 import { getComponent } from '@bluebase/core';
 import { useField } from 'formik';
+import React from 'react';
+
+import { BaseFormFieldProps } from '../BaseFormField';
 
 export interface FormRadioGroupInputProps extends RadioGroupProps {
 	type: 'radio-group',

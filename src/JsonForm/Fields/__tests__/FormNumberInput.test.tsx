@@ -1,10 +1,11 @@
 import { BlueBaseApp } from '@bluebase/core';
-import { FormNumberInput } from '../FormNumberInput';
-import { Formik } from 'formik';
-import Plugin from '../../../index';
-import React from 'react';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
+import { Formik } from 'formik';
+import React from 'react';
+
+import Plugin from '../../../index';
+import { FormNumberInput } from '../FormNumberInput';
 
 const fieldProps = {
 	label: 'Amount',
@@ -17,9 +18,7 @@ const initialValues = {
 	'amount': 126,
 };
 
-
 describe('FormNumberInput', () => {
-
 
 	it('should render all form fields in the schema', async () => {
 

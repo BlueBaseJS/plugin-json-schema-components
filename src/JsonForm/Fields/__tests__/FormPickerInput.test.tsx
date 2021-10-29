@@ -1,10 +1,11 @@
 import { BlueBaseApp } from '@bluebase/core';
-import { FormPickerInput } from '../FormPickerInput';
-import { Formik } from 'formik';
-import Plugin from '../../../index';
-import React from 'react';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
+import { Formik } from 'formik';
+import React from 'react';
+
+import Plugin from '../../../index';
+import { FormPickerInput } from '../FormPickerInput';
 
 const fieldProps = {
 	label: 'Language',
@@ -24,9 +25,7 @@ const initialValues = {
 	'lang': 'js',
 };
 
-
 describe('FormPickerInput', () => {
-
 
 	it('should render a picker with value "js"', async () => {
 

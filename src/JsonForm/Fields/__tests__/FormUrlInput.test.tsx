@@ -1,10 +1,11 @@
 import { BlueBaseApp } from '@bluebase/core';
-import { FormUrlInput } from '../FormUrlInput';
-import { Formik } from 'formik';
-import Plugin from '../../../index';
-import React from 'react';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
+import { Formik } from 'formik';
+import React from 'react';
+
+import Plugin from '../../../index';
+import { FormUrlInput } from '../FormUrlInput';
 
 const fieldProps = {
 	label: 'Home Page',
@@ -17,9 +18,7 @@ const initialValues = {
 	'home-page': 'home.page',
 };
 
-
 describe('FormUrlInput', () => {
-
 
 	it('should render all form fields in the schema', async () => {
 
