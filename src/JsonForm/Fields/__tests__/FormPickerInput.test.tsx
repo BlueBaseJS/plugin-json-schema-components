@@ -1,3 +1,4 @@
+import { Noop } from '@bluebase/components';
 import { BlueBaseApp } from '@bluebase/core';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
@@ -32,7 +33,7 @@ describe('FormPickerInput', () => {
 		const onSubmit = jest.fn();
 
 		const component = mount(
-			<BlueBaseApp plugins={[Plugin]}>
+			<BlueBaseApp plugins={[Plugin]} components={{ Picker: Noop }}>
 				<Formik initialValues={initialValues} onSubmit={onSubmit}>
 					<FormPickerInput {...fieldProps as any} />
 				</Formik>
@@ -53,7 +54,7 @@ describe('FormPickerInput', () => {
 		const onSubmit = jest.fn();
 
 		const component = mount(
-			<BlueBaseApp plugins={[Plugin]}>
+			<BlueBaseApp plugins={[Plugin]} components={{ Picker: Noop }}>
 				<Formik initialValues={initialValues} onSubmit={onSubmit}>
 					<FormPickerInput {...fieldProps as any} />
 				</Formik>
