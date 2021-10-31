@@ -1,3 +1,13 @@
+# [4.0.0-beta.6](https://github.com/BlueBaseJS/plugin-json-schema-components/compare/v4.0.0-beta.5...v4.0.0-beta.6) (2021-10-31)
+
+### Features
+
+*   Removed JsonGraphqlForm component ([e9746e4](https://github.com/BlueBaseJS/plugin-json-schema-components/commit/e9746e4248cb6664fb419cacd68b18f44d3aad75))
+
+### BREAKING CHANGES
+
+*   JsonGraphqlForm is removed from this plugin. To use this component, please install @bluebase/plugin-json-graphql-components module.
+
 # [4.0.0-beta.5](https://github.com/BlueBaseJS/plugin-json-schema-components/compare/v4.0.0-beta.4...v4.0.0-beta.5) (2021-10-31)
 
 ### Bug Fixes
