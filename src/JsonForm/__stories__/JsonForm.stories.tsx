@@ -312,6 +312,7 @@ storiesOf('JsonForm', module)
 						{
 							name: 'friends',
 							type: 'array',
+							label: 'New Fields',
 
 							fields: [
 								{

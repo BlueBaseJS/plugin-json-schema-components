@@ -1,4 +1,4 @@
-import { Button, IconButton, View } from '@bluebase/components';
+import { Button, IconButton, Text, View } from '@bluebase/components';
 import { FieldArray, useField } from 'formik';
 import { FieldWrapperProps, FormFields } from '../FormFields';
 import { Theme, useStyles, useTheme } from '@bluebase/core';
@@ -11,11 +11,13 @@ export interface FormArrayFieldStyles {
 	root: ViewStyle;
 	fieldActions: ViewStyle;
 	fieldItemActions: ViewStyle;
+	textField: ViewStyle;
 }
 
 export interface FormArrayFieldProps {
 	type: 'array';
 	name: string;
+	label: string;
 	fields: FormFieldProps[];
 	style?: ViewStyle;
 	styles?: Partial<FormArrayFieldStyles>;
@@ -45,13 +47,17 @@ const defaultStyles = (theme: Theme): FormArrayFieldStyles => ({
 	},
 
 	fieldActions: {
-		alignItems: 'flex-start',
 		padding: theme.spacing.unit * 2,
+		flexDirection: "row",
+		alignItems: "center"
 	},
 
 	fieldItemActions: {
 		justifyContent: 'center',
 	},
+	textField: {
+		paddingHorizontal: 10
+	}
 });
 
 /**
@@ -59,7 +65,7 @@ const defaultStyles = (theme: Theme): FormArrayFieldStyles => ({
  * @param props
  */
 export const FormArrayField = (props: FormArrayFieldProps) => {
-	const { style } = props;
+	const { style, label } = props;
 	const { theme } = useTheme();
 	const styles = useStyles<FormArrayFieldStyles>('FormArrayField', props, defaultStyles);
 
@@ -95,6 +101,7 @@ export const FormArrayField = (props: FormArrayFieldProps) => {
 						</View>
 					))}
 					<View style={styles.fieldActions}>
+						<Text style={styles.textField}>{label}</Text>
 						<Button
 							title="Add"
 							variant="outlined"
