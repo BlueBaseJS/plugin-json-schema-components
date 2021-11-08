@@ -91,7 +91,7 @@
     "@babel/core": "^7.11.6",
     "@bluebase/code-standards": "^2.8.0",
     "@bluebase/core": "^6.1.0",
-    "@bluebase/plugin-apollo": "^1.1.1",
+    "@bluebase/plugin-apollo": "^4.0.0",
     "@bluebase/plugin-material-ui": "^3.5.0",
     "@bluebase/plugin-react-native-paper": "^3.1.1",
     "@bluebase/plugin-vector-icons": "^0.4.0",
