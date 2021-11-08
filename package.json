@@ -96,7 +96,7 @@
     "@bluebase/plugin-react-native-paper": "^3.1.1",
     "@bluebase/plugin-vector-icons": "^0.4.0",
     "@bluebase/storybook-addon": "^3.0.0",
-    "@expo/webpack-config": "^0.12.16",
+    "@expo/webpack-config": "^0.13.3",
     "@storybook/addon-essentials": "^6.0.22",
     "@storybook/react": "^6.0.22",
     "@storybook/react-native": "^5.3.23",
