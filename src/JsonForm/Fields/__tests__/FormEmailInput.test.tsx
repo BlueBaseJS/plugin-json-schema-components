@@ -1,10 +1,11 @@
 import { BlueBaseApp } from '@bluebase/core';
-import { FormEmailInput } from '../FormEmailInput';
-import { Formik } from 'formik';
-import Plugin from '../../../index';
-import React from 'react';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
+import { Formik } from 'formik';
+import React from 'react';
+
+import Plugin from '../../../index';
+import { FormEmailInput } from '../FormEmailInput';
 
 const fieldProps = {
 	label: 'Email',
@@ -17,9 +18,7 @@ const initialValues = {
 	'email': 'foo@bar.com',
 };
 
-
 describe('FormEmailInput', () => {
-
 
 	it('should render all form fields in the schema', async () => {
 

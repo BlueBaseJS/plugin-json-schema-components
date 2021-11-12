@@ -1,11 +1,12 @@
 import { BlueBaseApp } from '@bluebase/core';
-import { FormResetButton } from '../FormResetButton';
-import { Formik } from 'formik';
 import MaterialUIPlugin from '@bluebase/plugin-material-ui';
-import Plugin from '../../../index';
-import React from 'react';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
+import { Formik } from 'formik';
+import React from 'react';
+
+import Plugin from '../../../index';
+import { FormResetButton } from '../FormResetButton';
 
 const fieldProps = {
 	name: 'reset',
@@ -15,9 +16,7 @@ const fieldProps = {
 const initialValues = {
 };
 
-
 describe('FormResetButton', () => {
-
 
 	it('should render all form fields in the schema', async () => {
 

@@ -1,13 +1,13 @@
 import { BlueBaseApp, getComponent } from '@bluebase/core';
-
-import { Formik } from 'formik';
-import { InlineFields } from '../InlineFields';
 import MaterialUIPlugin from '@bluebase/plugin-material-ui';
-import Plugin from '../../../index';
-import React from 'react';
 import deepmerge from 'deepmerge';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
+import { Formik } from 'formik';
+import React from 'react';
+
+import Plugin from '../../../index';
+import { InlineFields } from '../InlineFields';
 
 const fieldProps = {
 	direction: 'right',

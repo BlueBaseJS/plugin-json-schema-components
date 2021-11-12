@@ -1,10 +1,11 @@
 import { BlueBaseApp } from '@bluebase/core';
-import { FormPasswordInput } from '../FormPasswordInput';
-import { Formik } from 'formik';
-import Plugin from '../../../index';
-import React from 'react';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
+import { Formik } from 'formik';
+import React from 'react';
+
+import Plugin from '../../../index';
+import { FormPasswordInput } from '../FormPasswordInput';
 
 const fieldProps = {
 	label: 'Password',
@@ -17,9 +18,7 @@ const initialValues = {
 	'password': 'secret',
 };
 
-
 describe('FormPasswordInput', () => {
-
 
 	it('should render all form fields in the schema', async () => {
 

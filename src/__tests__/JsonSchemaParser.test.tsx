@@ -1,7 +1,8 @@
-import { JsonComponentNode, JsonSchemaParser } from '../JsonSchemaParser';
 import React from 'react';
 import { Text } from 'react-native';
 import renderer from 'react-test-renderer';
+
+import { JsonComponentNode, JsonSchemaParser } from '../JsonSchemaParser';
 
 const Timeline = ({ children, ...rest }: any) => <Text {...rest}>Timeline: {children}</Text>;
 const Post = ({ content, ...rest }: any) => <Text {...rest}>Post: {content}</Text>;

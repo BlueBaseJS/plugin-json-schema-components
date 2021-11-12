@@ -1,6 +1,7 @@
-import { FormTextInputProps } from './FormTextInput';
-import React from 'react';
 import { getComponent } from '@bluebase/core';
+import React from 'react';
+
+import { FormTextInputProps } from './FormTextInput';
 
 const FormTextInput = getComponent('FormTextInput');
 

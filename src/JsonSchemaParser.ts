@@ -2,9 +2,9 @@
  * Initial code take from https://github.com/TechniqueSoftware/react-json-schema
  */
 import { MaybeArray } from '@bluebase/core';
-import React from 'react';
 import isNil from 'lodash.isnil';
 import isString from 'lodash.isstring';
+import React from 'react';
 
 export interface JsonComponentNode {
 	component: string | React.ComponentType<any>;

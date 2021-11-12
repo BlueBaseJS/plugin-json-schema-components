@@ -1,12 +1,12 @@
-import { BlueBaseApp , createPlugin } from '@bluebase/core';
-import { FormCheckboxInput } from '../FormCheckboxInput';
-import { Formik } from 'formik';
+import { BlueBaseApp, createPlugin } from '@bluebase/core';
 import MaterialUIPlugin from '@bluebase/plugin-material-ui';
-import Plugin from '../../../index';
-import React from 'react';
-
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
+import { Formik } from 'formik';
+import React from 'react';
+
+import Plugin from '../../../index';
+import { FormCheckboxInput } from '../FormCheckboxInput';
 
 const fieldProps = {
 	label: 'Auto Login',
@@ -28,14 +28,12 @@ export const SamplePlugins = createPlugin({
 
 	ThingThingholderImage: { uri: 'https://placeimg.com/300/300/arch' },
 
-
 	components: {
 		Checkbox
 	}
 
 });
 describe('FormCheckboxInput', () => {
-
 
 	it('should a checkbox with value true', async () => {
 
@@ -58,7 +56,6 @@ describe('FormCheckboxInput', () => {
 		expect(component.find('Checkbox').last().prop('checked')).toBe(true);
 	});
 
-
 	it('should a checkbox with value false', async () => {
 
 		const onSubmit = jest.fn();
@@ -79,7 +76,6 @@ describe('FormCheckboxInput', () => {
 		expect(component.find('Checkbox').last().prop('name')).toBe('auto-login');
 		expect(component.find('Checkbox').last().prop('checked')).toBe(false);
 	});
-
 
 	it('should update checkbox value from onValueChange callback', async () => {
 

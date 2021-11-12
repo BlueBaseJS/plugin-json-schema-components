@@ -1,12 +1,13 @@
 import { BlueBaseApp } from '@bluebase/core';
 import BluebasePluginMaterialUI from '@bluebase/plugin-material-ui';
-import { FormFieldProps } from '../Fields';
-import { FormikContextType } from 'formik';
-import { JsonForm } from '../JsonForm';
-import Plugin from '../../index';
-import React from 'react';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
+import { FormikContextType } from 'formik';
+import React from 'react';
+
+import Plugin from '../../index';
+import { FormFieldProps } from '../Fields';
+import { JsonForm } from '../JsonForm';
 
 const fields: FormFieldProps[] = [
 	{

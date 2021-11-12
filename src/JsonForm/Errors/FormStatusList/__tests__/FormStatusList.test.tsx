@@ -1,11 +1,11 @@
 import { BlueBaseApp, getComponent } from '@bluebase/core';
-
-import { FormStatusList as List } from '../FormStatusList';
 import MaterialUIPlugin from '@bluebase/plugin-material-ui';
-import Plugin from '../../../..';
-import React from 'react';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
+import React from 'react';
+
+import Plugin from '../../../..';
+import { FormStatusList as List } from '../FormStatusList';
 
 describe('FormStatusList', () => {
 	it('should render all error list with  items null', async () => {
@@ -13,7 +13,7 @@ describe('FormStatusList', () => {
 
 		const component = mount(
 			<BlueBaseApp plugins={[Plugin, MaterialUIPlugin]}>
-				<FormStatusList items={null} divider={true} />
+				<FormStatusList items={null} divider />
 			</BlueBaseApp>
 		);
 
@@ -27,7 +27,7 @@ describe('FormStatusList', () => {
 
 		const component = mount(
 			<BlueBaseApp plugins={[Plugin, MaterialUIPlugin]}>
-				<FormStatusList items={[]} divider={true} />
+				<FormStatusList items={[]} divider />
 			</BlueBaseApp>
 		);
 
@@ -74,7 +74,7 @@ describe('FormStatusList', () => {
 
 		const component = mount(
 			<BlueBaseApp plugins={[Plugin, MaterialUIPlugin]}>
-				<FormStatusList items={['item1', 'item2']} type="error" divider={true} />
+				<FormStatusList items={['item1', 'item2']} type="error" divider />
 			</BlueBaseApp>
 		);
 

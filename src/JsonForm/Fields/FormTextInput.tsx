@@ -1,9 +1,9 @@
 import { TextInput, TextInputProps } from '@bluebase/components';
-
-import { BaseFormFieldProps } from '../BaseFormField';
-import React from 'react';
 import { getComponent } from '@bluebase/core';
 import { useField } from 'formik';
+import React from 'react';
+
+import { BaseFormFieldProps } from '../BaseFormField';
 
 const BaseFormField = getComponent<BaseFormFieldProps>('BaseFormField');
 

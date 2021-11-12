@@ -1,10 +1,10 @@
-import { FieldResolutionMapType, getFormField } from './getFormField';
-import { FormFieldDisplayOptions, FormFieldProps } from './Fields';
 import { useBlueBase, useIntl } from '@bluebase/core';
-
-import React from 'react';
-import get from 'lodash.get';
 import { useFormikContext } from 'formik';
+import get from 'lodash.get';
+import React from 'react';
+
+import { FormFieldDisplayOptions, FormFieldProps } from './Fields';
+import { FieldResolutionMapType, getFormField } from './getFormField';
 
 export type renderFieldFn = (
 	field: FormFieldProps,
@@ -29,7 +29,6 @@ export type FormFieldsProps<T = {}> = {
 
 	fieldTypes?: FieldResolutionMapType;
 } & T;
-
 
 /**
  * Determines if a field should be hidden based on the displayOptions

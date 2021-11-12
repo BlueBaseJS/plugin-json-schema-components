@@ -1,14 +1,20 @@
-import { BlueBaseFilter, Body2, FormattedMessage, H6, View } from '@bluebase/components';
-import { Formik, FormikConfig, FormikContextType, FormikValues } from 'formik';
-import { StyleProp, TextStyle, ViewStyle } from 'react-native';
+import {
+	BlueBaseFilter,
+	Body2,
+	FormattedMessage,
+	H6,
+	View
+} from '@bluebase/components';
 import { Theme, useStyles } from '@bluebase/core';
+import { Formik, FormikConfig, FormikContextType, FormikValues } from 'formik';
+import React from 'react';
+import { StyleProp, TextStyle, ViewStyle } from 'react-native';
 
-import { FieldResolutionMapType } from './getFormField';
-import { Form } from './Form';
 import { FormFieldProps } from './Fields';
+import { Form } from './Form';
 import { FormFields } from './FormFields';
 import FormikEffect from './FormikEffect';
-import React from 'react';
+import { FieldResolutionMapType } from './getFormField';
 
 export interface FormProps<Values extends FormikValues> extends FormikConfig<Values> {
 	fields: FormFieldProps[];

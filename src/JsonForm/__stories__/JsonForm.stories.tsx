@@ -2,16 +2,16 @@ import {
 	BlueBase,
 	BlueBaseApp,
 	BlueBaseConsumer,
-	IntlMessages,
 	getComponent,
+	IntlMessages,
 } from '@bluebase/core';
+import storiesOf from '@bluebase/storybook-addon';
+import React from 'react';
 import { ScrollView, Text, TextInput, View } from 'react-native';
 
-import { FormTextInput } from '../Fields';
-import { JsonFormProps } from '..';
 import Plugin from '../../index';
-import React from 'react';
-import storiesOf from '@bluebase/storybook-addon';
+import { JsonFormProps } from '..';
+import { FormTextInput } from '../Fields';
 import { ui } from './plugins';
 
 const JsonForm = getComponent<
@@ -254,8 +254,6 @@ storiesOf('JsonForm', module)
 			/>
 		</ScrollView>
 	))
-
-
 
 	.add('Conditional Display', () => (
 		<ScrollView>

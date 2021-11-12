@@ -1,10 +1,10 @@
-import { FieldWrapperProps, FormFields } from '../FormFields';
+import { View } from '@bluebase/components';
+import { Theme } from '@bluebase/core';
+import React from 'react';
 import { StyleProp, ViewStyle } from 'react-native';
 
+import { FieldWrapperProps, FormFields } from '../FormFields';
 import { FormFieldProps } from './FormFieldProps';
-import React from 'react';
-import { Theme } from '@bluebase/core';
-import { View } from '@bluebase/components';
 
 export interface InlineFieldsStyles {
 	fieldContainer: StyleProp<ViewStyle>;

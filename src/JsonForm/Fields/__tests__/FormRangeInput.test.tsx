@@ -1,11 +1,12 @@
 import { BlueBaseApp } from '@bluebase/core';
 import BluebasePluginMaterialUI from '@bluebase/plugin-material-ui';
-import { FormRangeInput } from '../FormRangeInput';
-import { Formik } from 'formik';
-import Plugin from '../../../index';
-import React from 'react';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
+import { Formik } from 'formik';
+import React from 'react';
+
+import Plugin from '../../../index';
+import { FormRangeInput } from '../FormRangeInput';
 const fieldProps = {
 	label: 'Temp',
 	max: 32,
@@ -19,9 +20,7 @@ const initialValues = {
 	'temp': 26,
 };
 
-
 describe('FormRangeInput', () => {
-
 
 	it('should render a slider with value 26', async () => {
 

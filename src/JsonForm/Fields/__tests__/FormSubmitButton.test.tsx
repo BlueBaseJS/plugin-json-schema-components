@@ -1,12 +1,13 @@
-import { BlueBaseApp } from '@bluebase/core';
 import { Button } from '@bluebase/components';
-import { FormSubmitButton } from '../FormSubmitButton';
-import { Formik } from 'formik';
+import { BlueBaseApp } from '@bluebase/core';
 import MaterialUIPlugin from '@bluebase/plugin-material-ui';
-import Plugin from '../../../index';
-import React from 'react';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
+import { Formik } from 'formik';
+import React from 'react';
+
+import Plugin from '../../../index';
+import { FormSubmitButton } from '../FormSubmitButton';
 
 const fieldProps = {
 	name: 'submit',
@@ -17,9 +18,7 @@ const fieldProps = {
 const initialValues = {
 };
 
-
 describe('FormSubmitButton', () => {
-
 
 	it('should render all form fields in the schema', async () => {
 

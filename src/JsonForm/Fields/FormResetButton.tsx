@@ -1,9 +1,8 @@
 import { Button, ButtonProps, View } from '@bluebase/components';
 import { Omit, Theme, useStyles } from '@bluebase/core';
-import { StyleProp, ViewStyle } from 'react-native';
-
-import React from 'react';
 import { useFormikContext } from 'formik';
+import React from 'react';
+import { StyleProp, ViewStyle } from 'react-native';
 
 export interface FormResetButtonStyles {
 	root: StyleProp<ViewStyle>;
@@ -37,7 +36,6 @@ export const FormResetButton = (props: FormResetButtonProps) => {
 		</View>
 	);
 };
-
 
 FormResetButton.defaultProps = {
 	name: 'reset',

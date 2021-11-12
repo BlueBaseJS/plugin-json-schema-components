@@ -1,11 +1,11 @@
 import { Button, IconButton, Text, View } from '@bluebase/components';
-import { FieldArray, useField } from 'formik';
-import { FieldWrapperProps, FormFields } from '../FormFields';
 import { Theme, useStyles, useTheme } from '@bluebase/core';
-
-import { FormFieldProps } from './FormFieldProps';
+import { FieldArray, useField } from 'formik';
 import React from 'react';
 import { ViewStyle } from 'react-native';
+
+import { FieldWrapperProps, FormFields } from '../FormFields';
+import { FormFieldProps } from './FormFieldProps';
 
 export interface FormArrayFieldStyles {
 	root: ViewStyle;
@@ -48,8 +48,8 @@ const defaultStyles = (theme: Theme): FormArrayFieldStyles => ({
 
 	fieldActions: {
 		padding: theme.spacing.unit * 2,
-		flexDirection: "row",
-		alignItems: "center"
+		flexDirection: 'row',
+		alignItems: 'center'
 	},
 
 	fieldItemActions: {

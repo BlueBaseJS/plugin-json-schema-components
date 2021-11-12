@@ -1,8 +1,7 @@
-import { StyleProp, ViewStyle } from 'react-native';
-import { Theme, useStyles } from '@bluebase/core';
-
-import React from 'react';
 import { View } from '@bluebase/components';
+import { Theme, useStyles } from '@bluebase/core';
+import React from 'react';
+import { StyleProp, ViewStyle } from 'react-native';
 
 export interface BaseFormFieldStyles {
 	leftContainer: StyleProp<ViewStyle>;
