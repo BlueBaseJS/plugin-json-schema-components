@@ -1,3 +1,34 @@
+# [4.0.0](https://github.com/BlueBaseJS/plugin-json-schema-components/compare/v3.3.0...v4.0.0) (2022-04-17)
+
+### Bug Fixes
+
+*   **await:** jsonForm ([5543b8d](https://github.com/BlueBaseJS/plugin-json-schema-components/commit/5543b8d381a0a38038b7ca57d3bce52ff9063452))
+*   Fixed bad version of bluebase core ([2766fac](https://github.com/BlueBaseJS/plugin-json-schema-components/commit/2766facab580cc411787908c9330bf08dfa155ab))
+*   Fixed module entry ([1cb7fe5](https://github.com/BlueBaseJS/plugin-json-schema-components/commit/1cb7fe5e199259387bf23a54a34c69cd2cab8cb9))
+*   Updated dependencies ([546667b](https://github.com/BlueBaseJS/plugin-json-schema-components/commit/546667be65f02f41a1c08c1c446620b6389c758e))
+*   **addButton:** added title with add button ([0fbe144](https://github.com/BlueBaseJS/plugin-json-schema-components/commit/0fbe144d06f461d9445badc5d9b7369a971443c1))
+*   **props:** FormArrayFieldProps ([4a5ba51](https://github.com/BlueBaseJS/plugin-json-schema-components/commit/4a5ba51e96db585f75c251afe5a8ece955891ffd))
+
+### Build System
+
+*   **expo:** Updated Expo to v43 ([23c24d7](https://github.com/BlueBaseJS/plugin-json-schema-components/commit/23c24d76342874195b5989b172113c0d8425846d))
+
+### Features
+
+*   @apollo/client is a dependency ([26fa410](https://github.com/BlueBaseJS/plugin-json-schema-components/commit/26fa4105085f94f431d55ade7f10248e587128ef))
+*   Added new "group" field type ([6d48165](https://github.com/BlueBaseJS/plugin-json-schema-components/commit/6d4816591e518068d5ab36934c393e07e19c1e07))
+*   graphql is a dependency ([201a079](https://github.com/BlueBaseJS/plugin-json-schema-components/commit/201a079242c1a1dd6a5e1fc78db44bc63f9ae12e))
+*   Improved Array Field styles ([f3d1fed](https://github.com/BlueBaseJS/plugin-json-schema-components/commit/f3d1fede1b4a16317b8a2a2deb719dff19ca3a32))
+*   Removed JsonGraphqlForm component ([e9746e4](https://github.com/BlueBaseJS/plugin-json-schema-components/commit/e9746e4248cb6664fb419cacd68b18f44d3aad75))
+*   Updated project dependencies ([8dc7fa7](https://github.com/BlueBaseJS/plugin-json-schema-components/commit/8dc7fa7c88d1e7a8199afe749d664fdf3dd1e05d))
+*   **expo:** Updated to @apollo/client v3 ([e53eccf](https://github.com/BlueBaseJS/plugin-json-schema-components/commit/e53eccf309c0946f18a57375196162b284f17e0b))
+
+### BREAKING CHANGES
+
+*   JsonGraphqlForm is removed from this plugin. To use this component, please install @bluebase/plugin-json-graphql-components module.
+*   **expo:** Updated to @apollo/client v3
+*   **expo:** Expo and related dependencies updated
+
 # [4.0.0-beta.7](https://github.com/BlueBaseJS/plugin-json-schema-components/compare/v4.0.0-beta.6...v4.0.0-beta.7) (2022-04-17)
 
 ### Bug Fixes
