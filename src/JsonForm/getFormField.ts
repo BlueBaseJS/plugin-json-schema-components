@@ -14,6 +14,7 @@ const FieldResolutionMap: FieldResolutionMapType = {
 	email: ['FormEmailInput', ...DefaultInputs],
 	inline: ['InlineFields', 'Noop'],
 	'inline-fields': ['InlineFields', 'Noop'],
+	group: ['FormGroupField', ...DefaultInputs],
 	number: ['FormNumberInput', ...DefaultInputs],
 	password: ['FormPasswordInput', ...DefaultInputs],
 	picker: ['FormPickerInput', 'Picker', 'Noop'],

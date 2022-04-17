@@ -2,6 +2,7 @@ export * from './FormArrayField';
 export * from './FormCheckboxInput';
 export * from './FormEmailInput';
 export * from './FormFieldProps';
+export * from './FormGroupField';
 export * from './FormNumberInput';
 export * from './FormPasswordInput';
 export * from './FormPickerInput';

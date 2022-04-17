@@ -1,4 +1,10 @@
-import { Button, IconButton, Subtitle1, View } from '@bluebase/components';
+import {
+	Body2,
+	Button,
+	IconButton,
+	Subtitle1,
+	View
+} from '@bluebase/components';
 import { Theme, useStyles, useTheme } from '@bluebase/core';
 import { FieldArray, useField } from 'formik';
 import React from 'react';
@@ -11,8 +17,10 @@ export interface FormArrayFieldStyles {
 	root: ViewStyle;
 	fieldActions: ViewStyle;
 	fieldItemActions: ViewStyle;
+	titleWrapper: ViewStyle;
 	label: TextStyle;
-	itemContainer: ViewStyle;
+	helperText: TextStyle;
+	itemWrapper: ViewStyle;
 	item: ViewStyle;
 }
 
@@ -20,6 +28,7 @@ export interface FormArrayFieldProps {
 	type: 'array';
 	name: string;
 	label: string;
+	helperText?: string;
 	addButtonLabel?: string;
 	fields: FormFieldProps[];
 	style?: ViewStyle;
@@ -45,6 +54,7 @@ const FieldWrapper = ({ field, children }: FieldWrapperProps) => {
 
 const defaultStyles = (theme: Theme): FormArrayFieldStyles => ({
 	root: {
+		paddingVertical: theme.spacing.unit,
 	},
 
 	fieldActions: {
@@ -58,13 +68,22 @@ const defaultStyles = (theme: Theme): FormArrayFieldStyles => ({
 		justifyContent: 'center',
 	},
 
-	label: {
+	titleWrapper: {
 		paddingHorizontal: theme.spacing.unit * 2,
 		paddingVertical: theme.spacing.unit,
+	},
+
+	label: {
 		color: theme.palette.text.secondary,
 	},
 
-	itemContainer: {
+	helperText: {
+		...theme.typography.caption,
+		color: theme.palette.text.secondary,
+		paddingTop: theme.spacing.unit / 2,
+	},
+
+	itemWrapper: {
 		borderColor: theme.palette.divider,
 		borderRadius:theme.shape.borderRadius,
 		borderWidth: 1,
@@ -84,7 +103,7 @@ const defaultStyles = (theme: Theme): FormArrayFieldStyles => ({
  * @param props
  */
 export const FormArrayField = (props: FormArrayFieldProps) => {
-	const { style, label, addButtonLabel } = props;
+	const { style, label, addButtonLabel, helperText } = props;
 	const { theme } = useTheme();
 	const styles = useStyles<FormArrayFieldStyles>('FormArrayField', props, defaultStyles);
 
@@ -107,15 +126,20 @@ export const FormArrayField = (props: FormArrayFieldProps) => {
 		<FieldArray name={name}>
 			{({ push, remove }) => (
 				<View style={[styles.root, style]}>
-					<Subtitle1 style={styles.label}>{label}</Subtitle1>
+					<View style={styles.titleWrapper}>
+						<Subtitle1 style={styles.label}>{label}</Subtitle1>
+						{helperText ? <Body2 style={styles.helperText}>{helperText}</Body2> : null}
+					</View>
 
-					<View style={styles.itemContainer}>
+					<View style={styles.itemWrapper}>
 						{value.map((_val, index) => (
 							<View key={index} style={styles.item} testID="form-array-item">
-								<FormFields {...props} fields={getFields(index)} FieldWrapper={FieldWrapper} />
+								<View style={{ flex: 1 }}>
+									<FormFields {...props} fields={getFields(index)} FieldWrapper={FieldWrapper} />
+								</View>
 								<View style={styles.fieldItemActions} testID="form-item-actions">
 									<IconButton
-										name="minus"
+										name="delete"
 										size={theme.spacing.unit * 2}
 										onPress={RemoveFields(remove, index)}
 									/>

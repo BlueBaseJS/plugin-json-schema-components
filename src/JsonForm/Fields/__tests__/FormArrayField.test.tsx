@@ -68,12 +68,12 @@ describe('FormArrayField', () => {
 		expect(wrapper.find('FormFields')).toHaveLength(2);
 
 		// Minus
-		const minus: any = wrapper
-			.find('[name="minus"]')
+		const delet: any = wrapper
+			.find('[name="delete"]')
 			.first()
 			.prop('onPress');
 
-		minus();
+		delet();
 		wrapper.update();
 
 		// Check fields

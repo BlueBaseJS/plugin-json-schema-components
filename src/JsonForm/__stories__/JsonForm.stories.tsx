@@ -6,7 +6,7 @@ import {
 	IntlMessages,
 } from '@bluebase/core';
 import storiesOf from '@bluebase/storybook-addon';
-import React from 'react';
+import React, { useState } from 'react';
 import { ScrollView, Text, TextInput, View } from 'react-native';
 
 import Plugin from '../../index';
@@ -546,4 +546,409 @@ storiesOf('JsonForm', module)
 				}}
 			</BlueBaseConsumer>
 		);
-	});
+	})
+
+	.add('Complex Example', () => {
+		const Component = () => {
+			const [schema, setSchema] = useState<any>({
+				dataType: 'NUMBER',
+				minimumValue: 16,
+				maximumValue: 32,
+				step: 1,
+			});
+
+			function getFieldType(type?: string) {
+				switch (type) {
+					case 'STRING':
+						return 'text';
+					case 'NUMBER':
+						return 'number';
+					case 'BOOLEAN':
+						return 'picker';
+					case 'DATE':
+						return 'date';
+					default:
+						return 'text';
+				}
+			}
+
+			return (
+				<View style={{ width: 500 }}>
+					<JsonForm
+						schema={{
+							fields: [
+								{
+									label: 'Key',
+									name: 'key',
+									type: 'text',
+								},
+								{
+									label: 'Extends',
+									name: 'extends',
+									type: 'picker',
+
+									items: [
+										{
+											label: 'Length',
+											value: 'length',
+										},
+										{
+											label: 'Mass',
+											value: 'mass',
+										},
+										{
+											label: 'Power',
+											value: 'power',
+										},
+									]
+								},
+								{
+									label: 'Data Type',
+									name: 'dataType',
+									type: 'picker',
+
+									items: [
+										{
+											label: 'Boolean',
+											value: 'BOOLEAN',
+										},
+										{
+											label: 'Date',
+											value: 'DATE',
+										},
+										{
+											label: 'Number',
+											value: 'NUMBER',
+										},
+										{
+											label: 'String',
+											value: 'STRING',
+										},
+									],
+								},
+								{
+									label: 'Default Value',
+									name: 'defaultValue',
+									type: getFieldType(schema.dataType),
+
+									items: schema.dataType === 'BOOLEAN' ? [
+										{
+											label: '',
+											value: undefined,
+										},
+										{
+											label: 'True',
+											value: true,
+										},
+										{
+											label: 'False',
+											value: false,
+										},
+									] : [],
+								},
+
+								{
+									name: 'number-max-min',
+									type: 'inline',
+									displayOptions: {
+										show: {
+											dataType: ['NUMBER'],
+										}
+									},
+
+									fields: [
+										{
+											label: 'Minimum Value',
+											name: 'minimumValue',
+											type: 'number',
+										},
+										{
+											label: 'Maximum Value',
+											name: 'maximumValue',
+											type: 'number',
+										},
+									],
+								},
+								{
+									name: 'number-step-precision',
+									type: 'inline',
+									displayOptions: {
+										show: {
+											dataType: ['NUMBER'],
+										}
+									},
+
+									fields: [
+										{
+											label: 'Step',
+											name: 'step',
+											type: 'number',
+										},
+										{
+											label: 'Precision',
+											name: 'precision',
+											type: 'number',
+										},
+									],
+								},
+
+								{
+									label: 'Unit',
+									name: 'unit',
+									type: 'text',
+									placeholder: schema.unit,
+									displayOptions: {
+										show: {
+											dataType: ['NUMBER'],
+										}
+									}
+								},
+								{
+									name: 'availableUnitsArray',
+									type: 'array',
+									label: 'Available Units',
+									addButtonLabel: 'Add Units',
+
+									fields: [
+										{
+											label: 'Unit',
+											name: 'availableUnits',
+											type: 'text',
+										},
+									],
+									displayOptions: {
+										show: {
+											dataType: ['NUMBER'],
+										}
+									}
+								},
+
+								{
+									name: 'string-length-inline',
+									type: 'inline',
+									displayOptions: {
+										show: {
+											dataType: ['STRING'],
+										}
+									},
+
+									fields: [
+										{
+											label: 'Maximum Length',
+											name: 'maximumLength',
+											type: 'number',
+										},
+										{
+											label: 'Minimum Length',
+											name: 'minimumLength',
+											type: 'number',
+										},
+									],
+								},
+
+								{
+									name: 'values',
+									type: 'array',
+									label: 'Values',
+									addButtonLabel: 'Add Value',
+									helperText: 'Possible',
+
+									fields: [
+										{
+											name: 'values-inline',
+											type: 'inline',
+
+											fields: [
+												{
+													label: 'Value',
+													name: 'value',
+													type: getFieldType(schema.dataType),
+													required: true,
+
+													items: schema.dataType === 'BOOLEAN' ? [
+														{
+															label: 'True',
+															value: true,
+														},
+														{
+															label: 'False',
+															value: false,
+														},
+													] : [],
+												},
+												{
+													label: 'Label',
+													name: 'label',
+													type: 'text',
+													required: true,
+												},
+											],
+										},
+										{
+											label: 'Description',
+											name: 'description',
+											type: 'text',
+										},
+									],
+								},
+
+								{
+									label: 'Required',
+									name: 'required',
+									type: 'checkbox',
+								},
+
+								{
+									name: 'array-inline',
+									type: 'inline',
+
+									fields: [
+										{
+											label: 'Array',
+											name: 'array',
+											type: 'checkbox',
+										},
+										{
+											label: 'Minimum Items',
+											name: 'minimumItems',
+											type: 'number',
+											displayOptions: {
+												show: {
+													array: [true],
+												}
+											}
+										},
+										{
+											label: 'Maximum Items',
+											name: 'maximumItems',
+											type: 'number',
+											displayOptions: {
+												show: {
+													array: [true],
+												}
+											}
+										},
+									],
+								},
+
+								{
+									name: 'validators',
+									type: 'array',
+									label: 'Validators',
+									addButtonLabel: 'Add Validator',
+
+									fields: [
+										{
+											label: 'Type',
+											name: 'type',
+											type: 'picker',
+
+											items: [
+												{
+													label: 'Regex',
+													value: 'regex',
+												},
+												{
+													label: 'Template',
+													value: 'template',
+												},
+												{
+													label: 'Rule',
+													value: 'rule',
+												},
+											],
+										},
+										{
+											label: 'Value',
+											name: 'value',
+											type: 'text',
+											multiline: true,
+										},
+									],
+								},
+
+								{
+									name: 'transformers',
+									type: 'array',
+									label: 'Transformers',
+									addButtonLabel: 'Add Transformer',
+
+									fields: [
+										{
+											label: 'Type',
+											name: 'type',
+											type: 'picker',
+
+											items: [
+												{
+													label: 'Regex',
+													value: 'regex',
+												},
+												{
+													label: 'Template',
+													value: 'template',
+												},
+												{
+													label: 'Rule',
+													value: 'rule',
+												},
+											],
+										},
+										{
+											label: 'Value',
+											name: 'value',
+											type: 'text',
+											multiline: true,
+										},
+									],
+								},
+
+								{
+									name: 'printer',
+									type: 'group',
+									label: 'Printer',
+
+									fields: [
+										{
+											label: 'Type',
+											name: 'printer.type',
+											type: 'picker',
+
+											items: [
+												{
+													label: 'Template',
+													value: 'template',
+												},
+												{
+													label: 'Rule',
+													value: 'rule',
+												},
+											],
+										},
+										{
+											label: 'Value',
+											name: 'printer.value',
+											type: 'text',
+											multiline: true,
+										},
+									],
+								},
+							],
+
+							initialValues: { ...schema },
+							onSubmit: (values) => {
+								console.log('onSubmit', values);
+							},
+
+							onChange: (ctx) => {
+								console.log('onChange', ctx);
+								setSchema(ctx.values);
+							},
+						}}
+					/>
+				</View>
+			);
+		};
+
+		return <Component />;
+	});;
