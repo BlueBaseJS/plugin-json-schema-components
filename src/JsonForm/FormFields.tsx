@@ -83,7 +83,7 @@ export const FormFields: React.FunctionComponent<FormFieldsProps> = (props: Form
 		const key = field.name;
 
 		const Component = BB.Components.resolveFromCache(...getFormField(field.type, fieldTypes));
-		const fieldNode = <Component key={key} {...field} />;
+		const fieldNode = <Component key={key} {...field} fieldTypes={fieldTypes} />;
 
 		if (isHidden(values, field.displayOptions)) {
 			return null;
