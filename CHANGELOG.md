@@ -1,3 +1,9 @@
+## [4.0.1](https://github.com/BlueBaseJS/plugin-json-schema-components/compare/v4.0.0...v4.0.1) (2022-04-18)
+
+### Bug Fixes
+
+*   Fixed an issue where custom components were not rendering in nested fields ([d32cc95](https://github.com/BlueBaseJS/plugin-json-schema-components/commit/d32cc950b9cd3ffd5269d1b70124170ab8a7b7e5))
+
 # [4.0.0](https://github.com/BlueBaseJS/plugin-json-schema-components/compare/v3.3.0...v4.0.0) (2022-04-17)
 
 ### Bug Fixes
