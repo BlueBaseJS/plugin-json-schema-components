@@ -1,3 +1,9 @@
+# [4.1.0](https://github.com/BlueBaseJS/plugin-json-schema-components/compare/v4.0.1...v4.1.0) (2022-05-03)
+
+### Features
+
+*   **FormFields:** displayOptions now work on nested fields ([8e03b56](https://github.com/BlueBaseJS/plugin-json-schema-components/commit/8e03b56d431749577ce6cf77f19e8e28c18fea7f))
+
 ## [4.0.1](https://github.com/BlueBaseJS/plugin-json-schema-components/compare/v4.0.0...v4.0.1) (2022-04-18)
 
 ### Bug Fixes
