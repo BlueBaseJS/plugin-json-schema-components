@@ -1,3 +1,9 @@
+## [4.1.1](https://github.com/BlueBaseJS/plugin-json-schema-components/compare/v4.1.0...v4.1.1) (2022-05-03)
+
+### Bug Fixes
+
+*   **FormTextInput:** Fixed console warnings ([3e58c9e](https://github.com/BlueBaseJS/plugin-json-schema-components/commit/3e58c9ec51907c9fbaa8a695e2f1a64e2e730b71))
+
 # [4.1.0](https://github.com/BlueBaseJS/plugin-json-schema-components/compare/v4.0.1...v4.1.0) (2022-05-03)
 
 ### Features
