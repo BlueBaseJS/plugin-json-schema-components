@@ -3,6 +3,7 @@ import { getComponent } from '@bluebase/core';
 import { useField } from 'formik';
 import React from 'react';
 
+import { removeUndefinedProperties } from '../../helpers';
 import { BaseFormFieldProps } from '../BaseFormField';
 
 const BaseFormField = getComponent<BaseFormFieldProps>('BaseFormField');
@@ -55,7 +56,7 @@ export const FormTextInput = (props: FormTextInputProps) => {
 		onBlur: undefined,
 	};
 
-	return <BaseFormField {...inputProps} />;
+	return <BaseFormField {...removeUndefinedProperties(inputProps)} />;
 };
 
 FormTextInput.defaultProps = {
