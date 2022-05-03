@@ -41,11 +41,11 @@ export function isHidden(values: any = {}, displayOptions?: FormFieldDisplayOpti
 	const show = get(displayOptions, 'show')!;
 
 	if (hide) {
-		return Object.keys(hide).map(i => hide[i].findIndex(j => j === values[i])).findIndex(i => i >= 0) >= 0;
+		return Object.keys(hide).map(i => hide[i].findIndex(j => j === get(values, i))).findIndex(i => i >= 0) >= 0;
 	}
 
 	if (show) {
-		return Object.keys(show).map(i => show[i].findIndex(j => j === values[i])).findIndex(i => i >= 0) < 0;
+		return Object.keys(show).map(i => show[i].findIndex(j => j === get(values, i))).findIndex(i => i >= 0) < 0;
 	}
 
 	return false;

@@ -68,6 +68,8 @@ InlineFields.defaultProps = {};
 InlineFields.defaultStyles = (theme: Theme): InlineFieldsStyles => ({
 	fieldContainer: {
 		margin: -theme.spacing.unit,
+		// paddingHorizontal: theme.spacing.unit,
+		// paddingVertical: theme.spacing.unit / 2
 	},
 	fieldContainerFill: {
 		flex: 1,
