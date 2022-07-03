@@ -1,3 +1,9 @@
+## [4.1.2](https://github.com/BlueBaseJS/plugin-json-schema-components/compare/v4.1.1...v4.1.2) (2022-07-03)
+
+### Bug Fixes
+
+*   Removed code that disabled onBlur event on text input ([164eddb](https://github.com/BlueBaseJS/plugin-json-schema-components/commit/164eddb52eb8ae3484d5f51dd4bf92d67815a3b0))
+
 ## [4.1.1](https://github.com/BlueBaseJS/plugin-json-schema-components/compare/v4.1.0...v4.1.1) (2022-05-03)
 
 ### Bug Fixes
