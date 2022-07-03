@@ -50,10 +50,6 @@ export const FormTextInput = (props: FormTextInputProps) => {
 		error: !!meta.error || props.error,
 		helperText: meta.error || props.helperText,
 		onChangeText: helpers.setValue,
-
-		// Fix for https://github.com/BlueBaseJS/plugin-json-schema-components/issues/32
-		// Needs to be investigated why this is happening
-		onBlur: undefined,
 	};
 
 	return <BaseFormField {...removeUndefinedProperties(inputProps)} />;
