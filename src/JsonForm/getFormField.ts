@@ -22,6 +22,7 @@ const FieldResolutionMap: FieldResolutionMapType = {
 	range: ['FormRangeInput', ...DefaultInputs],
 	reset: ['FormResetButton', ...DefaultButtons],
 	search: ['FormSearchInput', ...DefaultInputs],
+	'simple-array': ['FormSimpleArrayField', ...DefaultInputs],
 	status: ['FormStatus'],
 	submit: ['FormSubmitButton', ...DefaultButtons],
 	switch: ['FormSwitchInput', 'FormCheckboxInput', 'Noop'],

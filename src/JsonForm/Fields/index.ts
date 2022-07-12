@@ -9,6 +9,7 @@ export * from './FormPickerInput';
 export * from './FormRadioGroupInput';
 export * from './FormRangeInput';
 export * from './FormResetButton';
+export * from './FormSimpleArrayField';
 export * from './FormSubmitButton';
 export * from './FormSwitchInput';
 export * from './FormTextInput';

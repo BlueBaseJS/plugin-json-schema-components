@@ -13,6 +13,7 @@ import {
 	FormRadioGroupInput,
 	FormRangeInput,
 	FormResetButton,
+	FormSimpleArrayField,
 	FormStatus,
 	FormStatusList,
 	FormStatusListItem,
@@ -24,6 +25,7 @@ import {
 	JsonForm,
 } from './JsonForm';
 import { JsonLayout } from './JsonLayout';
+import { VERSION } from './version';
 
 export * from './JsonForm';
 export * from './JsonLayout';
@@ -34,7 +36,7 @@ export default createPlugin({
 	description: 'A utility to build pluggable components based on JSON schema!',
 	key: 'plugin-json-schema-components',
 	name: 'Json Schema Components',
-	version: '0.0.1',
+	version: VERSION,
 
 	components: {
 		BaseFormField,
@@ -48,6 +50,7 @@ export default createPlugin({
 		FormRadioGroupInput,
 		FormRangeInput,
 		FormResetButton,
+		FormSimpleArrayField,
 		FormStatus,
 		FormStatusList,
 		FormStatusListItem,
