@@ -1,3 +1,9 @@
+# [4.2.0](https://github.com/BlueBaseJS/plugin-json-schema-components/compare/v4.1.2...v4.2.0) (2022-07-12)
+
+### Features
+
+*   Added FormSimpleArrayField ([8a28beb](https://github.com/BlueBaseJS/plugin-json-schema-components/commit/8a28beb3cf6b1768dd117e8c7381f6189b6f46cc))
+
 ## [4.1.2](https://github.com/BlueBaseJS/plugin-json-schema-components/compare/v4.1.1...v4.1.2) (2022-07-03)
 
 ### Bug Fixes
