@@ -22,8 +22,8 @@ const fields: FormFieldProps[] = [
 	},
 	{
 		label: 'Temp',
-		max: 32,
-		min: 16,
+		maximumValue: 32,
+		minimumValue: 16,
 		name: 'temp',
 		step: 1,
 		type: 'range',

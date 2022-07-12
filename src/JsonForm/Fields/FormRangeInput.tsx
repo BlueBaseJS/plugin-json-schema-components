@@ -15,12 +15,12 @@ export interface FormRangeInputProps extends SliderProps {
 
 const BaseFormField = getComponent<BaseFormFieldProps>('BaseFormField');
 
-export const FormRangeInput = ({ min, max, ...rest }: FormRangeInputProps) => {
+export const FormRangeInput = ({ minimumValue, maximumValue, ...rest }: FormRangeInputProps) => {
 
 	const props = {
 		...rest,
-		maximumValue: max,
-		minimumValue: min,
+		maximumValue,
+		minimumValue,
 	};
 
 	const [field,, helpers] = useField(props as any);
