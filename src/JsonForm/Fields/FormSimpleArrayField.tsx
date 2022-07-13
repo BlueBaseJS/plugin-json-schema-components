@@ -27,6 +27,7 @@ export interface FormSimpleArrayFieldStyles {
 export type FormSimpleArrayFieldProps = FormFieldProps & {
 	type: 'simple-array';
 	fieldType: FormFieldProps['type'];
+	dividers?: boolean;
 	styles?: Partial<FormSimpleArrayFieldStyles>;
 };
 

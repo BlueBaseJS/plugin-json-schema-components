@@ -20,6 +20,7 @@ export interface FormGroupFieldProps {
 	label: string;
 	helperText?: string;
 	fields: FormFieldProps[];
+	dividers?: boolean;
 	style?: ViewStyle;
 	styles?: Partial<FormGroupFieldStyles>;
 }

@@ -69,7 +69,8 @@ InlineFields.defaultStyles = (theme: Theme): InlineFieldsStyles => ({
 	fieldContainer: {
 		margin: -theme.spacing.unit,
 		// paddingHorizontal: theme.spacing.unit,
-		// paddingVertical: theme.spacing.unit / 2
+		// paddingVertical: theme.spacing.unit / 2,
+		justifyContent: 'center'
 	},
 	fieldContainerFill: {
 		flex: 1,

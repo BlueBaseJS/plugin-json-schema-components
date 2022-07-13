@@ -36,6 +36,8 @@ export type JsonFormSchema<Values extends FormikValues> = FormProps<Values> & {
 
 	/** Maps type field to React/BlueBase components. Use this to define custom fields. */
 	fieldTypes?: FieldResolutionMapType;
+
+	dividers?: boolean;
 };
 
 export interface JsonFormStyles {
@@ -72,14 +74,14 @@ export interface JsonFormProps<Values extends FormikValues> {
  */
 const JsonFormInternal = <Values extends FormikValues>(props: JsonFormProps<Values>) => {
 	const { schema } = props;
-	const { fields, fieldTypes, ...rest } = schema;
+	const { fields, fieldTypes, dividers, ...rest } = schema;
 
 	return (
 		<Formik {...rest}>
 			<React.Fragment>
 				{schema.onChange ? <FormikEffect onChange={schema.onChange} /> : null}
 				<Form style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-					<FormFields fields={fields} fieldTypes={fieldTypes} />
+					<FormFields fields={fields} fieldTypes={fieldTypes} dividers={dividers} />
 				</Form>
 			</React.Fragment>
 		</Formik>

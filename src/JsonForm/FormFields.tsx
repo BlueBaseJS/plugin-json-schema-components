@@ -1,3 +1,4 @@
+import { Divider } from '@bluebase/components';
 import { useBlueBase, useIntl } from '@bluebase/core';
 import { useFormikContext } from 'formik';
 import get from 'lodash.get';
@@ -28,6 +29,8 @@ export type FormFieldsProps<T = {}> = {
 	children?: (renderField: renderFieldFn) => React.ReactNode;
 
 	fieldTypes?: FieldResolutionMapType;
+
+	dividers?: boolean;
 } & T;
 
 /**
@@ -57,7 +60,7 @@ export function isHidden(values: any = {}, displayOptions?: FormFieldDisplayOpti
  * function as a param.
  */
 export const FormFields: React.FunctionComponent<FormFieldsProps> = (props: FormFieldsProps) => {
-	const { FieldWrapper, children, fields = [], fieldTypes, ...rest } = props;
+	const { FieldWrapper, children, fields = [], fieldTypes, dividers, ...rest } = props;
 
 	const BB = useBlueBase();
 	const { __ } = useIntl();
@@ -89,13 +92,19 @@ export const FormFields: React.FunctionComponent<FormFieldsProps> = (props: Form
 			return null;
 		}
 
-		return FieldWrapper ? (
+		const node = FieldWrapper ? (
 			<FieldWrapper key={key} field={field} parent={props}>
 				{fieldNode}
 			</FieldWrapper>
 		) : (
 			fieldNode
 		);
+
+		if (dividers && fields.length > 0 && index < fields.length - 1) {
+			return [node, <Divider key={`${key}-divider`} />];
+		}
+
+		return node;
 	};
 
 	if (children) {

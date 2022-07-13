@@ -31,6 +31,7 @@ export interface FormArrayFieldProps {
 	helperText?: string;
 	addButtonLabel?: string;
 	fields: FormFieldProps[];
+	dividers?: boolean;
 	style?: ViewStyle;
 	styles?: Partial<FormArrayFieldStyles>;
 }
