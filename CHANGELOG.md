@@ -1,3 +1,9 @@
+# [4.3.0](https://github.com/BlueBaseJS/plugin-json-schema-components/compare/v4.2.1...v4.3.0) (2022-07-13)
+
+### Features
+
+*   Can add dividers between fields ([75862c8](https://github.com/BlueBaseJS/plugin-json-schema-components/commit/75862c8218203d6e93ef5afe7b1b8dee5a4e4eed))
+
 ## [4.2.1](https://github.com/BlueBaseJS/plugin-json-schema-components/compare/v4.2.0...v4.2.1) (2022-07-12)
 
 ### Bug Fixes
