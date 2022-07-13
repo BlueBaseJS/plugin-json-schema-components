@@ -1,3 +1,9 @@
+## [4.2.1](https://github.com/BlueBaseJS/plugin-json-schema-components/compare/v4.2.0...v4.2.1) (2022-07-12)
+
+### Bug Fixes
+
+*   **FormRangeInput:** Fixed max, min params ([14d68b6](https://github.com/BlueBaseJS/plugin-json-schema-components/commit/14d68b6424d0f357e16e0b8d7f515ae6311bbd82))
+
 # [4.2.0](https://github.com/BlueBaseJS/plugin-json-schema-components/compare/v4.1.2...v4.2.0) (2022-07-12)
 
 ### Features
