@@ -16,6 +16,7 @@ export interface BaseFormFieldProps {
 	right?: React.ReactNode;
 	MainComponent?: React.ComponentType<any>;
 	styles?: Partial<BaseFormFieldStyles>;
+	fieldProps?: any;
 }
 
 const defaultStyles = (theme: Theme): BaseFormFieldStyles => ({
@@ -38,7 +39,7 @@ const defaultStyles = (theme: Theme): BaseFormFieldStyles => ({
 });
 
 export const BaseFormField = (props: BaseFormFieldProps) => {
-	const { MainComponent, children, left, right, styles: _styles, ...rest } = props;
+	const { MainComponent, children, left, right, styles: _styles, fieldProps, ...rest } = props;
 	const styles = useStyles('BaseFormField', props, defaultStyles);
 
 	return (
@@ -46,7 +47,7 @@ export const BaseFormField = (props: BaseFormFieldProps) => {
 			{left && <View style={styles.leftContainer} testID="base-form-field-left">{left}</View>}
 			{MainComponent &&
 				<View style={styles.mainContainer} testID="base-form-field-main">
-					<MainComponent {...rest}>
+					<MainComponent {...rest} {...fieldProps}>
 						{children}
 					</MainComponent>
 				</View>
