@@ -1,3 +1,9 @@
+# [4.4.0](https://github.com/BlueBaseJS/plugin-json-schema-components/compare/v4.3.0...v4.4.0) (2022-07-21)
+
+### Features
+
+*   **BaseFormField:** Added new `fieldProps` prop ([ce3c57f](https://github.com/BlueBaseJS/plugin-json-schema-components/commit/ce3c57f32dd6b6f80208cadeea8c7a82c3c0bd96))
+
 # [4.3.0](https://github.com/BlueBaseJS/plugin-json-schema-components/compare/v4.2.1...v4.3.0) (2022-07-13)
 
 ### Features
