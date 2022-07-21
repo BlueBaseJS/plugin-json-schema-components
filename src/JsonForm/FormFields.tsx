@@ -2,7 +2,7 @@ import { Divider } from '@bluebase/components';
 import { useBlueBase, useIntl } from '@bluebase/core';
 import { useFormikContext } from 'formik';
 import get from 'lodash.get';
-import React from 'react';
+import React, { useCallback } from 'react';
 
 import { FormFieldDisplayOptions, FormFieldProps } from './Fields';
 import { FieldResolutionMapType, getFormField } from './getFormField';
@@ -66,7 +66,7 @@ export const FormFields: React.FunctionComponent<FormFieldsProps> = (props: Form
 	const { __ } = useIntl();
 	const { values } = useFormikContext();
 
-	const renderField = (fieldInput: FormFieldProps, index: number) => {
+	const renderField = useCallback((fieldInput: FormFieldProps, index: number) => {
 
 		const { displayOptions, ...fieldOpts } = fieldInput;
 
@@ -105,7 +105,7 @@ export const FormFields: React.FunctionComponent<FormFieldsProps> = (props: Form
 		}
 
 		return node;
-	};
+	}, [props, fieldTypes, values, dividers, FieldWrapper]);
 
 	if (children) {
 		return children(renderField);

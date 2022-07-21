@@ -56,3 +56,5 @@ export const BaseFormField = (props: BaseFormFieldProps) => {
 		</View>
 	);
 };
+
+BaseFormField.displayName = 'BaseFormField';

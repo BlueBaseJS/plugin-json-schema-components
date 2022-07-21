@@ -88,6 +88,8 @@ const JsonFormInternal = <Values extends FormikValues>(props: JsonFormProps<Valu
 	);
 };
 
+JsonFormInternal.displayName = 'JsonFormInternal';
+
 const defaultStyles = (theme: Theme) => ({
 	root: {
 		flexGrow: 1,
@@ -158,3 +160,5 @@ export const JsonForm = <Values extends FormikValues>(props: JsonFormProps<Value
 		</View>
 	);
 };
+
+JsonForm.displayName = 'JsonForm';
