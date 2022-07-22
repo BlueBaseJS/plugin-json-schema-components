@@ -1,3 +1,9 @@
+## [4.4.2](https://github.com/BlueBaseJS/plugin-json-schema-components/compare/v4.4.1...v4.4.2) (2022-07-22)
+
+### Bug Fixes
+
+*   **FormFields:** Added displayName to internal component ([a7aaa4b](https://github.com/BlueBaseJS/plugin-json-schema-components/commit/a7aaa4b275a28fed9e01be8437189329f9ac2463))
+
 ## [4.4.1](https://github.com/BlueBaseJS/plugin-json-schema-components/compare/v4.4.0...v4.4.1) (2022-07-21)
 
 ### Bug Fixes
