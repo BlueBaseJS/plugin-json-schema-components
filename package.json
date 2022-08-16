@@ -54,7 +54,6 @@
     "@bluebase/component-mapper": "^1.4.0",
     "@bluebase/components": "^6.4.0",
     "formik": "^2.2.0",
-    "lodash.get": "^4.4.2",
     "lodash.isnil": "^4.0.0",
     "lodash.isstring": "^4.0.1"
   },
@@ -90,7 +89,6 @@
     "@types/enzyme": "^3.10.10",
     "@types/enzyme-async-helpers": "^0.9.2",
     "@types/jest": "^27.0.2",
-    "@types/lodash.get": "^4.4.6",
     "@types/lodash.isnil": "^4.0.6",
     "@types/lodash.isstring": "^4.0.6",
     "@types/react": "~17.0.21",

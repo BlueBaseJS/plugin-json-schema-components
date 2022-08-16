@@ -1,7 +1,6 @@
 import { Divider } from '@bluebase/components';
 import { useBlueBase, useIntl } from '@bluebase/core';
 import { useFormikContext } from 'formik';
-import get from 'lodash.get';
 import React, { useCallback } from 'react';
 
 import { FormFieldDisplayOptions, FormFieldProps } from './Fields';
@@ -40,15 +39,27 @@ export type FormFieldsProps<T = {}> = {
  */
 export function isHidden(values: any = {}, displayOptions?: FormFieldDisplayOptions) {
 
-	const hide = get(displayOptions, 'hide')!;
-	const show = get(displayOptions, 'show')!;
+	const hide = displayOptions?.hide;
+	const show = displayOptions?.show;
 
 	if (hide) {
-		return Object.keys(hide).map(i => hide[i].findIndex(j => j === get(values, i))).findIndex(i => i >= 0) >= 0;
+		return Object
+			// for each key
+			.keys(hide)
+			// Find index to value, if found
+			.map(key => hide[key].findIndex(searchValue => values[key] === searchValue))
+			// Return true if all are greater than -1
+			.every(index => index > -1);
 	}
 
 	if (show) {
-		return Object.keys(show).map(i => show[i].findIndex(j => j === get(values, i))).findIndex(i => i >= 0) < 0;
+		return !Object
+			// for each key
+			.keys(show)
+			// Find index to value, if found
+			.map(key => show[key].findIndex(searchValue => values[key] === searchValue))
+			// Return true if all are greater than -1
+			.every(index => index > -1);
 	}
 
 	return false;
