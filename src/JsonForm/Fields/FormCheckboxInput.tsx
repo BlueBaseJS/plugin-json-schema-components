@@ -35,8 +35,26 @@ export const FormCheckboxInput = (props: FormCheckboxInputProps) => {
 			paddingVertical: 4,
 		};
 	}
+
 	// End of Dirty Hack
-	return <BaseFormField MainComponent={Checkbox} styles={styles} {...inputProps} />;
+	return (
+		<BaseFormField
+			MainComponent={Checkbox}
+			styles={styles}
+			// Other props
+			checked={inputProps.checked}
+			color={inputProps.color}
+			disabled={inputProps.disabled}
+			onValueChange={inputProps.onValueChange}
+			value={inputProps.value}
+			label={inputProps.label}
+			labelPlacement={inputProps.labelPlacement}
+			indeterminate={inputProps.indeterminate}
+			id={inputProps.id}
+			name={inputProps.name}
+			style={inputProps.style}
+		/>
+	);
 };
 
 FormCheckboxInput.defaultProps = {};
