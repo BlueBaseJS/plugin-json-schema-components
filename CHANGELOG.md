@@ -1,3 +1,10 @@
+## [4.4.3](https://github.com/BlueBaseJS/plugin-json-schema-components/compare/v4.4.2...v4.4.3) (2022-08-16)
+
+### Bug Fixes
+
+*   **FormCheckboxInput:** Only send relevant props to the internal component ([dcabcca](https://github.com/BlueBaseJS/plugin-json-schema-components/commit/dcabcca0f789aff997b0ce00b8a98b45c2a53d41))
+*   **FormFields:** Fixed broken displayOptions logic ([0e1bc40](https://github.com/BlueBaseJS/plugin-json-schema-components/commit/0e1bc40cf4d329a44ef7bcaff0983e4fa6e08836))
+
 ## [4.4.2](https://github.com/BlueBaseJS/plugin-json-schema-components/compare/v4.4.1...v4.4.2) (2022-07-22)
 
 ### Bug Fixes
