@@ -1,3 +1,9 @@
+# [4.5.0](https://github.com/BlueBaseJS/plugin-json-schema-components/compare/v4.4.3...v4.5.0) (2023-09-09)
+
+### Features
+
+*   Expo 49 ([440070d](https://github.com/BlueBaseJS/plugin-json-schema-components/commit/440070df08974dd75cefe64b7cd8745b5273c5ad))
+
 ## [4.4.3](https://github.com/BlueBaseJS/plugin-json-schema-components/compare/v4.4.2...v4.4.3) (2022-08-16)
 
 ### Bug Fixes
