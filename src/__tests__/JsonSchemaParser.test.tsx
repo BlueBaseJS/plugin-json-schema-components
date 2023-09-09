@@ -16,7 +16,7 @@ describe('JsonSchemaParser', () => {
 			component: Timeline,
 		});
 
-		const tree = renderer.create(result as React.ReactElement<any>).toJSON();
+		const tree = renderer.create(result as any).toJSON();
 		expect(tree).toMatchSnapshot();
 	});
 
@@ -32,7 +32,7 @@ describe('JsonSchemaParser', () => {
 			}
 		});
 
-		const tree = renderer.create(result as React.ReactElement<any>).toJSON();
+		const tree = renderer.create(result as any).toJSON();
 		expect(tree).toMatchSnapshot();
 	});
 
@@ -44,7 +44,7 @@ describe('JsonSchemaParser', () => {
 			text: 'Hello',
 		});
 
-		const tree = renderer.create(result as React.ReactElement<any>).toJSON();
+		const tree = renderer.create(result as any).toJSON();
 		expect(tree).toMatchSnapshot();
 	});
 
@@ -64,7 +64,7 @@ describe('JsonSchemaParser', () => {
 			}]
 		});
 
-		const tree = renderer.create(result as React.ReactElement<any>).toJSON();
+		const tree = renderer.create(result as any).toJSON();
 		expect(tree).toMatchSnapshot();
 	});
 
@@ -77,7 +77,7 @@ describe('JsonSchemaParser', () => {
 			component: 'Post',
 		});
 
-		const tree = renderer.create(result as React.ReactElement<any>).toJSON();
+		const tree = renderer.create(result as any).toJSON();
 		expect(tree).toMatchSnapshot();
 	});
 

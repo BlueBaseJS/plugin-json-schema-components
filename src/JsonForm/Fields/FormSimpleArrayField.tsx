@@ -125,7 +125,7 @@ export const FormSimpleArrayField = (props: FormSimpleArrayFieldProps) => {
 
 	return (
 		<FieldArray name={name}>
-			{({ push, remove }) => (
+			{({ push, remove }: any) => (
 				<View style={[styles.root, style]}>
 					<View style={styles.titleWrapper}>
 						<Subtitle1 style={styles.label}>{label}</Subtitle1>

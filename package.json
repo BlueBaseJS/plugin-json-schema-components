@@ -39,7 +39,7 @@
     "fix:prettier": "prettier \"src/**/*.ts\" --write",
     "fix:md": "remark . -o",
     "fix:lint": "eslint src --ext=ts,tsx --fix .",
-    "test": "run-s build test:*",
+    "test": "yarn test:lint && yarn test:prettier && yarn test:md",
     "test:lint": "eslint src --ext=ts,tsx",
     "test:prettier": "prettier \"src/**/*.ts\" --list-different",
     "test:md": "remark . -f",
