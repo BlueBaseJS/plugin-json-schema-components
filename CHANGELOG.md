@@ -1,3 +1,9 @@
+# [4.6.0](https://github.com/BlueBaseJS/plugin-json-schema-components/compare/v4.5.0...v4.6.0) (2024-03-23)
+
+### Features
+
+*   DisplayOptions now support nested search ([5927f79](https://github.com/BlueBaseJS/plugin-json-schema-components/commit/5927f7989035a090b5e6d68326a44714f5a72d32))
+
 # [4.5.0](https://github.com/BlueBaseJS/plugin-json-schema-components/compare/v4.4.3...v4.5.0) (2023-09-09)
 
 ### Features
