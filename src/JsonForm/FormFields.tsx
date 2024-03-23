@@ -33,33 +33,43 @@ export type FormFieldsProps<T = {}> = {
 } & T;
 
 /**
- * Determines if a field should be hidden based on the displayOptions
- * @param values
- * @param displayOptions
+ * Safely retrieves the value at a nested path within an object.
+ *
+ * @param obj The object from which to retrieve the value.
+ * @param path A dot-notated string representing the path to the value.
+ * @returns The value at the specified path, or undefined if the path is not found.
  */
-export function isHidden(values: any = {}, displayOptions?: FormFieldDisplayOptions) {
+function getNestedValue(obj: any, path: string): any {
+	return path.split('.').reduce((acc, part) => acc && acc[part], obj);
+}
 
+/**
+* Determines if a field should be hidden based on the provided display options.
+* This function supports both simple and nested object paths in the `values` and `displayOptions`.
+*
+* @param values An object containing the current values of fields, where keys represent field names.
+* Can include nested objects.
+* @param displayOptions An optional object containing `hide` and `show` properties, each an object.
+* The keys of these objects are strings representing the field name or nested path (dot notation) to check,
+* and their values are arrays of values indicating when to hide or show the field.
+* @returns A boolean indicating whether the field should be hidden. Returns true if conditions to hide are met,
+* false otherwise.
+*/
+export function isHidden(values: any = {}, displayOptions?: FormFieldDisplayOptions): boolean {
 	const hide = displayOptions?.hide;
 	const show = displayOptions?.show;
 
+	const checkCondition = (condition: any, key: string): boolean => {
+		const valueAtPath = getNestedValue(values, key);
+		return condition[key].findIndex((searchValue: any) => valueAtPath === searchValue) > -1;
+	};
+
 	if (hide) {
-		return Object
-			// for each key
-			.keys(hide)
-			// Find index to value, if found
-			.map(key => hide[key].findIndex(searchValue => values[key] === searchValue))
-			// Return true if all are greater than -1
-			.every(index => index > -1);
+		return Object.keys(hide).every(key => checkCondition(hide, key));
 	}
 
 	if (show) {
-		return !Object
-			// for each key
-			.keys(show)
-			// Find index to value, if found
-			.map(key => show[key].findIndex(searchValue => values[key] === searchValue))
-			// Return true if all are greater than -1
-			.every(index => index > -1);
+		return !Object.keys(show).every(key => checkCondition(show, key));
 	}
 
 	return false;
