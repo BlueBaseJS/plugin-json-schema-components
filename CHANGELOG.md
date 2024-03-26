@@ -1,3 +1,9 @@
+## [4.6.1](https://github.com/BlueBaseJS/plugin-json-schema-components/compare/v4.6.0...v4.6.1) (2024-03-26)
+
+### Bug Fixes
+
+*   Fixed CI ([b6dc4e2](https://github.com/BlueBaseJS/plugin-json-schema-components/commit/b6dc4e2042a0aae61eb52c53bebef8a64d3d10fe))
+
 # [4.6.0](https://github.com/BlueBaseJS/plugin-json-schema-components/compare/v4.5.0...v4.6.0) (2024-03-23)
 
 ### Features
