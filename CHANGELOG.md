@@ -1,3 +1,9 @@
+# [4.7.0](https://github.com/BlueBaseJS/plugin-json-schema-components/compare/v4.6.1...v4.7.0) (2024-04-13)
+
+### Features
+
+*   **FormPickerInput:** Show ActionSheet on iOS ([f5891cc](https://github.com/BlueBaseJS/plugin-json-schema-components/commit/f5891cc381d5a4a6c41b24a7518fc6043dcb81aa))
+
 ## [4.6.1](https://github.com/BlueBaseJS/plugin-json-schema-components/compare/v4.6.0...v4.6.1) (2024-03-26)
 
 ### Bug Fixes
