@@ -146,7 +146,7 @@ export const FormPickerInput = ({ type, items, ...props }: FormPickerInputProps)
 						<Subtitle1 testID="label" style={styles.value}>
 							{valueText ?? labelText ?? 'Select'}
 						</Subtitle1>
-						<Icon name="chevron-down" style={styles.chevron} />
+						<Icon name="menu-down" style={styles.chevron} />
 					</View>
 				</Pressable>
 
