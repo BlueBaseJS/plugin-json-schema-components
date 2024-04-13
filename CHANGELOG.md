@@ -1,3 +1,9 @@
+## [4.7.1](https://github.com/BlueBaseJS/plugin-json-schema-components/compare/v4.7.0...v4.7.1) (2024-04-13)
+
+### Bug Fixes
+
+*   **FormPickerInput:** Fixed menu icon ([65fd4c1](https://github.com/BlueBaseJS/plugin-json-schema-components/commit/65fd4c1aa82fe988303ac638a42ad3ab846ca49d))
+
 # [4.7.0](https://github.com/BlueBaseJS/plugin-json-schema-components/compare/v4.6.1...v4.7.0) (2024-04-13)
 
 ### Features
