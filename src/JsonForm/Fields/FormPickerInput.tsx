@@ -15,13 +15,14 @@ const BaseFormField = getComponent<BaseFormFieldProps>('BaseFormField');
 
 export const FormPickerInput = ({ type, items, ...props }: FormPickerInputProps) => {
 
-	const [field,, helpers] = useField(props as any);
+	const [field,, helpers] = useField(props.name);
 	const { setValue } = helpers;
 
 	const inputProps: any = {
 		...props,
 		...field,
 		onValueChange: setValue,
+		onChange: undefined,
 		selectedValue: field.value,
 	};
 
