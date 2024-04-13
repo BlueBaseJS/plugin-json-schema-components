@@ -1,3 +1,9 @@
+## [4.7.2](https://github.com/BlueBaseJS/plugin-json-schema-components/compare/v4.7.1...v4.7.2) (2024-04-13)
+
+### Bug Fixes
+
+*   Fixed layout issues ([4dd3bb4](https://github.com/BlueBaseJS/plugin-json-schema-components/commit/4dd3bb49817e1352f74056bd54edfe196fe52dbb))
+
 ## [4.7.1](https://github.com/BlueBaseJS/plugin-json-schema-components/compare/v4.7.0...v4.7.1) (2024-04-13)
 
 ### Bug Fixes
