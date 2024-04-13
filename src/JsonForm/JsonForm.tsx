@@ -92,7 +92,7 @@ JsonFormInternal.displayName = 'JsonFormInternal';
 
 const defaultStyles = (theme: Theme) => ({
 	root: {
-		flexGrow: 1,
+		// flexGrow: 1,
 	},
 
 	header: {
