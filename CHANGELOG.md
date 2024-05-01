@@ -1,3 +1,9 @@
+## [4.7.3](https://github.com/BlueBaseJS/plugin-json-schema-components/compare/v4.7.2...v4.7.3) (2024-05-01)
+
+### Bug Fixes
+
+*   **FormPickerInput:** Fixed input field on android ([5208174](https://github.com/BlueBaseJS/plugin-json-schema-components/commit/520817498ccaa2eea177c628bff6b9c605164ea4))
+
 ## [4.7.2](https://github.com/BlueBaseJS/plugin-json-schema-components/compare/v4.7.1...v4.7.2) (2024-04-13)
 
 ### Bug Fixes
