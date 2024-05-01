@@ -1,15 +1,16 @@
 import {
+	Body2,
 	Caption,
-	Icon,
+	Divider,
+	Picker,
 	PickerItemProps,
 	PickerProps,
-	Subtitle1,
 	View
 } from '@bluebase/components';
 import { Theme, useStyles } from '@bluebase/core';
 import { useField } from 'formik';
-import React, { useCallback } from 'react';
-import { ActionSheetIOS, Pressable, TextStyle, ViewStyle } from 'react-native';
+import React from 'react';
+import { TextStyle, ViewStyle } from 'react-native';
 
 export interface BaseFormFieldStyles {
 	leftContainer: ViewStyle;
@@ -19,6 +20,7 @@ export interface BaseFormFieldStyles {
 	labelRow: ViewStyle;
 	label: TextStyle;
 	valueRow: ViewStyle;
+	valueDivider: ViewStyle;
 	value: TextStyle;
 	chevron: TextStyle;
 	helperTextRow: ViewStyle;
@@ -40,7 +42,6 @@ const defaultStyles = (theme: Theme): BaseFormFieldStyles => ({
 		alignItems: 'center',
 		flexDirection: 'row',
 		justifyContent: 'flex-start',
-		paddingHorizontal: theme.spacing.unit * 2,
 		paddingVertical: theme.spacing.unit * 2,
 	},
 	leftContainer: {
@@ -54,6 +55,7 @@ const defaultStyles = (theme: Theme): BaseFormFieldStyles => ({
 	},
 
 	labelRow: {
+		paddingHorizontal: theme.spacing.unit * 2,
 		flexDirection: 'row',
 		paddingBottom: theme.spacing.unit,
 	},
@@ -64,11 +66,13 @@ const defaultStyles = (theme: Theme): BaseFormFieldStyles => ({
 	},
 
 	valueRow: {
-		borderBottomColor: theme.palette.divider,
-		borderBottomWidth: 1,
-		flexDirection: 'row',
-		paddingBottom: theme.spacing.unit,
-		// justifyContent: 'space-between',
+		// paddingHorizontal: theme.spacing.unit * 2,
+		// borderBottomColor: theme.palette.divider,
+		// borderBottomWidth: 1,
+	},
+
+	valueDivider: {
+		marginHorizontal: theme.spacing.unit * 2,
 	},
 
 	value: {
@@ -81,6 +85,7 @@ const defaultStyles = (theme: Theme): BaseFormFieldStyles => ({
 	},
 
 	helperTextRow: {
+		paddingHorizontal: theme.spacing.unit * 2,
 		paddingTop: theme.spacing.unit,
 	},
 
@@ -100,55 +105,37 @@ export const FormPickerInput = ({ type, items, ...props }: FormPickerInputProps)
 	const [field, meta, helpers] = useField(props.name);
 	const { setValue } = helpers;
 
-	// const inputProps: any = {
-	// 	...props,
-	// 	...field,
-	// 	onValueChange: setValue,
-	// 	onChange: undefined,
-	// 	selectedValue: field.value,
-	// };
-
-	const onPress = useCallback(() => {
-		ActionSheetIOS.showActionSheetWithOptions(
-			{
-				options: [...items.map(i => i.label ?? i.value), 'Cancel'],
-				cancelButtonIndex: items.length,
-			},
-			buttonIndex => {
-				if (buttonIndex === items.length) {
-					return;
-				};
-
-				setValue(items[buttonIndex].value);
-			},
-		);
-	}, []);
+	const inputProps: any = {
+		...props,
+		...field,
+		onValueChange: setValue,
+		onBlur: undefined,
+		onChange: undefined,
+		selectedValue: field.value,
+	};
 
 	const labelText = required ? `${label} *` : label;
-	const valueText = items.find(i => i.value === field.value)?.label;
 
 	return (
 		<View style={styles.root} testID="base-form-field">
 			{left && <View style={styles.leftContainer} testID="base-form-field-left">{left}</View>}
 			<View style={styles.mainContainer} testID="base-form-field-main">
-				<Pressable onPress={onPress}>
-					{/* Label */}
-					{label && valueText ? (
-						<View style={styles.labelRow} testID="slider-label">
-							<Caption testID="label" style={styles.label}>
-								{labelText}
-							</Caption>
-						</View>
-					) : null}
-
-					{/* Value */}
-					<View style={styles.valueRow} testID="slider-label">
-						<Subtitle1 testID="label" style={styles.value}>
-							{valueText ?? labelText ?? 'Select'}
-						</Subtitle1>
-						<Icon name="menu-down" style={styles.chevron} />
+				{/* Label */}
+				{label ? (
+					<View style={styles.labelRow} testID="slider-label">
+						<Body2 testID="label" style={styles.label}>
+							{labelText}
+						</Body2>
 					</View>
-				</Pressable>
+				) : null}
+
+				{/* Value */}
+				<View style={styles.valueRow} testID="slider-label">
+					<Picker {...inputProps}>
+						{items.map(i => <Picker.Item key={String(i.value)} {...i} />)}
+					</Picker>
+					<Divider style={styles.valueDivider} />
+				</View>
 
 				{/* Helper Text */}
 				{helperText ? (
